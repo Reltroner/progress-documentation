@@ -211,6 +211,10 @@ Breaking any invariant above requires:
 
 ---
 
+project repository link: [https://github.com/Reltroner/finance-reltroner](https://github.com/Reltroner/finance-reltroner)
+
+---
+
 ## Final Statement
 
 This finance core read model is **test-defined, immutable, and audit-ready**.
