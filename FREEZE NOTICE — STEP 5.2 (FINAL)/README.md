@@ -210,3 +210,9 @@ It means:
 **Module:** Finance — General Ledger
 **Milestone:** STEP 5.2
 **Status:** 🔒 **FROZEN — FINAL — AUDIT-COMPLETE**
+
+---
+
+project repository link: [https://github.com/Reltroner/finance-reltroner](https://github.com/Reltroner/finance-reltroner)
+
+---
