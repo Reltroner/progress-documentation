@@ -279,3 +279,9 @@ This phase now operates as an infrastructure-grade, audit-compliant financial an
 **Architectural Integrity:** Preserved
 
 Freeze complete.
+
+---
+
+project repository link: [https://github.com/Reltroner/finance-reltroner](https://github.com/Reltroner/finance-reltroner)
+
+---
