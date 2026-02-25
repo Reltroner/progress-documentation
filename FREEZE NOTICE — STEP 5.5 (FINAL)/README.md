@@ -1507,3 +1507,9 @@ STEP 5.5.d is officially declared:
 Read model secured.
 Interface stabilized.
 Freeze active.
+
+---
+
+project repository link: [https://github.com/Reltroner/finance-reltroner](https://github.com/Reltroner/finance-reltroner)
+
+---
