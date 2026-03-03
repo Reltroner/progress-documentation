@@ -5,10 +5,16 @@
 ## Laravel Unit Test Environment (Windows)
 
 **Project:** Reltroner ERP — SSO Layer
+
 **Component:** KeycloakIdentityService
+
 **Incident Type:** Environment-Level Crypto Failure
+
 **Severity:** Non-Business-Critical
+
 **Status:** Isolated (Environment-Specific)
+
+**Repository:** [https://github.com/Reltroner/reltroner-app-main](https://github.com/Reltroner/reltroner-app-main)
 
 ---
 
