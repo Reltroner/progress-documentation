@@ -400,15 +400,15 @@ Authentication is now:
 
 ### Phase 2 — AUTH GATEWAY
 
-Status: 🔒 FROZEN
+Status: 🔒 LOCKED
 
 ### Phase 3 — TRUST BOUNDARY
 
-Status: 🧊 LOCKED
+Status: 🔒 LOCKED
 
 ### Phase 4 — UI CONTRACT
 
-Status: 🧊 LOCKED
+Status: 🔒 LOCKED
 
 Any modification without security trigger = architectural violation.
 
