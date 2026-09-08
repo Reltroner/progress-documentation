@@ -135,7 +135,7 @@ The program takes existing data and produces new data.
 Some data needs to change while a program is running.
 
 ```js
-let score = 80;
+const score = 80;
 
 score = score + 10;
 ```
