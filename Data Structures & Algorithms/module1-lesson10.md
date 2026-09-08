@@ -24,7 +24,7 @@ Write the Code
    │
    ▼
 Test the Result
-````
+```
 
 ---
 
@@ -44,7 +44,7 @@ Find the highest score
    │
    ▼
 Input:
-[70, 85, 92, 78]
+[85, 70, 92, 78]
    │
    ▼
 Expected Output:
@@ -65,7 +65,7 @@ The **input** is the data the program receives.
 INPUT
   │
   ▼
-[70, 85, 92, 78]
+[85, 70, 92, 78]
 ```
 
 Ask:
@@ -85,7 +85,7 @@ Input
 The program receives:
 
 ```js
-const scores = [70, 85, 92, 78];
+const scores = [85, 70, 92, 78];
 ```
 
 ---
@@ -98,7 +98,7 @@ The **output** is the result the program should produce.
 Input
   │
   ▼
-[70, 85, 92, 78]
+[85, 70, 92, 78]
   │
   ▼
 Program
@@ -110,11 +110,11 @@ Output
 92
 ```
 
-The goal is therefore:
+The goal is:
 
 ```text
 Input:
-[70, 85, 92, 78]
+[85, 70, 92, 78]
 
         ↓
 
@@ -132,7 +132,7 @@ Clearly defining the output helps us understand what the algorithm needs to acco
 
 ## 4. Break the Problem Into Steps
 
-A problem can be easier to solve when we break it into **small, clear steps**.
+A problem becomes easier to solve when we break it into **small, clear steps**.
 
 Instead of trying to solve everything at once:
 
@@ -149,12 +149,12 @@ Take the first score and temporarily consider it the highest.
 ```text
 Scores:
 
-[70, 85, 92, 78]
+[85, 70, 92, 78]
   ▲
   │
 First score
 
-highest = 70
+highest = 85
 ```
 
 At this point:
@@ -163,37 +163,41 @@ At this point:
 Current highest
       │
       ▼
-     70
+     85
 ```
+
+We do not know yet whether `85` is actually the highest score.
+
+We only use it as the starting point.
 
 ---
 
 ### Step 2 — Check the Next Value
 
-Now look at the next score:
+Move to the next score:
 
 ```text
-[70, 85, 92, 78]
+[85, 70, 92, 78]
       ▲
       │
    Current value
 
-highest = 70
+highest = 85
 ```
 
 Compare:
 
 ```text
-85 > 70 ?
+70 > 85 ?
 ```
 
 The answer is:
 
 ```text
-YES
+NO
 ```
 
-So we update the highest value:
+So we keep the current highest value:
 
 ```text
 highest = 85
@@ -204,17 +208,17 @@ Visualized:
 ```text
 Before:
 
-highest = 70
-current = 85
+highest = 85
+current = 70
 
         │
         ▼
 
-85 is higher
+70 is NOT higher
         │
         ▼
 
-After:
+Keep:
 
 highest = 85
 ```
@@ -226,7 +230,7 @@ highest = 85
 Move to the next score:
 
 ```text
-[70, 85, 92, 78]
+[85, 70, 92, 78]
           ▲
           │
        Current value
@@ -246,7 +250,7 @@ The answer is:
 YES
 ```
 
-So update:
+So we update the highest value:
 
 ```text
 highest = 92
@@ -267,7 +271,7 @@ current = 92
         │
         ▼
 
-After:
+Update:
 
 highest = 92
 ```
@@ -279,7 +283,7 @@ highest = 92
 Move to the last score:
 
 ```text
-[70, 85, 92, 78]
+[85, 70, 92, 78]
               ▲
               │
            Current value
@@ -299,7 +303,7 @@ The answer is:
 NO
 ```
 
-So we keep the current highest value:
+So we keep:
 
 ```text
 highest = 92
@@ -332,7 +336,7 @@ highest = 92
 There are no more scores.
 
 ```text
-[70, 85, 92, 78]
+[85, 70, 92, 78]
                   │
                   ▼
              No more values
@@ -346,33 +350,75 @@ There are no more scores.
 
 ---
 
-### The Complete Step-by-Step Process
+## Step-by-Step Comparison
+
+We can summarize the process in a table.
+
+| Step  | Current Score | Highest Before | Comparison    | Highest After |
+| ----- | ------------: | -------------: | ------------- | ------------: |
+| Start |             — |              — | —             |            85 |
+| 1     |            70 |             85 | 70 > 85 → No  |            85 |
+| 2     |            92 |             85 | 92 > 85 → Yes |            92 |
+| 3     |            78 |             92 | 78 > 92 → No  |            92 |
+
+The important idea is that `highest` can change during the process.
+
+```text
+Start
+
+highest = 85
+    │
+    ▼
+Compare 70
+    │
+    ▼
+Keep 85
+    │
+    ▼
+Compare 92
+    │
+    ▼
+Update to 92
+    │
+    ▼
+Compare 78
+    │
+    ▼
+Keep 92
+    │
+    ▼
+Return 92
+```
+
+---
+
+## Complete Process
 
 ```text
                  START
                    │
                    ▼
-          [70, 85, 92, 78]
+          [85, 70, 92, 78]
                    │
                    ▼
         Take the first value
                    │
                    ▼
-           highest = 70
+           highest = 85
                    │
                    ▼
           Check next value
                    │
                    ▼
-             current = 85
+             current = 70
                    │
                    ▼
-             85 > 70 ?
+             70 > 85 ?
               │       │
              YES      NO
               │       │
-              ▼       │
-       highest = 85   │
+              ▼       ▼
+       highest = 70  Keep 85
               │       │
               └───┬───┘
                   ▼
@@ -386,8 +432,8 @@ There are no more scores.
              │       │
             YES      NO
              │       │
-             ▼       │
-      highest = 92   │
+             ▼       ▼
+      highest = 92  Keep 85
              │       │
              └───┬───┘
                  ▼
@@ -447,13 +493,11 @@ More values?
         Return result
 ```
 
-This is what it means to **break a problem into steps**.
-
 ---
 
 ## 5. Write the Algorithm Before the Code
 
-Once the problem has been broken into smaller steps, describe the solution without using JavaScript.
+Now describe the solution without using JavaScript syntax.
 
 ```text
 Algorithm:
@@ -467,42 +511,23 @@ Algorithm:
 7. Return the highest score.
 ```
 
-Visualized:
+For our example:
 
 ```text
-Start
-  │
-  ▼
-Take first score
-  │
-  ▼
-Set it as highest
-  │
-  ▼
-Get next score
-  │
-  ▼
-Compare with highest
-  │
-  ├───────────────┐
-  │               │
-Higher?       Not higher
-  │               │
-  ▼               ▼
-Update          Keep
-highest         highest
-  │               │
-  └───────┬───────┘
-          ▼
-    More scores?
-      │       │
-     YES      NO
-      │        │
-      └────►   ▼
-          Return highest
-               │
-               ▼
-              92
+[85, 70, 92, 78]
+
+highest = 85
+
+70 > 85?
+No → keep 85
+
+92 > 85?
+Yes → update to 92
+
+78 > 92?
+No → keep 92
+
+Result = 92
 ```
 
 The algorithm describes the **logic** before we worry about programming syntax.
@@ -514,7 +539,7 @@ The algorithm describes the **logic** before we worry about programming syntax.
 Now translate the algorithm into JavaScript.
 
 ```js
-const scores = [70, 85, 92, 78];
+const scores = [85, 70, 92, 78];
 
 let highest = scores[0];
 
@@ -560,16 +585,16 @@ JavaScript Code
 
 A solution should be tested with different inputs.
 
-### Normal Input
+### Example 1 — Normal Input
 
 ```text
-[70, 85, 92, 78]
+[85, 70, 92, 78]
         │
         ▼
        92
 ```
 
-### Highest Value Comes First
+### Example 2 — Highest Value Comes First
 
 ```text
 [100, 80, 70]
@@ -578,22 +603,22 @@ A solution should be tested with different inputs.
    100
 ```
 
-### Only One Value
+### Example 3 — Highest Value Comes Last
+
+```text
+[60, 70, 80, 95]
+             │
+             ▼
+            95
+```
+
+### Example 4 — Only One Value
 
 ```text
 [50]
  │
  ▼
 50
-```
-
-### Different Values
-
-```text
-[30, 90, 45, 60]
-       │
-       ▼
-      90
 ```
 
 Testing helps us check whether the solution works correctly.
@@ -664,7 +689,18 @@ Test
 Result
 ```
 
+For the example:
+
+```text
+[85, 70, 92, 78]
+        ↓
+Compare each score
+        ↓
+Keep the highest value
+        ↓
+92
+```
+
 The code is only one part of the solution.
 
 **Understanding the problem and designing the steps come first.**
-
