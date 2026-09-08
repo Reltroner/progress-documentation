@@ -11,7 +11,10 @@ Problem
 Understand the Problem
    │
    ▼
-Plan the Solution
+Identify Input & Output
+   │
+   ▼
+Break the Problem Into Steps
    │
    ▼
 Write the Algorithm
@@ -31,7 +34,7 @@ First, identify what needs to be solved.
 
 For example:
 
-> "Find the highest score from a list of scores."
+> **"Find the highest score from a list of scores."**
 
 ```text
 Problem
@@ -50,7 +53,7 @@ Expected Output:
 
 Do not start coding immediately.
 
-First understand the problem.
+First, understand what the program needs to accomplish.
 
 ---
 
@@ -79,6 +82,12 @@ Input
   └── A collection of scores
 ```
 
+The program receives:
+
+```js
+const scores = [70, 85, 92, 78];
+```
+
 ---
 
 ## 3. Identify the Expected Output
@@ -101,88 +110,408 @@ Output
 92
 ```
 
+The goal is therefore:
+
+```text
+Input:
+[70, 85, 92, 78]
+
+        ↓
+
+Find the highest value
+
+        ↓
+
+Output:
+92
+```
+
 Clearly defining the output helps us understand what the algorithm needs to accomplish.
 
 ---
 
 ## 4. Break the Problem Into Steps
 
-A problem can often be easier to solve when broken into smaller steps.
+A problem can be easier to solve when we break it into **small, clear steps**.
 
-For example:
+Instead of trying to solve everything at once:
 
 ```text
-Find the highest score
-        │
-        ▼
-Start with the first score
-        │
-        ▼
-Compare it with the next score
-        │
-        ▼
-Is the next score higher?
-     ┌──┴──┐
-    Yes    No
-     │      │
-     ▼      │
-Update      │
-highest     │
-     │      │
-     └──┬───┘
-        ▼
-Continue until the end
-        │
-        ▼
-Return the highest score
+"Find the highest score"
 ```
 
-These steps form the basis of an algorithm.
+we can break it down.
+
+### Step 1 — Start With the First Value
+
+Take the first score and temporarily consider it the highest.
+
+```text
+Scores:
+
+[70, 85, 92, 78]
+  ▲
+  │
+First score
+
+highest = 70
+```
+
+At this point:
+
+```text
+Current highest
+      │
+      ▼
+     70
+```
 
 ---
 
-## 5. Write the Algorithm Before the Code
+### Step 2 — Check the Next Value
 
-We can describe the solution without using JavaScript first.
+Now look at the next score:
 
 ```text
-Algorithm:
+[70, 85, 92, 78]
+      ▲
+      │
+   Current value
 
-1. Take the first score as the highest.
-2. Look at the next score.
-3. If it is higher, update the highest score.
-4. Continue through all scores.
-5. Return the highest score.
+highest = 70
+```
+
+Compare:
+
+```text
+85 > 70 ?
+```
+
+The answer is:
+
+```text
+YES
+```
+
+So we update the highest value:
+
+```text
+highest = 85
 ```
 
 Visualized:
 
 ```text
-Scores
-  │
-  ▼
+Before:
+
+highest = 70
+current = 85
+
+        │
+        ▼
+
+85 is higher
+        │
+        ▼
+
+After:
+
+highest = 85
+```
+
+---
+
+### Step 3 — Check the Next Value
+
+Move to the next score:
+
+```text
+[70, 85, 92, 78]
+          ▲
+          │
+       Current value
+
+highest = 85
+```
+
+Compare:
+
+```text
+92 > 85 ?
+```
+
+The answer is:
+
+```text
+YES
+```
+
+So update:
+
+```text
+highest = 92
+```
+
+Visualized:
+
+```text
+Before:
+
+highest = 85
+current = 92
+
+        │
+        ▼
+
+92 is higher
+        │
+        ▼
+
+After:
+
+highest = 92
+```
+
+---
+
+### Step 4 — Check the Last Value
+
+Move to the last score:
+
+```text
+[70, 85, 92, 78]
+              ▲
+              │
+           Current value
+
+highest = 92
+```
+
+Compare:
+
+```text
+78 > 92 ?
+```
+
+The answer is:
+
+```text
+NO
+```
+
+So we keep the current highest value:
+
+```text
+highest = 92
+```
+
+Visualized:
+
+```text
+Before:
+
+highest = 92
+current = 78
+
+        │
+        ▼
+
+78 is NOT higher
+        │
+        ▼
+
+Keep:
+
+highest = 92
+```
+
+---
+
+### Step 5 — Finish
+
+There are no more scores.
+
+```text
+[70, 85, 92, 78]
+                  │
+                  ▼
+             No more values
+                  │
+                  ▼
+          Return highest
+                  │
+                  ▼
+                  92
+```
+
+---
+
+### The Complete Step-by-Step Process
+
+```text
+                 START
+                   │
+                   ▼
+          [70, 85, 92, 78]
+                   │
+                   ▼
+        Take the first value
+                   │
+                   ▼
+           highest = 70
+                   │
+                   ▼
+          Check next value
+                   │
+                   ▼
+             current = 85
+                   │
+                   ▼
+             85 > 70 ?
+              │       │
+             YES      NO
+              │       │
+              ▼       │
+       highest = 85   │
+              │       │
+              └───┬───┘
+                  ▼
+          Check next value
+                  │
+                  ▼
+            current = 92
+                  │
+                  ▼
+            92 > 85 ?
+             │       │
+            YES      NO
+             │       │
+             ▼       │
+      highest = 92   │
+             │       │
+             └───┬───┘
+                 ▼
+         Check next value
+                 │
+                 ▼
+           current = 78
+                 │
+                 ▼
+           78 > 92 ?
+            │       │
+           YES      NO
+            │       │
+            ▼       ▼
+      highest = 78  Keep 92
+            │       │
+            └───┬───┘
+                ▼
+         No more values
+                │
+                ▼
+        Return highest
+                │
+                ▼
+               92
+```
+
+The main pattern is:
+
+```text
+Take a value
+     │
+     ▼
+Compare it
+     │
+     ▼
+Is it higher?
+  │         │
+ YES        NO
+  │          │
+  ▼          ▼
+Update     Keep current
+highest     highest
+  │          │
+  └────┬─────┘
+       ▼
+Check the next value
+       │
+       ▼
+More values?
+  │         │
+ YES        NO
+  │          │
+  └──►───────┘
+             │
+             ▼
+        Return result
+```
+
+This is what it means to **break a problem into steps**.
+
+---
+
+## 5. Write the Algorithm Before the Code
+
+Once the problem has been broken into smaller steps, describe the solution without using JavaScript.
+
+```text
+Algorithm:
+
+1. Take the first score as the current highest.
+2. Look at the next score.
+3. Compare it with the current highest.
+4. If it is higher, update the highest.
+5. Move to the next score.
+6. Repeat until there are no more scores.
+7. Return the highest score.
+```
+
+Visualized:
+
+```text
 Start
   │
   ▼
-Compare values
+Take first score
   │
   ▼
-Keep the highest
+Set it as highest
   │
   ▼
-Repeat
+Get next score
   │
   ▼
-Return result
+Compare with highest
+  │
+  ├───────────────┐
+  │               │
+Higher?       Not higher
+  │               │
+  ▼               ▼
+Update          Keep
+highest         highest
+  │               │
+  └───────┬───────┘
+          ▼
+    More scores?
+      │       │
+     YES      NO
+      │        │
+      └────►   ▼
+          Return highest
+               │
+               ▼
+              92
 ```
 
-This makes the solution easier to understand before implementation.
+The algorithm describes the **logic** before we worry about programming syntax.
 
 ---
 
 ## 6. Implement the Solution
 
-Once the steps are clear, translate them into JavaScript.
+Now translate the algorithm into JavaScript.
 
 ```js
 const scores = [70, 85, 92, 78];
@@ -204,31 +533,22 @@ Output:
 92
 ```
 
-The complete flow is:
+The relationship is:
 
 ```text
 Problem
    │
    ▼
-"Find the highest score"
+Find highest score
    │
    ▼
-Input
-   │
-   ▼
-[70, 85, 92, 78]
+Break into steps
    │
    ▼
 Algorithm
    │
    ▼
-Compare each score
-   │
-   ▼
 JavaScript Code
-   │
-   ▼
-Output
    │
    ▼
 92
@@ -240,32 +560,40 @@ Output
 
 A solution should be tested with different inputs.
 
+### Normal Input
+
 ```text
-Normal Input
-    │
-    ▼
 [70, 85, 92, 78]
+        │
+        ▼
+       92
+```
+
+### Highest Value Comes First
+
+```text
+[100, 80, 70]
     │
     ▼
-92
+   100
 ```
 
-Try another input:
+### Only One Value
 
 ```text
-[50, 40, 30]
-      │
-      ▼
-    50
+[50]
+ │
+ ▼
+50
 ```
 
-And:
+### Different Values
 
 ```text
-[100]
-  │
-  ▼
-100
+[30, 90, 45, 60]
+       │
+       ▼
+      90
 ```
 
 Testing helps us check whether the solution works correctly.
@@ -277,33 +605,39 @@ Testing helps us check whether the solution works correctly.
 A simple programming workflow looks like this:
 
 ```text
-       ┌──────────────────────┐
-       │      Understand      │
-       │      the Problem     │
-       └──────────┬───────────┘
-                  ▼
-       ┌──────────────────────┐
-       │    Identify Input    │
-       │      & Output        │
-       └──────────┬───────────┘
-                  ▼
-       ┌──────────────────────┐
-       │    Plan the Steps    │
-       └──────────┬───────────┘
-                  ▼
-       ┌──────────────────────┐
-       │   Write Algorithm    │
-       └──────────┬───────────┘
-                  ▼
-       ┌──────────────────────┐
-       │   Write JavaScript   │
-       └──────────┬───────────┘
-                  ▼
-       ┌──────────────────────┐
-       │   Test the Solution  │
-       └──────────┬───────────┘
-                  │
-                  └──────────► Improve if needed
+       ┌────────────────────────┐
+       │  1. Understand Problem │
+       └────────────┬───────────┘
+                    ▼
+       ┌────────────────────────┐
+       │  2. Identify Input     │
+       │     & Output           │
+       └────────────┬───────────┘
+                    ▼
+       ┌────────────────────────┐
+       │  3. Break Into Steps   │
+       └────────────┬───────────┘
+                    ▼
+       ┌────────────────────────┐
+       │  4. Write Algorithm    │
+       └────────────┬───────────┘
+                    ▼
+       ┌────────────────────────┐
+       │  5. Write JavaScript   │
+       └────────────┬───────────┘
+                    ▼
+       ┌────────────────────────┐
+       │  6. Test the Solution  │
+       └────────────┬───────────┘
+                    │
+              ┌─────┴─────┐
+              │           │
+           Correct?       No
+              │           │
+             YES          ▼
+              │       Improve
+              ▼           │
+            DONE ◄────────┘
 ```
 
 ---
@@ -319,7 +653,7 @@ Problem
    ↓
 Input + Output
    ↓
-Steps
+Small Steps
    ↓
 Algorithm
    ↓
@@ -333,3 +667,4 @@ Result
 The code is only one part of the solution.
 
 **Understanding the problem and designing the steps come first.**
+
