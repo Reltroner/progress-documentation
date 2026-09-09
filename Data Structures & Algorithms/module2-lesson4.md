@@ -136,7 +136,7 @@ Before
 [Laptop]
 
        │
-       │ push()
+       │ push("Mouse", "Keyboard", "Monitor")
        ▼
 
 [Laptop, Mouse, Keyboard, Monitor]
