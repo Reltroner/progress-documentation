@@ -133,13 +133,13 @@ Visual:
 ```text
 Before
 
-[Laptop]
+["Laptop"]
 
        │
        │ push("Mouse", "Keyboard", "Monitor")
        ▼
 
-[Laptop, Mouse, Keyboard, Monitor]
+["Laptop, Mouse, Keyboard, Monitor"]
 ```
 
 The values are added in the same order:
