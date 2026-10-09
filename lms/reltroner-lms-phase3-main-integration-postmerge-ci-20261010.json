@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-PHASE3-SOURCE-MAIN-INTEGRATION-POSTMERGE-CI-20261010",
+  "date": "2026-10-10",
+  "timezone": "Asia/Jakarta",
+  "scope": "NONPRODUCTION_SOURCE_MAIN_INTEGRATION_AND_CI_ONLY",
+  "owner_authorization": "integrasi dua kandidat source yang sudah diterima ke main, ... verifikasi CI ... kemudian pull ke lokal untuk dilakukan test PowerShell 5.1",
+  "historical_phase3_exit": {
+    "record": "lms/reltroner-lms-phase3b-11-final-owner-exit-acceptance-20261010.md",
+    "owner_accepted": true,
+    "disposition_count": {
+      "PASS_SCOPED": 27,
+      "PASS_TRACE_ONLY": 1,
+      "PARTIAL_EVIDENCE": 0,
+      "BLOCKED": 0
+    },
+    "invariants_traced": 44,
+    "live_runtime_certified": false
+  },
+  "backend": {
+    "repository": "Reltroner/LMS-BE",
+    "pr": 11,
+    "pr_state": "MERGED_CLOSED",
+    "merge_method": "merge",
+    "accepted_candidate_head": "0fc17dabc1af845053ac525986f40fb260f73e4c",
+    "previous_main": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "actual_main_merge_commit": "a2672d0085fe84b55520f8f52f41a8c7fc8568a0",
+    "merge_parents": [
+      "e30a61780994d85671cbf079e6b9ce899b3fe837",
+      "0fc17dabc1af845053ac525986f40fb260f73e4c"
+    ],
+    "accepted_candidate_and_merge_git_tree": "781b45937c6e532a49032dc9dd6e00ea7f01b759",
+    "tree_equal": true,
+    "push_main_ci_run_id": 37970800113,
+    "push_main_ci_url": "https://github.com/Reltroner/LMS-BE/actions/runs/37970800113",
+    "push_main_ci_event": "push",
+    "push_main_ci_head_sha": "a2672d0085fe84b55520f8f52f41a8c7fc8568a0",
+    "push_main_ci_status": "completed",
+    "push_main_ci_conclusion": "success",
+    "push_main_actions_passed": 7,
+    "main_protected": false
+  },
+  "frontend": {
+    "repository": "Reltroner/LMS-FE",
+    "pr": 3,
+    "pr_state": "MERGED_CLOSED",
+    "merge_method": "merge",
+    "accepted_candidate_head": "9795489d9b0e1a13d81675fac29e649900c4381d",
+    "previous_main": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+    "actual_main_merge_commit": "cc3d9c132d293058c0ff37c93ef4b3ab5547ad34",
+    "merge_parents": [
+      "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+      "9795489d9b0e1a13d81675fac29e649900c4381d"
+    ],
+    "accepted_candidate_and_merge_git_tree": "0728aea6aae4ef5acd057272cacc92b5990b8fae",
+    "tree_equal": true,
+    "push_main_ci_run_id": 37970833082,
+    "push_main_ci_url": "https://github.com/Reltroner/LMS-FE/actions/runs/37970833082",
+    "push_main_ci_event": "push",
+    "push_main_ci_head_sha": "cc3d9c132d293058c0ff37c93ef4b3ab5547ad34",
+    "push_main_ci_status": "completed",
+    "push_main_ci_conclusion": "success",
+    "push_main_actions_passed": 2,
+    "main_protected": false,
+    "cloudflare_pages_skip_commit_prefix": "[CF-Pages-Skip]",
+    "cloudflare_check_on_merge_sha_observed": false,
+    "cloudflare_project_side_deployment_verified": false
+  },
+  "local_windows": {
+    "executed": false,
+    "status": "PENDING_USER_POWERSHELL_5_1_RUN",
+    "backend_path": "C:\\Projects\\lms-reltroner-backend",
+    "frontend_original_dirty_preserve": "C:\\Projects\\lms-reltroner-studio",
+    "frontend_isolated_verification_worktree": "C:\\Projects\\lms-reltroner-studio-phase3b-main-verify-20261010",
+    "script_attachment": "reltroner_lms_phase3_main_local_verify_20261010.ps1",
+    "no_user_machine_access": true,
+    "do_not_overwrite_dirty_original": true,
+    "tests_to_run": [
+      "PHP static contract suites",
+      "Six Laravel service PHPUnit suites",
+      "Frontend negative catalog and manifest contract",
+      "Next.js build including typecheck/lint/content checks",
+      "Publication-only export check"
+    ]
+  },
+  "guards": {
+    "owner_phase3_branch_governance_waiver": "GOV-WVR-001",
+    "manual_policy": "BRANCH-GOV-001",
+    "phase4_authorized": false,
+    "production_authorized": false,
+    "postmerge_ci_green": true,
+    "local_tests_passed": null
+  }
+}
