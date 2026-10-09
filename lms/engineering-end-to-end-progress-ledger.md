@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 PHASE 3B OWNER-ACCEPTED 3B-01 / HOLISTIC SOURCE MERGE HOLD — READ FIRST:** Phase 3A design FROZEN at `b9390a06ebc5db5377059a99109d59fea092cccb`; Phase 3B-00 Git/CI inventory ACCEPTED. [Progress-documentation PR #9](https://github.com/Reltroner/progress-documentation/pull/9) **MERGED** and documentation `main` observed `a6879eb23de2188c2d966766901c80620eeff4b1`. Project owner explicitly **ACCEPTED the contract-only content** of [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2) (source HEAD `32f08586cba9b19a6a77c8a43967d2e14540591b`, **PHP LINT PASS + STATIC CONTRACT TESTS 22/22 PASS**) while explicitly **PROHIBITING SOURCE MERGE until Phase 3 engineering is complete end-to-end and one pinned cross-package BE/FE candidate snapshot is reviewed by AI and owner**. LMS-BE `main` remains FZ-11 source baseline `e30a61780994d85671cbf079e6b9ce899b3fe837`. PR #2 OPEN / NOT MERGED. Next: **3B-02** scoped non-main contract engineering, followed by 3B-03..07, **28/28 actual B3-AC evidence**, 44-invariant audit, cross-repo holistic AI/human review, then **NEW explicit owner merge authorization**. No production authorization. [Owner merge-hold contract](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.md) + [machine record](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.json). Older `owner merge approval pending` and `3B-01 not accepted` remarks are historical; current decision is contract-only acceptance with explicit merge hold.
+> **CURRENT 2026-10-09 PHASE 3B CENTRAL DEV INTEGRATION — READ FIRST:** FZ-11 Phase 3A DESIGN FROZEN; 3B-00 ACCEPTED, 3B-01 CONTRACT-ONLY OWNER ACCEPTED (PHP 22/22 static PASS). User mandated ONE central end-to-end Phase 3 source PR per repo to `main`, with no early merges. **Backend only open [DRAFT PR #11](https://github.com/Reltroner/LMS-BE/pull/11)** from `phase3-dev@f43c91de8150d2ad22de61154f9ec9391f1548df` to frozen `main@e30a61780994d85671cbf079e6b9ce899b3fe837`; **Frontend only open [DRAFT PR #3](https://github.com/Reltroner/LMS-FE/pull/3)** from `phase3-dev@3ee0ee0285388f0489016d1689d2ea2ae899dd97` to frozen `main@f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`. Old BE PRs #2..#10 and old FE PRs #1..#2 **CLOSED AS SUPERSEDED (NOT MERGED TO MAIN)**; all heads preserved as ancestors of central source. **BE CI 7/7 jobs success** (22 API + 22 identity + 30 persistence + 19 compatibility model assertions; six Laravel test suites) at BE `phase3-dev` source SHA; **FE CI 2/2 jobs success** (catalog 8/8 and frontend build/publication guard) at FE `phase3-dev` SHA after fixing source-root/temporary-output denylist path. **3B-02..06 SOURCE CANDIDATES CENTRALIZED / CI GREEN but runtime/security/DB/live provider NOT CERTIFIED**. NEXT **3B-07** holistic cross-package snapshot + 28/28 evidence/44 FROZEN invariant review + new owner sign-off; **DO NOT MERGE either central DRAFT PR to `main`**. Production/Phase 4 NOT AUTHORIZED. [Current topology receipt](./reltroner-lms-phase3b-central-dev-topology-20261009.md), [machine source/CI record](./reltroner-lms-phase3b-central-dev-topology-20261009.json). Earlier references to old PRs OPEN or 3B-02 NOT STARTED describe historical prior snapshots, not current state.
 
 ---
 
@@ -944,3 +944,36 @@ Scope clarification: this means full Phase 3 **architectural and source-contract
 **Canonical records:** [Owner Phase 3 holistic source merge hold](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.md), [machine record](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.json), [3B-01 accepted but unmerged candidate](./reltroner-lms-phase3b-01-openapi-contract-candidate-20261009.md).
 
 **Checkpoint:** `PHASE 3A FROZEN → 3B-00 ACCEPTED → 3B-01 CONTRACT-ONLY ACCEPTED (22/22), PR #2 MERGE HOLD → 3B-02..07 → HOLISTIC PHASE 3 AI REVIEW/28/28 → NEW OWNER SIGN-OFF BEFORE SOURCE MAIN MERGE`.
+
+---
+
+## 26. Phase 3B — Central phase3-dev branches, single draft PR per repo and CI evidence (2026-10-09)
+
+**Project owner priority:** preserve deterministic source history, avoid polluted `main`, misordered multiple PR merges, technical debt and noisy open PRs. After verifying strict cumulative ancestry, Phase 3 was consolidated into **one draft integration PR per application repository**; no early source merge occurred.
+
+| Repository | Frozen `main` | Current central `phase3-dev` (tested) | Sole open source PR |
+|---|---|---|---|
+| LMS-BE | `e30a61780994d85671cbf079e6b9ce899b3fe837` | `f43c91de8150d2ad22de61154f9ec9391f1548df` | [DRAFT PR #11](https://github.com/Reltroner/LMS-BE/pull/11) |
+| LMS-FE | `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` | `3ee0ee0285388f0489016d1689d2ea2ae899dd97` | [DRAFT PR #3](https://github.com/Reltroner/LMS-FE/pull/3) |
+
+**Important historical interpretation:** BE PRs `#2..#10` and FE PRs `#1..#2` were **CLOSED AS SUPERSEDED, NOT MERGED**; commits persist through the central branch ancestry, so no duplicate merge commits or source `main` pollution were introduced. Original local frontend dirty workspace remains protected.
+
+### 26.1 Phase 3B staged source/CI evidence
+
+| Phase | Candidate artifact | Observed CI/static result | Pending |
+|---|---|---|---|
+| `3B-01` | BE frozen v1 OpenAPI/26 ops/19 capabilities | PHP static 22/22 PASS; owner content accepted | global source merge hold |
+| `3B-02` | BE OIDC and signed internal workload trust contract | synthetic fixture 22/22 PASS | cryptography/real token/provider verification |
+| `3B-03` | BE 4 owned DB and 9 semantic event schemas | synthetic contract 30/30 PASS | actual Postgres grants, booking race and outbox/inbox recovery |
+| `3B-04` | FE 31 stable lesson IDs, Git manifest, public filter and Studio attestation | 8/8 FE catalog tests PASS | real rights attestation and production publication proof |
+| `3B-05` | BE six Laravel independent CI + FE Next/static privacy build | 7/7 BE CI jobs and 2/2 FE CI jobs SUCCESS | holistic gate/negative-mutation completeness assessment |
+| `3B-06` | BE golden API/capability/event and negative authorization/ingest models | 19/19 static model assertions PASS | real provider/consumer HTTP security compatibility |
+| `3B-07` | Final source SHAs, 44-invariant/ADR audit, 28 acceptance criteria, owner freeze | **NOT STARTED** | final holistic review and new source-merge authorization |
+
+**Verified action run evidence:** [BE seven-job Phase 3B CI](https://github.com/Reltroner/LMS-BE/actions/runs/37950916475) on `f43c91de...` and [FE two-job catalog/privacy CI](https://github.com/Reltroner/LMS-FE/actions/runs/37951012017) on `3ee0ee0...`, both `success`. FE had a prior isolated temporary-directory scanner bug; fixed by separating the build `out` scan location from the source contract denylist root. FE original local workspace untouched.
+
+**No deployment/runtime certification from these results**: Keycloak signed-token verification, real service-to-service delegation, PostgreSQL outbox/booking race, rights source attestation, and live provider/consumer behavior remain downstream hard gates. Not all 28 FZ-10 acceptance requirements are eligible for global PASS.
+
+Canonical [current Phase 3 central topology and stage evidence](./reltroner-lms-phase3b-central-dev-topology-20261009.md), [machine receipt](./reltroner-lms-phase3b-central-dev-topology-20261009.json). This dated §26 supersedes earlier historical PR statuses without deleting past evidence.
+
+**Next:** `3B-07 HOLISTIC PHASE 3 ACCEPTANCE → 28 GATES CLASSIFIED AND EVIDENCED → ONE BE/FE SHA SNAPSHOT REVIEWED BY AI/HUMAN → NEW OWNER AUTHORIZATION BEFORE SOURCE MAIN MERGE`.
