@@ -1109,3 +1109,18 @@ Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-ph
 **Next required authority:** Explicitly review technical-enforcement residual risk against the original FZ-10 branch-governance acceptance obligation; obtain new owner-scoped final Phase 3B exit on the two immutable source SHA candidates and a **distinct one-time merge authorization**, if and only if all final hard gates/waivers are auditable. After approved merge, actual `main` SHA + new `push: main` CI must pass. Phase 4/production still **NOT AUTHORIZED**.
 
 **Checkpoint:** `3B07R CI GREEN → 3B08 GOVERNANCE PREPARED → 3B09 CRYPTO ADR OWNER-RATIFIED (DESIGN) + MANUAL MAIN POLICY OWNER-ADOPTED → R-02 UNENFORCED / AC25 PARTIAL → AC28 BLOCKED → BE/FE MAIN MERGE HOLD → PHASE4 NOT AUTHORIZED`.
+
+
+---
+
+## 32. Phase 3B-10 — Formal B3-AC07/B3-AC25 revalidation and owner governance exception (2026-10-10)
+
+**Owner decision:** The owner explicitly refuses GitHub branch protection setup as a prerequisite for Phase 3 closing; Phase 3 **may be declared finished without configuring `Settings → Branches`**. This is versioned by [GOV-WVR-001](./gov-wvr-001-phase3b-branch-protection-owner-exception-20261010.md) as a **narrow technical enforcement waiver** complementing the existing manual [BRANCH-GOV-001](./branch-gov-001-main-branch-contractual-protection-20261010.md). BE/FE GitHub `main` actually remain `protected:false`; no check claimed effective machine enforcement.
+
+**Read-only evidence revalidated:** BE [CI run 37960568787](https://github.com/Reltroner/LMS-BE/actions/runs/37960568787) success on `0fc17dabc1af845053ac525986f40fb260f73e4c` (7/7 jobs, 255 PHP contract/model assertions, GitGuardian success); FE [CI run 37960704557](https://github.com/Reltroner/LMS-FE/actions/runs/37960704557) success on `9795489d9b0e1a13d81675fac29e649900c4381d` (2/2 jobs, 9 catalog tests, GitGuardian success). Both source PRs remain draft/open/unmerged, source `main` baselines unchanged; no additional CI run represented.
+
+**Gate reclassification:** [Human technical report](./reltroner-lms-phase3b-10-ac07-ac25-formal-revalidation-20261010.md) and [full machine 28 gate delta](./reltroner-lms-phase3b-10-acceptance-28-governance-revalidation-20261010.json) now establish `B3-AC07 PASS_SCOPED` (ratified EdDSA/Ed25519 security profile, synthetic signed test scope only) and `B3-AC25 PASS_SCOPED_WITH_OWNER_WAIVER` (all CI evidence green, GitHub technical branch protection NOT implemented and risk explicitly owner accepted). The historical Phase 3B-07R count is immutable; **new 3B-10 distribution = 26 PASS_SCOPED (one via waiver) + 1 PASS_TRACE_ONLY + 0 PARTIAL + 1 BLOCKED (B3-AC28)**. The 44 frozen invariants remain design-traced, 0 newly runtime-certified.
+
+**Remaining B3-AC28:** No unambiguous distinct owner final **Phase 3B nonproduction exit acceptance** or one-time BE/FE source merge instruction has been supplied; source `main` merges remain **HOLD** and Phase 4 **NOT AUTHORIZED**. **GitHub Settings is no longer a prerequisite for exit**; the remaining gate is final acceptance and separate merge authority, not further 3B-01..06 engineering.
+
+**Checkpoint:** `3B07R REMEDIATION GREEN → 3B09 ADR OWNER-RATIFIED → 3B10 AC07 PASS + AC25 PASS_WITH_WAIVER → 26 SCOPED/1 TRACE/0 PARTIAL/1 BLOCKED → FINAL 3B EXIT SIGN-OFF PENDING (NOT SETTINGS) → BE/FE MAIN MERGE HOLD → PHASE4 NOT AUTHORIZED`.
