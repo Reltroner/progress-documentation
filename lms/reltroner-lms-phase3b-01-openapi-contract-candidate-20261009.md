@@ -1,7 +1,7 @@
 # Reltroner LMS — Phase 3B-01 OpenAPI and Public API Contract Implementation Candidate
 
 > **As of 2026-10-09, Asia/Jakarta.**
-> **Status: SOURCE PR OPEN / STATIC INSPECTION PASS / PHP & CI EXECUTION NOT OBSERVED / 3B-01 EXIT NOT ACCEPTED.**
+> **Latest: SOURCE PR #2 OPEN / PHP LINT PASS / CONTRACT STATIC TESTS 22/22 PASS / CI + RUNTIME NOT EXECUTED / OWNER EXIT SIGN-OFF PENDING.**
 > **Owner instruction:** `aku terima merge PR #8 kemudian lakukan Phase 3B-01: OpenAPI & API Contracts`.
 
 ## 1. Source authority, merge and branch
@@ -58,6 +58,17 @@ php contracts/tests/validate.php
 
 Record: complete command output, exit codes, local PHP version, `git rev-parse HEAD`, file diff allowlist, GitHub PR status and reviewer. On any assertion failure, **HOLD** and fix the feature branch; do not merge as PASS.
 
+## 4A. Follow-up PHP execution evidence (owner terminal; 2026-10-09)
+
+After the original source candidate was opened, the project owner created an isolated backend worktree from *exactly* `32f08586cba9b19a6a77c8a43967d2e14540591b` and supplied the resulting Windows PowerShell output:
+
+- `php -l contracts/tests/validate.php`: **No syntax errors detected**.
+- `php contracts/tests/validate.php`: **CONTRACT STATIC TESTS: 22 PASS; 0 FAIL**.
+- Final local worktree remained detached at tested SHA and **CLEAN**.
+- [All 22 labels, status classification, provenance and remaining gaps](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.md) and [machine receipt](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.json).
+
+**Interpretation:** B3-AC01..04 have passed the scoped PHP static contract runner and mock/fixture assertions. This is stronger than the prior GitHub-artifact structural-only review, but **not** a full OpenAPI standards linter, real service provider HTTP verification, six-service CI, live Keycloak, or authorization to deploy. Source PR #2 is still **OPEN** and its formal merge/3B-01 exit still requires explicit owner approval.
+
 ## 5. Remaining source/design and operational guards
 
 - No writes to `services/**`, LMS-FE, Studio, `.github/workflows/**`, application `.env`, running Keycloak, DB migrations, VPS, Cloudflare or paid infrastructure.
@@ -65,4 +76,4 @@ Record: complete command output, exit codes, local PHP version, `git rev-parse H
 - FZ-11 architecture baseline remains binding, changes require an explicit versioned ADR/owner approval.
 - Phase 3B-05 CI and Phase 3B-06 provider compatibility are separate; a static test cannot prove deployed business endpoint behavior.
 
-**Checkpoint:** `3A FROZEN → 3B-00 PASS (PR #8 MERGED) → 3B-01 CONTRACT CANDIDATE (LMS-BE PR #2 OPEN) → LOCAL PHP TEST + OWNER REVIEW PENDING → PRODUCTION NOT AUTHORIZED`.
+**Updated checkpoint:** `3A FROZEN → 3B-00 PASS → 3B-01 PHP STATIC 22/22 PASS → LMS-BE PR #2 OWNER MERGE/SIGN-OFF PENDING → RUNTIME/PRODUCTION NOT AUTHORIZED`.
