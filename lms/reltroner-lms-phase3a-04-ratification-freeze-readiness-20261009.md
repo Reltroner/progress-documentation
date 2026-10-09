@@ -8,7 +8,7 @@
 
 ## 0. Executive decision
 
-`3A-04 12/12 PARENT ADRS ACCEPTED → FZ-04 18/18 SUBORDINATE DISPOSITIONS → PHASE 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
+`3A-04 12/12 PARENT + FZ-04 18/18 + FZ-02 44/44 DESIGN TRACE ACCEPTED → PHASE 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
 
 Three noninterchangeable statuses: **discovery PASS** means evidence observed, **design accepted** requires explicit owner decision, **implementation/runtime PASS** requires real negative/contract/integration tests. Neither docs Git commits nor an AI recommendation equate to acceptance of security or production readiness.
 
@@ -178,7 +178,7 @@ All 44 rows are **design-preserved only**. Crosswalk is not a claim of runtime c
 | Gate | Condition | Outcome today |
 |---|---|---|
 | `FZ-01` | Evidence precedence and SHA sources pinned | **PASS — GitHub inspection** |
-| `FZ-02` | 20+24 invariants all traced with planned acceptance | **TRACEABLE; owner acceptance pending** |
+| `FZ-02` | 20+24 frozen invariants mapped to accepted ADRs, proposed DoDs and future evidence | **PASS — 44/44 owner-accepted DESIGN TRACEABILITY; 0 runtime tests certified** |
 | `FZ-03` | All 12 ADR-03F proposals explicitly accepted/rejected/deferred with gate | **PASS — owner accepted 12/12 direction recommendations** |
 | `FZ-04` | Identity KC-001, PD-ADR and Catalog review candidates have bounded signed dispositions | **PASS — 18 subordinate ADR design dispositions with explicit technical hard gates; NOT runtime certified** |
 | `FZ-05` | Creator storage/submissions/mentor review and finance v1 scope selected | **PASS — BR-07/08/09 deferred, initial financial scope excluded** |
@@ -240,7 +240,7 @@ phase_4_production_mutation_authorized: false
 
 **Important:** precise signed token format, TTL, replay prevention, Keycloak runtime client configuration, database migrations and event retry budgets are still open implementation specifications. The recommended policy for `GET /api/v1/mentorship/availability` is authenticated-first; the exact capability/response matrix will be a Phase 3B fixture. No new public endpoint is implied.
 
-**Outstanding Phase 3A freeze work:** FZ-04 now closes the 18 subordinate design decisions with bounded deferred details. Remaining: FZ-02 final owner traceability acceptance, FZ-10 independent Phase 3B entry/exit scope and authorization, FZ-11 final Phase 3A freeze acceptance record, and this documentation PR merge. Runtime tests remain pending.
+**Outstanding Phase 3A freeze work:** FZ-02 and FZ-04 are both owner-accepted at DESIGN level. Only FZ-10 (explicit scope/authorization for 3B), FZ-11 (separate final Phase 3A design freeze acceptance), and review/merge of this docs PR remain at the final design-governance gate. Runtime tests remain pending for affected implementation phases.
 
 ## 8A. FZ-04 subordinate ADR closure (2026-10-09 owner instruction)
 
@@ -251,6 +251,14 @@ The project owner instructed **menutup FZ-04** after accepting the 12 parent ADR
 - This acceptance is limited to architecture baselines and explicit deferrals. All unchosen cryptography details, schema fields, timestamps, retention, production capacity and tests have named future blocking gates.
 - Historical candidate pages have old NOT-HUMAN-RATIFIED labels that applied before the present dated receipt. They remain archived evidence; the implementation is still NOT accepted.
 - **FZ-02, FZ-10 and FZ-11 remain open.** This FZ-04 acceptance does NOT freeze Phase 3A, authorize Phase 3B coding or production mutation.
+## 8B. FZ-02 invariant acceptance receipt — owner action on 2026-10-09
+
+Project owner instructed `tutup FZ-02 — Final Cross-Contract Invariant Traceability Acceptance`. Exact normative wording from both FROZEN contracts was inventoried: **20 physical I-xx and 24 logical P1-Ixx, 44 unique IDs**. For each ID the design trace now includes accepted ADR mapping, proposed DoD, cross-contract findings, planned verification and future implementation gate.
+
+- [Canonical 44-invariant traceability and owner acceptance](./reltroner-lms-phase3a-04-fz02-cross-contract-invariant-traceability-20261009.md)
+- [Machine-readable 44-invariant record](./reltroner-lms-phase3a-04-fz02-invariant-traceability-20261009.json)
+- **FZ-02 PASS (design-only):** 44/44 mapped; no parent invariant revised. **0 newly runtime-certified**; actual source drift, FE draft publication risk, missing Keycloak clients, internal trust and other 3B/4–12 tests remain open.
+- **FZ-10 and FZ-11 OPEN:** this approval does not authorize Phase 3B implementation, certify Phase 3A as FROZEN or permit production changes.
 ## 9. Final checkpoint / reproducible handoff
 
 `3A-04 12/12 PARENT ADRS + FZ-04 18/18 DESIGN DISPOSITIONS ACCEPTED / FINAL PHASE 3A FREEZE HOLD / PHASE 3B NOT AUTHORIZED`.
