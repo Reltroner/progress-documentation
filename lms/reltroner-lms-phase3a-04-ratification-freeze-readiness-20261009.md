@@ -1,14 +1,14 @@
 # Reltroner LMS — Phase 3A-04 Decision Ratification & Freeze Readiness
 
 > **Date:** 2026-10-09 (Asia/Jakarta)  
-> **Status:** **ARCHITECTURE REVIEW COMPLETE / OWNER RATIFICATION PENDING / PHASE 3A FREEZE HOLD**  
-> **Mode:** Documentation-only review branch, not applied to production or application repositories.  
+> **Status:** **12/12 ADR-03F DIRECTIONS OWNER-RATIFIED / PHASE 3A FINAL FREEZE HOLD**  
+> **Mode:** Documentation-only owner decision record; no production or application repository mutation.  
 > **Decision authority:** Only explicit project-owner acceptance can freeze recommendations; this record is not a self-approved ADR.  
 > **Next phase:** 3B NOT AUTHORIZED until an owner-approved Phase 3A design closure/branch scope.
 
 ## 0. Executive decision
 
-`3A-04 REVIEW COMPLETE → RATIFICATION BOARD READY → FREEZE HOLD → 3B NOT AUTHORIZED`.
+`3A-04 OWNER RATIFICATION 12/12 ACCEPTED → PHASE 3A FINAL DESIGN FREEZE HOLD → 3B NOT AUTHORIZED`.
 
 Three noninterchangeable statuses: **discovery PASS** means evidence observed, **design accepted** requires explicit owner decision, **implementation/runtime PASS** requires real negative/contract/integration tests. Neither docs Git commits nor an AI recommendation equate to acceptance of security or production readiness.
 
@@ -35,22 +35,22 @@ At inspected baseline the **03C** file concatenated Identity ADR with **03D Pers
 
 ## 2. Formal owner decision board: 12 candidate ADR directions
 
-**All 12 are still PROPOSED. Do not claim even one human-ratified ADR solely from this document.**
+**Owner explicitly accepted all 12 recommendations on 2026-10-09 (Asia/Jakarta). The table now records direction-level approval; detailed KC-001, PD-ADR, Catalog and transport/security specifications require their own downstream acceptance gates.**
 
 | ID | Scope | Recommendation | Decision | Remaining gate |
 |---|---|---|---|---|
-| `ADR-03F-01` | Authority precedence / no crossing LMS-vs-Studio canon | Preserve distinct Studio canon vs LMS course authorities; no seventh CMS/DB | **PENDING OWNER** | OWNER |
-| `ADR-03F-02` | Public static publication filtering | Public static export must deny unpublished/unknown status in pages, search, sitemap, metadata and assets | **PENDING OWNER** | OWNER |
-| `ADR-03F-03` | Stable ID + historic curriculum revision model | Permanent lesson IDs, alias/tombstone registry, course-local revision; historic completions never silently revoked | **PENDING OWNER** | OWNER |
-| `ADR-03F-04` | Source-attested Studio reference + rights | Only source-attested published Studio editions/licensed references enter public Knowledge and AI citations | **PENDING OWNER** | OWNER |
-| `ADR-03F-05` | Knowledge ingest trigger ownership | Authenticated release worker invokes explicit private Knowledge ingest command; Knowledge alone owns job/events | **PENDING OWNER** | OWNER+3B_DETAIL |
-| `ADR-03F-06` | Creator submissions/assessments v1 | DEFER server-side student creative projects, submissions, grading and mentor file review in initial v1 | **PENDING OWNER** | OWNER |
-| `ADR-03F-07` | Paid product/entitlement v1 | DEFER payments/entitlements/financial ledger; Mentorship only owns its booking/session domain | **PENDING OWNER** | OWNER |
-| `ADR-03F-08` | Internal workload/delegated principal auth | Authenticate internal workload and signed recipient+operation-bound principal delegation; no localhost/header trust | **PENDING OWNER** | OWNER+PRE-IMPLEMENTATION_ADR |
-| `ADR-03F-09` | Admin-Keycloak audit reconciliation | Keycloak admin adapter with durable Audit operation intent and ambiguous-result reconciliation | **PENDING OWNER** | OWNER+PRE-IMPLEMENTATION_ADR |
-| `ADR-03F-10` | Document split / ledger refresh | Preserve combined historical docs and split canonical reviews; update living ledger in dated addendum | **PENDING OWNER** | DOCS_PR |
-| `ADR-03F-11` | Availability and capability binding | Leave 26 endpoints/19 capabilities unchanged; propose authenticated mentorship availability using booking.create.self; admin.learning.* stays reserved | **PENDING OWNER** | OWNER+3B_MATRIX |
-| `ADR-03F-12` | Resource/cost governance | Keep existing low-cost infrastructure; resource ceilings, restore and runbooks based on future measurements | **PENDING OWNER** | OWNER+CAPACITY |
+| `ADR-03F-01` | Authority precedence / no crossing LMS-vs-Studio canon | Preserve distinct Studio canon vs LMS course authorities; no seventh CMS/DB | **OWNER ACCEPTED — DIRECTION** | OWNER |
+| `ADR-03F-02` | Public static publication filtering | Public static export must deny unpublished/unknown status in pages, search, sitemap, metadata and assets | **OWNER ACCEPTED — DIRECTION** | OWNER |
+| `ADR-03F-03` | Stable ID + historic curriculum revision model | Permanent lesson IDs, alias/tombstone registry, course-local revision; historic completions never silently revoked | **OWNER ACCEPTED — DIRECTION** | OWNER |
+| `ADR-03F-04` | Source-attested Studio reference + rights | Only source-attested published Studio editions/licensed references enter public Knowledge and AI citations | **OWNER ACCEPTED — DIRECTION** | OWNER |
+| `ADR-03F-05` | Knowledge ingest trigger ownership | Authenticated release worker invokes explicit private Knowledge ingest command; Knowledge alone owns job/events | **OWNER ACCEPTED — DIRECTION** | OWNER+3B_DETAIL |
+| `ADR-03F-06` | Creator submissions/assessments v1 | DEFER server-side student creative projects, submissions, grading and mentor file review in initial v1 | **OWNER ACCEPTED — DIRECTION** | OWNER |
+| `ADR-03F-07` | Paid product/entitlement v1 | DEFER payments/entitlements/financial ledger; Mentorship only owns its booking/session domain | **OWNER ACCEPTED — DIRECTION** | OWNER |
+| `ADR-03F-08` | Internal workload/delegated principal auth | Authenticate internal workload and signed recipient+operation-bound principal delegation; no localhost/header trust | **OWNER ACCEPTED — DIRECTION** | OWNER+PRE-IMPLEMENTATION_ADR |
+| `ADR-03F-09` | Admin-Keycloak audit reconciliation | Keycloak admin adapter with durable Audit operation intent and ambiguous-result reconciliation | **OWNER ACCEPTED — DIRECTION** | OWNER+PRE-IMPLEMENTATION_ADR |
+| `ADR-03F-10` | Document split / ledger refresh | Preserve combined historical docs and split canonical reviews; update living ledger in dated addendum | **OWNER ACCEPTED — DIRECTION** | DOCS_PR |
+| `ADR-03F-11` | Availability and capability binding | Leave 26 endpoints/19 capabilities unchanged; propose authenticated mentorship availability using booking.create.self; admin.learning.* stays reserved | **OWNER ACCEPTED — DIRECTION** | OWNER+3B_MATRIX |
+| `ADR-03F-12` | Resource/cost governance | Keep existing low-cost infrastructure; resource ceilings, restore and runbooks based on future measurements | **OWNER ACCEPTED — DIRECTION** | OWNER+CAPACITY |
 
 ### Design details requiring deliberate agreement
 
@@ -179,52 +179,72 @@ All 44 rows are **design-preserved only**. Crosswalk is not a claim of runtime c
 |---|---|---|
 | `FZ-01` | Evidence precedence and SHA sources pinned | **PASS — GitHub inspection** |
 | `FZ-02` | 20+24 invariants all traced with planned acceptance | **TRACEABLE; owner acceptance pending** |
-| `FZ-03` | All 12 ADR-03F proposals explicitly accepted/rejected/deferred with gate | **BLOCKED — owner action absent** |
+| `FZ-03` | All 12 ADR-03F proposals explicitly accepted/rejected/deferred with gate | **PASS — owner accepted 12/12 direction recommendations** |
 | `FZ-04` | Identity KC-001, PD-ADR and Catalog review candidates have bounded signed dispositions | **BLOCKED — no owner signatures** |
-| `FZ-05` | Creator storage/submissions/mentor review and finance v1 scope selected | **BLOCKED — product decision absent** |
-| `FZ-06` | Public publication deny-by-default release policy signed | **PROPOSED; runtime FE test in 3B/10** |
-| `FZ-07` | Internal delegation, Knowledge release trigger, Keycloak↔Audit reconciliation direction accepted | **BLOCKED — security ADR sign-off** |
+| `FZ-05` | Creator storage/submissions/mentor review and finance v1 scope selected | **PASS — BR-07/08/09 deferred, initial financial scope excluded** |
+| `FZ-06` | Public publication deny-by-default release policy signed | **PASS — design accepted; runtime FE negative suite pending** |
+| `FZ-07` | Internal delegation, Knowledge release trigger, Keycloak↔Audit reconciliation direction accepted | **PASS — direction accepted; cryptographic/operation details still implementation blockers** |
 | `FZ-08` | 26 operations/19 capabilities/9 event names/4 DB ownership remain unchanged | **PASS CONTRACT CROSSWALK; no runtime proof** |
-| `FZ-09` | Canonical standalone docs + dated ledger overlay reviewed/merged | **DOCS PR IN REVIEW** |
+| `FZ-09` | Canonical standalone docs + dated ledger overlay reviewed/merged | **PASS — documentation PR #1 merged to main at 5fbad07e...** |
 | `FZ-10` | 3B scope/entry/exit and no production mutation rule approved | **PROPOSED** |
-| `FZ-11` | Dated owner sign-off record with approved ADR IDs and hashes | **BLOCKED** |
+| `FZ-11` | Dated owner sign-off record with approved ADR IDs and hashes | **PARTIAL — owner accepted 12 directions; final phase freeze separately pending** |
 
-**Result: HOLD.** Current docs show the necessary architecture, but there is **no explicit project-owner signature** for the normative decisions and scope. A GitHub draft PR does not itself constitute a decision. Owner should ratify the direction and record downstream implementation blockers separately.
+**Result: PARTIAL CLOSURE / FINAL FREEZE HOLD.** The owner has ratified all 12 ADR-03F architectural directions, including v1 deferrals. Detailed subordinate ADR disposition, final Phase 3A freeze authorization and Phase 3B authorization remain separate gates.
 
 ## 7. Next stage: Phase 3B contract+CI acceptance protocol
 
-**Entry:** owner-ratified 3A design/spec scope; reviewed and merged documentation; no unapproved deviation from 20+24 invariants; a scoped implementation branch and review/rollback contract. **Entry is NOT yet met.**
+**Entry:** owner-ratified 3A design/spec scope; reviewed and merged documentation; no unapproved deviation from 20+24 invariants; a scoped implementation branch and review/rollback contract. **12 directional ADRs accepted; complete 3A freeze and 3B entry still NOT authorized.**
 
 **Proposed 3B work:** canonical OpenAPI for 26 operations with per-route permissions and RFC7807 response/ID/cursor/idempotency schemas; internal workload/delegation and outbox/inbox JSON schema fixtures + negative tests; deterministic Catalog v1 manifest with permanent lesson IDs and publication filter; six-service PHP CI plus FE public-output negative build tests; immutable artifact/source release provenance. No live Keycloak/production DB/VPS mutations in 3B absent separate explicit authorization.
 
 **3B exit candidate:** all scoped contract/CI suites independently green at pinned SHAs; signed provider/consumer and privacy release gates; no unknown auth fallback; no implementation/deployment false PASS. Phase 4 remains separately gated for Keycloak client setup, private routing, owner DBs and production changes.
 
-## 8. Owner-only sign-off form — intentionally unfilled
+## 8. Owner decision receipt — 12 architecture directions ACCEPTED
+
+**Evidence:** project owner wrote **"aku menerima 12 rekomendasi ADR"** directly on 2026-10-09 (Asia/Jakarta). This is sufficient to ratify the 12 listed ADR-03F **recommendations**, not sufficient to claim product/runtime acceptance, ratification of every subordinate detailed ADR, or authorization to start Phase 3B.
 
 ```yaml
 phase: 3A-04
-owner: null
-decision_timestamp: null
-decision: PENDING # ACCEPT | REVISE | REJECT
-accepted_document_commit: null
-ratified_adr_ids: []
-deferred_adr_ids_and_first_blocking_phase: []
-v1_creator_artifacts_and_grading: PENDING # DEFER | INCLUDE
-v1_payments_and_entitlements: PENDING # DEFER | INCLUDE
-availability_route_policy: PENDING
-internal_trust_direction: PENDING
-knowledge_ingest_owner: PENDING
-admin_role_audit_direction: PENDING
+owner_evidence: "Explicit project-owner user declaration in conversation"
+decision_date: 2026-10-09
+exact_clock_time: null  # Not supplied; do not invent
+decision: ACCEPT_ALL_12_ADR_03F_DIRECTIONS
+reviewed_main_baseline: 5fbad07e495cbcedbffe94464503be19abd80563
+accepted_adr_ids:
+  - ADR-03F-01
+  - ADR-03F-02
+  - ADR-03F-03
+  - ADR-03F-04
+  - ADR-03F-05
+  - ADR-03F-06
+  - ADR-03F-07
+  - ADR-03F-08
+  - ADR-03F-09
+  - ADR-03F-10
+  - ADR-03F-11
+  - ADR-03F-12
+rejected_adr_ids: []
+v1_creator_artifacts_and_grading: DEFER
+v1_mentor_submission_review: DEFER
+v1_payments_and_entitlements: DEFER
+public_release_policy: DENY_BY_DEFAULT_ACCEPTED
+internal_trust_direction: WORKLOAD_AUTH_AND_SIGNED_DELEGATION_ACCEPTED
+knowledge_ingest_owner: KNOWLEDGE_OWNS_DURABLE_INGEST_ACCEPTED
+admin_role_audit_direction: AUDIT_INTENT_AND_RECONCILIATION_ACCEPTED
+availability_route_policy: AUTHENTICATED_BOOKING_ORIENTED_DIRECTION_ACCEPTED
+subordinate_kc_pd_catalog_detailed_adr_status: PENDING_SEPARATE_DISPOSITION
 phase_3a_frozen: false
 phase_3b_implementation_authorized: false
 phase_4_production_mutation_authorized: false
 ```
 
-**Audit rule:** AI recommendation, file presence, successful docs commit or a GitHub PR merge cannot substitute for explicit owner ratification.
+**Important:** precise signed token format, TTL, replay prevention, Keycloak runtime client configuration, database migrations and event retry budgets are still open implementation specifications. The recommended policy for `GET /api/v1/mentorship/availability` is authenticated-first; the exact capability/response matrix will be a Phase 3B fixture. No new public endpoint is implied.
+
+**Outstanding Phase 3A freeze work:** separately record acceptance or explicit bounded deferrals for KC-001, Persistence PD-ADR-01..09 and Catalog detailed candidates; confirm Phase 3B entry/exit scope and permission to implement; create an explicit final 3A freeze acceptance record. `FZ-03/FZ-05/FZ-06/FZ-07/FZ-09` are closed at architecture-direction level; `FZ-04/FZ-10/FZ-11` remain open.
 
 ## 9. Final checkpoint / reproducible handoff
 
-`3A-04 DESIGN ASSESSMENT COMPLETE / OWNER RATIFICATION PENDING / FREEZE HOLD / PHASE 3B NOT AUTHORIZED`.
+`3A-04 OWNER RATIFICATION 12/12 ACCEPTED / FINAL PHASE 3A FREEZE HOLD / PHASE 3B NOT AUTHORIZED`.
 
 Source order for AI transfer: [physical FROZEN](./master-infrastructure-placement-contract.md) → [logical FROZEN](./logical-service-boundary-api-contract.md) → [ledger](./engineering-end-to-end-progress-ledger.md) → [KC review](./adr-lms-kc-001-identity-provisioning-review-candidate.md) → [03D persistence](./reltroner-lms-phase3a-03d-persistence-event-model-20261009.md) → [03E catalog](./reltroner-lms-phase3a-03e-catalog-manifest-versioning-20261009.md) → [03F cross-contract](./reltroner-lms-phase3a-03f-cross-contract-business-reconciliation-20261009.md) → this record.
 
