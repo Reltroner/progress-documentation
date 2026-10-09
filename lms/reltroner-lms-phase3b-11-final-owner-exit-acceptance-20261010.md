@@ -1,5 +1,8 @@
 # Reltroner LMS — Phase 3B-11 Final Owner Exit Acceptance (B3-AC28)
 
+> **Later dated source-integration result (2026-10-10):** The owner subsequently issued a separate exact-SHA source-main merge order, and BOTH source PRs have now been **MERGED**, with [BE postmerge push-main CI 7/7 SUCCESS](https://github.com/Reltroner/LMS-BE/actions/runs/37970800113) on `a2672d0085fe84b55520f8f52f41a8c7fc8568a0` and [FE postmerge push-main CI 2/2 SUCCESS](https://github.com/Reltroner/LMS-FE/actions/runs/37970833082) on `cc3d9c132d293058c0ff37c93ef4b3ab5547ad34`. This new development is separately recorded in [the Phase 3 source-main integration report](./reltroner-lms-phase3b-main-merge-and-postmerge-ci-20261010.md); the historical *premerge* status sections below accurately describe the earlier 3B-11 checkpoint, not the current state. Local PowerShell 5.1 tests remain **PENDING USER EXECUTION**; Phase4/production remain unapproved.
+
+
 > **Recorded:** 2026-10-10, Asia/Jakarta (the exact clock time of the owner statement is not independently evidenced).  
 > **Decision:** **B3-AC28 = OWNER-ACCEPTED / PASS_SCOPED**; **PHASE 3B NONPRODUCTION ENGINEERING EXIT = ACCEPTED & FROZEN ON THE EXACT BE/FE CANDIDATE SHAs BELOW**.  
 > **Explicit boundary:** This is **approval of Phase 3 engineering deliverables and evidence**, not permission to merge either source PR, claim successful postmerge CI, activate Phase 4, or deploy/provision production infrastructure.  
