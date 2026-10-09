@@ -1,14 +1,14 @@
 # Reltroner LMS — Phase 3A-04 Decision Ratification & Freeze Readiness
 
 > **Date:** 2026-10-09 (Asia/Jakarta)  
-> **Status:** **12/12 ADR-03F DIRECTIONS OWNER-RATIFIED / PHASE 3A FINAL FREEZE HOLD**  
+> **Current FZ-11 status (2026-10-09):** **OWNER ACCEPTED FINAL 3A DESIGN BASELINE — EFFECTIVE AFTER FREEZE PR MERGE**; production and release NOT authorized. Prior sections are historical.  
 > **Mode:** Documentation-only owner decision record; no production or application repository mutation.  
 > **Decision authority:** Only explicit project-owner acceptance can freeze recommendations; this record is not a self-approved ADR.  
-> **Next phase:** 3B NOT AUTHORIZED until an owner-approved Phase 3A design closure/branch scope.
+> **Next phase:** after FZ-11 PR merge, Phase 3B source-only work order is active subject to fresh Git preflight; no production activation.
 
 ## 0. Executive decision
 
-`3A-04 FZ-02/03/04 ACCEPTED + FZ-10 WORK ORDER APPROVED CONDITIONALLY → FZ-11 FINAL FREEZE REQUIRED → 3B CODING NOT YET AUTHORIZED`.
+`FZ-11 OWNER SIGNED → FREEZE PR MERGE/PIN REQUIRED → PHASE 3A DESIGN FROZEN WHEN MERGED → PHASE 3B SOURCE-ONLY ENTRY AFTER PREFLIGHT`.
 
 Three noninterchangeable statuses: **discovery PASS** means evidence observed, **design accepted** requires explicit owner decision, **implementation/runtime PASS** requires real negative/contract/integration tests. Neither docs Git commits nor an AI recommendation equate to acceptance of security or production readiness.
 
@@ -187,7 +187,7 @@ All 44 rows are **design-preserved only**. Crosswalk is not a claim of runtime c
 | `FZ-08` | 26 operations/19 capabilities/9 event names/4 DB ownership remain unchanged | **PASS CONTRACT CROSSWALK; no runtime proof** |
 | `FZ-09` | Canonical standalone docs + dated ledger overlay reviewed/merged | **PASS — documentation PR #1 merged to main at 5fbad07e...** |
 | `FZ-10` | Phase 3B contract/CI scope, 7 work packages, 28 exit checks and no production mutation rule | **PASS — OWNER-APPROVED CONDITIONAL WORK ORDER; FZ-11 ACTIVATION REQUIRED** |
-| `FZ-11` | Dated owner sign-off record with approved ADR IDs and hashes | **PARTIAL — owner accepted 12 directions; final phase freeze separately pending** |
+| `FZ-11` | Dated owner final architecture freeze record with SHA pins and bounded deferrals | **OWNER ACCEPTED — EFFECTIVE WHEN FZ-11 PR MERGED; no runtime/product PASS** |
 
 **Result: PARTIAL CLOSURE / FINAL FREEZE HOLD.** The owner has ratified all 12 ADR-03F architectural directions, including v1 deferrals. Detailed subordinate ADR disposition, final Phase 3A freeze authorization and Phase 3B authorization remain separate gates.
 
@@ -240,7 +240,7 @@ phase_4_production_mutation_authorized: false
 
 **Important:** precise signed token format, TTL, replay prevention, Keycloak runtime client configuration, database migrations and event retry budgets are still open implementation specifications. The recommended policy for `GET /api/v1/mentorship/availability` is authenticated-first; the exact capability/response matrix will be a Phase 3B fixture. No new public endpoint is implied.
 
-**Outstanding Phase 3A freeze work:** FZ-02/FZ-03/FZ-04 and FZ-10 are owner-accepted at their limited DESIGN/WORK-ORDER scope. **Only FZ-11** remains as final architecture-freeze authorization, plus merge/pin of this docs PR and fresh Git source preflight before any Phase 3B coding. Runtime tests remain pending.
+**Current final 3A design freeze:** all FZ-01..11 have owner-compatible dispositions; FZ-11 owner final design acceptance now documented. The only operational activation step is review/merge of this FZ-11 PR, then actual commit-SHA pinning and fresh BE/FE read-only Git preflight. Runtime/product tests remain pending.
 
 ## 8A. FZ-04 subordinate ADR closure (2026-10-09 owner instruction)
 
@@ -268,9 +268,18 @@ On 2026-10-09 project owner requested FZ-10 Entry/Exit Contract & Implementation
 - **PASS (conditional):** scope, entry/exit acceptance, owner work-order direction and prohibited production actions are fixed.
 - **Block:** FZ-11 final Phase 3A freeze with explicit owner signature, merged SHA and fresh BE/FE preflight **MUST precede any IDE code work**.
 - This review does not mark B3-AC01..28 PASS; every acceptance test is **NOT EXECUTED**.
+## 8D. FZ-11 — owner-signed final Phase 3A design freeze (2026-10-09)
+
+Project owner requested `FZ-11 — Phase 3A Final Design Freeze Acceptance Record.` The signed record locks the Phase 3A **architecture design**, FZ-02 exact 44/44 source invariant traceability, FZ-03 12 parent ADRs, FZ-04 18 subordinate bounded dispositions, v1 scope deferrals, FZ-10 seven-work-package source-only plan and 28 B3-AC criteria.
+
+- [Canonical signed design freeze and explicit bounded deferred-implementation gates](./reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md).
+- [Machine-readable final freeze manifest with SHAs, decisions and activation conditions](./reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json).
+- **Current:** OWNER ACCEPTED; freeze PR **must be merged** to `main` and actual merge SHA recorded before Phase 3B code branch work.
+- **After PR merge:** Phase 3A design is FROZEN and FZ-10's strictly nonproduction Phase 3B scope becomes eligible for fresh Git/source discovery, file allowlist and staged CI execution. This is not permission to mutate production.
+- All 16 global product DoDs remain unverified as final release gates; no runtime/CI test was run in FZ-11.
 ## 9. Final checkpoint / reproducible handoff
 
-`3A-04 12/12 PARENT ADRS + FZ-04 18/18 DESIGN DISPOSITIONS ACCEPTED / FINAL PHASE 3A FREEZE HOLD / PHASE 3B NOT AUTHORIZED`.
+`FZ-11 OWNER ACCEPTED (DESIGN) / EFFECTIVE UPON DOCS PR MERGE / PHASE 3B SOURCE-ONLY AFTER PREFLIGHT / PRODUCTION NOT AUTHORIZED`.
 
 Source order for AI transfer: [physical FROZEN](./master-infrastructure-placement-contract.md) → [logical FROZEN](./logical-service-boundary-api-contract.md) → [ledger](./engineering-end-to-end-progress-ledger.md) → [KC review](./adr-lms-kc-001-identity-provisioning-review-candidate.md) → [03D persistence](./reltroner-lms-phase3a-03d-persistence-event-model-20261009.md) → [03E catalog](./reltroner-lms-phase3a-03e-catalog-manifest-versioning-20261009.md) → [03F cross-contract](./reltroner-lms-phase3a-03f-cross-contract-business-reconciliation-20261009.md) → this record.
 
