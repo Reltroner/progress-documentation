@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-PHASE3B07-GAP-REGISTER-20261009",
+  "date": "2026-10-09",
+  "scope": "READ_ONLY_SNAPSHOT_AUDIT_NOT_PRODUCTION",
+  "BE_SHA": "f43c91de8150d2ad22de61154f9ec9391f1548df",
+  "FE_SHA": "3ee0ee0285388f0489016d1689d2ea2ae899dd97",
+  "counts": {
+    "P0_PREMERGE": 2,
+    "P0_BEFORE_3B_EXIT": 1,
+    "P1_BEFORE_3B_EXIT": 6,
+    "P1_PHASE4_RUNTIME_DEFER": 3,
+    "P1_PHASE8_RUNTIME_DEFER": 1,
+    "P0_EXIT_SIGNOFF": 1
+  },
+  "classification": "P0 before final main merge, P1 before 3B exit, P1 explicitly future runtime deferred with no false pass",
+  "risk_acceptance_authorized": false,
+  "risks": [
+    {
+      "id": "R-01",
+      "priority": "P0_PREMERGE",
+      "title": "CI does not run on push to main after final merge",
+      "finding": "Both BE/FE GitHub Actions push branch filters only phase3b/**; PR main covered. Owner requires postmerge main E2E source checks.",
+      "related_invariants_or_acceptance": [
+        "B3-AC17",
+        "B3-AC18",
+        "B3-AC25"
+      ],
+      "recommended_resolution": "Add main and phase3-dev to push triggers (with reviewed scope), ensure job on merged source SHA; run green in candidate and after final merge.",
+      "owner": "BE+FE",
+      "source_hint": "BE:.github/workflows/phase3b-contract-ci.yml;FE:.github/workflows/phase3b-fe-privacy-ci.yml",
+      "closed": false
+    },
+    {
+      "id": "R-02",
+      "priority": "P0_PREMERGE",
+      "title": "No main branch protection",
+      "finding": "GitHub main branch protected=false in both source repos; direct pushes or accidental merge risk not prevented at GitHub policy layer.",
+      "related_invariants_or_acceptance": [
+        "B3-AC25",
+        "B3-AC28"
+      ],
+      "recommended_resolution": "Owner review GitHub branch ruleset requiring PR+required CI/no force-push, handling repo account capabilities; verify effective protection.",
+      "owner": "GitHub governance",
+      "source_hint": "https://api.github.com/repos/Reltroner/LMS-BE/branches/main",
+      "closed": false
+    },
+    {
+      "id": "R-03",
+      "priority": "P0_BEFORE_3B_EXIT",
+      "title": "Trust assertion cryptography unratified",
+      "finding": "Internal workload algorithm, JWKS/distribution, key rotation, skew, TTL and nonce replay store are PENDING_SECURITY_ADR.",
+      "related_invariants_or_acceptance": [
+        "B3-AC07",
+        "P1-I20"
+      ],
+      "recommended_resolution": "Approve explicit signed versioned nonprod trust profile and meaningful positive/negative signing/rotation/replay contract vectors before private handlers.",
+      "owner": "BE identity",
+      "source_hint": "BE:contracts/identity/trust-contract.json",
+      "closed": false
+    },
+    {
+      "id": "R-04",
+      "priority": "P1_BEFORE_3B_EXIT",
+      "title": "Crash/failover persistence tests are ID-to-answer assertions",
+      "finding": "validate-persistence maps E01–E08 fixture IDs to fixed expected output; does not implement independent replay/outbox/booking state behavior.",
+      "related_invariants_or_acceptance": [
+        "B3-AC11",
+        "B3-AC12"
+      ],
+      "recommended_resolution": "Replace tautological cases with deterministic executable state transition/fault-injection contract model (non-production, no DB required in 3B).",
+      "owner": "BE persistence",
+      "source_hint": "BE:contracts/tests/validate-persistence.php",
+      "closed": false
+    },
+    {
+      "id": "R-05",
+      "priority": "P1_BEFORE_3B_EXIT",
+      "title": "Grant and migration compatibility test gaps",
+      "finding": "Four owned DB grants represented as strings; no executable nonprod grant/migration compatibility fixture tests.",
+      "related_invariants_or_acceptance": [
+        "B3-AC09",
+        "I-11",
+        "P1-I15"
+      ],
+      "recommended_resolution": "Add parser/schema assertions for owner-grant policy and versioned migration compatibility fixtures; defer live PG grants/txns Phase4+.",
+      "owner": "BE persistence",
+      "source_hint": "BE:contracts/persistence/owner-event-contract.json",
+      "closed": false
+    },
+    {
+      "id": "R-06",
+      "priority": "P1_BEFORE_3B_EXIT",
+      "title": "Source rights attestation hash validation too weak",
+      "finding": "Knowledge compatibility test rejects forged release only when source SHA length invalid; FE attestation accepts arbitrary well-formed 40/64 char hashes; no expected-hash match.",
+      "related_invariants_or_acceptance": [
+        "B3-AC16",
+        "B3-AC24",
+        "P1-I19"
+      ],
+      "recommended_resolution": "Add synthetic valid-length wrong-digest/incorrect source commit negatives against independent expected content/provenance manifest; defer real signatures/Studio rights service to Phase8.",
+      "owner": "BE knowledge + FE catalog",
+      "source_hint": "BE:contracts/tests/validate-compatibility.php;FE:scripts/phase3b-catalog.mjs",
+      "closed": false
+    },
+    {
+      "id": "R-07",
+      "priority": "P1_BEFORE_3B_EXIT",
+      "title": "FE privacy scanner extension coverage incomplete",
+      "finding": "scanPublicOutput reads .html/.xml/.json/.js/.txt; does not scan all possible text/CSS/SVG/map/public asset references, though content allowlists and Next export are green.",
+      "related_invariants_or_acceptance": [
+        "B3-AC15",
+        "P1-I18"
+      ],
+      "recommended_resolution": "Expand scanner/bundle risk inventory and synthetic leak tests for other emitted public text/static output; preserve fail-closed output scan.",
+      "owner": "FE catalog",
+      "source_hint": "FE:scripts/phase3b-catalog.mjs",
+      "closed": false
+    },
+    {
+      "id": "R-08",
+      "priority": "P1_BEFORE_3B_EXIT",
+      "title": "Consumer/provider compatibility fixtures are static golden strings",
+      "finding": "26/19/9 set comparisons catch route/cap/event drift, not JSON request/response backward compatibility through mock provider and consumer contracts.",
+      "related_invariants_or_acceptance": [
+        "B3-AC04",
+        "B3-AC21"
+      ],
+      "recommended_resolution": "Introduce executable no-network contract mock provider/consumer with method, status and DTO schema cases, positive/negative compatibility fixtures.",
+      "owner": "BE compatibility",
+      "source_hint": "BE:contracts/tests/validate-compatibility.php",
+      "closed": false
+    },
+    {
+      "id": "R-09",
+      "priority": "P1_BEFORE_3B_EXIT",
+      "title": "CI mutation proof and non-production claims incomplete",
+      "finding": "Some intentionally modified arrays are tested in PHP, but no systematic mutant FAIL matrix nor complete independent secrets/log/preview isolation verification.",
+      "related_invariants_or_acceptance": [
+        "B3-AC19",
+        "B3-AC20"
+      ],
+      "recommended_resolution": "Add intentional mutants (invalid route/schema, role escalation, draft artifact, event drift), show CI fails as designed; validate redaction/no production writes.",
+      "owner": "BE+FE CI",
+      "source_hint": "BE:.github/workflows/phase3b-contract-ci.yml;FE:.github/workflows/phase3b-fe-privacy-ci.yml",
+      "closed": false
+    },
+    {
+      "id": "R-10",
+      "priority": "P1_PHASE4_RUNTIME_DEFER",
+      "title": "Real Keycloak issuer, PKCE and signed workload delegation untested",
+      "finding": "Contract says synthetic booleans; no live lms-user/lms-admin clients, real JWT cryptography, provider auth or HRM mapper isolation runtime attestation.",
+      "related_invariants_or_acceptance": [
+        "B3-AC05",
+        "B3-AC06",
+        "I-04",
+        "I-05",
+        "P1-I09"
+      ],
+      "recommended_resolution": "Phase4 isolated nonprod Keycloak provision/signed token tests after approved trust ADR and separate work order; must not be promoted to 3B runtime PASS.",
+      "owner": "Identity/Phase4",
+      "source_hint": "BE:contracts/identity/trust-contract.json",
+      "closed": false
+    },
+    {
+      "id": "R-11",
+      "priority": "P1_PHASE4_RUNTIME_DEFER",
+      "title": "Durable state and booking race unverified",
+      "finding": "No production/nonprod PG migration or concurrent booking, unique occupied slot, real outbox crash/inbox replay, Redis-loss or Audit reconciliation integration test.",
+      "related_invariants_or_acceptance": [
+        "B3-AC09",
+        "B3-AC11",
+        "B3-AC12",
+        "I-09",
+        "P1-I17"
+      ],
+      "recommended_resolution": "Phase4–7/11 controlled PostgreSQL lab with owner grants, transaction/race and recovery tests; no cross-DB writes.",
+      "owner": "Persistence/Phase4+",
+      "source_hint": "BE:contracts/persistence/owner-event-contract.json",
+      "closed": false
+    },
+    {
+      "id": "R-12",
+      "priority": "P1_PHASE8_RUNTIME_DEFER",
+      "title": "Studio/Knowledge and private search authoritative provenance not live",
+      "finding": "Published canon rights, signed source digest, Knowledge ingest release verification, ACL result filtering and rollback remain contract-only.",
+      "related_invariants_or_acceptance": [
+        "B3-AC16",
+        "B3-AC24",
+        "P1-I05",
+        "P1-I19"
+      ],
+      "recommended_resolution": "Phase8 rights approved with Studio source attestation and Knowledge ingest gate, fail-closed ACL tests, rollback proof.",
+      "owner": "Knowledge/Phase8",
+      "source_hint": "FE:contracts/catalog/studio-attestation.json",
+      "closed": false
+    },
+    {
+      "id": "R-13",
+      "priority": "P1_PHASE4_RUNTIME_DEFER",
+      "title": "Service provider endpoints not integrated or deployed",
+      "finding": "Contract source contains schemas and model fixture tests; six Laravel jobs green on skeleton applications, no 26 public handlers or real provider/consumer requests verified.",
+      "related_invariants_or_acceptance": [
+        "B3-AC04",
+        "B3-AC21",
+        "B3-AC22",
+        "I-07",
+        "P1-I11"
+      ],
+      "recommended_resolution": "Phase4+ provider implementation must demonstrate 401/403/object ACL, idempotency and route ownership; no Phase3 runtime certification.",
+      "owner": "Services/Phase4+",
+      "source_hint": "BE:contracts/openapi/v1/openapi.json",
+      "closed": false
+    },
+    {
+      "id": "R-14",
+      "priority": "P0_EXIT_SIGNOFF",
+      "title": "28/28 final acceptance and owner source-merge signature missing",
+      "finding": "13 PASS_SCOPED, 1 PASS_TRACE_ONLY, 13 PARTIAL and 1 BLOCKED; owner approved candidate only, central PRs still draft.",
+      "related_invariants_or_acceptance": [
+        "B3-AC25",
+        "B3-AC26",
+        "B3-AC27",
+        "B3-AC28"
+      ],
+      "recommended_resolution": "Resolve required 3B contract/CI deficits; refresh SHA+CI and 44 trace, obtain explicit final source merge approval; separate Phase4 work order.",
+      "owner": "Owner+engineering",
+      "source_hint": "DOC:OWNER",
+      "closed": false
+    }
+  ],
+  "source_main_merge_allowed": false
+}
