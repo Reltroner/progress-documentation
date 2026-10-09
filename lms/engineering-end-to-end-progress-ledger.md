@@ -1059,3 +1059,28 @@ Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-ph
 **Canonical 3B-07R artifacts:** [human report](./reltroner-lms-phase3b-07r-remediation-and-revalidation-20261009.md), [all 28 gate deltas](./reltroner-lms-phase3b-07r-acceptance-revalidation-20261009.json), [all 44 invariant deltas](./reltroner-lms-phase3b-07r-invariant-44-crosswalk-20261009.json), [14 risks reconciled](./reltroner-lms-phase3b-07r-risk-revalidation-20261009.json).
 
 **Checkpoint:** `3A FROZEN → 3B07 READ-ONLY AUDIT HOLD → 3B07R SOURCE REMEDIATED/BE+FE CI GREEN → 24/28 scoped gates + 1 design trace, 2 PARTIAL, 1 BLOCKED → OWNER ADR/BRANCH RULES/FINAL EXIT GATE PENDING → SOURCE MAIN MERGE HOLD → PHASE4 NOT AUTHORIZED`.
+
+---
+
+## 30. Phase 3B-08 — Security ADR ratification and final merge governance preparation (2026-10-10)
+
+**Work order:** close remaining **governance preparation** without repeating Phase 3B-01..06, creating an additional BE/FE source PR, merging application `main`, or touching production.
+
+**Live-read preflight:** BE PR #11 is DRAFT/OPEN at `0fc17dabc1af845053ac525986f40fb260f73e4c`, frozen main `e30a61780994d85671cbf079e6b9ce899b3fe837`; BE Actions [37960568787](https://github.com/Reltroner/LMS-BE/actions/runs/37960568787) **SUCCESS** 7/7 (255 synthetic contract/model PHP assertions). FE PR #3 is DRAFT/OPEN at `9795489d9b0e1a13d81675fac29e649900c4381d`, frozen main `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`; FE Actions [37960704557](https://github.com/Reltroner/LMS-FE/actions/runs/37960704557) **SUCCESS** 2/2 (9 catalog contract tests). GitHub main branch `protected:false` on **both** and no repository rulesets observed on the checked endpoint.
+
+**Deliverables:**
+- [ADR-LMS-TRUST-001 — proposed Ed25519 signed workload/delegation + replay/key-distribution security profile](./adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md); **owner ratification still required** for named TTL/skew/rotation/key/replay parameters; no live signing authority.
+- [3B-08 exact required check contexts / GitHub GUI branch protection work order / owner sign-off template](./reltroner-lms-phase3b-08-security-and-final-merge-governance-20261010.md); governance settings cannot be written through the available GitHub connector. Avoid unresolvable mandatory self-PR approval for solo repo owner.
+- Original [07R report](./reltroner-lms-phase3b-07r-remediation-and-revalidation-20261009.md) and 28/44/14 machine matrices remain **historically immutable** until new actually observed approval/configuration evidence justifies a versioned delta. No fabricated acceptance upgrade.
+
+| Unclosed item | Current | Deterministic next gate |
+|---|---|---|
+| B3-AC07 / R-03 | PARTIAL_EVIDENCE | Owner explicitly ratifies/revises trust ADR; Phase 4 implementation still needs real crypto/replay tests |
+| B3-AC25 / R-02 | PARTIAL_EVIDENCE / BRANCH RULES BLOCKED | Owner enables BE/FE effective `main` PR+checks+no-force-push protections via admin GUI, then external API read revalidation |
+| B3-AC28 / R-14 | BLOCKED | Exact source snapshot owner-signed final Phase 3B scope exit and **separate** final source-merge instruction |
+| Source PR merge / postmerge `main` CI | HOLD / NOT RUN | Only after hard gate closure; verify **new actual main SHA and push-main CI**, not test PR SHA |
+| Phase 4 | NOT AUTHORIZED | New independent owner work order after source merge/postmerge evidence |
+
+**Distribution remains unchanged:** **24 PASS_SCOPED + 1 PASS_TRACE_ONLY + 2 PARTIAL_EVIDENCE + 1 BLOCKED**. The 44 frozen invariants retain source/design trace only, **0 newly live runtime-certified**.
+
+**Checkpoint:** `3B07R REVALIDATED GREEN → 3B08 SECURITY/BRANCH GOVERNANCE PACKET WRITTEN (NOT SIGNED) → OWNER ADR+GITHUB RULES REQUIRED → FINAL 3B EXIT HOLD → SOURCE MAIN MERGE HOLD → PHASE4 NOT AUTHORIZED`.
