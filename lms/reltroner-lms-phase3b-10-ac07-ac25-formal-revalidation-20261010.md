@@ -1,5 +1,8 @@
 # Reltroner LMS — Phase 3B-10 Formal Revalidation of B3-AC07 and B3-AC25
 
+> **Later owner-final exit receipt (Phase 3B-11, 2026-10-10):** The owner explicitly stated `B3-AC28 resmi aku terima`, thereby closing the only remaining formal scoped gate in [Phase 3B-11 final acceptance](./reltroner-lms-phase3b-11-final-owner-exit-acceptance-20261010.md). **The prior 26+1+1 gate count and BLOCKED status below are historical at the time of Phase 3B-10; the later authoritative count is 27 PASS_SCOPED (including the owner waiver) + 1 PASS_TRACE_ONLY, 0 PARTIAL/BLOCKED.** Application `main` merges, postmerge CI, Phase4 and production remain not authorized. This historical 3B-10 report was not rewritten to suggest the owner had approved AC28 earlier.
+
+
 > **Recorded:** 2026-10-10 (Asia/Jakarta); **method:** Read-only SHA-pinned re-audit of existing source + GitHub Actions and newly ratified owner decisions.  
 > **Formal scope:** Phase 3B nonproduction **contracts, immutable CI snapshot and governance exception only**. **No fresh BE/FE code commit, no rerun represented as new, no Keycloak/JWT runtime, Redis store or production test.**  
 > **Result:** B3-AC07 = **PASS_SCOPED (ADR ratified)**; B3-AC25 = **PASS_SCOPED_WITH_OWNER_WAIVER (manual contract / GitHub technical protection absent)**; B3-AC28 = **BLOCKED pending separate final Phase 3B acceptance/source integration authority**.
