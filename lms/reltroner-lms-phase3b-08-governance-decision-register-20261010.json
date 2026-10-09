@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-PHASE3B-08-GOVERNANCE-DECISION-REGISTER-20261010",
+  "date": "2026-10-10",
+  "timezone": "Asia/Jakarta",
+  "classification": "PREPARED_NOT_OWNER_RATIFIED_SOURCE_MERGE_HOLD",
+  "snapshot": {
+    "backend": {
+      "repository": "Reltroner/LMS-BE",
+      "pr": 11,
+      "branch": "phase3-dev",
+      "head_sha": "0fc17dabc1af845053ac525986f40fb260f73e4c",
+      "frozen_main_sha": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+      "pr_state": "OPEN_DRAFT_UNMERGED",
+      "ci_run_url": "https://github.com/Reltroner/LMS-BE/actions/runs/37960568787",
+      "jobs_pass": 7,
+      "php_contract_model_assertions_pass": 255,
+      "main_protected_observed": false,
+      "rulesets_observed": 0,
+      "required_check_names": [
+        "Pure PHP frozen contract tests",
+        "Laravel service assistant",
+        "Laravel service learning",
+        "Laravel service mentorship",
+        "Laravel service knowledge",
+        "Laravel service gateway",
+        "Laravel service audit",
+        "GitGuardian Security Checks"
+      ]
+    },
+    "frontend": {
+      "repository": "Reltroner/LMS-FE",
+      "pr": 3,
+      "branch": "phase3-dev",
+      "head_sha": "9795489d9b0e1a13d81675fac29e649900c4381d",
+      "frozen_main_sha": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+      "pr_state": "OPEN_DRAFT_UNMERGED",
+      "ci_run_url": "https://github.com/Reltroner/LMS-FE/actions/runs/37960704557",
+      "jobs_pass": 2,
+      "fe_catalog_tests_pass": 9,
+      "main_protected_observed": false,
+      "rulesets_observed": 0,
+      "required_check_names": [
+        "catalog-contract",
+        "frontend-build",
+        "GitGuardian Security Checks"
+      ]
+    }
+  },
+  "security_adr": {
+    "id": "ADR-LMS-TRUST-001",
+    "path": "lms/adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md",
+    "recommendation_only": true,
+    "owner_ratified": false,
+    "proposal": {
+      "jws_algorithm": "EdDSA",
+      "curve": "Ed25519",
+      "assertion_max_ttl_seconds": 60,
+      "max_clock_skew_seconds": 5,
+      "routine_rotation_overlap_seconds": 180,
+      "key_distribution": "per-caller pinned public key registry with bound kid",
+      "replay": "atomic one-time Redis jti reservation with fail-closed unknown state; recovery quarantine >=65s after verified keyspace loss"
+    },
+    "runtime_proof_observed": false
+  },
+  "gate_count": 28,
+  "gate_distribution_before_owner_actions": {
+    "PASS_SCOPED": 24,
+    "PASS_TRACE_ONLY": 1,
+    "PARTIAL_EVIDENCE": 2,
+    "BLOCKED": 1
+  },
+  "invariants_total": 44,
+  "source_ci_annotated_invariants": 24,
+  "newly_live_certified_invariants": 0,
+  "remaining_decisions": [
+    {
+      "id": "B3-AC07",
+      "current": "PARTIAL_EVIDENCE",
+      "owner_action": "Explicitly ratify/revise named Ed25519/TTL/key/rotation/replay design parameters",
+      "source_mutation_allowed": false
+    },
+    {
+      "id": "B3-AC25",
+      "current": "PARTIAL_EVIDENCE",
+      "owner_action": "Enable and re-read BE+FE main branch PR/check/no-force-push/deletion protections; record exact check contexts",
+      "source_mutation_allowed": false
+    },
+    {
+      "id": "B3-AC28",
+      "current": "BLOCKED",
+      "owner_action": "Explicit final scoped Phase 3B exit for new SHAs, then separate final source merge authorization",
+      "source_mutation_allowed": false
+    }
+  ],
+  "guards": {
+    "main_merge_authorized": false,
+    "source_mutation_authorized": false,
+    "production_mutation_authorized": false,
+    "phase4_authorized": false,
+    "postmerge_main_ci_observed": false,
+    "doc_merge_not_sufficient_for_owner_signoff": true
+  },
+  "source_documents": [
+    "lms/reltroner-lms-phase3b-08-security-and-final-merge-governance-20261010.md",
+    "lms/adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md",
+    "lms/reltroner-lms-phase3b-07r-remediation-and-revalidation-20261009.md"
+  ],
+  "follow_up_order": [
+    "Owner ADR decision",
+    "Owner GitHub main branch protection GUI update",
+    "Read-only verification branch rules+CI+source SHA",
+    "Final Phase 3B scoped sign-off",
+    "Separate one-time BE/FE source main merge instruction",
+    "Actual postmerge main SHAs+main-push CI evidence",
+    "Separate Phase 4 nonproduction authorization"
+  ]
+}
