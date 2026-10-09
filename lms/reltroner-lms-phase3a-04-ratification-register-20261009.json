@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3A-04-RATIFICATION-20261009",
+  "date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "status": "REVIEW_COMPLETE_OWNER_RATIFICATION_PENDING_FREEZE_HOLD",
+  "phase_3a_frozen": false,
+  "phase_3b_authorized": false,
+  "production_mutation_authorized": false,
+  "source": {
+    "documentation_base_sha": "d6715144e59816e6a026bacbf5214ed1a32a9401",
+    "backend_sha": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "frontend_sha": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+    "studio_sha": "f7b6e6c73fcd81c945524cb81602d2984c6b4720",
+    "cross_contract_json_blob": "b902134f128836483eb28be6a58bf148ad5ae5e0"
+  },
+  "invariants": {
+    "infrastructure": 20,
+    "logical": 24,
+    "implementation_verified": 0
+  },
+  "baseline_contract": {
+    "api_operations": 26,
+    "capabilities": 19,
+    "semantic_event_families": 9,
+    "service_owned_logical_databases": 4
+  },
+  "cross_contract_findings": [
+    {
+      "id": "CC-01",
+      "topic": "Public/draft static output",
+      "classification": "**P0 PRE-RELEASE BLOCKER**",
+      "required_next_gate": "Build-output negative suite; public-only whitelist at every artifact stage"
+    },
+    {
+      "id": "CC-02",
+      "topic": "Lesson identity",
+      "classification": "OPEN DESIGN / IMPLEMENTATION GAP",
+      "required_next_gate": "One-time ID registry; immutable IDs; deterministic alias migration; dual-generator parity tests"
+    },
+    {
+      "id": "CC-03",
+      "topic": "Curriculum + historic learner state",
+      "classification": "DESIGN CONSISTENT, DRAFT",
+      "required_next_gate": "Define completion policy revision, enrolled revision upgrade opt-in, archived behavior, unknown-ID policy"
+    },
+    {
+      "id": "CC-04",
+      "topic": "Studio canon vs course publication",
+      "classification": "DESIGN RULE REQUIRED",
+      "required_next_gate": "Two distinct status dimensions and source-attested edition; default `not_attested`"
+    },
+    {
+      "id": "CC-05",
+      "topic": "Search provenance and preview rights",
+      "classification": "DESIGN OPEN",
+      "required_next_gate": "Independent public/private release filtering; no snippet or citation leakage; license/LLM-use approval"
+    },
+    {
+      "id": "CC-06",
+      "topic": "Git → Knowledge event provenance",
+      "classification": "**CONTRACT DESIGN GAP**",
+      "required_next_gate": "Explicit authenticated internal ingestion trigger and durable job/outbox; no unowned Git-to-DB write"
+    },
+    {
+      "id": "CC-07",
+      "topic": "Keycloak provisioning",
+      "classification": "OPEN ADR",
+      "required_next_gate": "Owner sign-off then Phase 4 controlled provisioning; HRM regressions"
+    },
+    {
+      "id": "CC-08",
+      "topic": "Internal service workload trust",
+      "classification": "**OPEN CRITICAL DESIGN**",
+      "required_next_gate": "Separate ADR and abuse/negative contract suite before private domain APIs ship"
+    },
+    {
+      "id": "CC-09",
+      "topic": "API coverage",
+      "classification": "FROZEN SEMANTIC SCOPE",
+      "required_next_gate": "OpenAPI schemas and capabilities in 3B; any new family requires change control"
+    },
+    {
+      "id": "CC-10",
+      "topic": "Capability coverage",
+      "classification": "GAP / RESERVED CAPABILITIES",
+      "required_next_gate": "Bind to explicit current operations or leave unused; do not invent routes/roles"
+    },
+    {
+      "id": "CC-11",
+      "topic": "Booking durability",
+      "classification": "DRAFT",
+      "required_next_gate": "PostgreSQL constraints + race tests; event outbox consistent"
+    },
+    {
+      "id": "CC-12",
+      "topic": "Audit-Keycloak role change",
+      "classification": "OPEN CRITICAL DESIGN",
+      "required_next_gate": "Durable operation intent + outcome/reconciliation, admin adapter least-privilege"
+    },
+    {
+      "id": "CC-13",
+      "topic": "Publisher/inbox failure",
+      "classification": "DESIGN DRAFT",
+      "required_next_gate": "Signed event schema, at-least-once, dedup, DLQ/retry/retention, replay tests"
+    },
+    {
+      "id": "CC-14",
+      "topic": "Studio editorial release",
+      "classification": "BUSINESS RULE",
+      "required_next_gate": "Attested release artifact, publication actor, version & legal rights; no automatic canon promotion"
+    },
+    {
+      "id": "CC-15",
+      "topic": "Creator deliverable",
+      "classification": "**NEW REQUIREMENT CANDIDATE**",
+      "required_next_gate": "Owner must explicitly include or defer; ADR+API+RBAC+storage/privacy if included"
+    },
+    {
+      "id": "CC-16",
+      "topic": "Paid mentorship/membership",
+      "classification": "OUT OF SCOPE CURRENT V1",
+      "required_next_gate": "Separate commercial/finance ADR if required; never proxy into bookings"
+    },
+    {
+      "id": "CC-17",
+      "topic": "Long-horizon story graph",
+      "classification": "NO CONFLICT",
+      "required_next_gate": "Studio owns canonical graph; Knowledge may index attested edges; no new LMS runtime graph authority"
+    },
+    {
+      "id": "CC-18",
+      "topic": "Frontend auth drift",
+      "classification": "OBSERVED DRIFT",
+      "required_next_gate": "Controlled FE cutover only after effective claims validation; server denies missing permission"
+    },
+    {
+      "id": "CC-19",
+      "topic": "Observability and rollback",
+      "classification": "OPEN",
+      "required_next_gate": "Version pin policy, promotion pointer, rollback, reindex, safe retention thresholds"
+    },
+    {
+      "id": "CC-20",
+      "topic": "Evidence/governance",
+      "classification": "**DOCUMENTATION BLOCKER TO 3A FREEZE**",
+      "required_next_gate": "Split into canonical docs preserving historical source; update ledger link/status and owner decisions"
+    },
+    {
+      "id": "CC-21",
+      "topic": "Runtime capacity/cost",
+      "classification": "RELEASE GATE",
+      "required_next_gate": "Measured CPU/RAM I/O profiles, throttled workers, no optional new service by default"
+    },
+    {
+      "id": "CC-22",
+      "topic": "CI/release-proof",
+      "classification": "OPEN",
+      "required_next_gate": "3B six-service CI + FE publication guard; signed release artifact promotion"
+    }
+  ],
+  "adr_decisions": [
+    {
+      "id": "ADR-03F-01",
+      "topic": "Authority precedence / no crossing LMS-vs-Studio canon",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Keep frozen LMS topology + Studio canon publication authority separate",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-02",
+      "topic": "Public static publication filtering",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Enforce published/approved-only route/search/asset build, deny drafts by default",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-03",
+      "topic": "Stable ID + historic curriculum revision model",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Approve 03E candidates, specify one-time migration and long-term alias/tombstones",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-04",
+      "topic": "Source-attested Studio reference + rights",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Require edition/status/release evidence and access/license policy for every imported reference",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-05",
+      "topic": "Knowledge ingest trigger ownership",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Authenticated internal release-to-Knowledge request; Knowledge owns ingest job and events",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-06",
+      "topic": "Creator submissions/assessments v1",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "**Defer** initial server-side storage/review unless owner chooses scope expansion",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "V1_PRODUCT_SCOPE_DECISION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-07",
+      "topic": "Paid product/entitlement v1",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Exclude financial ledger and paid access from existing six-service v1 scope",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-08",
+      "topic": "Internal workload/delegated principal auth",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Separate signed identity + workload authentication, fail closed",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "MUST_ACCEPT_DIRECTION_BEFORE_3A_FREEZE_AND_SPECIFY_BEFORE_INTERNAL_IMPLEMENTATION"
+    },
+    {
+      "id": "ADR-03F-09",
+      "topic": "Admin-Keycloak audit reconciliation",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Durable operation intent and verified outcomes; no fake atomicity",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "MUST_ACCEPT_DIRECTION_BEFORE_3A_FREEZE_AND_SPECIFY_BEFORE_INTERNAL_IMPLEMENTATION"
+    },
+    {
+      "id": "ADR-03F-10",
+      "topic": "Document split / ledger refresh",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Preserve combined historical file; issue separate 03C/03D canonical docs and 03F status overlay",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-11",
+      "topic": "Availability and capability binding",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Document policy for `mentorship/availability` and unused admin-learning capabilities, no silent new route",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    },
+    {
+      "id": "ADR-03F-12",
+      "topic": "Resource/cost governance",
+      "status": "OWNER_RATIFICATION_PENDING",
+      "proposed_recommendation": "Prefer PostgreSQL FTS, Redis outbox, external LLM; schedule bounded workers on shared 1-vCPU VPS",
+      "owner_decision": null,
+      "owner_timestamp": null,
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+    }
+  ],
+  "business_requirements": [
+    {
+      "id": "BR-01",
+      "requirement": "Creator-facing systematic worldbuilding education / anti-stagnation",
+      "recommended_disposition": "IN-SCOPE AS CONTENT/CURRICULUM (existing courses)",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-02",
+      "requirement": "Audience-facing Asthortera/continuous narrative and civilization laboratory",
+      "recommended_disposition": "IN-SCOPE AS APPROVED REFERENCE/SEARCH ONLY",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-03",
+      "requirement": "Current Lore/Backstory/Wiki narrative modes",
+      "recommended_disposition": "METADATA/FACET CANDIDATE only if source-attested",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-04",
+      "requirement": "Published canon immutability, edition and archival",
+      "recommended_disposition": "MANDATORY INTEGRATION CONSTRAINT whenever Studio material referenced",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-05",
+      "requirement": "Creative Compound Machine and cross-domain causal narrative",
+      "recommended_disposition": "TEACHING/RETRIEVAL CONTENT; not durable workflow engine",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-06",
+      "requirement": "Studio course worksheets and downloadable resources",
+      "recommended_disposition": "IN-SCOPE STATIC DELIVERY",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-07",
+      "requirement": "User-generated project bible or 30-day journal **persisted in LMS**",
+      "recommended_disposition": "DEFER FROM V1 unless owner explicitly promotes",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-08",
+      "requirement": "Assessment/rubric submission/grading/mentor review",
+      "recommended_disposition": "DEFER / NEW BUSINESS FEATURE",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-09",
+      "requirement": "Mentorship with creator-output review",
+      "recommended_disposition": "DEFER cross-service reviewer workflow; basic bookings remain in scope",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-10",
+      "requirement": "Paid private sessions, subscriptions, Patreon/Kickstarter",
+      "recommended_disposition": "DEFER financial/commercial ledger from Mentorship",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-11",
+      "requirement": "Studio narrative editorial CMS or wiki content CRUD via LMS admin",
+      "recommended_disposition": "OUT OF SCOPE / DISALLOWED BY CURRENT FROZEN CONTRACT",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-12",
+      "requirement": "Personalization, reader's private notes / favorites on Studio canon",
+      "recommended_disposition": "DEFER until explicit product use case",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-13",
+      "requirement": "Source-approved Studio content searchable via universal Ctrl+K",
+      "recommended_disposition": "IN-SCOPE AS FUTURE AUTHORIZED/STATIC INDEX INTEGRATION",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-14",
+      "requirement": "Guest AI or unrestricted LLM-based canon generator",
+      "recommended_disposition": "OUT OF SCOPE INITIAL, authenticated Assistant only",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-15",
+      "requirement": "Cross-course creator pathways and prerequisites",
+      "recommended_disposition": "IN-SCOPE AS VERSIONED CATALOG RELATION",
+      "owner_decision": null
+    },
+    {
+      "id": "BR-16",
+      "requirement": "Institutional equivalence: every lore element = LMS entity",
+      "recommended_disposition": "REJECT",
+      "owner_decision": null
+    }
+  ],
+  "freeze_gates": [
+    {
+      "id": "FZ-01",
+      "status": "PASS_GITHUB_REVIEW"
+    },
+    {
+      "id": "FZ-02",
+      "status": "MAPPED_PENDING_OWNER"
+    },
+    {
+      "id": "FZ-03",
+      "status": "BLOCKED_OWNER_SIGNOFF"
+    },
+    {
+      "id": "FZ-04",
+      "status": "BLOCKED_OWNER_SIGNOFF"
+    },
+    {
+      "id": "FZ-05",
+      "status": "BLOCKED_PRODUCT_SCOPE"
+    },
+    {
+      "id": "FZ-06",
+      "status": "PROPOSED_PENDING_OWNER"
+    },
+    {
+      "id": "FZ-07",
+      "status": "BLOCKED_SECURITY_DIRECTION"
+    },
+    {
+      "id": "FZ-08",
+      "status": "DESIGN_SCOPE_PRESERVED_NOT_RUNTIME_TESTED"
+    },
+    {
+      "id": "FZ-09",
+      "status": "REVIEW_BRANCH_PENDING_MERGE"
+    },
+    {
+      "id": "FZ-10",
+      "status": "PROPOSED_PENDING_OWNER"
+    },
+    {
+      "id": "FZ-11",
+      "status": "BLOCKED_NO_OWNER_SIGNOFF"
+    }
+  ],
+  "owner_signoff": {
+    "project_owner": null,
+    "reviewed_commit": null,
+    "date_time": null,
+    "outcome": "PENDING",
+    "chosen_creator_submission_scope": null,
+    "accepted_adr_ids": [],
+    "rejected_adr_ids": [],
+    "deferred_with_phase": [],
+    "implementation_authorization": false
+  },
+  "documentation": {
+    "historical_sources_preserved": true,
+    "standalone_archives_created_on_review_branch": true,
+    "living_ledger_update_review_only": true
+  }
+}
