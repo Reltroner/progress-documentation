@@ -3,9 +3,9 @@
   "record_id": "LMS-3A-04-RATIFICATION-20261009",
   "date": "2026-10-09",
   "timezone": "Asia/Jakarta",
-  "status": "FZ11_OWNER_ACCEPTED_FINAL_3A_DESIGN_FREEZE_EFFECTIVE_AFTER_PR_MERGE_PHASE3B_SOURCE_ONLY",
-  "phase_3a_frozen": false,
-  "phase_3b_authorized": false,
+  "status": "PHASE_3A_ARCHITECTURAL_DESIGN_FROZEN_EFFECTIVE_3B00_READONLY_PREFLIGHT_NEXT",
+  "phase_3a_frozen": true,
+  "phase_3b_authorized": true,
   "production_mutation_authorized": false,
   "source": {
     "documentation_base_sha": "d6715144e59816e6a026bacbf5214ed1a32a9401",
@@ -459,18 +459,21 @@
     },
     {
       "id": "FZ-11",
-      "status": "OWNER_SIGNED_FINAL_3A_DESIGN_FREEZE_ACTIVATES_ON_PR_MERGE",
+      "status": "PASS_OWNER_ACCEPTED_EFFECTIVE_MAIN_PR6_MERGED",
       "evidence_receipt": "lms/reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md",
       "machine_receipt": "lms/reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json",
-      "pr_merge_required": true,
-      "production_authorized": false
+      "pr_merge_required": false,
+      "production_authorized": false,
+      "merge_commit_sha": "b9390a06ebc5db5377059a99109d59fea092cccb",
+      "pr_number": 6,
+      "evidence_type": "ACTUAL_GITHUB_MERGE_VERIFIED"
     }
   ],
   "owner_signoff": {
     "project_owner": "EXPLICIT_USER_DECLARATION",
     "reviewed_commit": "5fbad07e495cbcedbffe94464503be19abd80563",
     "date_time": null,
-    "outcome": "FZ11_OWNER_ACCEPTED_FINAL_3A_DESIGN_FREEZE_CONDITIONAL_ON_DOCS_PR_MERGE",
+    "outcome": "FZ11_OWNER_ACCEPTED_AND_MERGED_ARCHITECTURE_DESIGN_FROZEN",
     "chosen_creator_submission_scope": "DEFER_V1",
     "accepted_adr_ids": [
       "ADR-03F-01",
@@ -519,14 +522,16 @@
         "scope_note": "Architecture direction owner-ratified by FZ-04; only listed technical parameters/tests remain pending"
       }
     ],
-    "implementation_authorization": false,
+    "implementation_authorization": true,
     "decision_date": "2026-10-09",
     "chosen_grading_and_mentor_review_scope": "DEFER_V1",
     "chosen_payments_and_entitlements_scope": "DEFER_V1",
     "subordinate_adr_fz04": "OWNER_APPROVED_BOUNDED_ARCHITECTURE_DESIGN",
     "invariant_traceability_fz02": "OWNER_ACCEPTED_44_DESIGN_MAPPINGS",
     "phase3b_work_order_scope": "OWNER_ACCEPTED_CONDITIONAL_ON_FZ11",
-    "final_phase_3a_freeze": "OWNER_SIGNED_2026-10-09_PENDING_GITHUB_PR_MERGE"
+    "final_phase_3a_freeze": "EFFECTIVE_MAIN_PR6_MERGED_SHA_b9390a06ebc5db5377059a99109d59fea092cccb",
+    "authorization_scope": "FZ10_NONPRODUCTION_SOURCE_ONLY_AFTER_3B00_GIT_CI_PREFLIGHT",
+    "production_mutation_authorized": false
   },
   "documentation": {
     "historical_sources_preserved": true,
@@ -560,11 +565,7 @@
     "approves_phase_3a_freeze": false,
     "reviewed_main_sha": "5fbad07e495cbcedbffe94464503be19abd80563"
   },
-  "remaining_freeze_decisions": [
-    "FZ-11 documentation PR merge and real merged SHA pinning",
-    "After merge, fresh BE/FE Git preflight and per-package scope for Phase 3B source-only work",
-    "Runtime/product acceptance remain Phase 3B and subsequent Phase 4–12 gates"
-  ],
+  "remaining_freeze_decisions": [],
   "subordinate_adr_ratification": {
     "status": "FZ04_CLOSED_ARCHITECTURE_DESIGN_ONLY",
     "decision_date": "2026-10-09",
@@ -622,7 +623,10 @@
     "forbidden": "Production mutations, full business handlers, new API/resource family, unsanctioned infra purchases",
     "record": "lms/reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md",
     "work_order": "lms/reltroner-lms-phase3a-04-fz10-phase3b-work-order-20261009.json",
-    "currently_executable": false
+    "currently_executable": false,
+    "status": "ACTIVATED_SOURCE_ONLY_SCOPE_BUT_GIT_PREFLIGHT_PENDING",
+    "phase3b00_read_only_preflight_authorized": true,
+    "merged_fz11_sha": "b9390a06ebc5db5377059a99109d59fea092cccb"
   },
   "fz11_final_design_freeze": {
     "record_id": "LMS-3A-FINAL-FREEZE-20261009",
@@ -632,8 +636,8 @@
     "accepted_design_baseline": true,
     "effective_in_main_when_merged": true,
     "docs_main_before_fz11": "bf6aa64c5038aebcb13f4c0fff86dea047276de6",
-    "freeze_merge_sha": null,
-    "current_branch": "docs/phase3a-fz11-final-design-freeze-20261009",
+    "freeze_merge_sha": "b9390a06ebc5db5377059a99109d59fea092cccb",
+    "current_branch": "main_EFFECTIVE_FREEZE_ANCHOR_PR6",
     "frozen_blobs": {
       "placement": "b899761c9e833f9fa567055801b9ba0834ed56eb",
       "logical": "cf089b8df4b5ccb1761b504ffae662a0053bf03e"
@@ -647,6 +651,16 @@
     "frozen_scope": "architecture design, source/API/event/capability/service/database boundaries and bounded deferrals only",
     "nonproduction_3b_scope_automatically_activates_after_fz11_pr_merge": true,
     "entry_preflight_still_required": true,
-    "production_change_authorized": false
-  }
+    "production_change_authorized": false,
+    "phase3b_fz10_source_scope_activated": true,
+    "local_preflight_passed": false,
+    "source_mutation_eligible": false
+  },
+  "next_work": [
+    "3B-00 read-only local Git and CI discovery, verify BE/FE HEAD and origin/main and clean status",
+    "Per 3B task approve file allowlist and rollback/test steps before IDE coding",
+    "3B-01 versioned OpenAPI contract design and 26 operation mapping",
+    "28/28 B3-AC tests observed PASS + owner exit review; no deployment authorization"
+  ],
+  "postmerge_activation_receipt": "lms/reltroner-lms-phase3a-fz11-postmerge-activation-20261009.md"
 }

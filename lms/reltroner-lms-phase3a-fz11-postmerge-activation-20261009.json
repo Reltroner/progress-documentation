@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3A-FZ11-MERGE-ACTIVATION-20261009",
+  "decision_date": "2026-10-09",
+  "owner_evidence": "aku ACCEPTED FZ-11",
+  "evidence_type": "EXPLICIT_PROJECT_OWNER_ACCEPTANCE_IN_CONVERSATION",
+  "pr": {
+    "number": 6,
+    "url": "https://github.com/Reltroner/progress-documentation/pull/6",
+    "merged": true,
+    "merged_at_utc": "2026-10-09T05:43:28Z",
+    "merge_commit_sha": "b9390a06ebc5db5377059a99109d59fea092cccb"
+  },
+  "authority": "OWNER_RATIFIED_DESIGN_AND_GITHUB_MAIN_MERGE_VERIFIED",
+  "status": "PHASE3A_DESIGN_FROZEN_EFFECTIVE",
+  "frozen_at_commit": "b9390a06ebc5db5377059a99109d59fea092cccb",
+  "original_freeze_document": "lms/reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md",
+  "original_freeze_manifest": "lms/reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json",
+  "baselines": {
+    "docs_freeze_merge": "b9390a06ebc5db5377059a99109d59fea092cccb",
+    "backend_sha": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "frontend_sha": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+    "studio_sha": "f7b6e6c73fcd81c945524cb81602d2984c6b4720",
+    "physical_contract_blob": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+    "logical_contract_blob": "cf089b8df4b5ccb1761b504ffae662a0053bf03e"
+  },
+  "locks": {
+    "invariants": 44,
+    "parent_adrs": 12,
+    "subordinate_adrs": 18,
+    "microservices": 6,
+    "api_operations": 26,
+    "capabilities": 19,
+    "semantic_events": 9,
+    "logical_owner_databases": 4
+  },
+  "phase3b": {
+    "source_only_work_order_authorized": true,
+    "current_phase": "3B-00 READ_ONLY_GIT_AND_CI_PREFLIGHT",
+    "preflight_verified_remote_main_sha_matches_freeze": true,
+    "preflight_verified_local_tree_clean": false,
+    "preflight_verified_local_remote_parity": false,
+    "source_mutation_eligible": false,
+    "work_packages": 7,
+    "exit_acceptance_cases": 28,
+    "phase3b_tests_observed_pass": 0,
+    "requires": [
+      "Local main & origin/main equality in LMS-BE and LMS-FE",
+      "Clean git status, remotes and exact approved branch base",
+      "Per-work-package file allowlist/rollback/test plan",
+      "CI/contract fixtures only, no live production"
+    ]
+  },
+  "production_mutation_authorized": false,
+  "phase4_authorized": false,
+  "product_runtime_certified": false,
+  "invariant_frozen_docs_unchanged": true,
+  "bounded_deferrals_remain_open": true,
+  "documentation_update_type": "POST_MERGE_FACTUAL_ACTIVATION_RECEIPT_NOT_ARCHITECTURE_CHANGE"
+}

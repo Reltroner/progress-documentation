@@ -11,16 +11,18 @@
     "does_not_authorize_production": true
   },
   "approval": {
-    "FZ11": "OWNER_APPROVED_PENDING_DOCS_PR_MERGE",
+    "FZ11": "OWNER_ACCEPTED_AND_EFFECTIVE_MAIN_PR6_MERGED",
     "phase_3a_freeze_decision_signed": true,
-    "phase_3a_frozen_on_main_at_current_time": false,
-    "phase_3a_effective_condition": "Freeze PR reviewed and merged to progress-documentation/main, final merge SHA pinned",
+    "phase_3a_frozen_on_main_at_current_time": true,
+    "phase_3a_effective_condition": "SATISFIED: PR #6 merged to progress-documentation/main",
     "phase3b_workorder": "APPROVED_CONDITIONALLY_BY_FZ10",
     "phase3b_source_work_executable_now": false,
-    "phase3b_source_work_after_merge": "AUTHORIZED_WITH_PER_SUBPHASE_GIT_PREFLIGHT_AND_RESTRICTED_FILE_ALLOWLIST",
+    "phase3b_source_work_after_merge": "SOURCE_ONLY_AUTHORIZED; START_WITH_PHASE3B-00_READ_ONLY_PREFLIGHT; NO_SOURCE_WRITES_UNTIL_GIT_ALLOWLIST_PRECHECK_PASS",
     "production_mutation_authorized": false,
     "phase4_authorized": false,
-    "product_release_certified": false
+    "product_release_certified": false,
+    "fz11_verified_merge_commit_sha": "b9390a06ebc5db5377059a99109d59fea092cccb",
+    "fz11_verified_merge_at_utc": "2026-10-09T05:43:28Z"
   },
   "sources": {
     "documentation_main_reviewed": "bf6aa64c5038aebcb13f4c0fff86dea047276de6",
@@ -295,8 +297,9 @@
   "phase3b_activation_gates": [
     {
       "id": "A-01",
-      "status": "PENDING_DOCS_PR_MERGE",
-      "test": "FZ11 final receipt merged to main; record full merged SHA"
+      "status": "PASS_PR6_MERGED",
+      "test": "FZ11 final receipt merged to main; record full merged SHA",
+      "verified_merge_sha": "b9390a06ebc5db5377059a99109d59fea092cccb"
     },
     {
       "id": "A-02",
@@ -326,5 +329,11 @@
     "phase4_production_authorized": false
   },
   "historical_test_evidence": "Phase 2D reported accepted baseline tests in older records; not rerun or promoted to product certification in FZ-11",
-  "safe_next_command": "After merge, start fresh read-only BE/FE/docs SHA/status discovery and 3B-01 API/OpenAPI design breakdown; no code before preflight and review"
+  "safe_next_command": "After merge, start fresh read-only BE/FE/docs SHA/status discovery and 3B-01 API/OpenAPI design breakdown; no code before preflight and review",
+  "postmerge_activation_receipt": {
+    "document": "lms/reltroner-lms-phase3a-fz11-postmerge-activation-20261009.md",
+    "machine_record": "lms/reltroner-lms-phase3a-fz11-postmerge-activation-20261009.json",
+    "frozen_event_merge_sha": "b9390a06ebc5db5377059a99109d59fea092cccb",
+    "phase3b_preflight_pending": true
+  }
 }
