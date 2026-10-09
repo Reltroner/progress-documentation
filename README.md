@@ -1,5 +1,7 @@
 # Reltroner — Engineering Progress Documentation
 
+> **Reltroner LMS current engineering entry point:** [LMS canonical AI navigation, source-of-truth precedence and latest phase snapshot](./lms/README.md). The LMS Phase 0C/1 frozen contracts outrank that navigational snapshot.
+
 ```
 Table of Contents
 - Purpose of This Repository
