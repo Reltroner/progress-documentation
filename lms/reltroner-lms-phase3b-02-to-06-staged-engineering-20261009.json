@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "record_id": "LMS-3B02-06-STAGED-ENGINEERING-20261009",
+  "owner_instruction": "3B-01 — Contract baseline diterima. kemudian lakukan 3B-02 sampai 3B-06 — Engineering bertahap",
+  "phase3A_frozen": true,
+  "phase3B00_accepted": true,
+  "phase3B01_contract_only_accepted": true,
+  "source_main_merge_authorized": false,
+  "holistic_merge_hold_doc": "lms/reltroner-lms-phase3-holistic-source-merge-hold-20261009.md",
+  "source_baseline": {
+    "docs": "a6879eb23de2188c2d966766901c80620eeff4b1",
+    "BE": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "FE": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+    "FZ11": "b9390a06ebc5db5377059a99109d59fea092cccb"
+  },
+  "work_branches": [
+    {
+      "id": "3B-02",
+      "repo": "LMS-BE",
+      "branch": "phase3b/02-identity-internal-trust-20261009",
+      "head": "38922061080c1c59f8919126639f7012642b3c91",
+      "pr": 7,
+      "url": "https://github.com/Reltroner/LMS-BE/pull/7",
+      "base": "32f08586cba9b19a6a77c8a43967d2e14540591b",
+      "checks": [
+        "B3-AC05",
+        "B3-AC06",
+        "B3-AC07",
+        "B3-AC08"
+      ],
+      "scope": "PKCE, issuer/audience/client, signed workload delegation proposal, 17 synthetic token/delegation fixtures",
+      "status": "DESIGN_MODEL_CANDIDATE; real crypto algorithm/replay verification hard gate open"
+    },
+    {
+      "id": "3B-03",
+      "repo": "LMS-BE",
+      "branch": "phase3b/03-persistence-events-20261009",
+      "head": "2de1e5a9ca3b274bae7fdd6c993852008a98ea56",
+      "pr": 8,
+      "url": "https://github.com/Reltroner/LMS-BE/pull/8",
+      "base": "38922061080c1c59f8919126639f7012642b3c91",
+      "checks": [
+        "B3-AC09",
+        "B3-AC10",
+        "B3-AC11",
+        "B3-AC12"
+      ],
+      "scope": "four DB owner/schema candidates, nine semantic event versioned envelopes, outbox/inbox, booking and admin intent/reconciliation model",
+      "status": "SCHEMA_MODEL_CANDIDATE; no live DB grants/transactions/migrations"
+    },
+    {
+      "id": "3B-04",
+      "repo": "LMS-FE",
+      "branch": "phase3b/04-catalog-privacy-20261009",
+      "head": "6d09117aff99b90facd515c493aa53f0a87c8d4a",
+      "pr": 1,
+      "url": "https://github.com/Reltroner/LMS-FE/pull/1",
+      "base": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+      "checks": [
+        "B3-AC13",
+        "B3-AC14",
+        "B3-AC15",
+        "B3-AC16"
+      ],
+      "scope": "stable IDs for 31 MDX, manifest/publication control, registry and mock negative scanner, Studio rights policy",
+      "status": "SOURCE_CANDIDATE; actual stricter published course/path/resource guards in stacked FE 3B05"
+    },
+    {
+      "id": "3B-05",
+      "repo": "LMS-BE",
+      "branch": "phase3b/05-contract-ci-20261009",
+      "head": "472046b6f124f413247a516e28ad4867bac53b93",
+      "pr": 9,
+      "url": "https://github.com/Reltroner/LMS-BE/pull/9",
+      "base": "2de1e5a9ca3b274bae7fdd6c993852008a98ea56",
+      "checks": [
+        "B3-AC17",
+        "B3-AC19",
+        "B3-AC20"
+      ],
+      "scope": "GitHub Actions seven-job six-service locked composer+native contract runner",
+      "status": "CI_ACTUALLY_GREEN_AT_3B05_SHA",
+      "ci": {
+        "sha": "472046b6f124f413247a516e28ad4867bac53b93",
+        "url": "https://github.com/Reltroner/LMS-BE/actions/runs/37946240319",
+        "jobs_green": 7
+      }
+    },
+    {
+      "id": "3B-05",
+      "repo": "LMS-FE",
+      "branch": "phase3b/05-fe-privacy-ci-20261009",
+      "head": "63edbd171f7fe5e04d4c2223820234e5e8663db4",
+      "pr": 2,
+      "url": "https://github.com/Reltroner/LMS-FE/pull/2",
+      "base": "6d09117aff99b90facd515c493aa53f0a87c8d4a",
+      "checks": [
+        "B3-AC18",
+        "B3-AC19",
+        "B3-AC20"
+      ],
+      "scope": "Node22 npm locked CI, actual Next export, public staging + course/path/resource allowlists, draft privacy scanner",
+      "status": "LATEST_CI_PENDING_ON_CURRENT_SHA; PREVIOUS_TITLE_METADATA_LEAK_CAUGHT_AND_BLOCKED",
+      "ci": {
+        "latest_sha": "63edbd171f7fe5e04d4c2223820234e5e8663db4",
+        "latest_run": "https://github.com/Reltroner/LMS-FE/actions/runs/37948406211",
+        "latest_conclusion": "PENDING",
+        "previous_failed_run": "https://github.com/Reltroner/LMS-FE/actions/runs/37946793852",
+        "failure": "draft course-resource metadata contained in public JS chunk; remediation branch source-only"
+      }
+    },
+    {
+      "id": "3B-06",
+      "repo": "LMS-BE",
+      "branch": "phase3b/06-consumer-provider-negatives-20261009",
+      "head": "f43c91de8150d2ad22de61154f9ec9391f1548df",
+      "pr": 10,
+      "url": "https://github.com/Reltroner/LMS-BE/pull/10",
+      "base": "472046b6f124f413247a516e28ad4867bac53b93",
+      "checks": [
+        "B3-AC21",
+        "B3-AC22",
+        "B3-AC23",
+        "B3-AC24"
+      ],
+      "scope": "26/19/9 golden v1 consumer/producer snapshot, operation/client/principal/ACL negative policy models, event duplicate/reorder/rollback, release attestation rejection",
+      "status": "STATIC_MODEL_AND_7_BACKEND_CI_JOBS_GREEN; REAL_PROVIDER_COMPATIBILITY_PENDING",
+      "ci": {
+        "sha": "f43c91de8150d2ad22de61154f9ec9391f1548df",
+        "url": "https://github.com/Reltroner/LMS-BE/actions/runs/37946756843",
+        "jobs_green": 7
+      }
+    }
+  ],
+  "all_pull_requests_draft_except_existing_PR2": true,
+  "source_main_mutation_performed": false,
+  "production_mutation_authorized": false,
+  "semantic_lock": {
+    "operations": 26,
+    "capabilities": 19,
+    "events": 9,
+    "databases": 4,
+    "invariants": 44
+  },
+  "acceptance": {
+    "B3AC05_08": "IDENTITY_MODEL_FIXTURES_CI_PASS_CRYPTOGATE_NOT_FULFILLED",
+    "B3AC09_12": "PERSISTENCE_EVENT_SCHEMA_MODEL_PASS_NO_LIVE_POSTGRES",
+    "B3AC13_16": "CATALOG_MODEL_CI_REQUIRES_FINAL_PUBLIC_PRIVACY_NEGATIVE_PASS",
+    "B3AC17": "BE_6_SERVICES_CI_PASS_AT_PINNED_SHA",
+    "B3AC18": "FE_LATEST_SHA_CI_PENDING",
+    "B3AC19": "PARTIAL_MODEL_MUTATION_TESTS; FULL_CI_NEGATIVE_MUTATION_REQUIRED",
+    "B3AC20": "CI_ENV_NONPRODUCTION_DESIGN_PASS_NO_LIVE_PROD",
+    "B3AC21_24": "MODEL_COMPATIBILITY_NEGATIVE_PASS_REAL_PROVIDER_NOT_RUN",
+    "B3AC25_28": "NOT_STARTED_PHASE3B07"
+  },
+  "source_test_claims": [
+    "Backend six-service and PHP contract CI actually green 7/7 jobs on f43c91de",
+    "FE earlier build success at c4d38978, stricter privacy caught draft resource metadata leak; latest c8e8 CI pending",
+    "No real signed JWT crypto, no real DB migration/outbox loss test, no live provider HTTP, no production"
+  ],
+  "next_gates": [
+    "Await latest FE 3B05 published-only negative output run PASS or fix source exposure",
+    "Select cryptographic trust algorithms/key distribution signed ADR; test real signed tokens in nonprod before claiming B3AC07 full",
+    "Define real isolated Postgres grants/transaction fixtures for B3AC09..12, no prod mutations",
+    "Run versioned negative consumer/provider isolated transport tests and CI mutation cases",
+    "Phase 3B07 snapshot with 28/28 evidence then owner full source merge signoff"
+  ],
+  "source_pr_merge_hold_enabled": true
+}
