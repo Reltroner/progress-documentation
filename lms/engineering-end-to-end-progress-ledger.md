@@ -1157,3 +1157,20 @@ Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-ph
 **Governance:** 28/28 Phase 3B nonproduction scoped dispositions accepted (27 scoped including GOV-WVR-001 + 1 trace), 44/44 invariant IDs tracked; GitHub `main` branch protection still `false` under explicit owner Phase3 waiver; Phase 4 and production **NOT AUTHORIZED**.
 
 **Checkpoint:** `PHASE3 ENGINEERING OWNER ACCEPTED → BE/FE SOURCE MAIN MERGED → TREE EQUALITY PASS → PUSH MAIN CI BE7/7+FE2/2 GREEN → LOCAL PS5.1 PENDING → PHASE4 HOLD`.
+
+
+---
+
+## 35. Local Windows PowerShell 5.1 validation and Contentlayer CRLF isolation (2026-10-10)
+
+**The owner supplied three sequential local operator transcripts** following Phase3 authorized BE/FE `main` merges and 9/9 successful GitHub Actions jobs. An append-only [human audit receipt](./reltroner-lms-phase3-local-windows-powershell-isolation-receipt-20261010.md) and [machine-readable scoped evidence](./reltroner-lms-phase3-local-windows-isolation-evidence-20261010.json) preserve the observed classifications without making new production or Phase4 claims.
+
+**Environment initial remediation:** Local PHP 8.4.4 had no loaded Sodium, causing the first validation script to stop before tests. User found the bundled `php_sodium.dll` and `libsodium.dll`, backed up `php.ini`, enabled the extension and verified `sodium support => enabled`. Both exact source SHAs remained `BE main a2672d0085fe84b55520f8f52f41a8c7fc8568a0` and `FE isolated main cc3d9c132d293058c0ff37c93ef4b3ab5547ad34`. Original dirty FE checkout preserved.
+
+**Local backend PASS:** 7 PHP contract harness syntax checks; 255/255 Phase3B synthetic/contract/mock assertions; independently, 6 Laravel services `composer validate/install` and PHPUnit **100 tests / 725 assertions PASS**. Synthetic `testing.ERROR: SENSITIVE_INTERNAL_MESSAGE_SHOULD_NEVER_LEAK` occurs inside deliberate 500 negative-path suites that still report PASS, not a real PHPUnit failure.
+
+**Frontend partial/default build FAIL, controlled workaround PASS:** 9 catalog privacy tests PASS; normal Windows `npm run build` passes tsc/lint/content/resource/orphan but Contentlayer rejects all 3 public MDX with `YAMLParseError`, generates 0 documents and Next.js fails with misleading `generateStaticParams()` diagnosis. A controlled, SHA-guarded experiment observed Windows checkout CRLF (39/31/31, LF-only 0/0/0), restaged **3 published of 31 registered** source lessons, converted **ONLY three Git-ignored `.public-content` staged copies** to LF, and re-ran Contentlayer → **3 documents** then `next build --webpack` → **25/25 static pages** and `node scripts/phase3b-catalog.mjs --verify-out` → **PASS** with original manifest SHA256 `1dfecfddc97ce1676a719b1538e2d12d17a40c77f51370951dcf69e634b86e43`. Local verification worktree remained clean. Contentlayer **still prints an internal `ERR_INVALID_ARG_TYPE` stack trace** after generating three documents; the helper proceeded but the CLI is not certifiably clean. **Default Windows `npm run build` remains not GREEN; do not claim full standard-Windows CI parity.**
+
+**Impact on frozen architecture:** No source repo changed, no postmerge additional commit, no production change or Phase4 authorization, no modification of 28/28 owner-approved Phase3B scoped gate status or 44 invariant trace-only scope. If owner later authorizes a new FE portability hardening work order, proposed deterministic source-level remediation is LF normalization **only in ignored publish-allowlisted Contentlayer staging**, plus CRLF/LF test fixtures, Linux + Windows verification, separate Contentlayer/Clipanion `ERR_INVALID_ARG_TYPE` triage; no implicit source work authorized by this local log.
+
+**Checkpoint:** `PHASE3 MAIN MERGE CI GREEN → PHP SODIUM FIXED → LOCAL BE PASS 255 CONTRACT + 100 LARAVEL/725 ASSERTIONS → FE 9 CATALOG PASS → NORMAL WIN BUILD FAIL CRLF → CONTROLLED LF STAGING GENERATED 3/3 AND NEXT STATIC 25/25 + PRIVACY PASS → CONTENTLAYER CLI ERROR REMAINS → NO SOURCE CHANGES → PHASE4 HOLD`.
