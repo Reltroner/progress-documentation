@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 OPERATIONAL OVERLAY — READ BEFORE OLDER ROADMAP TEXT:** As of Phase **3A-04** the review of 3A-03A..03F and the **ratification/freeze-readiness assessment** are complete at **DESIGN REVIEW** level, but **not owner-ratified**, **not FROZEN**, and Phase **3B is not authorized**. Older ledger phrases "Phase 3A NEXT/NOT STARTED" are **historical snapshots**, not current live status. New canonical review: [Phase 3A-04](./reltroner-lms-phase3a-04-ratification-freeze-readiness-20261009.md); machine record: [3A-04 decisions](./reltroner-lms-phase3a-04-ratification-register-20261009.json). All 20 physical + 24 logical frozen invariants remain unchanged.
+> **CURRENT 2026-10-09 OWNER RATIFICATION OVERLAY — READ FIRST:** Phase **3A-04** has **12/12 ADR-03F architectural directions explicitly ACCEPTED by the project owner** on 2026-10-09. Creator uploads/submissions/grading/mentor artifact review and paid finance are **DEFERRED from initial v1** by accepting the corresponding recommendations. This does **NOT** ratify all subordinate detailed Identity/Persistence/Catalog ADRs, freeze Phase 3A in its entirety, authorize Phase 3B implementation, or authorize production mutation. Older entries "Phase 3A NEXT/NOT STARTED" and "owner ratification pending" are *dated history*, not current status. Current: [3A-04 ratification board](./reltroner-lms-phase3a-04-ratification-freeze-readiness-20261009.md) and [machine receipt](./reltroner-lms-phase3a-04-ratification-register-20261009.json). Both frozen Phase 0C/Phase 1 contracts remain unchanged.
 
 ---
 
@@ -610,3 +610,41 @@ When moving to a new AI, share links to the **three canonical LMS docs**, pinned
 **`3A-04 REVIEW COMPLETE / PHASE 3A DESIGN FREEZE HOLD / OWNER RATIFICATION REQUIRED / PHASE 3B NOT AUTHORIZED`.**
 
 Do not promote old test counts into current product DoD. No Phase 3A work has provisioned LMS Keycloak clients, production DB, domain API, worker or canonical catalog. All 16 global product DoD items remain pending except partial Phase 2D foundation evidence under DOD-02. No production mutations, frontend/backend source writes or additional spending are authorized by this documentation update.
+
+---
+
+## 16. Owner decision receipt — Phase 3A-04 (2026-10-09)
+
+**New authoritative checkpoint over the historical Phase 3A-04 REVIEW HOLD snapshot:** The project owner explicitly said **"aku menerima 12 rekomendasi ADR"** on 2026-10-09 Asia/Jakarta. **Acceptance recorded for ADR-03F-01..ADR-03F-12 (12/12)** as architecture-direction decisions, *not* for every KC-001/PD-ADR/Catalog implementation detail.
+
+**GitHub documentation state at decision:** docs-only [PR #1](https://github.com/Reltroner/progress-documentation/pull/1) had already been **merged into `main`** at `5fbad07e495cbcedbffe94464503be19abd80563`; 13 files existed under `lms/`. The current ratification changes are being reviewed in `docs/phase3a-04-owner-ratification-20261009` until PR merge, not presumed to be on `main`.
+
+### 16.1 Ratified directions
+
+| Accepted ADR IDs | What is binding at direction level | Explicit implementation gate |
+|---|---|---|
+| `ADR-03F-01..04` | Preserve Studio canon vs LMS ownership, public publication filter, stable lesson IDs/revision, rights-attested references | Catalog schema/FE public-output negative tests, historical progress compatibility |
+| `ADR-03F-05` | Authenticated approved Git-release → Knowledge ingestion trigger; Knowledge owns durable index jobs/events | 3B protocol/trust spec, Phase 8 ingestion/ACL tests |
+| `ADR-03F-06` | **DEFER** persisted learner-created projects, journals, submissions, grading, mentor file reviews from v1 | New product approval/versioned API/privacy/storage ADR before scope expansion |
+| `ADR-03F-07` | **DEFER** payment ledger, paid entitlements and subscriptions from six-service v1 | Separate commercial/finance design; not Mentorship booking authority |
+| `ADR-03F-08` | Internal caller workload authentication **AND** short-lived signed, scoped principal delegation; no localhost/header trust | Specific cryptographic assertion, rotation, replay, negative fixtures before private service implementation |
+| `ADR-03F-09` | Durable Audit intent and verified Keycloak result/reconciliation; never fictitious global transaction | Admin role-mutation protocol and failure testing before Phase 6 |
+| `ADR-03F-10` | Preserve original combined evidence; standalone canonical docs + dated living-ledger statuses | PR #1 merged; ratification diff still PR pending |
+| `ADR-03F-11` | No new public route; authenticated-first `GET /mentorship/availability` booking-oriented, `admin.learning.*` reserved until operation exists | Exact capability matrix and E2E tests in 3B/7 |
+| `ADR-03F-12` | Existing low-cost VPS / PostgreSQL FTS / Redis transient transport + durable outbox / external LLM, bounded workers | Measure production resource/cost/restore before deployments |
+
+### 16.2 Updated gates
+
+- `FZ-03`: **PASS** — 12/12 ADR directions explicitly accepted by project owner.
+- `FZ-05`: **PASS** — scope BR-07/08/09 deferred and BR-10 financial scope deferred.
+- `FZ-06`: **PASS DIRECTION** — public-only deny-by-default release policy accepted; real FE build negative tests **NOT EXECUTED**.
+- `FZ-07`: **PASS DIRECTION** — internal trust, Knowledge ingest and Keycloak/Audit reconciliation architecture accepted; specific protocol/crypto schema/tests remain mandatory implementation blockers.
+- `FZ-09`: **PASS** for documentation normalization PR #1 merged; ratification record PR requires separate review/merge.
+- `FZ-04`: **OPEN** — detailed Identity KC-001, Persistence PD-ADR and Catalog candidate dispositions must be explicitly accepted or bounded to later phases.
+- `FZ-10`: **OPEN** — separate Phase 3B scope/entry/exit and implementation authorization.
+- `FZ-11`: **PARTIAL** — user signed all 12 direction-level ADRs, **NOT a final Phase 3A freeze acceptance record**.
+
+**Operational status:** `3A-04 ADR-03F 12/12 OWNER ACCEPTED → PHASE 3A FINAL DESIGN FREEZE HOLD → PHASE 3B NOT AUTHORIZED`.
+
+**What was NOT done:** no changes to Phase 0C/1 normative invariant text, LMS-BE/LMS-FE, Studio source, Keycloak, VPS, PostgreSQL, Redis, frontend deployment, cost plans or production tokens. No domain runtime/CI suite executed as part of this owner ratification.
+
