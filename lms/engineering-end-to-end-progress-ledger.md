@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 PHASE 3B CENTRAL CANDIDATES OWNER-APPROVED — READ FIRST:** Project owner APPROVED the existing [LMS-BE central DRAFT PR #11](https://github.com/Reltroner/LMS-BE/pull/11) at `f43c91de8150d2ad22de61154f9ec9391f1548df`, [LMS-FE central DRAFT PR #3](https://github.com/Reltroner/LMS-FE/pull/3) at `3ee0ee0285388f0489016d1689d2ea2ae899dd97`, and existing `progress-documentation/main@76b2690220c459d4f67d848767d6c383f6a14e25` (merged documentation PR #12). Approval means **acceptance of the current cumulative non-production Phase 3 source candidate for ongoing 3B-07 review**, **NOT permission to merge to application `main`**. Both source PRs stay **DRAFT OPEN NOT MERGED**, app `main` remains FZ-11 frozen; BE [CI SUCCESS](https://github.com/Reltroner/LMS-BE/actions/runs/37950916475), FE [CI SUCCESS](https://github.com/Reltroner/LMS-FE/actions/runs/37951012017). All `B3-AC01..28` final evidence and 44 frozen invariant holistic review remain required. GitHub rejected official self-APPROVE review (own PR); approval instead recorded in each PR conversation. 3B-07 **NOT CERTIFIED**, no Phase 4/production authority. [Latest owner decision receipt](./reltroner-lms-phase3b-central-candidate-owner-approval-20261009.json). Earlier ledger text about old subphase PRs or older SHA is historical.
+> **CURRENT 2026-10-09 PHASE 3B-07 HOLISTIC AUDIT COMPLETED / FINAL EXIT HOLD — READ FIRST:** FZ-11 architecture remains FROZEN. User-approved central candidate snapshots were independently audited: **LMS-BE DRAFT PR #11 HEAD `f43c91de8150d2ad22de61154f9ec9391f1548df`** and **LMS-FE DRAFT PR #3 HEAD `3ee0ee0285388f0489016d1689d2ea2ae899dd97`**, both `main` unchanged. Evidence: BE seven-job CI SUCCESS with **22 API + 22 identity + 30 persistence + 19 compatibility static/model checks** and six Laravel test jobs; FE two-job CI SUCCESS with 8/8 catalog fixtures, build and public-output scanner. **FZ-10 28 gates audited: 13 PASS_SCOPED, 1 PASS_TRACE_ONLY, 13 PARTIAL_EVIDENCE, 1 BLOCKED.** **FZ-02 44/44 design invariants mapped** (20 physical + 24 logical), **0/44 newly runtime certified**. **14 gaps/risks** include postmerge-main CI push trigger absent, both mains `protected:false`, pending crypto trust ADR, weak fixture ID↔expected replay assertions, provenance hash-format-only checks, incomplete FE text asset scanning and provider compatibility mocks. **Phase 3B-07 audit is complete but FINAL 3B EXIT IS HOLD; DO NOT MERGE SOURCE.** 3B-07 still needs reviewed remediation + full 28 acceptance + separate explicit owner final source-merge sign-off. Do not authorize Phase 4/prod. [Holistic audit](./reltroner-lms-phase3b-07-holistic-end-to-end-audit-20261009.md), [28-gate JSON](./reltroner-lms-phase3b-07-acceptance-28-gate-audit-20261009.json), [44-invariant JSON](./reltroner-lms-phase3b-07-44-invariant-evidence-crosswalk-20261009.json), [14-risk register](./reltroner-lms-phase3b-07-risk-remediation-register-20261009.json). Previous timeline sections are historical.
 
 ---
 
@@ -1000,3 +1000,37 @@ The documentation SHA belongs to `Reltroner/progress-documentation`, **not** LMS
 Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-phase3b-central-candidate-owner-approval-20261009.json).
 
 **Checkpoint:** `3A FROZEN → 3B01 CONTRACT APPROVED → 3B02..06 CENTRAL CI GREEN → OWNER APPROVED CURRENT PR #11 + #3 CANDIDATES AND DOCS SHA → 3B07 HOLISTIC REVIEW PENDING → APP SOURCE MAIN MERGE HOLD`.
+
+---
+
+## 28. Phase 3B-07 — Comprehensive SHA-pinned integrated audit, exit HOLD (2026-10-09)
+
+**Project-owner work order:** independently audit both approved central Phase 3 source snapshots end-to-end, inspect 28 FZ-10 acceptance checks and all 44 FROZEN 0C/1 invariants, and classify unresolved engineering gaps. **No source or production writes authorized by this audit**.
+
+| Scope | Observed evidence and disposition |
+|---|---|
+| Frozen architecture baseline | FZ-11 merge `b9390a06ebc5db5377059a99109d59fea092cccb`; 20 physical + 24 logical parent invariants unchanged |
+| Backend source | [DRAFT PR #11](https://github.com/Reltroner/LMS-BE/pull/11) at `f43c91de8150d2ad22de61154f9ec9391f1548df`, `main` remains `e30a61780994d85671cbf079e6b9ce899b3fe837` |
+| Frontend source | [DRAFT PR #3](https://github.com/Reltroner/LMS-FE/pull/3) at `3ee0ee0285388f0489016d1689d2ea2ae899dd97`, `main` remains `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` |
+| Backend CI | [Green seven-job run](https://github.com/Reltroner/LMS-BE/actions/runs/37950916475), six service PHPUnit and 93 separate contract/model assertions |
+| Frontend CI | [Green two-job run](https://github.com/Reltroner/LMS-FE/actions/runs/37951012017), 8/8 catalog tests, Next/static privacy build |
+| 28 FZ-10 acceptance rows | **13 PASS_SCOPED**, **1 PASS_TRACE_ONLY**, **13 PARTIAL_EVIDENCE**, **1 BLOCKED**; NOT 28/28 PASS |
+| 44 physical/logical invariants | **44/44 DESIGN TRACE**, original parent SHA blobs match, **0/44 newly runtime-certified** |
+| Identified risks | **14** distinct items; 4 classified P0-type including final sign-off gate; separated Phase 3 improvements from Phase 4–12 runtime deferrals |
+| Source GitHub branch rules | Both main branches `protected:false`; no intentional ruleset mutation performed |
+| Postmerge CI | Existing `push` triggers only `phase3b/**`, not `main`; **postmerge main CI must be fixed and later observed on merged SHAs** |
+| Final 3B-07 closure | **HOLD** pending evidence hardening, full 28 FZ10 gate satisfaction and distinct owner final sign-off |
+
+### 28.1 Highest-priority source gaps
+
+1. **P0 merge safety:** enforceable GitHub branch protection and `push` CI covering `main`; currently no branch protection and postmerge CI trigger absent.
+2. **P0 trust contract:** cryptographic algorithm/JWKS/rotation/skew/TTL/nonce storage must be ratified; identity tests only exercise synthetic booleans, not signed JWT/assertions.
+3. **P1 test meaning:** 3B-03 replay/outbox/bookings fixtures map fixed ID→expected strings; replace with executable deterministic state transition/fault models.
+4. **P1 privacy/provenance:** FE output scanner excludes some public readable extensions; Studio/Knowledge attestation checks validate **hash syntax**, not actual source-digest equality or signed rights.
+5. **P1 compatibility:** 3B-06 golden route/cap/event comparisons pass but no executable HTTP mock provider/consumer JSON DTO compatibility and systematic CI mutation failure proofs.
+
+**Runtime deferrals are not accidentally converted into Phase 3 'FAIL'.** Real Keycloak, PG transaction/race, Knowledge rights, private search, business providers and deployed network testing are separately Phase 4–12 gates. Phase 3B exit still needs fully satisfied *nonproduction* contract/CI requirements and a new owner source-merge decision.
+
+**Detailed auditable artifacts:** [human 28+44 full report](./reltroner-lms-phase3b-07-holistic-end-to-end-audit-20261009.md), [28 machine acceptance](./reltroner-lms-phase3b-07-acceptance-28-gate-audit-20261009.json), [44 exact invariants](./reltroner-lms-phase3b-07-44-invariant-evidence-crosswalk-20261009.json), [14-risk remediation register](./reltroner-lms-phase3b-07-risk-remediation-register-20261009.json).
+
+**Current checkpoint:** `PHASE 3A FROZEN → 3B-00 ACCEPTED → 3B-01 CONTRACT-ONLY ACCEPTED → 3B-02..06 CI GREEN CANDIDATES → 3B-07 AUDIT COMPLETE / FINAL EXIT HOLD → FIX REQUIRED STATIC GAPS → RE-RUN & RE-PIN SHAS → NEW OWNER MERGE SIGN-OFF → SOURCE MAIN MERGE (NOT NOW)`. Phase 4 and production remain NOT AUTHORIZED.
