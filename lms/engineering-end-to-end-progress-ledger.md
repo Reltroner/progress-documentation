@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 FZ-10 CONDITIONAL WORK ORDER APPROVAL — READ FIRST:** Project owner accepted ADR-03F 12/12, FZ-04 subordinate decisions 18/18 and FZ-02 44/44 invariants design traceability. **FZ-10 Phase 3B entry/exit plan is now OWNER APPROVED, CONDITIONAL on explicit FZ-11 final Phase 3A freeze and documentation merge.** 7 staged work packages, 26 frozen operations, 19 capabilities, nine events and 28 unexecuted test requirements are defined. **No Phase 3B coding is executable yet.** No LMS-BE/FE source change, Keycloak/VPS/DB/prod mutation or Phase 4 permission is granted. Prior FZ-10 PENDING/FZ-11 OPEN statements below are historical until amended by signed future receipt. Read [FZ-10 owner work order](./reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md) and [machine work package register](./reltroner-lms-phase3a-04-fz10-phase3b-work-order-20261009.json).
+> **CURRENT 2026-10-09 FZ-11 FINAL DESIGN FREEZE OWNER ACCEPTANCE — READ FIRST:** Owner has explicitly accepted **FZ-11 final Phase 3A architectural design freeze**, on top of approved FZ-01..10 decisions: 44/44 frozen invariants traced, 12/12 parent ADR directions accepted, 18/18 bounded subordinate decisions, 7 Phase 3B contract/CI packages and 28 future acceptance tests. FZ-11 receipt is [here](./reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md), machine freeze manifest [here](./reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json). **EFFECTIVE IN MAIN ONLY ON REVIEW/MERGE OF FZ-11 PR + FINAL COMMIT SHA PIN.** After merge, Phase 3B **nonproduction source-only** work under FZ-10 can begin **only after fresh clean BE/FE Git/allowlist preflight**. Production Keycloak/VPS/PG/Redis/DNS/TLS/Cloudflare remains NOT AUTHORIZED. FZ-10, FZ-02 and historical NEXT/NOT RATIFIED/NOT FROZEN text below is dated history, superseded only for current design decision status. Implementation/runtime and all 16 product DoD release certification remain PENDING.
 
 ---
 
@@ -733,3 +733,42 @@ Source of decision truth:
 - 26 public API families, 19 capability names, 9 event names, 4 logical database owners and 44 frozen invariants must remain identical unless new signed change control is approved.
 
 **Checkpoint:** `FZ-10 WORK ORDER APPROVED CONDITIONALLY → FZ-11 FINAL 3A FREEZE PENDING → PHASE 3B NOT EXECUTABLE YET`.
+
+---
+
+## 20. FZ-11 — Phase 3A Final Design Freeze Acceptance Record (owner signed 2026-10-09)
+
+**User owner explicitly instructed:** `FZ-11 — Phase 3A Final Design Freeze Acceptance Record.` This approves final **design architecture** subject to merged documentation, not code/runtime rollout, new domain scope or unreviewed infrastructure mutation.
+
+### 20.1 Signed baseline
+
+| Source | SHA / blob at owner FZ-11 acceptance |
+|---|---|
+| `progress-documentation` main pre-freeze | `bf6aa64c5038aebcb13f4c0fff86dea047276de6` (PR #5 FZ-10 merged) |
+| `LMS-BE` main | `e30a61780994d85671cbf079e6b9ce899b3fe837` |
+| `LMS-FE` main | `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` |
+| `reltroner-studio` main | `f7b6e6c73fcd81c945524cb81602d2984c6b4720` |
+| Placement contract file blob (20 I) | `b899761c9e833f9fa567055801b9ba0834ed56eb` |
+| Logical/API contract file blob (24 P1-I) | `cf089b8df4b5ccb1761b504ffae662a0053bf03e` |
+
+Signed documents: [FZ-11 Final Design Freeze Receipt](./reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md) and [machine-readable FZ-11 freeze manifest](./reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json). Pre-freeze base SHA above is an observed source baseline, **not** an invented final freeze-merge SHA.
+
+### 20.2 Exact accepted boundaries
+
+- **FZ-01..10**: source evidence, 44-invariant traceability, 12 ADR parent directions, 18 subsidiary ADR dispositions, v1 exclusions, publication/security architecture and FZ-10 scope already owner accepted; FZ-11 signs their **combined final architecture**.
+- **6 independent services, 26 public operations, 19 capability names, 9 event names, 4 owned logical DBs, 44 binding invariants** remain unchanged. Studio published-canon authority separated from LMS static course authority; no cross-service direct DB writes.
+- **Defer v1** creator uploads/journals/submissions/grading/mentor file review, payments/entitlements, Studio canonical editorial CMS, guest AI and unapproved paid infra.
+- **Open with explicit hard gates:** exact Keycloak client settings and live effective claims; workload+delegation cryptography; audit↔Keycloak reconciliation; PostgreSQL/Redis schema/outbox/booking tests; permanent ID migration/manifest/public privacy; Studio source rights/Knowledge ACL; shared VPS cost/capacity, backups/restore, frontend deployed negative builds.
+
+### 20.3 Freeze activation, code authorization and exit
+
+1. Owner freeze acceptance has been recorded on branch `docs/phase3a-fz11-final-design-freeze-20261009`. **Review/merge this documentation PR into main** and pin its actual resulting merge SHA; until then final Phase 3A freeze is **OWNER SIGNED / PENDING MAIN MERGE**.
+2. On merge, Phase 3A design is **FROZEN**. FZ-10 **nonproduction source-only** work order becomes executable under new 3B feature branches only after fresh BE/FE `git status`, local/remote SHA comparison, per-task file allowlist and test plan; no blind mutation.
+3. Phase 3B exit must observe real **28/28 B3-AC** test passes with reproducible CI/evidence, owner exit certification; Phase 4 production change window remains a **separate** explicit authorization.
+4. **DOD-01..16 full product release certification** is not completed by design freeze. No 3B test or production integration was run during FZ-11.
+
+### 20.4 Change control and AI handoff
+
+Frozen contract changes require a versioned impact ADR, owner approval, 44-invariant re-trace, and explicit compatibility/rollback; do not rewrite archival accepted records. AI handoff reading order: this latest ledger overlay → FZ-11 receipt → Phase 0C/Phase 1 FROZEN → FZ-02/03/04 owner register → FZ-10 3B work order → current Git repos/CI state.
+
+**Latest checkpoint (branch):** `FZ-11 OWNER SIGNED → REVIEW/MERGE DOCS PR → 3A DESIGN FROZEN IN MAIN → 3B SOURCE-ONLY PRECHECK → PHASE 4 PRODUCTION NOT AUTHORIZED`.
