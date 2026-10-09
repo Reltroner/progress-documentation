@@ -11,6 +11,31 @@
 
 ---
 
+## Current engineering placement addendum — 2026-10-09 (non-normative status overlay)
+
+> **Historical versus current:** The original 2026-10-07 Phase 0C contract remains **FROZEN**. Its `Phase 1 — NEXT` table entry and “implementation blocked” text describe **Phase 0C entry conditions at the time of its freeze**, not current backend progress. Keep all **20** infrastructure invariants I-01..I-20 binding; never mistake a later source-code merge for production placement certification.
+>
+> **Living operational register:** [End-to-End Engineering Progress Ledger](./engineering-end-to-end-progress-ledger.md). Phase 1's service/API contract is [Logical Service Boundary & API Contract](./logical-service-boundary-api-contract.md). Contract precedence remains unchanged.
+
+### Backend progress since the 2026-10-07 placement freeze
+
+- Logical service/API Phase 1 is **FROZEN**. Six Laravel `13.35.0` backend applications have been accepted as Phase 2D foundation and merged into `Reltroner/LMS-BE/main` at **`e30a61780994d85671cbf079e6b9ce899b3fe837`**; pre-merge freeze **`56913175208bc49b4ebbf00fd889eccf1edf03e0`**. See [PR #1](https://github.com/Reltroner/LMS-BE/pull/1).
+- Acceptance covered **283 source files**, **100 tests/725 assertions**, **6/6 HTTP boundary probes** and **6/6 locked Composer security audits**. It **did not** deploy those applications to the VPS or verify live DNS/TLS/process/DB runtime.
+- **Production implementation still gated:** `lms-api.reltroner.com` ingress, `lms-admin.reltroner.com` independent Pages deployment, `assets.reltroner.com` asset-origin rollout, per-service private Nginx/PHP-FPM/systemd bindings, four LMS PostgreSQL DBs and DB users, Redis workers/outbox, Keycloak LMS audience/client cutover, production secret handling, monitoring/backup recovery. None of these is made safe merely by passing health checks locally.
+- The existing Hostinger VPS, Keycloak, PostgreSQL, Redis, HRM workloads and Cloudflare routing **must be freshly read-only checked before mutation**, because `6` facts are a 2026-10-07 discovery snapshot, not a guarantee of today's capacity or exact runtime.
+- Target placement remains: static learner/admin on Cloudflare Pages; **only Gateway publicly exposed** at `lms-api.reltroner.com`; five internal service APIs loopback/private-only; PostgreSQL durable owner-scoped state; Redis replaceable runtime state; Git is canonical course content; Premium Hosting is versioned public asset origin; external LLM initially; **no local LLM inference on initial KVM1**.
+- Docker/Kubernetes/Kafka/Meilisearch/multiple public microservice hostnames are **not default prerequisites**. Runtime per-service port/socket/PHP-FPM budgets and actual SLOs are **undecided until resource measurements**; unapproved assumptions are not implementation contracts.
+- Cloudflare zone encryption discovered in `Full` mode requires **origin-cert validation and all-affected-hostname regression** before any scoped migration toward `Full (strict)`; never blindly toggle global TLS settings.
+- Initial public asset policy remains **10 GB soft quota**, immutable release URLs, no manual-only canonical upload workflow, no business-state authority on shared web hosting.
+
+### Next gate: placement evidence before provisioning
+
+Proposed **Phase 3A** must first record live read-only VPS CPU/memory/swap/disk/process/port/DB/TLS state, current Cloudflare/hosting placement, canonical Keycloak issuer and configuration drift, plus a six-service process/port/runtime/secret matrix. Only an accepted implementation/rollout plan may authorize Phase 4-style infrastructure changes. Capture exact commands, outputs, timestamps, rollback plan, and blast-radius review for existing HRM/identity services.
+
+**Change-control:** No frozen Phase 0C invariant is rewritten here. An ADR or versioned revised contract remains mandatory for semantic or placement deviation. The ledger is a status/evidence overlay, **not** authority to replace this binding contract.
+
+---
+
 ## 1. Purpose
 
 This document defines the authoritative physical infrastructure placement, public hostname boundaries, infrastructure responsibilities, trust boundaries, caching responsibilities, state ownership rules, and deployment constraints for Reltroner LMS.

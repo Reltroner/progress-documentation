@@ -11,6 +11,33 @@
 
 ---
 
+## Current implementation status addendum — 2026-10-09 (living cross-reference, no invariant change)
+
+> **Important historical reading rule:** This file's original `Status: FROZEN`, 2026-10-07 Phase 1 status table, “backend repository currently empty” discovery (`3.5`), and “next Phase 2” (`43`) record **the state at Phase 1 freeze time**. They must **not** be interpreted as live engineering status on 2026-10-09. All normative Phase 1 service boundaries and invariants P1-I01–P1-I24 remain unchanged and binding.
+>
+> **Living status and AI handoff source:** [End-to-End Engineering Progress Ledger](./engineering-end-to-end-progress-ledger.md). It tracks historical checkpoints, exact source SHA, outstanding work, risks, proposed implementation phases, and traceable final Definition of Done. If an implementation assertion conflicts with the FROZEN contract, the contract prevails until an approved ADR/versioned revision.
+
+### 2026-10-09 verified backend checkpoint
+
+- `Reltroner/LMS-BE/main`: **`e30a61780994d85671cbf079e6b9ce899b3fe837`**, [merge PR #1](https://github.com/Reltroner/LMS-BE/pull/1); includes pre-merge foundation freeze `56913175208bc49b4ebbf00fd889eccf1edf03e0`.
+- Phase **2D Backend Foundation & Service Skeleton**: **ACCEPTED / FROZEN / MERGED**, with Gateway, Learning, Mentorship, Knowledge, Assistant and Audit independently scoped Laravel `13.35.0` applications in one repository (**not** a modular monolith).
+- Verified accepted foundation inventory: **283 tracked service files** (Gateway 48, five private services 47 each), **107 locked Composer packages per service**, aggregate **100 tests/725 assertions**, **6/6** independent HTTP probes and **6/6** Composer audits reporting no advisories **at test time**. All source hashes and Git ancestry were verified in provided PowerShell acceptance logs.
+- Correct latest Gateway HTTP freeze SHA is **`e3f4f9b569cc9b7d64be874fa8242a2afa98146a`**; its earlier foundation SHA `2763882589b90cff75e82e0854a94f5019ba5f66` is historical and **must not** be used as the latest Gateway comparison baseline.
+- API foundation currently exposes health only; **business `/api/v1` endpoints, real Keycloak authorization, service-to-service identity, four service-owned database schemas, durable outbox, Knowledge ingestion, Assistant inference, and production runtime certification remain PENDING**. Phase 2D acceptance is **not** final-product DoD.
+- `LMS-BE` snapshot contains **no repository GitHub Actions workflows**; passed local tests should be formalized into six-service CI and contract tests before future releases.
+
+### Drift/remediation to carry into controlled future phases
+
+- `LMS-FE` observed `main` snapshot `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` still shows old `sso.reltroner.com` / `lms-reltroner` in `.env.example`; cut over to the canonical `auth.reltroner.com/realms/reltroner` and two-client `lms-user`/`lms-admin` configuration **only after discovery, agreed mapping and negative tests**.
+- Frontend `extractRoles()` still has UI-only fallback to `student`. Backend authorization **must deny missing capability**, as already required by P1-I12; do not silently grant permissions based on UX roles.
+- Existing learner-host `/admin` and `/instructor` are **legacy UX**, not authorization boundaries; privileged workflows target `lms-admin.reltroner.com`.
+- The initial **Git-owned catalog manifest**, owner-scoped PostgreSQL persistence, authenticated internal HTTP contracts, and audited administrative changes are planned obligations, not Phase 2D functionality.
+- Phase **3A Cross-Service Integration Contract Discovery** and subsequent Phase 3–12 implementation stages are **candidate roadmap items**, not approved/frozen later phases. See ledger for per-gate entry/exit and full DoD traceability.
+
+**Change-control note:** This dated addendum updates implementation context only; it does **not** authorize production mutations or modify any of the original Phase 1 ``4–45` commitments. Changes to binding semantics still require a versioned contract revision or explicit ADR.
+
+---
+
 ## 1. Purpose
 
 This document defines the authoritative logical service boundaries, domain ownership, API surface, identity/authorization model, service-to-service integration rules, event consistency rules, and source-of-truth boundaries for Reltroner LMS.

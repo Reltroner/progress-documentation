@@ -1,0 +1,555 @@
+# Reltroner LMS — End-to-End Engineering Progress Ledger & AI Handoff
+
+> **Document class:** LIVING operational engineering ledger, evidence register, roadmap, and AI-to-AI handoff.
+> **Status:** CURRENT BASELINE / NOT A PRODUCT RELEASE CERTIFICATE.
+> **Snapshot date:** 2026-10-09 (UTC+7 project reporting context; Git/GitHub facts are SHA-based).
+> **Version:** 1.0.0.
+> **Canonical directory:** `Reltroner/progress-documentation/lms/`.
+> **Architecture:** independently deployable Laravel microservices, **not a modular monolith**.
+> **Binding parents:** [Infrastructure Placement Contract](./master-infrastructure-placement-contract.md) (Phase 0C, FROZEN) and [Logical Service Boundary & API Contract](./logical-service-boundary-api-contract.md) (Phase 1, FROZEN).
+> **Backend implementation checkpoint:** `Reltroner/LMS-BE@e30a61780994d85671cbf079e6b9ce899b3fe837` (`main`).
+> **Backend pre-merge foundation freeze:** `56913175208bc49b4ebbf00fd889eccf1edf03e0`.
+> **Frontend observation snapshot:** `Reltroner/LMS-FE@f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` (`main`).
+> **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
+
+---
+
+## 0. Read this first: 90-second handoff for another AI
+
+**User objective:** complete Reltroner LMS to a traceable, evidence-backed final architecture/product Definition of Done (DoD) of 100%, maintaining strict microservice authority boundaries, minimal operational spending, deterministic execution, and no unreviewed drift.
+
+**Currently achieved:** Phase 0A/0B/0C infrastructure discovery/contract FROZEN; Phase 1A–1E logical/API/identity/event contract FROZEN; backend **Phase 2D six-service foundation is ACCEPTED, merged to `main`, and local `main` synchronized**. Verified foundation totals: **six Laravel 13.35.0 services, 283 tracked service files, six identical 107-package Composer dependency graphs, 100 automated tests/725 assertions, six independent HTTP probes PASS, six Composer locked-package security audits PASS** at the recorded execution. **This is 100% of Phase 2D's scope, NOT 100% of the LMS.**
+
+**Next authorized state:** *architecture/discovery planning only* for proposed Phase 3A. No assumption that domain endpoints, production deployments, databases, Keycloak cutovers, queues, or AI integrations are already working. User requested this documentation update first.
+
+**Three must-read project files:**
+1. This `engineering-end-to-end-progress-ledger.md`: status, decisions, risk, evidence, owner, next move.
+2. `master-infrastructure-placement-contract.md`: **frozen physical placement and resource/hostname boundaries**.
+3. `logical-service-boundary-api-contract.md`: **frozen logical ownership, public API families, trust boundaries, and event rules**.
+
+**Authoritative code snapshots:** [LMS-BE main snapshot](https://github.com/Reltroner/LMS-BE/tree/e30a61780994d85671cbf079e6b9ce899b3fe837) and [LMS-FE observed main snapshot](https://github.com/Reltroner/LMS-FE/tree/f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7). Do not use branch names in isolation if they move; check exact SHA.
+
+**What to do next:** conduct Phase 3A **read-only** gap and integration discovery; confirm latest repository/production facts before mutation; define contracts/evidence gates; then request explicit implementation authorization for a scoped feature branch. Never infer PASS from a green label in an old log alone.
+
+---
+
+## 1. Source-of-truth precedence, evidence quality, and semantics
+
+| Priority | Source | Appropriate use |
+|---|---|---|
+| P0 | Frozen Phase 0C physical placement contract | Infrastructure, public DNS, VPS/Cloudflare/Premium Hosting placement, no prohibited components |
+| P1 | Frozen Phase 1 logical/API contract | Service/data authority, capabilities, API resource families, events, catalog policy |
+| P2 | Versioned approved ADR / later frozen revision, if any | Only explicit documented exceptions, with affected invariant named |
+| P3 | Source code at exact Git SHA + machine-verifiable test/CI outputs | What is actually implemented at a given snapshot |
+| P4 | This living ledger with dated, sourced evidence | Current progress, drift map, checkpoints, unresolved issues |
+| P5 | Brainstorming / candidate implementation ideas | Proposals; **not** binding until approved |
+
+These priorities concern **normative architecture vs observed implementation**, not a claim that older discovery snapshots override newer live facts. If a current server observation contradicts a 2026-10-07 discovery fact, log the drift and evaluate it; do **not** silently alter a frozen invariant.
+
+**Status vocabulary:** `FROZEN` = binding design checkpoint; `PASS` = evidenced acceptance; `MERGED` = observed Git integration; `IMPLEMENTED / UNVERIFIED` = code present without full acceptance; `PENDING` = not yet accepted; `BLOCKED` = prerequisite unavailable; `PROPOSED` = candidate, not authorized; `N/A` = intentionally excluded by frozen contract with reason; `FAIL` = verified violation. The word `COMPLETE` must always specify scope.
+
+**Evidence classifications:**
+- **GIT-VERIFIED:** Git object, commit ancestry, files/tree, or PR status resolvable at an exact SHA.
+- **LOCAL-LOG-VERIFIED:** user-provided terminal output (dated; may not be preserved as Git artifacts yet).
+- **CONTRACT:** assertion defined by frozen markdown, not proof of deployment.
+- **HISTORICAL-DISCOVERY:** prior infrastructure observation; fresh verification required before production changes.
+- **PLANNED/INFERRED:** proposed work, no PASS granted.
+
+**Non-goals:** no made-up deployment state, invented performance SLO, fabricated CI success, fictitious production Keycloak configuration, or guessed global completion percentage.
+
+---
+
+## 2. Current snapshot registry (pin these values in future reviews)
+
+| Artifact | Ref / checkpoint | Evidence / interpretation |
+|---|---|---|
+| Backend repo | [`Reltroner/LMS-BE`](https://github.com/Reltroner/LMS-BE) | Single repo with **six independent Laravel application directories** |
+| Backend `main` | `e30a61780994d85671cbf079e6b9ce899b3fe837` | Phase 2D PR #1 merge commit; parents `effe38cd6a4c23f84de9592b97af9dce417fac3b` and `56913175208bc49b4ebbf00fd889eccf1edf03e0` |
+| Foundation freeze | `56913175208bc49b4ebbf00fd889eccf1edf03e0` | Pre-merge candidate; ancestor of `main`; service tree identical after merge |
+| Historical implementation branch | `phase2/backend-foundation-service-skeleton-20261007` | Branch at freeze SHA at time of acceptance; not the new working baseline |
+| Backend PR | [LMS-BE PR #1](https://github.com/Reltroner/LMS-BE/pull/1) | Merge commit preserves individual history |
+| Frontend repo | [`Reltroner/LMS-FE`](https://github.com/Reltroner/LMS-FE) | Next.js static-export learner app, source-controlled catalog |
+| Frontend observed SHA | `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` | Observed 2026-10-09; verify before cutover |
+| Documentation repo | [`Reltroner/progress-documentation`](https://github.com/Reltroner/progress-documentation) | This ledger + two frozen parents under `lms/` |
+| Logical contract baseline blob | `4965345e87c3a4ae13a4418e2517e4f0f3b916ee` | Original frozen body read before dated status addendum |
+| Infrastructure contract baseline blob | `4d74b05c897feb5db43c1b8727e7dd59af5738f9` | Original frozen body read before dated status addendum |
+
+The 2026-10-09 documentation update is **not** an LMS-BE or LMS-FE source mutation. Subsequent Git refs must be re-read; never assume these SHAs remain branch tips.
+
+---
+
+## 3. End-to-end engineering phase history and real status
+
+| Stage | Evidence-backed scope | State | What's next / caution |
+|---|---|---|---|
+| Phase 0A | VPS/network/runtime read-only discovery | `PASS` per infrastructure contract | Snapshot only; re-probe before new production mutations |
+| Phase 0B | Cloudflare + Premium Hosting discovery | `PASS` per infrastructure contract | Do not assume quotas/live DNS unchanged |
+| Phase 0C | Master Infrastructure Placement Contract | `FROZEN` | 20 invariants I-01..I-20 are binding |
+| Phase 1A | Domain/frontend discovery | `PASS` per logical contract | Includes historical issuer drift |
+| Phase 1B | Service/domain ownership | `FROZEN` | 6 runtime services + source-controlled content context |
+| Phase 1C | External API resource map | `FROZEN` | Resource families fixed; payloads require later specification |
+| Phase 1D | Identity/authorization | `FROZEN` | Keycloak issuer, audience, capabilities |
+| Phase 1E | Interservice consistency/events | `FROZEN` | HTTP JSON, outbox for critical event intent |
+| Phase 1 (aggregate) | Logical Service Boundary & API Contract | `FROZEN` | 24 invariants P1-I01..P1-I24 are binding |
+| Phase 2A–2C | Any earlier subphase work not independently captured in this ledger's evidence | `NOT ASSERTED` | Do not reconstruct acceptance or percent from numbering |
+| Phase 2D | Six service source/runtime skeleton and aggregate tests | `PASS / FROZEN` | Accepted at `5691317...` |
+| Phase 2D Git integration | Merge PR #1 and sync local `main` | `MERGED / VERIFIED` | `main=e30a617...`, no service source drift |
+| Phase 3A (candidate) | Cross-service integration/DoD discovery | `PROPOSED — NOT STARTED` | Read-only; first next gate |
+| Phases 3–12 (candidate) | Contract, identity, domain, search, AI, integration, operations and final DoD | `ROADMAP ONLY` | Do not treat phase numbers as approved work orders |
+
+**Progress calculation:** Phase 2D foundation is `100% COMPLETE` within its explicitly tested scope. **Global LMS percentage is UNKNOWN**, because product acceptance denominator and remaining release requirements have not yet been formally approved. Final 100% requires every mandatory DoD gate below to pass.
+
+### 3.1 Foundation Git history / freeze matrix
+
+| Service | Git path | Tracked files | Canonical latest service freeze SHA | Test baseline |
+|---|---|---:|---|---|
+| Gateway | `services/gateway` | 48 | `e3f4f9b569cc9b7d64be874fa8242a2afa98146a` (HTTP freeze) | 20 tests / 140 assertions |
+| Learning | `services/learning` | 47 | `b29dae78ef7e968de71e129a58d24bd87981b9bf` | 16 / 117 |
+| Mentorship | `services/mentorship` | 47 | `ece57fa67fe97d3496997d9939529b99909bc1e6` | 16 / 117 |
+| Knowledge | `services/knowledge` | 47 | `18bf89f359dee08ed20de8662ed9724c23a4245c` | 16 / 117 |
+| Assistant | `services/assistant` | 47 | `115c1d52c4e8f5d95f8fdfaa8a0c77d268be42f4` | 16 / 117 |
+| Audit | `services/audit` | 47 | `56913175208bc49b4ebbf00fd889eccf1edf03e0` | 16 / 117 |
+| **Total** | `services/*` | **283** | all preserved in `e30a617...` | **100 tests / 725 assertions** |
+
+**Do not use `2763882589b90cff75e82e0854a94f5019ba5f66` as the latest Gateway freeze.** That SHA is the **Gateway foundation checkpoint** before the Gateway HTTP contract, which was subsequently frozen at `e3f4f9b...`. A prior aggregate script incorrectly compared Gateway against the earlier checkpoint and printed `Frozen service changed: gateway`. After correcting the SHA, the exact accepted gate **PASSed**, with 12 legitimate changed Gateway files between those two historical checkpoints and no Gateway changes after HTTP freeze. This was an **acceptance-script checkpoint mismatch**, not a source regression. Keep this incident in future AI context to avoid unnecessary rollback.
+
+### 3.2 Phase 2D acceptance evidence chronology
+
+| Acceptance ID | Verified outcome | Evidence classification |
+|---|---|---|
+| 2D-5C-3 | Audit Service: 16 tests/117 assertions; live/ready, 404/405/500, Request ID, private CORS isolation; locked security audit PASS; 47 SHA256 unchanged | LOCAL-LOG-VERIFIED |
+| 2D-5D | Audit: 47 files committed, push succeeded, remote SHA parity; freeze `5691317...` | LOCAL-LOG + GIT-VERIFIED |
+| 2D-6A first attempt | Blocked by **wrong historical Gateway SHA** | LOCAL-LOG; script error, not service failure |
+| 2D-6A-R | Six freeze checkpoints PASS, **283 files**, **107 locked packages/service**, Laravel `13.35.0`, identical six Composer dependency graphs, no source drift | LOCAL-LOG-VERIFIED |
+| 2D-6B-1 | 6× independent runtime startup/route checks and Composer validation PASS; **100 automated tests / 725 assertions**; all 283 tracked files unchanged | LOCAL-LOG-VERIFIED |
+| 2D-6B-2 | **6/6 HTTP probes** PASS (health, request IDs, RFC7807 404/405/500, sanitized errors, Gateway CORS and private no-CORS); **6/6 Composer security audits** reported no advisories at run time; 283 SHA256 unchanged | LOCAL-LOG-VERIFIED |
+| 2D-6C | Human/assistant aggregate foundation acceptance decision: `ACCEPTED — FROZEN` | ACCEPTANCE DECISION; not additional runtime code |
+| PR #1 merge | `main` merge SHA `e30a617...`, foundation `5691317...` retained as parent, service source unchanged | GIT + LOCAL-LOG |
+| Local `main` sync | `git switch main` + `git merge --ff-only origin/main` PASS, clean working tree; local `main=e30a617...` | LOCAL-LOG-VERIFIED |
+
+**Security audit caveat:** “No security vulnerability advisories found” is true **as of that audit**, not perpetual absence of vulnerabilities or a production penetration test. Existing evidence lives primarily in historical user-supplied PowerShell logs; a future CI/artifact strategy must make reproducibility and evidence retention independent of any one AI chat.
+
+### 3.3 Implemented foundation contract (no domain functionality implied)
+
+- PHP/Laravel: Laravel Framework `13.35.0`, locked Composer dependency graph of **107 packages per service**.
+- Six standalone `services/<name>` application trees in one repository; **monorepo does not make them a modular monolith**.
+- Public Gateway is a distinct Laravel app with a defined CORS allowlist for `https://lms.reltroner.com` and `https://lms-admin.reltroner.com`.
+- Five private Laravel apps omit `config/cors.php` and the global browser CORS middleware.
+- Each service has exactly two production health routes `GET|HEAD /health/live` and `GET|HEAD /health/ready`.
+- Canonical request ID middleware first in pipeline, UUID `X-Request-ID` propagation.
+- RFC7807-compatible `application/problem+json` errors for 404/405/500, sanitized internal 500 details.
+- `.env` and `vendor` are Git-ignored runtime artifacts; historical source inventory preserved.
+- **No business CRUD, production DB migration, Keycloak JWT integration, event infrastructure, assistant inference, asset pipeline, or backend deployment has been demonstrated by this foundation acceptance.**
+- No `.github/workflows` was present in the observed `LMS-BE` snapshot; **CI matrix is pending**, despite successful user-run suites. GitGuardian alone does not prove a six-service Laravel CI matrix.
+
+---
+
+## 4. Authoritative topology and physical placement ledger
+
+### 4.1 Frozen placement
+
+| Public/internal surface | Authority / placement | Guardrail | Implementation state |
+|---|---|---|---|
+| `lms.reltroner.com` | Learner Next.js static-first on Cloudflare Pages | Public content edge-delivered; durable learner state only via backend | Existing frontend; domain E2E not certified |
+| `lms-admin.reltroner.com` | Separate admin deployment on Cloudflare Pages | Browser controls never grant admin API privileges | Planned; not evidenced deployed |
+| `lms-api.reltroner.com` | Cloudflare proxy → VPS Nginx → Gateway | **Only public LMS API entry** | Laravel Gateway skeleton exists; production hostname/route not evidenced deployed |
+| `auth.reltroner.com/realms/reltroner` | Keycloak canonical OIDC issuer | Identity/credentials/MFA authority | Historical production discovery; LMS client migration not evidenced |
+| `assets.reltroner.com` | Cloudflare cache → Hostinger Premium web hosting asset origin | Immutable/public assets; no business truth | Contract target; production cutover not evidenced |
+| Private service endpoints | VPS loopback / private transport | No direct public DNS or public-binding; internal caller authenticated | Skeleton code only, no private production listener verification |
+| PostgreSQL 18 | Existing VPS physical instance | Four logically owned databases/credentials; no cross writes | Historical instance observed; **LMS DBs not proven created** |
+| Redis 8 | VPS loopback | Caches/locks/queues/ephemeral state only | Historical instance observed; LMS integration unverified |
+| External LLM | Provider API via Assistant | No local inference on present KVM1 | Not implemented |
+| Premium web host | Versioned asset origin | Initial LMS **10 GB soft quota**; immutable URLs | Policy defined; pipeline unverified |
+
+**Physical baseline at Phase 0 discovery (not today's live probe):** Ubuntu 24.04 LTS KVM, approximately 1 vCPU / 4 GB RAM / 2 GB swap / 48 GB disk, Nginx, PHP 8.4 FPM, PostgreSQL 18, Redis 8, systemd Keycloak, no Docker. UFW incoming default deny; public ports 22/80/443; PostgreSQL/Redis/internal runtimes not public. PostgreSQL instance historically included `hrm_db` and `keycloak_db`. These shared workloads **must not be disrupted** by LMS provisioning.
+
+**Cloudflare TLS caveat:** discovery indicated Full; target Full (strict) needs controlled origin-certificate validation across affected hostnames, not a blind zone-wide change. Never interpret Cloudflare Pages, Redis, or cache as canonical durable state.
+
+### 4.2 Deployment and runtime design candidate, NOT accepted
+
+- Native `Nginx + systemd + service-specific PHP-FPM pools/runtime isolation`; containerization not required merely to “prove” microservices.
+- Distinct runtime/port/socket and environment/secret boundaries per service. **Exact port IDs, PHP-FPM pool sizes, worker limits and memory budgets require fresh host capacity discovery.**
+- Explicit HTTP/JSON over loopback for synchronous service calls, with timeout, bounded body, request ID, authenticated service identity, deny-by-default permissions.
+- Four PostgreSQL service-owned databases `lms_learning_db`, `lms_mentorship_db`, `lms_knowledge_db`, `lms_audit_db`; least-privilege owner-only DB credentials.
+- Laravel PHP background workers may use Redis as delivery transport backed by PostgreSQL transactional outbox for correctness-critical event intent.
+- No Docker/Kubernetes/service mesh/Kafka/RabbitMQ/Meilisearch/Elasticsearch/local LLM mandatory without measurable justification and ADR if contract changes.
+
+All above candidates require phase-scoped acceptance before being called implemented.
+
+---
+
+## 5. Logical bounded contexts, data authority and non-authority
+
+| Context | Authoritative writes/data | Forbidden ownership | Durable DB (initial) |
+|---|---|---|---|
+| Keycloak (external) | Subject `sub`, login, credentials, MFA, verified primary identity, identity roles | LMS domain progress/booking | Existing Keycloak DB (outside LMS) |
+| Git Content Catalog (not runtime service) | Course, module, lesson, learning path, resources, order, public canonical status | Mutable canonical lesson/course CRUD in LMS v1 | Git and immutable release manifests |
+| Gateway | API ingress, routing, OIDC/JWT validation, CORS, correlation, rate-limit context | Learning, content, booking, search and audit truth | **None by default** |
+| Learning | Enrollment, course/lesson progress, completion, bookmarks, learning-specific preferences | Canonical lesson content, password, mentorship booking | `lms_learning_db` |
+| Mentorship | Mentor projection, offering, availability, booking, cancellation, session, external meeting reference | Zoom as booking truth; payments/ledger absent ADR | `lms_mentorship_db` |
+| Knowledge | Versioned, permission-filtered search documents and ingestion checkpoints | Canonical learning/content/booking | `lms_knowledge_db` |
+| Assistant | Retrieval/tool/LLM orchestration and policy; short-lived context | Direct domain DB writes, privileged bypass, invented transaction outcome | **None by default**; Redis TTL optional |
+| Audit | Immutable-from-application perspective privileged/security activity | Browser analytics as audit; mutable or Redis-only truth | `lms_audit_db` |
+
+**Database rule:** physical PostgreSQL server may be shared; business **schema/credentials/migrations are service-owned**. No cross-service ORM models, joins, or DB write credentials. Only owning service may write its business DB. No distributed DB transactions.
+
+---
+
+## 6. API, HTTP, identity and integration contract registry
+
+### 6.1 Public API resource families — frozen by Phase 1
+
+All business routes live under `/api/v1`. Methods/resources are semantically frozen; **final request/response fields, OpenAPI schemas, status taxonomy and validation constraints are not yet implementation-accepted**.
+
+| Family / owner | Endpoint(s) | State |
+|---|---|---|
+| Principal projection / Gateway identity adapter | `GET /api/v1/me` | PENDING implementation |
+| Learning enrollment | `GET /api/v1/learning/enrollments`; `POST /api/v1/learning/enrollments`; `GET /api/v1/learning/enrollments/{enrollment_id}` | PENDING |
+| Learning progress | `GET /api/v1/learning/courses/{course_id}/progress`; `PUT /api/v1/learning/courses/{course_id}/lessons/{lesson_id}/progress` | PENDING |
+| Learning bookmark | `GET /api/v1/learning/bookmarks`; `PUT /api/v1/learning/bookmarks/{content_id}`; `DELETE /api/v1/learning/bookmarks/{content_id}` | PENDING |
+| Mentorship offers | `GET /api/v1/mentorship/offerings`; `GET /api/v1/mentorship/offerings/{offering_id}` | PENDING |
+| Mentorship availability/bookings | `GET /api/v1/mentorship/availability`; `GET /api/v1/mentorship/bookings`; `POST /api/v1/mentorship/bookings`; `GET /api/v1/mentorship/bookings/{booking_id}`; `POST /api/v1/mentorship/bookings/{booking_id}/cancel` | PENDING |
+| Knowledge | `GET /api/v1/knowledge/search` | PENDING |
+| Assistant | `POST /api/v1/assistant/query` (initial request/response; no required WebSockets) | PENDING |
+| Admin principal/Keycloak adapter | `GET /api/v1/admin/principals`; `GET /api/v1/admin/principals/{principal_id}`; `PATCH /api/v1/admin/principals/{principal_id}/roles` | PENDING |
+| Admin mentorship | `GET /api/v1/admin/mentorship/bookings`; `GET /api/v1/admin/mentorship/bookings/{booking_id}`; `PATCH /api/v1/admin/mentorship/bookings/{booking_id}` | PENDING |
+| Admin audit | `GET /api/v1/admin/audit-events`; `GET /api/v1/admin/audit-events/{audit_event_id}` | PENDING |
+
+**Explicit v1 exclusion:** generic canonical content `POST /courses`, `PATCH /courses/{id}`, `DELETE /lessons/{id}` and browser-owned course authority. Admin content UI may offer read-only status/release links to source-control workflows.
+
+**Transport and response obligations:** JSON for business APIs; RFC7807 `application/problem+json` with safe `type/title/status/detail/code/request_id` fields; no SQL/trace/secret leaks; bounded cursor pagination for growing collections; opaque API IDs; valid `X-Request-ID`; idempotent `PUT` where semantically appropriate; durable `Idempotency-Key` for booking creation, not Redis-only correctness. Domain 4xx/5xx error mapping must be designed in Phase 3, not guessed.
+
+### 6.2 Identity trust contract — frozen design, implementation pending
+
+Canonical issuer: `https://auth.reltroner.com/realms/reltroner`. Browser public clients: `lms-user` and `lms-admin`, separate origin and PKCE trust contexts. Protected API audience: `aud=lms-api`. Validate cryptographic signature/JWKS plus `iss`, `aud`, `exp`, `nbf` if present, authorized `azp`/client context, and capability/permission. Do not authorize via frontend `RoleGate` or just persona `student/instructor/admin`; **absent capability fails closed**. Self-service `principal_id` derives from validated `sub`, never a user-supplied target ID.
+
+Capabilities initially frozen:
+
+| Namespace | Capabilities |
+|---|---|
+| Learning self-service | `learning.enrollment.read.self`, `learning.enrollment.create.self`, `learning.progress.read.self`, `learning.progress.write.self`, `learning.bookmark.read.self`, `learning.bookmark.write.self` |
+| Mentorship | `mentorship.offering.read`, `mentorship.booking.read.self`, `mentorship.booking.create.self`, `mentorship.booking.cancel.self` |
+| Knowledge / Assistant | `knowledge.search`, `assistant.use` |
+| Administrative | `admin.principal.read`, `admin.principal.role.manage`, `admin.mentorship.read`, `admin.mentorship.manage`, `admin.learning.read`, `admin.learning.override`, `admin.audit.read` |
+
+**Security implementation candidate requiring sign-off:** Gateway verifies external JWT; internal services require authenticated caller identity **and** integrity-protected, short-lived, audience-bound principal context (e.g. signed internal assertion), and still evaluate resource-owner and domain invariants. Loopback binding alone is not authentication. Never trust arbitrary client-provided `X-Principal-ID`/`X-Roles`/`X-Permissions` headers.
+
+**Known frontend drift at observed FE snapshot:** `.env.example` refers to `https://sso.reltroner.com/realms/reltroner` and client `lms-reltroner`; desired canonical issuer/client are different. `src/lib/auth/auth-roles.ts` still defaults role-less authenticated users to `student` for UI. `src/app/admin` remains learner-host legacy UI route. Cutover must be controlled, tested, and fail-closed server-side; do not simply delete historic pages before mapped replacements exist.
+
+**Negative acceptance minimum:** forged/expired token; wrong issuer/audience/azp; missing permission; wrong browser client; forged internal header; cross-principal learning/mentorship access; admin-only API from student client; invalid request ID; missing/rotated JWKS; Keycloak outage behavior.
+
+### 6.3 Content Catalog manifest / artifact authority
+
+Current source: `Reltroner/LMS-FE/content/` and `Reltroner/LMS-FE/src/catalog/`. Next.js 16 static export remains public learning asset authority; initial source contains course, module, lesson, path and resource concepts (three catalog course definitions observed). Build pipeline must produce a **versioned, machine-readable, immutable** manifest with `schema_version`, `catalog_version`, courses/paths, stable entity IDs and relationships. **Actual schema to be frozen in Phase 3A**; conceptual Phase 1 shape is not an implemented file.
+
+Acceptance:
+- deterministic/reproducible manifest from pinned source SHA; validation of duplicate IDs, orphaned lesson/course relationships, ordering and publication status;
+- Learning enrollment/progress validates source-controlled IDs without copying canonical course truth;
+- stable ID and catalog-version compatibility protects historic progress when content is archived/renamed;
+- Knowledge indexes track source `catalog_version` and can be completely rebuilt from approved artifacts;
+- public assets use versioned URLs; Hostinger Premium is an origin, **not** the only source copy.
+
+### 6.4 Service-to-service and events contract
+
+Initial synchronous transport: authenticated HTTP + JSON over loopback/private VPS; explicit finite timeouts, bound response sizes, strict routes, request ID propagation, controlled retries (none for non-idempotent commands absent idempotency), no direct DB fallback.
+
+**Durable event families (semantically frozen):** `learning.enrollment.created`, `learning.progress.updated`, `learning.course.completed`, `mentorship.booking.created`, `mentorship.booking.cancelled`, `mentorship.session.completed`, `identity.role.changed`, `knowledge.index.requested`, `knowledge.index.completed`; privileged actions also produce auditable outcomes.
+
+Outbox requirement: when loss violates business correctness, business row and outbox row **commit together in producer-owned PostgreSQL**; dispatch via worker/Redis transport; consumer idempotence/inbox/dedup and replay; no Redis-only correctness; no cross-service distributed transactions. **Payload version, event ID, sequencing, PII rules, outbox state machine, retry/backoff/DLQ strategy, reconciliation and retention remain Phase 3 design work.**
+
+Special case: Keycloak role mutation spans two authorities (Keycloak + Audit DB); no false claim of atomic cross-system commit. Plan durable operation intent, audit outcome, uncertain-result reconciliation, limited permissions, and compensating administrative process before exposing roles PATCH.
+
+---
+
+## 7. Domain implementation acceptance definitions (proposed; not executed)
+
+### 7.1 Learning Service
+
+Suggested durable aggregates: Enrollment, LessonProgress, Bookmark, completion derived/read model, own Outbox. Enforce unique active `principal_id + course_id` (unless explicitly approved cohort/runs), principal-scoped operations, idempotent progress/Bookmark PUT, catalog validation and historical progress preservation.
+
+**Red tests required:** duplicate enrollment concurrency; spoofed principal; unknown course/lesson; cross-course lesson; out-of-order catalog version; rollback of partial write; archived lesson history; duplicate outbox delivery. Done only after public API + real DB + frontend learner journey E2E and restore acceptance.
+
+### 7.2 Mentorship Service
+
+Owned aggregates: mentor projection, Offering, AvailabilitySlot/Window, Booking, Session, cancellation and external meeting reference. Slot allocation and overlap prevention **must** be enforced with DB-level concurrency protection, not optimistic UI checking alone. Booking creation must store durable principal-scoped idempotency result; cancellation uses lifecycle transition and audit on privileged overrides.
+
+**Red tests required:** two principals racing for one slot; replay of identical key; conflicting payload under same key; cancellation twice; stale availability; meeting provider timeout/duplicate creation; admin permission denied; booking/meeting provider disagreement and reconciliation. No initial payment/ledger authority; approved financial ADR required before charging money.
+
+### 7.3 Knowledge Service
+
+Authoritative **derived**, not canonical, search state. PostgreSQL full-text as initial engine; store stable indexed document IDs, source/catalog version, ingestion checkpoints, access/permission metadata. Maintain strict separation of browser-static public search vs authorization-aware backend `GET /api/v1/knowledge/search`. Rebuild indexes deterministically; tenant/user permission context never derived from arbitrary query parameters.
+
+**Red tests:** public result cannot reveal private fields; permission filtering before search result emission and LLM retrieval; stale permission revocation; duplicate ingestion; reindex from scratch; bounded pagination; untrusted document prompt injection. Dedicated search daemon/vector index is optional after metrics/ADR.
+
+### 7.4 Assistant Service
+
+Orchestration only: authorized request → permission-filtered Knowledge retrieval → bounded context → external LLM provider → response normalization → optional approved domain API tools (mutation disabled until independently authorized). Default authenticated-only; no guest AI cost/abuse contract yet; no default durable chat DB.
+
+**Red tests:** user A retrieving B's content, prompt injection instructing bypass, fake tool success, external provider timeout, massive prompt/token expense, model leaking token/secret, arbitrary SQL/tool call, cross-service mutation bypass. Measure cost, latency and relevance; never install local LLM on discovered KVM1.
+
+### 7.5 Audit Service
+
+App-append-only durable records of actor/principal, action, resource, timestamp, result, correlation/event ID, and safe metadata. Privileged mutations must yield attributable successes/failures even across uncertain external calls; prohibit update/delete via app identity; audit cannot be replaced by Cloudflare analytics.
+
+**Red tests:** attempted privileged mutation without audit path; spoofed actor; event replay/duplication; principal ID missing; compromised DB user permissions; retention/access control; safe rendering of audit metadata.
+
+### 7.6 Gateway and admin adapter
+
+Gateway remains stateless ingress and never becomes business owner. Identity adapter accesses Keycloak via approved credentials, narrow operations, capability checks and audit; no Keycloak table writes. On internal service outage, respond with controlled Problem Details; healthy unrelated services remain usable when feasible.
+
+**Red tests:** external access directly to private services, header spoofing, forged/internal stale assertion, wrong audience, rate-limit bypass, uncaught upstream stack trace, admin role escalation, secrets in logging.
+
+---
+
+## 8. Proposed implementation roadmap (separately approve before mutation)
+
+These Phase 3–12 numbers are **roadmap candidates**, not a later signed project contract. Each row is `PROPOSED / NOT STARTED` unless and until evidence changes it.
+
+| Proposed phase | Objective / key output | Prerequisite | Hard exit acceptance |
+|---|---|---|---|
+| **3A — Discovery + release DoD** | Baseline inspect BE/FE/contracts, OpenAPI/resource schema inventory, identity/DB/event trust plan, risk register, DoD IDs and owner/sign-off | `main=e30a617...`, current frozen contracts | Decision record accepted; no silent invariant conflict; no mutations |
+| **3B — Contract/CI foundation** | OpenAPI v1 baseline, consumer/provider contract harness, PHP service matrix CI, shared standards specification | 3A approval | CI checks cover all six services; contracts versioned, reproducible |
+| **4 — Runtime/trust/persistence** | Private routing, Keycloak client/audience, service identity, DB/users/migrations, secrets, readiness | 3B | Wrong principal/token/client denied; ports private; owner-only DB privileges |
+| **5 — Catalog + Learning** | Immutable manifest, learning DB/API, E2E enroll/progress/bookmark/complete | 4 | Real DB + frontend learner journey PASS; catalog/version and concurrency safe |
+| **6 — Audit + admin identity** | Durable audit, Keycloak admin adapter and role authorization, reconciliation | 4 | Privileged action auditable, least privilege, failure/reconciliation PASS |
+| **7 — Mentorship** | Offerings, availability, booking/cancel/session + optional meeting adapter | 4, audit for privileged operations | No double-booking, durable idempotency and full scenario tests |
+| **8 — Knowledge** | Versioned ingestion, PostgreSQL FTS, private/authorized search | Catalog version + trust | Rebuild, permission-leak negative suite, search relevance accepted |
+| **9 — Assistant** | Authenticated RAG/tool adapters, external LLM, cost and safety boundaries | 8 + domain APIs + trust | Tool/permission/prompt-injection/cost ceiling suite PASS |
+| **10 — UI/assets integration** | Independent learner/admin delivery, SSO controlled cutover, Ctrl+K, immutable assets | 5–9 as needed | Guest/learner/instructor/admin journeys E2E, no legacy privilege bypass |
+| **11 — Ops/reliability** | Production controlled deploy/rollback, backups/restore, performance + observability | Core journeys green | Failure drills, restore evidence, approved load/cost targets |
+| **12 — Release certification** | Trace 20 infrastructure + 24 logical invariants and final product DoDs to evidence | All mandatory gates | No unresolved mandatory FAIL/BLOCKED; pinned release SHA; signed decision |
+
+**Parallelism:** manifest/frontend groundwork and internal trust planning may run concurrently; promotion gates do not. Privileged admin/booking releases require Audit where contract requires it. Assistant should not become first critical path ahead of Knowledge and domain authority.
+
+**Execution discipline:** Each implementation subphase starts with current Git/CI discovery, explicit file scope, tests/negative tests, acceptance decision, then freeze/PR/merge. No blind Composer upgrades, migrations, DNS/TLS changes, production commands, or source rewrites. IDE coding agent is for implementation only after design and tasks are approved. Human/ChatGPT performs architecture, review and acceptance.
+
+---
+
+## 9. Final master architecture DoD — proposed tracked checklist
+
+**Important:** This 16-part product DoD is a **proposed certification matrix**, pending Phase 3A ratification. `Phase2D` is complete; **not one of these global product gates is marked PASS solely from skeleton tests**. Evidence should name repository SHA, runtime, test, timestamp, and independent reviewer.
+
+| DoD ID | Required result | Current state | Acceptance evidence still required |
+|---|---|---|---|
+| DOD-01 | Frozen contract/ADR governance & traceability | PENDING | 20+24 invariant map and signed deviation decisions |
+| DOD-02 | Six independent ownership/runtime boundaries | PARTIAL — skeleton only | Runtime isolation, no cross-DB access, deploy independently |
+| DOD-03 | OIDC JWT, correct two browser clients, capabilities | PENDING | Keycloak integration, token/role negative suite |
+| DOD-04 | Complete public `/api/v1` resource families | PENDING | OpenAPI + provider/consumer + error/pagination/idempotency tests |
+| DOD-05 | Catalog manifest immutable & historically compatible | PENDING | Reproducible build and content-version tests |
+| DOD-06 | Learning durable user journeys | PENDING | Enrollment/progress/completion/bookmarks E2E |
+| DOD-07 | Mentorship reliable user journeys | PENDING | Concurrency, idempotency, booking/meeting failures |
+| DOD-08 | Durable audit & admin management | PENDING | Privileged mutation + reconciliation + role operations |
+| DOD-09 | Rebuildable, permission-aware Knowledge search | PENDING | Full reindex, data-leak negatives, relevance |
+| DOD-10 | Authorized, bounded Assistant orchestration | PENDING | RAG/tool safety/cost/failure suite |
+| DOD-11 | Independently deployed learner/admin frontend integration | PENDING | Guest, learner, instructor, admin E2E and SSO cutover |
+| DOD-12 | Security/TLS/private infrastructure boundaries | PENDING | DNS/port/cert/access scans, no internal public ingress |
+| DOD-13 | Repeatable CI/CD, release and rollback | PENDING | Required six-service CI checks + reproducible deployment |
+| DOD-14 | Reliability, observability, backup + restore | PENDING | Outage, queue failure, backup/restore drills, RPO/RTO |
+| DOD-15 | Resource + financial governance | PENDING | Real CPU/RAM/load profile, approved performance/LLM cost caps |
+| DOD-16 | Final release certification | PENDING | Evidence-index closure against pinned release SHA |
+
+**Zero false confidence rule:** PASS is forbidden without evidence. `N/A` only for explicitly out-of-scope functionality with rationale (e.g., initial local LLM, native content CRUD, paid mentorship financial ledger, guest AI).
+
+### 9.1 Phase 0C invariant traceability: all 20
+
+| Contract ID | Invariant | Gate / verification intent |
+|---|---|---|
+| I-01 | Learner at `lms.reltroner.com` | DOD-11: Pages deployment smoke |
+| I-02 | Admin at `lms-admin.reltroner.com` | DOD-11: separate deployment smoke |
+| I-03 | Only `lms-api.reltroner.com` public LMS backend | DOD-12: DNS/ports/ingress |
+| I-04 | Keycloak at `auth.reltroner.com` | DOD-03: issuer/JWKS |
+| I-05 | Separate learner/admin OIDC contexts | DOD-03/11: distinct clients |
+| I-06 | UI not auth authority | DOD-03: server-side negative tests |
+| I-07 | Admin permission server-enforced | DOD-08/03 |
+| I-08 | Private service privacy | DOD-02/12 |
+| I-09 | PostgreSQL durable truth | DOD-02/06/07/08 |
+| I-10 | Logical domain authority | DOD-01/02 |
+| I-11 | No cross-service writes | DOD-02: DB role tests |
+| I-12 | Redis ephemeral | DOD-14: flush/loss behavior |
+| I-13 | Premium Hosting asset origin only | DOD-11/12 |
+| I-14 | Cloudflare Pages frontends | DOD-11 |
+| I-15 | No local KVM1 LLM | DOD-10/15 |
+| I-16 | Cloudflare not canonical state | DOD-05/14 |
+| I-17 | Minimal public VPS ingress | DOD-12 |
+| I-18 | Immutable public assets | DOD-05/11 |
+| I-19 | Versioned public API | DOD-04 |
+| I-20 | Justify complexity | DOD-01/15 and ADR review |
+
+### 9.2 Phase 1 invariant traceability: all 24
+
+| Contract ID | Invariant | Gate / verification intent |
+|---|---|---|
+| P1-I01 | Gateway ingress not domain owner | DOD-02/04 |
+| P1-I02 | Git static catalog canonical | DOD-05 |
+| P1-I03 | Learning owns learner state | DOD-06 |
+| P1-I04 | Mentorship owns booking/session | DOD-07 |
+| P1-I05 | Knowledge derived/rebuildable | DOD-09 |
+| P1-I06 | Assistant only orchestration | DOD-10 |
+| P1-I07 | Audit durable, append-only | DOD-08 |
+| P1-I08 | Keycloak identity authority | DOD-03 |
+| P1-I09 | Separate browser clients | DOD-03/11 |
+| P1-I10 | `lms-api` audience | DOD-03 |
+| P1-I11 | Capability-based authorization | DOD-03/08 |
+| P1-I12 | No backend student fallback | DOD-03 |
+| P1-I13 | One `/api/v1` namespace | DOD-04 |
+| P1-I14 | Internal services not public | DOD-02/12 |
+| P1-I15 | No cross-service DB writes | DOD-02 |
+| P1-I16 | No distributed transactions | DOD-07/14 |
+| P1-I17 | Durable critical outbox intent | DOD-14 |
+| P1-I18 | Public search static where possible | DOD-09/11 |
+| P1-I19 | Authorized search from Knowledge | DOD-09 |
+| P1-I20 | AI mutations through domain APIs | DOD-10 |
+| P1-I21 | Assistant initially authenticated-only | DOD-10 |
+| P1-I22 | No initial browser-native content CRUD | DOD-05/11 |
+| P1-I23 | Instructor workflows on admin plane | DOD-11 |
+| P1-I24 | Identity copies projection-only | DOD-03/06 |
+
+---
+
+## 10. Architecture decision and unresolved-question register
+
+| ID | Decision/question | Current classification | Required next evidence/decision |
+|---|---|---|---|
+| ADR-CAND-01 | Single repository, six independently deployed apps | Implemented topology; deployment independence not verified | Deployment topology/contract and release plan |
+| ADR-CAND-02 | Signed short-lived internal identity assertion | **PROPOSED**, not frozen implementation | Threat model, key rotation, replay, audience, exp, negative tests |
+| ADR-CAND-03 | Service-specific PHP-FPM/systemd and port/socket allocations | **PROPOSED** | Re-probe VPS 1 vCPU/4GB resource budget, HRM/Keycloak impact |
+| ADR-CAND-04 | Manifest schema, publication/version compatibility | **OPEN** | Discover source IDs and consumption semantics |
+| ADR-CAND-05 | OpenAPI response/pagination/error domain codes | **OPEN** | Contract-first tests aligned with Phase 1 |
+| ADR-CAND-06 | DB schema/constraints/role grants/migration order | **OPEN** | Per-service ERD and privilege probes |
+| ADR-CAND-07 | Outbox event envelope, replay, dedup, observability | **OPEN** | Failure model incl Redis outage, atomicity tests |
+| ADR-CAND-08 | Keycloak role admin adapter and auditable uncertain results | **OPEN** | Service identity permission, reconciliation strategy |
+| ADR-CAND-09 | LLM provider/token budget/retrieval evaluation | **OPEN** | Cost, privacy, timeout, auth tests; no local LLM |
+| ADR-CAND-10 | Frontend admin Pages repo topology and cutover | **OPEN** | Preserve learner release, separate auth origin/client |
+| ADR-CAND-11 | Cloudflare Full(strict) maintenance decision | **GATED** | Certificates + all existing affected hostnames tested |
+| ADR-CAND-12 | Production thresholds (p95, availability, RPO/RTO, request size) | **OPEN** | Measured baseline + explicit sign-off, never invent target |
+
+**Out-of-scope initially without new decision:** paid mentor ledger/payment processing, arbitrary LMS content CRUD, separate instructor hostname, public internal-service DNS, durable Assistant chat history by default, guest AI by default, standalone search daemon, locally hosted LLM, Kubernetes/service mesh.
+
+---
+
+## 11. Risk / technical-debt register
+
+| Risk ID | Severity for future implementation | Actual evidence | Remediation gate |
+|---|---|---|---|
+| R-01 — OIDC issuer/client drift | HIGH | FE `.env.example` old issuer/client; Phase 1 explicitly identifies drift | Phase 4 + Phase 10 controlled Keycloak cutover |
+| R-02 — Frontend student role fallback | HIGH if mistaken for backend authorization | FE `extractRoles()` UI fallback in observed snapshot | Phase 4 server-side deny-by-default tests |
+| R-03 — No aggregate backend CI workflow | HIGH for future regressions | No `.github/workflows` at pinned BE tree; local suites passed | Phase 3B |
+| R-04 — Resource contention on VPS | HIGH | Historical 1 vCPU/4 GB shared with Keycloak/HRM/Postgres/Redis | Fresh capacity assessment before deployment |
+| R-05 — Misinterpret historical contract “backend empty” | MEDIUM governance | Phase 1 discovery predates Phase 2D | Dated addenda + this ledger |
+| R-06 — Catalog IDs/versions absent integration artifact | HIGH | Manifest is planned by contract, not evidenced built | Phase 3A/5 |
+| R-07 — Untrusted cross-service identity headers | CRITICAL if implemented naively | Trust design still open; no private auth product tests | Phase 3A/4 |
+| R-08 — Cross-DB privileged mutation/audit gap | HIGH | Audit skeleton only; Keycloak role changes not implemented | Phase 6 |
+| R-09 — Double-booking/idempotency | HIGH | Mentorship skeleton only | Phase 7, concurrency DB tests |
+| R-10 — Redis-only events | HIGH if implemented | Frozen outbox requirement not implemented yet | Phase 3A/4/14 |
+| R-11 — AI data leakage/overspend | HIGH if deployed prematurely | Assistant skeleton, no LLM/retrieval yet | Phase 9 |
+| R-12 — Live deployment facts stale | MEDIUM | Phase 0 resource/port/TLS observations dated | Phase 3A read-only live discovery |
+| R-13 — Missing permanent evidence artifacts | MEDIUM | User terminal logs not stored as machine-readable CI artifacts in repo | Phase 3B evidence capture |
+| R-14 — Wrong historical Gateway freeze checkpoint | RESOLVED | Initial aggregate false alarm; `e3f4f9b...` correct | This ledger pins SHA and incident rationale |
+
+The risk table describes **potential release blockers**, not claims that vulnerable features are already deployed. Prioritize by effect on future release and verify against current code before calling any entry an actual defect.
+
+---
+
+## 12. Deterministic execution rules and next-action runbook
+
+### 12.1 Before any code or production change
+
+1. Read current version of this ledger and the two frozen contracts.
+2. Read exact `LMS-BE/main` SHA and `LMS-FE/main` SHA; reconcile with this snapshot.
+3. Select **one** phase/subphase and scope; specify expected branch, baseline SHA, allowed paths, forbidden paths, rollback decision, tests.
+4. Run **read-only discovery** in GitHub/GUI/PowerShell/SSH as appropriate; no mutation in discovery.
+5. Approve ADR/contract for any open trust/data/operational behavior; **do not** invent binding implementation details.
+6. Create scoped Git feature branch from verified base; coding IDE agent only after authorization.
+7. Run focused negative/positive suites, code diff review, integration acceptance; enforce source immutability outside scope.
+8. Freeze, PR, merge (history preserved), verify remote/main ancestry and clean tree; update ledger with exact evidence.
+
+### 12.2 Roles of tools
+
+| Work | Preferred execution |
+|---|---|
+| Contract reasoning, test matrix, readiness decisions | ChatGPT + human review |
+| Repository/GitHub historical source inspection | GitHub read-only connector, pinned commit URLs |
+| Local Git, PHP/Composer tests and SHA guards | Windows PowerShell 5.1 in `C:\Projects\lms-reltroner-backend` |
+| Actual code changes inside approved scope | IDE AI agent / editor; no unsolicited edits |
+| VPS inventory, security/ports/capacity discovery | SSH read-only first, preserve HRM/Keycloak |
+| DNS/TLS/Keycloak/Cloudflare/hosting settings | GUI or explicit audited operations only after maintenance gate |
+| Evidence archival | PR description, CI artifacts, ledger update with SHA, timestamp and test commands |
+
+### 12.3 Minimal safe local backend discovery commands (read-only)
+
+```powershell
+Set-Location 'C:\Projects\lms-reltroner-backend'
+git branch --show-current
+git status --short --branch
+git rev-parse HEAD
+git rev-parse origin/main
+git ls-tree -r --name-only HEAD -- services
+git diff --name-status 56913175208bc49b4ebbf00fd889eccf1edf03e0 HEAD -- services
+```
+
+Run `git fetch origin` separately if current remote status is needed, and check exit codes. These commands do **not** authorize checkout/reset/force push or live migration. Do not use Phase 2D historic branch as a Phase 3 work base; prefer current verified `main`.
+
+### 12.4 Phase 3A first discovery deliverables (no code writes)
+
+| Deliverable | Minimum content | Evidence |
+|---|---|---|
+| A — Source inventory | BE six apps, FE catalog/roles/OIDC, docs, current tree SHA | Pinned SHA + path inventory |
+| B — API matrix | Every Phase 1 endpoint, caller, owner, capability, request/response, errors | Draft OpenAPI + traceability |
+| C — Trust threat model | JWKS/clients/aud/azp, internal caller identity, role revocation, secrets | Negative acceptance cases |
+| D — Persistence and event model | Four DB ownership boundaries, minimal schemas, outbox/inbox semantics | ERD, boundary tests |
+| E — Content version model | Stable IDs, schema, manifest build, archived progress semantics | Sample pinned artifact |
+| F — Deployment/capacity map | Socket/port candidate, worker budget, env/secrets, backup | Fresh read-only VPS data |
+| G — Final DoD definition | Approved mandatory items, exclusions, evidence format, SLO cost thresholds | Explicit accepted contract/ADR |
+| H — Change-control decision | What will be implemented in 3B and what remains blocked | Approved phase plan |
+
+### 12.5 Audit evidence entry template (copy for each subphase)
+
+```text
+EVIDENCE_ID:
+TIMESTAMP (UTC / WIB):
+PHASE / SUBPHASE:
+SCOPE:
+NORMATIVE CONTRACT / INVARIANT IDS:
+REPOSITORY / BASE SHA / CANDIDATE SHA:
+BRANCH / PR / MERGE SHA:
+AFFECTED FILES / SOURCE HASH:
+COMMANDS OR CI RUN URL:
+TEST COUNT / ASSERTIONS / NEGATIVE TESTS:
+SECURITY RESULTS AND AS-OF:
+INFRA OR DATABASE CHANGES (if explicitly approved):
+FAILURES / RESOLUTIONS:
+ROLLBACK / RESTORE EVIDENCE:
+DECISION: PASS / FAIL / BLOCKED / NOT APPLICABLE
+REVIEWER / NEXT OWNER:
+NEXT GATE:
+```
+
+Never report a green phase without its evidence row; do not overwrite previous evidence. Append with new dated record or link it to a PR/artifact.
+
+---
+
+## 13. AI-transfer prompt and guardrails
+
+When moving to a new AI, share links to the **three canonical LMS docs**, pinned `LMS-BE` and `LMS-FE` commit URLs, and this short instruction:
+
+> Act as Reltroner LMS contract-governed engineering architect. Read Phase 0C/Phase 1 FROZEN contracts before the living ledger. Confirm current SHA rather than assuming an old branch tip. Phase 2D six Laravel 13.35.0 service foundations were accepted and merged at LMS-BE `e30a61780994d85671cbf079e6b9ce899b3fe837`, 100 tests/725 assertions; **no domain E2E or production deployment is thereby proven**. Treat Phase 3A and Phases 3–12 as PROPOSED, not implemented. Never turn an idea into an approved ADR silently, never mutate production in discovery, never trust frontend roles or loopback alone, never cross-write service databases, and never redefine Git canonical course authority. Report exact gate/status, evidence SHA, blockers and smallest deterministic next step in Indonesian. Preserve history and use clean Git branches/PRs.
+
+### AI-to-AI continuity failure scenarios
+
+- If an AI says “LMS is 100% done,” ask **which DoD IDs** and require production evidence.
+- If an AI sees `LMS-BE empty` in Phase 1 contract, read the original Phase 1 **as-of discovery** and this current snapshot.
+- If an AI wants to rollback Gateway because it changed after `2763882...`, check the later **correct freeze** `e3f4f9b...`.
+- If an AI wants to move canonical content into PostgreSQL CRUD, require a formally approved Content Authoring ADR.
+- If an AI proposes Docker, Kafka, Meilisearch, local LLM, or more VPS merely for aesthetics, require measurable justification and contract check.
+- If an AI marks an external Keycloak role update as atomically committed with Audit DB, reject; mandate reconciliation.
+- If an AI invents secure end-to-end identity simply because 6 health routes work, reject and return to Phase 4 trust gates.
+
+---
+
+## 14. Current checkpoint conclusion and update discipline
+
+**2026-10-09 state:** frozen physical/logical architecture contract intact; backend six-service foundation `Phase 2D` accepted, merged into `main=e30a61780994d85671cbf079e6b9ce899b3fe837`, local sync PASS. **Phase 3A is NEXT PROPOSED architecture discovery**, pending explicit acceptance of phase plan. No global product DoD gate is certified, no invented completion percent.
+
+**Update cadence:** after every accepted subphase, merge, operational cutover, incident, ADR or material blocker; capture exact SHA/versions/evidence, preserve past checkpoint rows, identify newly resolved/unresolved risks, adjust status honestly. Any planned deviation from the two frozen contracts requires a cited ADR/versioned revision before implementation.
+
+**Final guiding rule:** **Cloudflare delivers. Premium Hosting originates public artifacts. VPS computes and owns state. PostgreSQL remembers. Redis accelerates. Keycloak identifies. LMS API authorizes. Git publishes canonical content. Domain services own domain truth. AI orchestrates without bypassing authority.**
