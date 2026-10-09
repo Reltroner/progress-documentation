@@ -1,5 +1,8 @@
 # Reltroner LMS — Phase 3 Source-Main Integration & Push-Main CI Evidence
 
+> **Later checkpoint — 2026-10-10 local Windows verification now received:** The local PowerShell operator successfully tested **255 BE contract checks** and **100 Laravel tests/725 assertions across all six services**; frontend catalog tests **9/9**, TypeScript/lint/content checks PASS. The default CRLF-checkout Windows `npm run build` **failed** at Contentlayer YAML frontmatter parsing (0/3 generated), but a controlled transformation of **only Git-ignored public Contentlayer staging to LF** produced **3/3 documents, 25/25 Next.js static pages, and a passing public-artifact privacy scan**. Contentlayer still emitted a postgeneration `ERR_INVALID_ARG_TYPE` CLI exception, so **ordinary Windows build without workaround is NOT certified**. See [the later local Windows operator receipt](./reltroner-lms-phase3-local-windows-powershell-isolation-receipt-20261010.md) and [machine results](./reltroner-lms-phase3-local-windows-isolation-evidence-20261010.json). The `PENDING` local status in §4 below is the original historical state, **superseded only by the later scoped evidence**; source-main/CI/Phase4 governance not changed.
+
+
 > **Checkpoint date:** 2026-10-10 (Asia/Jakarta); actual GitHub Actions timestamps are UTC 2026-10-09.  
 > **Outcome:** **TWO APPLICATION PRs MERGED; BOTH `push: main` CI RUNS GREEN; CONTENT TREES MATCH OWNER-ACCEPTED CANDIDATES**.  
 > **Source:** [Phase 3B-11 owner exit acceptance](./reltroner-lms-phase3b-11-final-owner-exit-acceptance-20261010.md) and explicit subsequent user instruction to integrate *both* accepted candidates into `main` and verify GitHub Actions.  
