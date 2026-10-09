@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3B07-28-ACCEPTANCE-AUDIT-20261009",
+  "date": "2026-10-09",
+  "source_class": "INDEPENDENT_GITHUB_READ_ONLY_SOURCE_CI_EVIDENCE_AUDIT",
+  "frozen_work_order_blob": "34b38af7a1fd6e3d704be21f0d1ea62704312e78",
+  "BE_SHA": "f43c91de8150d2ad22de61154f9ec9391f1548df",
+  "FE_SHA": "3ee0ee0285388f0489016d1689d2ea2ae899dd97",
+  "summary": {
+    "PASS_SCOPED": 13,
+    "PARTIAL_EVIDENCE": 13,
+    "PASS_TRACE_ONLY": 1,
+    "BLOCKED": 1
+  },
+  "total_expected": 28,
+  "final_exit_accepted": false,
+  "definition": {
+    "PASS_SCOPED": "FZ10 scoped nonproduction test/contract evidence; not runtime proof",
+    "PARTIAL_EVIDENCE": "Some specified acceptance dimension not demonstrated",
+    "PASS_TRACE_ONLY": "44 mapped invariants with downstream gates, no runtime certification",
+    "BLOCKED": "Final owner acceptance/work order absent"
+  },
+  "criteria": [
+    {
+      "id": "B3-AC01",
+      "package": "3B-01",
+      "frozen_requirement": "26 unique frozen API method+paths in versioned OpenAPI, no extra public family",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "26 exact OpenAPI 3.1 method+paths, 22 PHP tests",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/openapi/v1/openapi.json",
+      "deficit_or_boundary": "Live business handlers not exercised",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC02",
+      "package": "3B-01",
+      "frozen_requirement": "19 exact capabilities declared, admin.learning.* reserved/unrouted, explicit guest-offerings policy",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "19 capability values, admin.learning.* reserved, offerings default denial",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/authz/operation-policy.json",
+      "deficit_or_boundary": "Real JWT capability enforcement untested",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC03",
+      "package": "3B-01",
+      "frozen_requirement": "401/403, RFC7807, request ID, bounded pagination and idempotency schema examples validation",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "Per-operation Problem Details/request_id/401/403, cursor and booking Idempotency-Key",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/openapi/v1/openapi.json",
+      "deficit_or_boundary": "External OpenAPI standards validator and provider DTO execution absent",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC04",
+      "package": "3B-01",
+      "frozen_requirement": "Every operation has owned service, method, authorization rule and status/error fixture; provider mocks align",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "26 route/owner/client/status mock fixture declarations and PHP static tests",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/examples/contract-fixtures.json",
+      "deficit_or_boundary": "No executable mock HTTP provider/consumer response-contract roundtrips",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC05",
+      "package": "3B-02",
+      "frozen_requirement": "Identity schema pins issuer/audience/azp, separate clients, PKCE S256, denial on missing cap",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "Issuer/aud/two clients/PKCE S256 policy plus identity mock tests",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/identity/trust-contract.json",
+      "deficit_or_boundary": "No real Keycloak clients or token validation",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC06",
+      "package": "3B-02",
+      "frozen_requirement": "Invalid/sibling client, ID-token misuse, forged/stale roles, issuer/aud mismatch negative fixtures",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "Synthetic invalid JWT, audience, issuer, client and missing cap decisions",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/identity/trust-fixtures.json",
+      "deficit_or_boundary": "Synthetic signature_verified boolean not actual cryptographic JWT",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC07",
+      "package": "3B-02",
+      "frozen_requirement": "Workload identity + signed delegation schema and recipient/caller/operation bound claims, rotation/nonce/replay negative fixture",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Delegation schema+synthetic freshness/nonce/replay rejection models",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/identity/trust-contract.json",
+      "deficit_or_boundary": "Algorithm, JWKS, rotation, TTL, skew and nonce store explicitly PENDING_SECURITY_ADR; no real signing",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC08",
+      "package": "3B-02",
+      "frozen_requirement": "No HRM global mapper edits or unbound principal headers, Keycloak provisioning deferred Phase 4",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "Diff does not modify HRM or Keycloak, internal unbound principal disallowed",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/identity/trust-contract.json",
+      "deficit_or_boundary": "No runtime HRM/Keycloak nonmutation probe; FZ10 excludes live services",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC09",
+      "package": "3B-03",
+      "frozen_requirement": "4 databases owner/grant spec, negative cross-read/write and migration compatibility fixtures",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Four owned DB grant candidates and five cross-grant mock cases",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/persistence/owner-event-contract.json",
+      "deficit_or_boundary": "No runnable PostgreSQL GRANT/REVOKE SQL or migration compatibility fixtures",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC10",
+      "package": "3B-03",
+      "frozen_requirement": "9 semantic event names and versioned payload schemas with source/PII bounds",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "Nine exact version 1 event schemas; PII minimizing envelope checks",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/persistence/owner-event-contract.json",
+      "deficit_or_boundary": "No actual publisher/consumer yet, deferred Phase 5+",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC11",
+      "package": "3B-03",
+      "frozen_requirement": "Outbox/inbox dedup/retry/failover contract includes commit-before-publish crash and broker duplicate tests",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Outbox/inbox crash/duplicate expected fixture rows exist and PHP CI green",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/tests/validate-persistence.php",
+      "deficit_or_boundary": "E01/E02/E08 validator maps fixture ID to fixed answer instead of executing event/replay transitions",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC12",
+      "package": "3B-03",
+      "frozen_requirement": "Slot occupancy plus idempotency independent; admin role mutation Audit intent/reconciliation spec",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Slot occupancy/idempotency and Audit intent/reconciliation design fixtures exist",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/tests/validate-persistence.php",
+      "deficit_or_boundary": "E04-E07 hardcoded expectation results; no logic, concurrency or tested state machine",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC13",
+      "package": "3B-04",
+      "frozen_requirement": "All 31 MDX lessons have audited stable IDs or versioned migration fixtures; slug renames preserve ID",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "31 Git registry stable IDs; missing source/rename fail-closed test",
+      "evidence_url": "https://github.com/Reltroner/LMS-FE/blob/3ee0ee0285388f0489016d1689d2ea2ae899dd97/contracts/catalog/lesson-id-registry.json",
+      "deficit_or_boundary": "Source mapping external to MDX, FZ10 accepts versioned registry",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC14",
+      "package": "3B-04",
+      "frozen_requirement": "Manifest JSON canonicalization deterministic on repeat build; published course revision distinct from global hash",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "Deterministic canonical JSON manifest, per-course revision verified in FE CI",
+      "evidence_url": "https://github.com/Reltroner/LMS-FE/blob/3ee0ee0285388f0489016d1689d2ea2ae899dd97/scripts/phase3b-catalog.mjs",
+      "deficit_or_boundary": "Live release and full historical revision migrations not performed",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC15",
+      "package": "3B-04",
+      "frozen_requirement": "Public static output negative suite excludes unpublished routes, bundled search, sitemap, metadata, asset refs",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Published staging and Next static export guard plus negative route scanner green",
+      "evidence_url": "https://github.com/Reltroner/LMS-FE/blob/3ee0ee0285388f0489016d1689d2ea2ae899dd97/scripts/phase3b-catalog.mjs",
+      "deficit_or_boundary": "Scanner text extensions limited; .css/.svg/.map/other asset and source-map leak channels not exhaustively tested",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC16",
+      "package": "3B-04",
+      "frozen_requirement": "Studio published canon attestation/access-rights separate from LMS publication; unattested filtered",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Studio separate-canon rights and source-hash-format mock denials",
+      "evidence_url": "https://github.com/Reltroner/LMS-FE/blob/3ee0ee0285388f0489016d1689d2ea2ae899dd97/contracts/catalog/studio-attestation.json",
+      "deficit_or_boundary": "Hash regex is not digest matching or real cryptographic rights attestation",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC17",
+      "package": "3B-05",
+      "frozen_requirement": "6 independent Laravel service CI checks run and pass on locked dependencies with recorded output",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "All six independent Laravel PHPUnit + locked Composer CI jobs SUCCESS",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/actions/runs/37950916475",
+      "deficit_or_boundary": "Only service skeleton, not live domain provider business correctness",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC18",
+      "package": "3B-05",
+      "frozen_requirement": "Next.js FE build, typecheck, lint, content/resource/orphan and public privacy tests pass on pinned FE SHA",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "FE npm ci, typecheck, lint, content/resource/orphan, Next build and privacy export PASS",
+      "evidence_url": "https://github.com/Reltroner/LMS-FE/actions/runs/37951012017",
+      "deficit_or_boundary": "No live Cloudflare/publication proof; CI output only",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC19",
+      "package": "3B-05",
+      "frozen_requirement": "CI catches intentionally malformed OpenAPI, role escalation, catalog draft, event schema drift fixtures",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Model mutation tests route/cap/event drift and draft publication denial",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/tests/validate-compatibility.php",
+      "deficit_or_boundary": "No CI mutant matrix demonstrating deliberate failure of malformed schema, actual role escalation and all relevant jobs",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC20",
+      "package": "3B-05",
+      "frozen_requirement": "No direct prod DB/Keycloak/VPS, no secrets/tokens embedded in fixtures/logs, failed jobs fail closed",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Non-prod workflows, GitGuardian green, fail-closed steps observed",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/actions/runs/37950916475",
+      "deficit_or_boundary": "Full log/fixture secrets audit and preview deployment isolation not independently certified",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC21",
+      "package": "3B-06",
+      "frozen_requirement": "Consumer/provider version compatibility rejects breaking differences within /api/v1 without approved strategy",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Frozen v1 golden 26/19/9 differences rejected by model tests",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/tests/validate-compatibility.php",
+      "deficit_or_boundary": "No provider/consumer mock HTTP schemas/response negotiation or DTO backwards compatibility",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC22",
+      "package": "3B-06",
+      "frozen_requirement": "Negative contract suites cover unauthorized object IDs, admin context, guest service, private search snippets",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Wrong principal, admin client, guest AI and private snippet denied by PHP model",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/tests/validate-compatibility.php",
+      "deficit_or_boundary": "Real ownership/resource/JWT middleware and HTTP negative fixture not exercised",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC23",
+      "package": "3B-06",
+      "frozen_requirement": "Outbox duplicate/out-of-order and index rollback contract tests pass using isolated deterministic simulations",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "Synthetic duplicate receipt/stale event and failed index release decision functions PASS",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/tests/validate-compatibility.php",
+      "deficit_or_boundary": "No real broker or index transaction; FZ10 calls for isolated deterministic simulation",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC24",
+      "package": "3B-06",
+      "frozen_requirement": "Knowledge release authentication/provenance contract rejects unapproved Git artifact and forged release",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "Missing/private/invalid-format release attestation mock denied",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/tests/validate-compatibility.php",
+      "deficit_or_boundary": "Forged hash test only invalid length; well-formed wrong digest/signature not compared to actual source",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC25",
+      "package": "3B-07",
+      "frozen_requirement": "All scoped acceptance tests/fixtures green with CI run URL, timestamp, commits and reviewer evidence",
+      "status": "PARTIAL_EVIDENCE",
+      "evidence_observed": "BE and FE exact-SHA green CI and project owner candidate approval archived",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/actions/runs/37950916475",
+      "deficit_or_boundary": "Full set of 28 acceptance not green and final reviewer exit not signed",
+      "fully_satisfied_under_fz10_scope": false
+    },
+    {
+      "id": "B3-AC26",
+      "package": "3B-07",
+      "frozen_requirement": "44 frozen invariants linked to tests or still explicit future runtime gates; no fake runtime certification",
+      "status": "PASS_TRACE_ONLY",
+      "evidence_observed": "FZ02 maps 20 physical and 24 logical invariants to future evidence; audited 44 IDs",
+      "evidence_url": "https://github.com/Reltroner/progress-documentation/blob/abcbb121d1840c5a87956d02f10f545cf3b8f43e/lms/reltroner-lms-phase3a-04-fz02-cross-contract-invariant-traceability-20261009.md",
+      "deficit_or_boundary": "Traceability is not runtime certification; many phase4-11 proofs pending",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC27",
+      "package": "3B-07",
+      "frozen_requirement": "No unapproved source/service/API/capability/event/DB ownership drift; all deviations rejected or formal ADR",
+      "status": "PASS_SCOPED",
+      "evidence_observed": "26 ops, 19 caps, nine events, four DB, service boundaries and diff vs frozen main checked",
+      "evidence_url": "https://github.com/Reltroner/LMS-BE/blob/f43c91de8150d2ad22de61154f9ec9391f1548df/contracts/compatibility/golden-v1.json",
+      "deficit_or_boundary": "Source diff audit only, not proof of no behavioral defect",
+      "fully_satisfied_under_fz10_scope": true
+    },
+    {
+      "id": "B3-AC28",
+      "package": "3B-07",
+      "frozen_requirement": "Signed 3B exit acceptance plus distinct Phase 4 work order/production authorization before provisioning",
+      "status": "BLOCKED",
+      "evidence_observed": "Candidate approvals documented; final exit signature and distinct Phase4 work order absent",
+      "evidence_url": "https://github.com/Reltroner/progress-documentation/blob/abcbb121d1840c5a87956d02f10f545cf3b8f43e/lms/reltroner-lms-phase3b-central-candidate-owner-approval-20261009.json",
+      "deficit_or_boundary": "No explicit owner final source merge approval, full acceptance and separate Phase4 authorization",
+      "fully_satisfied_under_fz10_scope": false
+    }
+  ],
+  "main_merge_authorized": false,
+  "phase4_authorized": false,
+  "production_authorized": false
+}
