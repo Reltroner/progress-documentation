@@ -4,7 +4,7 @@
   "date": "2026-10-09",
   "timezone": "Asia/Jakarta",
   "phase": "3B-01",
-  "status": "SOURCE_CONTRACT_CANDIDATE_PR_OPEN_STATIC_REVIEW_PASS_PHP_CI_NOT_EXECUTED",
+  "status": "SOURCE_PR_OPEN_PHP_LINT_PASS_CONTRACT_STATIC_22_22_PASS_OWNER_SIGNOFF_AND_MERGE_PENDING",
   "owner_instruction": "aku terima merge PR #8 kemudian lakukan Phase 3B-01: OpenAPI & API Contracts",
   "previous_phase": {
     "PB00_PR8": {
@@ -64,25 +64,24 @@
   "gates": [
     {
       "id": "B3-AC01",
-      "status": "STATIC_MATCH_26_OF_26_PHP_CI_PENDING"
+      "status": "STATIC_PHP_CONTRACT_PASS_26_OF_26_OWNER_PR_REVIEW_PENDING"
     },
     {
       "id": "B3-AC02",
-      "status": "STATIC_MATCH_19_OF_19_GUEST_OFFERING_DENY_DEFAULT_PUBLIC_RELEASE_OWNER_PENDING"
+      "status": "STATIC_PHP_CONTRACT_PASS_19_OF_19_GUEST_OFFERING_PUBLIC_RELEASE_NOT_AUTHORIZED"
     },
     {
       "id": "B3-AC03",
-      "status": "STATIC_RFC7807_CURSOR_IDEMPOTENCY_PASS_PHP_CI_PENDING"
+      "status": "STATIC_PHP_CONTRACT_PASS_RFC7807_CURSOR_IDEMPOTENCY_EXTERNAL_LINTER_NOT_RUN"
     },
     {
       "id": "B3-AC04",
-      "status": "STATIC_26_MOCK_CASES_AND_25_AUTH_FIXTURES_PASS_PROVIDER_NOT_RUN"
+      "status": "STATIC_PHP_MOCK_FIXTURE_PASS_26_OPERATIONS_REAL_PROVIDER_NOT_RUN"
     }
   ],
   "residual": [
+    "PHP -l PASS and contract test 22/22 PASS on pinned detached worktree; source PR #2 remains OPEN pending separate owner merge authorization",
     "Human review of guest policy: deny-by-default until explicit limited public offering projection approval",
-    "php -l contracts/tests/validate.php on approved source feature branch",
-    "php contracts/tests/validate.php with captured exit status and output",
     "Human review of provisional DTO response/request shapes; preserve Phase 5–9 future gates",
     "Review/merge source PR #2 only after acceptance; do not auto-deploy",
     "Actual Laravel middleware/provider verification remains Phase 3B-06/Phase 4+, Phase 3B-05 CI separately"
@@ -90,5 +89,21 @@
   "policy": "ALL_26_REQUIRE_OIDC_ACCESS_TOKEN_GUEST_OFFERINGS_DENIED_UNTIL_OWNER_APPROVAL",
   "next_checkpoint": "3B-01 LOCAL PHP STATIC VALIDATION, SOURCE PR REVIEW, THEN B3-AC01..04 OWNER ACCEPTANCE",
   "production_mutation_authorized": false,
-  "phase_3b_01_exit_accepted": false
+  "phase_3b_01_exit_accepted": false,
+  "test_evidence": {
+    "source": "owner-supplied Windows PowerShell console output",
+    "local_isolated_head_sha": "32f08586cba9b19a6a77c8a43967d2e14540591b",
+    "php_syntax": "PASS_NO_SYNTAX_ERRORS",
+    "php_contract_tests_passed": 22,
+    "php_contract_tests_failed": 0,
+    "php_contract_tests_total": 22,
+    "original_backend_main_preserved": true,
+    "tested_worktree_clean": true,
+    "contract_evidence": "lms/reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.md",
+    "machine_evidence": "lms/reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.json",
+    "gate_decision": "B3_AC01_TO_04_STATIC_PASS_NOT_FULL_3B_EXIT",
+    "phpunit_not_executed": true,
+    "provider_tests_not_executed": true,
+    "production_not_tested": true
+  }
 }
