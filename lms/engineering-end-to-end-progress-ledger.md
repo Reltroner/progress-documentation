@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 FZ-04 OWNER CLOSURE — READ FIRST:** ADR-03F parent recommendations 12/12 were approved and **FZ-04 is now PASS at design-baseline level**: Identity 1 + Persistence 9 + Catalog 8 = 18 subordinate design dispositions. Exact unspecified crypto parameters, schema/lifecycle policies, catalog migration/retention and runtime tests remain hard-gated before affected implementation. Phase **3A overall is NOT FROZEN**, Phase **3B NOT AUTHORIZED**, production **NOT AUTHORIZED**. Earlier 3A-04 REVIEW HOLD/FZ-04 BLOCKED statements are historical evidence, superseded for this gate by [FZ-04 owner receipt](./reltroner-lms-phase3a-04-fz04-subordinate-adr-closure-20261009.md), [machine dispositions](./reltroner-lms-phase3a-04-fz04-subordinate-adr-dispositions-20261009.json). Frozen Phase 0C/1 contracts remain intact.
+> **CURRENT 2026-10-09 FZ-02 OWNER ACCEPTANCE — READ FIRST:** Phase **3A-04** has owner acceptance of 12/12 parent ADR-03F directions, **18/18 FZ-04 subordinate ADR design dispositions** and **44/44 FZ-02 source-to-ADR-to-DoD-to-future-test invariant mappings** (20 physical + 24 logical). These approvals are at **ARCHITECTURE DESIGN** level only. **No 44-invariant runtime certification** follows from FZ-02; the FE public draft-risk, unprovisioned Keycloak clients and other implementation blockers remain. **Phase 3A final design freeze is NOT YET SIGNED, Phase 3B NOT AUTHORIZED, production NOT AUTHORIZED**. Older FZ-02/FZ-04 PENDING declarations are historical. Read [FZ-02 receipt](./reltroner-lms-phase3a-04-fz02-cross-contract-invariant-traceability-20261009.md), [FZ-04 receipt](./reltroner-lms-phase3a-04-fz04-subordinate-adr-closure-20261009.md), and the [machine ratification register](./reltroner-lms-phase3a-04-ratification-register-20261009.json). Frozen Phase 0C and Phase 1 normative documents remain untouched.
 
 ---
 
@@ -675,3 +675,27 @@ Source of decision truth:
 **Preservation:** 20 physical + 24 logical frozen invariants unchanged, 26 public API operations, 19 capabilities, nine semantic event names, four logical DB owners unchanged. No code/runtime tests or production mutation executed in this FZ-04 decision-recording work.
 
 **Checkpoint:** `3A-04 FZ-04 CLOSED (DESIGN) → 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
+
+---
+
+## 18. Owner FZ-02 closure — 44-invariant cross-contract traceability (2026-10-09)
+
+**Direct owner instruction:** `tutup FZ-02 — Final Cross-Contract Invariant Traceability Acceptance`. Decision recorded as **PASS DESIGN TRACEABILITY**, not product certification.
+
+**Evidence:** [44 exact invariant statements and mapped accepted ADR/DoD/test gates](./reltroner-lms-phase3a-04-fz02-cross-contract-invariant-traceability-20261009.md) and [44-record JSON](./reltroner-lms-phase3a-04-fz02-invariant-traceability-20261009.json). Frozen source blobs: 0C `b899761c9e833f9fa567055801b9ba0834ed56eb`, Phase 1 `cf089b8df4b5ccb1761b504ffae662a0053bf03e`; GitHub main baseline reviewed `78fb7db76b7a5b423825d687f0adc58ed88101ee`.
+
+| Closure metric | Count/state |
+|---|---|
+| Physical FROZEN invariants (I-01..20) | 20/20 traced |
+| Logical FROZEN invariants (P1-I01..24) | 24/24 traced |
+| Distinct and mapped source IDs | 44/44; no duplicate or unmapped ID |
+| ADR mappings, DoD mappings and future acceptance evidence | 44/44 each |
+| Contract normative changes | 0 |
+| Runtime/CI implementations certified by this phase | **0** — NOT EXECUTED |
+| Owner design decision | **FZ-02 CLOSED** |
+
+**Residual risk and deferred acceptance:** `CC-01` FE public-draft static generation; `CC-07/18` LMS Keycloak client absence and FE issuer drift; `CC-08` internal service assertion; `CC-06` authenticated Knowledge release ingest; `CC-11..13` booking/concurrency, durable events and Keycloak/Audit recovery; `CC-21/22` shared VPS capacity and CI proof. No verified nonconformance exception to frozen architecture is authorized; source drift must be fixed under approved work order and validated in later phases.
+
+**Other gate status:** `FZ-03 PASS`, `FZ-04 PASS`, `FZ-05 PASS`, `FZ-06/07 PASS-DESIGN`, `FZ-09 PASS`. **`FZ-10` and `FZ-11` remain OPEN**: the user has not approved a separately scoped Phase 3B work order or signed a final Phase 3A freeze acceptance record. Docs-only FZ-02 PR still needs merge and final SHA pin.
+
+**Operational checkpoint:** `3A-04 FZ-02 CLOSED (44/44 DESIGN) → FZ-10/FZ-11 OPEN → 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
