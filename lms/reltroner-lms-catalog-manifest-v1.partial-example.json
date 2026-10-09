@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "release_class": "fixture",
+  "source": {
+    "repository": "Reltroner/LMS-FE",
+    "commit_sha": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7"
+  },
+  "fixture_note": "NON-PRODUCTION PARTIAL FIXTURE: only one real course, one of its modules, and one real lesson with proposed stable lesson ID; not a complete export, release certificate, or verified source MDX ID.",
+  "courses": [
+    {
+      "id": "course-backend-engineering",
+      "slug": "backend-engineering",
+      "status": "published",
+      "revision": "fixture-only-not-a-course-revision",
+      "title": "Backend Engineering Fundamentals",
+      "module_ids": [
+        "module-http-fundamentals"
+      ],
+      "path_ids": [
+        "path-full-stack-backend-engineer"
+      ],
+      "aliases": [
+        "backend-engineering-fundamentals"
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "module-http-fundamentals",
+      "course_id": "course-backend-engineering",
+      "slug": "http-fundamentals",
+      "title": "HTTP Fundamentals",
+      "order": 1,
+      "lesson_ids": [
+        "lesson-backend-engineering-01-http-overview"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-backend-engineering-01-http-overview",
+      "course_id": "course-backend-engineering",
+      "module_id": "module-http-fundamentals",
+      "slug": "01-http-overview",
+      "status": "published",
+      "title": "HTTP Overview",
+      "kind": "lesson",
+      "source_path": "content/courses/backend-engineering/lessons/01-http-overview.mdx",
+      "content_digest": "gitblob-sha1:68c38cbe922a4c8dba16d4ef16a14fa41082f062",
+      "resource_ids": []
+    }
+  ],
+  "paths": [
+    {
+      "id": "path-full-stack-backend-engineer",
+      "slug": "full-stack-backend-engineer",
+      "title": "Full Stack Backend Engineer",
+      "status": "published",
+      "course_ids": [
+        "course-backend-engineering"
+      ]
+    }
+  ],
+  "resources": [],
+  "studio_references": [
+    {
+      "reference_id": "studio-reltroner-master-constitution",
+      "source_ref": {
+        "repository": "Reltroner/reltroner-studio",
+        "commit_sha": "f7b6e6c73fcd81c945524cb81602d2984c6b4720"
+      },
+      "source_path": "content/principles/reltroner-studio-master-source-of-truth.md",
+      "source_type": "methodology",
+      "canon_status": "not_attested",
+      "visibility": "public",
+      "distribution_review": "pending",
+      "epistemic_mode": "not_applicable",
+      "canonical_url": "https://github.com/Reltroner/reltroner-studio/blob/f7b6e6c73fcd81c945524cb81602d2984c6b4720/content/principles/reltroner-studio-master-source-of-truth.md"
+    }
+  ],
+  "tombstones": [],
+  "catalog_version": "sha256:12d4d72ec56d3ad5feea432558578c2715ee493a7a164d20f7dcf54ceaf32526"
+}

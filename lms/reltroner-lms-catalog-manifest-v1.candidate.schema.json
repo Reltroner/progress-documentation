@@ -1,0 +1,497 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lms.reltroner.com/contracts/catalog-manifest-v1.schema.json",
+  "$comment": "Phase 3A-03E candidate only. JSON Schema validates shape; external compiler must validate reference graph, uniqueness across arrays, historical IDs, publication/permissions and canonical hash. Not approved/implemented.",
+  "title": "Reltroner LMS Catalog Manifest v1 — Candidate Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog_version",
+    "release_class",
+    "source",
+    "courses",
+    "modules",
+    "lessons",
+    "paths",
+    "resources",
+    "studio_references",
+    "tombstones"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "catalog_version": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "release_class": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal_preview",
+        "fixture"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        }
+      },
+      "required": [
+        "repository",
+        "commit_sha"
+      ],
+      "additionalProperties": false
+    },
+    "fixture_note": {
+      "type": "string"
+    },
+    "courses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published",
+              "archived"
+            ]
+          },
+          "revision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "module_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "path_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "prerequisite_course_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "status",
+          "revision",
+          "title",
+          "module_ids",
+          "path_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "course_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "lesson_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "course_id",
+          "slug",
+          "title",
+          "order",
+          "lesson_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "lessons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "course_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "module_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published",
+              "archived"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "lesson",
+              "lab",
+              "checkpoint",
+              "capstone"
+            ]
+          },
+          "source_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_digest": {
+            "type": "string",
+            "pattern": "^(gitblob-sha1:[a-f0-9]{40}|sha256:[a-f0-9]{64})$"
+          },
+          "resource_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "course_id",
+          "module_id",
+          "slug",
+          "status",
+          "title",
+          "kind",
+          "source_path",
+          "content_digest"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "published",
+              "archived"
+            ]
+          },
+          "course_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "slug",
+          "title",
+          "status",
+          "course_ids"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "course_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "image",
+              "video",
+              "audio",
+              "pdf",
+              "download",
+              "external-link"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "source_revision": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "course_id",
+          "title",
+          "type",
+          "url",
+          "source_revision"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "studio_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reference_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_ref": {
+            "type": "object",
+            "properties": {
+              "repository": {
+                "type": "string",
+                "minLength": 1
+              },
+              "commit_sha": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              }
+            },
+            "required": [
+              "repository",
+              "commit_sha"
+            ],
+            "additionalProperties": false
+          },
+          "source_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_type": {
+            "type": "string",
+            "enum": [
+              "methodology",
+              "current_lore",
+              "backstory",
+              "wiki",
+              "other"
+            ]
+          },
+          "canon_status": {
+            "type": "string",
+            "enum": [
+              "not_attested",
+              "concept",
+              "development_material",
+              "planned_forward_architecture",
+              "structured_canon",
+              "production_candidate",
+              "published_canon",
+              "superseded_archived_draft"
+            ]
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "public",
+              "authenticated",
+              "restricted"
+            ]
+          },
+          "distribution_review": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "pending",
+              "rejected"
+            ]
+          },
+          "epistemic_mode": {
+            "type": "string",
+            "enum": [
+              "current_lore",
+              "backstory",
+              "wiki",
+              "not_applicable"
+            ]
+          },
+          "edition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "canonical_url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "reference_id",
+          "source_ref",
+          "source_path",
+          "source_type",
+          "canon_status",
+          "visibility",
+          "distribution_review",
+          "epistemic_mode"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "tombstones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entity_type": {
+            "type": "string",
+            "enum": [
+              "course",
+              "module",
+              "lesson",
+              "path",
+              "resource",
+              "studio_reference"
+            ]
+          },
+          "retired_since": {
+            "type": "string",
+            "minLength": 1
+          },
+          "aliases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "replacement_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "entity_type",
+          "retired_since"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}
