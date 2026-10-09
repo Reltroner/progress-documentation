@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3A-FINAL-FREEZE-20261009",
+  "date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "clock_time": null,
+  "owner_decision": {
+    "evidence": "User explicit request: 'FZ-11 — Phase 3A Final Design Freeze Acceptance Record.'",
+    "type": "EXPLICIT_PROJECT_OWNER_ACCEPTANCE_OF_FINAL_3A_DESIGN_FREEZE",
+    "scope": "ARCHITECTURAL_DESIGN_BASELINE_ONLY",
+    "does_not_authorize_production": true
+  },
+  "approval": {
+    "FZ11": "OWNER_APPROVED_PENDING_DOCS_PR_MERGE",
+    "phase_3a_freeze_decision_signed": true,
+    "phase_3a_frozen_on_main_at_current_time": false,
+    "phase_3a_effective_condition": "Freeze PR reviewed and merged to progress-documentation/main, final merge SHA pinned",
+    "phase3b_workorder": "APPROVED_CONDITIONALLY_BY_FZ10",
+    "phase3b_source_work_executable_now": false,
+    "phase3b_source_work_after_merge": "AUTHORIZED_WITH_PER_SUBPHASE_GIT_PREFLIGHT_AND_RESTRICTED_FILE_ALLOWLIST",
+    "production_mutation_authorized": false,
+    "phase4_authorized": false,
+    "product_release_certified": false
+  },
+  "sources": {
+    "documentation_main_reviewed": "bf6aa64c5038aebcb13f4c0fff86dea047276de6",
+    "backend_main_reviewed": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "frontend_main_reviewed": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+    "studio_main_reviewed": "f7b6e6c73fcd81c945524cb81602d2984c6b4720",
+    "frozen_blobs": {
+      "infrastructure": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+      "logical_service_api": "cf089b8df4b5ccb1761b504ffae662a0053bf03e"
+    },
+    "accepted_decision_blobs": {
+      "parent_12": "d99c0ef511c02e6832b1fa1f169ac63d9081f2f8",
+      "subordinate_18": "62c45f7118dfae257ded5733fd548b0fa2d4427c",
+      "traceability_44": "e4d71ba579def7630fcf8714ba0b58f86cd600a5",
+      "workorder_3b": "34b38af7a1fd6e3d704be21f0d1ea62704312e78"
+    }
+  },
+  "gate_register": [
+    {
+      "id": "FZ-01",
+      "decision": "PASS",
+      "basis": "Git baseline/contract SHA pinned, evidence precedence defined"
+    },
+    {
+      "id": "FZ-02",
+      "decision": "PASS_DESIGN",
+      "basis": "44/44 exact frozen-invariant source→ADR→DoD→test trace, NOT runtime certification"
+    },
+    {
+      "id": "FZ-03",
+      "decision": "PASS_OWNER",
+      "basis": "12/12 ADR-03F parent directions accepted"
+    },
+    {
+      "id": "FZ-04",
+      "decision": "PASS_OWNER",
+      "basis": "18/18 KC/PD/Catalog subordinate design dispositions with deferred implementation detail gates"
+    },
+    {
+      "id": "FZ-05",
+      "decision": "PASS_OWNER",
+      "basis": "Initial v1 business scope excludes private creator uploads/submissions/grading/mentor review and paid finance"
+    },
+    {
+      "id": "FZ-06",
+      "decision": "PASS_DESIGN",
+      "basis": "Public-only deny-by-default publication, negative build tests still required"
+    },
+    {
+      "id": "FZ-07",
+      "decision": "PASS_DESIGN",
+      "basis": "Signed scoped internal workload/delegation, authenticated Knowledge ingest, Keycloak/Audit intent reconciliation principles"
+    },
+    {
+      "id": "FZ-08",
+      "decision": "PASS_DESIGN",
+      "basis": "6 services, 26 public operations, 19 capabilities, 9 event names, 4 logical DB owners unchanged"
+    },
+    {
+      "id": "FZ-09",
+      "decision": "PASS_DOC_GOV",
+      "basis": "Standalone historical evidence split and living ledger, PR1-5 merged; freeze PR pending"
+    },
+    {
+      "id": "FZ-10",
+      "decision": "PASS_CONDITIONAL",
+      "basis": "7 packages, 28 contract/CI tests work-order plan approved, requires FZ11 and current Git preflight"
+    },
+    {
+      "id": "FZ-11",
+      "decision": "OWNER_SIGNED_PENDING_MERGE",
+      "basis": "Explicit owner command FZ-11 Phase 3A Final Design Freeze Acceptance Record; effective on merge"
+    }
+  ],
+  "counts": {
+    "parent_adrs": 12,
+    "subordinate_decisions": 18,
+    "physical_invariants": 20,
+    "logical_invariants": 24,
+    "services": 6,
+    "api_ops": 26,
+    "capabilities": 19,
+    "semantic_event_types": 9,
+    "logical_db_owners": 4,
+    "phase3b_work_packages": 7,
+    "phase3b_acceptance_tests": 28,
+    "global_product_DODs": 16
+  },
+  "owner_ratified_parent_ids": [
+    "ADR-03F-01",
+    "ADR-03F-02",
+    "ADR-03F-03",
+    "ADR-03F-04",
+    "ADR-03F-05",
+    "ADR-03F-06",
+    "ADR-03F-07",
+    "ADR-03F-08",
+    "ADR-03F-09",
+    "ADR-03F-10",
+    "ADR-03F-11",
+    "ADR-03F-12"
+  ],
+  "subordinate_dispositions": [
+    {
+      "id": "ADR-LMS-KC-001",
+      "group": "Identity",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B identity configuration specification before Phase 4 provisioning; Phase 4 effective-token and HRM regression checks; internal trust and role-admin ADR before their endpoints."
+    },
+    {
+      "id": "PD-ADR-01",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B schema/grant fixtures; Phase 4 owner-DB provisioning and negative cross-write tests."
+    },
+    {
+      "id": "PD-ADR-02",
+      "group": "Persistence",
+      "disposition": "ACCEPT_MINIMAL_BASELINE_WITH_POLICY_GATE",
+      "hard_gate": "3B versioned API DTO/decision matrix; Phase 5 before Learning stateful endpoints."
+    },
+    {
+      "id": "PD-ADR-03",
+      "group": "Persistence",
+      "disposition": "ACCEPT_MINIMAL_BASELINE_WITH_POLICY_GATE",
+      "hard_gate": "3B policy+DDL test fixtures; Phase 7 concurrent booking and lifecycle tests."
+    },
+    {
+      "id": "PD-ADR-04",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B OpenAPI idempotency DTO; Phase 7 deterministic duplicate/concurrency/failure tests."
+    },
+    {
+      "id": "PD-ADR-05",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B event schemas and negative fixtures; Phase 4+ broker/workers and end-to-end replay drills before event-dependent features."
+    },
+    {
+      "id": "PD-ADR-06",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B Knowledge ingest contract; Phase 8 authorized reindex/failure tests."
+    },
+    {
+      "id": "PD-ADR-07",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B append-only DDL/privilege specification; Phase 6 immutable audit and outage tests."
+    },
+    {
+      "id": "PD-ADR-08",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B admin-operations ADR and contracts; Phase 6 negative/uncertain-result tests BEFORE role PATCH enabled."
+    },
+    {
+      "id": "PD-ADR-09",
+      "group": "Persistence",
+      "disposition": "ACCEPT_OBLIGATION_DEFER_MEASURABLE_PARAMETERS",
+      "hard_gate": "Phase 4 design resource preflight; Phase 11 measured operational SLO, restore, HRM nonregression before production release."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-001",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B manifest compiler/schema CI; Phase 5 Learning integration."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-002",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B audited ID registry + route/search parity tests; Phase 5 pre-progress migration acceptance."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-003",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B versioned schema, deterministic dual-build test; Phase 5 release publication/rollback checks."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-004",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B DTO/history contract; Phase 5 backcompat/concurrency tests."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-005",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B metadata schema contract; before Phase 8 ingestion and public/AI citation."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-006",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B privacy/manifest CI; Phase 8 permission/search leakage tests; FE release checks in Phase 10."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-007",
+      "group": "Catalog",
+      "disposition": "DEFER_FEATURE_INITIAL_V1_ACCEPT_CHANGE_CONTROL",
+      "hard_gate": "Only reconsider after explicit new product approval + frozen-contract change control, before coding feature."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-008",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "hard_gate": "3B optional source reference schema; Phase 8 indexing only with Studio release authority."
+    }
+  ],
+  "implementation_deferred_open_gates": [
+    {
+      "id": "DF-01",
+      "topic": "Keycloak live OIDC clients, audience, scope, token shape, HRM non-regression",
+      "first_hard_gate": "3B configuration/negative contract → Phase 4 provisioning after separate authorization"
+    },
+    {
+      "id": "DF-02",
+      "topic": "Internal service caller authentication, signed principal assertion algorithm/format/nonce/replay/rotation/revocation",
+      "first_hard_gate": "3B trust schema and negative fixtures; before any private service API implementation"
+    },
+    {
+      "id": "DF-03",
+      "topic": "Four DB role/DDL/schema details, enrollment retakes, time zones, booking lifecycle/idempotency TTL",
+      "first_hard_gate": "3B DTO/DDL/contracts; Phase 4/5/7 implementation tests"
+    },
+    {
+      "id": "DF-04",
+      "topic": "Outbox/inbox payload versions, retry ordering, signing/DLQ retention, live broker delivery",
+      "first_hard_gate": "3B event schema + simulation; Phase 4+ durable runtime before event dependent product"
+    },
+    {
+      "id": "DF-05",
+      "topic": "Keycloak↔Audit privileged role mutation transaction split, retries and reconciled outcomes",
+      "first_hard_gate": "3B admin-operation protocol and Phase 6 negative/outage tests before role PATCH release"
+    },
+    {
+      "id": "DF-06",
+      "topic": "Permanent 31 lesson ID mapping, manifest compiler, curriculum completion policy and redirect migration",
+      "first_hard_gate": "3B schema/build tests; Phase 5 historical progress/ID migration tests"
+    },
+    {
+      "id": "DF-07",
+      "topic": "Studio source-attested published canon, public/private rights, Knowledge ingestion provenance/ACL, index release",
+      "first_hard_gate": "3B metadata/ingest policy; Phase 8 access/leak/build/recovery tests"
+    },
+    {
+      "id": "DF-08",
+      "topic": "Frontend publication leakage potential, legacy OIDC config, instructor/admin separation",
+      "first_hard_gate": "3B build privacy and token fixtures; Phase 10 output and FE integration E2E"
+    },
+    {
+      "id": "DF-09",
+      "topic": "Shared VPS capacity/performance, HRM coexistence, backup/restore RPO-RTO/retention and LLM cost",
+      "first_hard_gate": "Phase 4 resource preflight, Phase 11/12 measured go-live certification"
+    },
+    {
+      "id": "DF-10",
+      "topic": "Actual API providers, 6-service CI, source change, contract tests; no global product DOD yet",
+      "first_hard_gate": "Phase 3B 28/28 verified checks; subsequent Phase 4–12 real integration acceptance"
+    }
+  ],
+  "excluded_v1_scope": [
+    "Initial LMS-owned creator journal/project bible uploads, rubric grading, stored learner submissions or mentor file reviews (BR-07/08/09)",
+    "Initial paid mentorship processing, subscriptions, entitlement ledger/payouts/accounting (BR-10)",
+    "Runtime canonical Studio or LMS content authoring CMS, canon mutation, website-native editorial CRUD",
+    "Guest AI/anonymous Assistant, VPS-local LLM, unapproved AI-data/canon rights processing",
+    "Extra microservice, public API operation, Keycloak realm, DB owner, capability or event name absent approved change-control"
+  ],
+  "phase3b_activation_gates": [
+    {
+      "id": "A-01",
+      "status": "PENDING_DOCS_PR_MERGE",
+      "test": "FZ11 final receipt merged to main; record full merged SHA"
+    },
+    {
+      "id": "A-02",
+      "status": "TO_VERIFY_IN_FRESH_SESSION",
+      "test": "LMS-BE main+origin/main and LMS-FE main+origin/main exact fresh SHAs; clean worktrees and no drift"
+    },
+    {
+      "id": "A-03",
+      "status": "TO_VERIFY_BEFORE_EACH_PACKAGE",
+      "test": "Separate scoped feature branch per 3B work package; file allowlist/rollback/tests reviewed"
+    },
+    {
+      "id": "A-04",
+      "status": "ONGOING",
+      "test": "Never mutate production, revise FROZEN invariants or add commercial/creator scope without change control"
+    },
+    {
+      "id": "A-05",
+      "status": "ONGOING",
+      "test": "Only Phase 3B contract/fixtures/CI source scope; no business endpoints, provisioning or production deployment"
+    }
+  ],
+  "phase3b_exit": {
+    "B3_checks_required": 28,
+    "B3_checks_passed_by_this_freeze": 0,
+    "validation": "Measured real CI logs/SHAs/negative test results per FZ10; owner 3B exit acceptance required",
+    "phase4_production_authorized": false
+  },
+  "historical_test_evidence": "Phase 2D reported accepted baseline tests in older records; not rerun or promoted to product certification in FZ-11",
+  "safe_next_command": "After merge, start fresh read-only BE/FE/docs SHA/status discovery and 3B-01 API/OpenAPI design breakdown; no code before preflight and review"
+}
