@@ -12,6 +12,9 @@
 > **Frontend observation snapshot:** `Reltroner/LMS-FE@f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` (`main`).
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
+
+> **CURRENT 2026-10-09 OPERATIONAL OVERLAY — READ BEFORE OLDER ROADMAP TEXT:** As of Phase **3A-04** the review of 3A-03A..03F and the **ratification/freeze-readiness assessment** are complete at **DESIGN REVIEW** level, but **not owner-ratified**, **not FROZEN**, and Phase **3B is not authorized**. Older ledger phrases "Phase 3A NEXT/NOT STARTED" are **historical snapshots**, not current live status. New canonical review: [Phase 3A-04](./reltroner-lms-phase3a-04-ratification-freeze-readiness-20261009.md); machine record: [3A-04 decisions](./reltroner-lms-phase3a-04-ratification-register-20261009.json). All 20 physical + 24 logical frozen invariants remain unchanged.
+
 ---
 
 ## 0. Read this first: 90-second handoff for another AI
@@ -553,3 +556,57 @@ When moving to a new AI, share links to the **three canonical LMS docs**, pinned
 **Update cadence:** after every accepted subphase, merge, operational cutover, incident, ADR or material blocker; capture exact SHA/versions/evidence, preserve past checkpoint rows, identify newly resolved/unresolved risks, adjust status honestly. Any planned deviation from the two frozen contracts requires a cited ADR/versioned revision before implementation.
 
 **Final guiding rule:** **Cloudflare delivers. Premium Hosting originates public artifacts. VPS computes and owns state. PostgreSQL remembers. Redis accelerates. Keycloak identifies. LMS API authorizes. Git publishes canonical content. Domain services own domain truth. AI orchestrates without bypassing authority.**
+
+---
+
+## 15. Dated status overlay — Phase 3A-04 (2026-10-09; docs review branch)
+
+**Status record:** `LMS-3A-04-RATIFICATION-20261009`. This is a **living-ledger addendum**, not a revision to Phases 0C/1 frozen contracts or a declaration of owner sign-off. Exact documentation base observed before review branch: `d6715144e59816e6a026bacbf5214ed1a32a9401`. Source snapshots: BE `e30a61780994d85671cbf079e6b9ce899b3fe837`, FE `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`, Studio `f7b6e6c73fcd81c945524cb81602d2984c6b4720`.
+
+### 15.1 Checkpoint history (do not turn drafts into implementation PASS)
+
+| Gate | Current verified or reviewed state |
+|---|---|
+| 3A-01 / 3A-02 | Prior source and VPS read-only discovery; observational acceptance only |
+| 3A-03A | Local BE git HEAD/remote parity, six API route skeletons, read-only discovery PASS from user terminal evidence |
+| 3A-03B | 26 external API operations mapped (contract design draft, no OpenAPI implementations) |
+| 3A-03C | Threat model/design plus production Keycloak SQL/GUI observations: exact LMS clients absent; HRM scope baseline recorded; **Identity ADR not signed** |
+| 3A-03D | Persistence/Event design draft, four owned databases, outbox/inbox and nine semantic events; runtime not implemented |
+| 3A-03E | Source-controlled catalog manifest proposal, schema and fixture; no compiler/release implementation |
+| 3A-03F | Cross-contract review of 22 CC findings, 16 BR items and 12 ADR recommendations complete; design not ratified |
+| **3A-04** | **Ratification board and freeze-readiness REVIEW COMPLETE; OWNER DECISIONS PENDING; FREEZE HOLD** |
+| Phase 3B | NOT AUTHORIZED; future versioned contracts/OpenAPI/CI only after 3A approval |
+| Phase 4+ | NOT AUTHORIZED; future provisioning/domain/production gates separate |
+
+### 15.2 Canonical docs paths and historical evidence
+
+- [Standalone identity ADR review candidate](./adr-lms-kc-001-identity-provisioning-review-candidate.md); **NOT human-ratified**.
+- [Standalone Persistence & Event Model](./reltroner-lms-phase3a-03d-persistence-event-model-20261009.md); design draft, no DB/event implementation.
+- [Catalog Manifest & Versioning design](./reltroner-lms-phase3a-03e-catalog-manifest-versioning-20261009.md), [candidate JSON Schema](./reltroner-lms-catalog-manifest-v1.candidate.schema.json), [partial fixture](./reltroner-lms-catalog-manifest-v1.partial-example.json).
+- [Standalone 3A-03F review](./reltroner-lms-phase3a-03f-cross-contract-business-reconciliation-20261009.md), [03F machine register](./reltroner-lms-phase3a-03f-decision-register-20261009.json).
+- [Phase 3A-04 freeze-readiness and ratification board](./reltroner-lms-phase3a-04-ratification-freeze-readiness-20261009.md), [3A-04 machine record](./reltroner-lms-phase3a-04-ratification-register-20261009.json).
+- Original combined `reltroner-lms-phase3a-03c-2d-provisioning-adr-review-20261009.md` and current combined 03E+03F remain **historical source evidence**, not multiple separate accepted ADRs. Standalone extracts preserve content with provenance.
+
+### 15.3 Explicit blockers to design freeze
+
+1. Project owner decides and signs the 12 proposed ADR-03F directions (accept/revise/reject/defer per implementation phase); KC-001, Persistence and Catalog remain candidate until acknowledged.
+2. Project owner explicitly **DEFER or INCLUDE** user-generated files, submitted worldbuilding journals, grading and mentor reviews in initial v1; scope expansion requires approved API/privacy/storage/permission ADR.
+3. Sign publication deny-by-default policy across FE routes/search/sitemap and Studio approved released references; actual CI/build negative tests deferred to Phase 3B/10.
+4. Agree directional security policy for authenticated internal workload/delegation, Knowledge approved-release ingestion actor and Keycloak role-change audit reconciliation. Exact implementation formats and negative suites separately gated.
+5. Resolve per-route capability for `GET /api/v1/mentorship/availability` and declare `admin.learning.*` capabilities unused until a versioned operation exists.
+6. Review/merge documentation-only PR, sign exact accepted docs commit and Phase 3B scope/test/exit criteria. Preserve any approved deferrals as named hard implementation gates.
+
+### 15.4 Risks added/clarified
+
+- **R-15:** FE static generation/search may expose draft catalog records because inspected source does not show publication filter; **potential source risk**, not confirmed deployed leak. Release blocker until output negative suite passes.
+- **R-16:** Canonical lessons do not have stable explicit Contentlayer frontmatter IDs; search uses divergent ID derivations. Design/implementation gate for progress stability.
+- **R-17:** Studio published canon and LMS published courses must never be conflated; independent edition/provenance and access rights required.
+- **R-18:** Git-to-Knowledge ingest actor not approved and must authenticate; Git push itself is not a durable business event.
+- **R-19:** Missing owner acceptance to decide v1 creative artifact storage, mentorship reviews, payment boundaries and 12 ADRs.
+- **R-20:** Combined historic Markdown files and stale older ledger status can mislead AI-to-AI handoff; docs normalization on review branch resolves path navigation after merge, **not** ADR ratification.
+
+### 15.5 Freeze declaration
+
+**`3A-04 REVIEW COMPLETE / PHASE 3A DESIGN FREEZE HOLD / OWNER RATIFICATION REQUIRED / PHASE 3B NOT AUTHORIZED`.**
+
+Do not promote old test counts into current product DoD. No Phase 3A work has provisioned LMS Keycloak clients, production DB, domain API, worker or canonical catalog. All 16 global product DoD items remain pending except partial Phase 2D foundation evidence under DOD-02. No production mutations, frontend/backend source writes or additional spending are authorized by this documentation update.
