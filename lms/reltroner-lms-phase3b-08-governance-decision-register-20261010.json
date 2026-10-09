@@ -3,7 +3,7 @@
   "record_id": "LMS-PHASE3B-08-GOVERNANCE-DECISION-REGISTER-20261010",
   "date": "2026-10-10",
   "timezone": "Asia/Jakarta",
-  "classification": "OWNER_RATIFIED_ADR_AND_TECHNICAL_BRANCH_GOVERNANCE_WAIVER_ACCEPTED_PHASE3_EXIT_GATE_PENDING",
+  "classification": "PHASE3B_NONPROD_ENGINEERING_EXIT_OWNER_ACCEPTED_SOURCE_MERGE_HOLD",
   "snapshot": {
     "backend": {
       "repository": "Reltroner/LMS-BE",
@@ -94,9 +94,10 @@
     },
     {
       "id": "B3-AC28",
-      "current": "BLOCKED",
-      "owner_action": "Explicit final scoped Phase 3B exit for new SHAs, then separate final source merge authorization",
-      "source_mutation_allowed": false
+      "current": "PASS_SCOPED_OWNER_FINAL_EXIT_ACCEPTED",
+      "owner_action": "DONE: owner accepted final Phase3B nonproduction exit; independent source-main merge and Phase4 authorization NOT yet issued",
+      "source_mutation_allowed": false,
+      "separate_source_merge_authorized": false
     }
   ],
   "guards": {
@@ -109,10 +110,12 @@
     "github_settings_policy_only": true,
     "branch_governance_contract_owner_accepted": true,
     "github_main_technical_protection_enforced": false,
-    "phase3b_final_exit_owner_accepted": false,
+    "phase3b_final_exit_owner_accepted": true,
     "branch_protection_exempt_from_phase3_exit_owner_approved": true
   },
   "source_documents": [
+    "lms/reltroner-lms-phase3b-11-final-owner-exit-acceptance-20261010.md",
+    "lms/reltroner-lms-phase3b-11-final-28-gate-exit-acceptance-20261010.json",
     "lms/reltroner-lms-phase3b-10-ac07-ac25-formal-revalidation-20261010.md",
     "lms/gov-wvr-001-phase3b-branch-protection-owner-exception-20261010.md",
     "lms/branch-gov-001-main-branch-contractual-protection-20261010.md",
@@ -121,12 +124,11 @@
     "lms/reltroner-lms-phase3b-07r-remediation-and-revalidation-20261009.md"
   ],
   "follow_up_order": [
-    "B3-AC07 scoped PASS after explicit owner design ADR ratification",
-    "B3-AC25 scoped PASS with explicit owner waiver GOV-WVR-001; no GitHub settings required for Phase 3",
-    "B3-AC28 remains BLOCKED awaiting final 3B nonproduction exit acceptance on exact BE/FE SHA pair",
-    "Separate one-time owner source main-merge instruction",
-    "Postmerge main CI GREEN on actual main SHA pair",
-    "Separate Phase4 nonproduction work order"
+    "DONE Phase3B-11 B3-AC28 owner accepted; Phase3B nonproduction engineering exit accepted",
+    "Source integration: BE/FE main merge NOT authorized and remain draft; obtain distinct one-time owner instruction if desired",
+    "Before merge run BRANCH-GOV-001 read-only SHA/check/review crosswalk; GitHub technical protection waived for Phase3 by GOV-WVR-001",
+    "After authorized app merges capture exact main SHAs, new push:main CI and tree integrity",
+    "Phase4 only by distinct owner nonproduction work order and production by further authorization"
   ],
   "latest_governance_decision": {
     "date": "2026-10-10",
@@ -165,5 +167,26 @@
     "B3-AC07",
     "B3-AC25"
   ],
-  "gate_revalidation_file": "lms/reltroner-lms-phase3b-10-acceptance-28-governance-revalidation-20261010.json"
+  "gate_revalidation_file": "lms/reltroner-lms-phase3b-11-final-28-gate-exit-acceptance-20261010.json",
+  "gate_distribution_after_final_owner_exit": {
+    "PASS_SCOPED": 27,
+    "PASS_TRACE_ONLY": 1,
+    "PARTIAL_EVIDENCE": 0,
+    "BLOCKED": 0
+  },
+  "final_exit_decision": {
+    "id": "B3-AC28",
+    "owner_statement": "B3-AC28 resmi aku terima",
+    "date": "2026-10-10",
+    "owner_accepted": true,
+    "scope": "PHASE3B_NONPRODUCTION_SOURCE_CONTRACTS_CI_AND_TRACE",
+    "be_sha": "0fc17dabc1af845053ac525986f40fb260f73e4c",
+    "fe_sha": "9795489d9b0e1a13d81675fac29e649900c4381d",
+    "manual_branch_waiver": "GOV-WVR-001",
+    "record": "lms/reltroner-lms-phase3b-11-final-owner-exit-acceptance-20261010.md",
+    "source_pr_merges_authorized": false,
+    "source_main_postmerge_ci_observed": false,
+    "phase4_authorized": false,
+    "production_authorized": false
+  }
 }
