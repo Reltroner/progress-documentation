@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3B-CENTRAL-CANDIDATE-OWNER-APPROVED-20261009",
+  "date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "owner_statement": "aku aprove https://github.com/Reltroner/LMS-BE/pull/11 dan juga https://github.com/Reltroner/LMS-FE/pull/3 dan juga 76b2690220c459d4f67d848767d6c383f6a14e25",
+  "classification": "OWNER_APPROVED_PINNED_SOURCE_CANDIDATES_NOT_FINAL_MAIN_MERGE_AUTHORIZATION",
+  "source_candidates": [
+    {
+      "repo": "Reltroner/LMS-BE",
+      "pr": 11,
+      "url": "https://github.com/Reltroner/LMS-BE/pull/11",
+      "branch": "phase3-dev",
+      "approved_head": "f43c91de8150d2ad22de61154f9ec9391f1548df",
+      "main_unchanged_at": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+      "pr_state_at_approval": "DRAFT_OPEN_NOT_MERGED",
+      "owner_candidate_accepted": true,
+      "source_main_merge_authorized": false,
+      "comment_id": 6084251300,
+      "ci_run": "https://github.com/Reltroner/LMS-BE/actions/runs/37950916475",
+      "ci_conclusion": "SUCCESS"
+    },
+    {
+      "repo": "Reltroner/LMS-FE",
+      "pr": 3,
+      "url": "https://github.com/Reltroner/LMS-FE/pull/3",
+      "branch": "phase3-dev",
+      "approved_head": "3ee0ee0285388f0489016d1689d2ea2ae899dd97",
+      "main_unchanged_at": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+      "pr_state_at_approval": "DRAFT_OPEN_NOT_MERGED",
+      "owner_candidate_accepted": true,
+      "source_main_merge_authorized": false,
+      "comment_id": 6084253885,
+      "ci_run": "https://github.com/Reltroner/LMS-FE/actions/runs/37951012017",
+      "ci_conclusion": "SUCCESS"
+    }
+  ],
+  "documentation_approval": {
+    "repository": "Reltroner/progress-documentation",
+    "approved_commit": "76b2690220c459d4f67d848767d6c383f6a14e25",
+    "commit_is": "MERGED_PR12",
+    "commit_subject": "Merge pull request #12 from Reltroner/docs/phase3b-02-to-06-stacked-engineering-20261009",
+    "commit_approved_as_provenance": true,
+    "not_a_backend_or_frontend_SHA": true
+  },
+  "formal_review": {
+    "attempted_via_linked_github_account": true,
+    "approved_reviews_created": 0,
+    "github_response": "422 Review Can not approve your own pull request",
+    "recorded_as": "TWO_PR_CONVERSATION_COMMENTS",
+    "not_falsely_claimed_formal_approval": true
+  },
+  "guards": {
+    "phase3B07_final_exit_complete": false,
+    "full_28_acceptance_evidence_certified": false,
+    "full_44_invariant_holistic_review_complete": false,
+    "live_crypto_postgres_provider_verified": false,
+    "main_source_merge_authorized": false,
+    "production_mutation_authorized": false,
+    "phase4_authorized": false,
+    "final_owner_merge_permission": "SEPARATE_NEW_EXPLICIT_APPROVAL_REQUIRED"
+  },
+  "next": "3B-07 IMMUTABLE HOLISTIC PHASE3 INTEGRATED REVIEW AND GATE CLASSIFICATION",
+  "source_of_truth_docs": [
+    "lms/reltroner-lms-phase3b-central-dev-topology-20261009.md",
+    "lms/reltroner-lms-phase3-holistic-source-merge-hold-20261009.md",
+    "lms/engineering-end-to-end-progress-ledger.md"
+  ]
+}

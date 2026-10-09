@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 PHASE 3B CENTRAL DEV INTEGRATION — READ FIRST:** FZ-11 Phase 3A DESIGN FROZEN; 3B-00 ACCEPTED, 3B-01 CONTRACT-ONLY OWNER ACCEPTED (PHP 22/22 static PASS). User mandated ONE central end-to-end Phase 3 source PR per repo to `main`, with no early merges. **Backend only open [DRAFT PR #11](https://github.com/Reltroner/LMS-BE/pull/11)** from `phase3-dev@f43c91de8150d2ad22de61154f9ec9391f1548df` to frozen `main@e30a61780994d85671cbf079e6b9ce899b3fe837`; **Frontend only open [DRAFT PR #3](https://github.com/Reltroner/LMS-FE/pull/3)** from `phase3-dev@3ee0ee0285388f0489016d1689d2ea2ae899dd97` to frozen `main@f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`. Old BE PRs #2..#10 and old FE PRs #1..#2 **CLOSED AS SUPERSEDED (NOT MERGED TO MAIN)**; all heads preserved as ancestors of central source. **BE CI 7/7 jobs success** (22 API + 22 identity + 30 persistence + 19 compatibility model assertions; six Laravel test suites) at BE `phase3-dev` source SHA; **FE CI 2/2 jobs success** (catalog 8/8 and frontend build/publication guard) at FE `phase3-dev` SHA after fixing source-root/temporary-output denylist path. **3B-02..06 SOURCE CANDIDATES CENTRALIZED / CI GREEN but runtime/security/DB/live provider NOT CERTIFIED**. NEXT **3B-07** holistic cross-package snapshot + 28/28 evidence/44 FROZEN invariant review + new owner sign-off; **DO NOT MERGE either central DRAFT PR to `main`**. Production/Phase 4 NOT AUTHORIZED. [Current topology receipt](./reltroner-lms-phase3b-central-dev-topology-20261009.md), [machine source/CI record](./reltroner-lms-phase3b-central-dev-topology-20261009.json). Earlier references to old PRs OPEN or 3B-02 NOT STARTED describe historical prior snapshots, not current state.
+> **CURRENT 2026-10-09 PHASE 3B CENTRAL CANDIDATES OWNER-APPROVED — READ FIRST:** Project owner APPROVED the existing [LMS-BE central DRAFT PR #11](https://github.com/Reltroner/LMS-BE/pull/11) at `f43c91de8150d2ad22de61154f9ec9391f1548df`, [LMS-FE central DRAFT PR #3](https://github.com/Reltroner/LMS-FE/pull/3) at `3ee0ee0285388f0489016d1689d2ea2ae899dd97`, and existing `progress-documentation/main@76b2690220c459d4f67d848767d6c383f6a14e25` (merged documentation PR #12). Approval means **acceptance of the current cumulative non-production Phase 3 source candidate for ongoing 3B-07 review**, **NOT permission to merge to application `main`**. Both source PRs stay **DRAFT OPEN NOT MERGED**, app `main` remains FZ-11 frozen; BE [CI SUCCESS](https://github.com/Reltroner/LMS-BE/actions/runs/37950916475), FE [CI SUCCESS](https://github.com/Reltroner/LMS-FE/actions/runs/37951012017). All `B3-AC01..28` final evidence and 44 frozen invariant holistic review remain required. GitHub rejected official self-APPROVE review (own PR); approval instead recorded in each PR conversation. 3B-07 **NOT CERTIFIED**, no Phase 4/production authority. [Latest owner decision receipt](./reltroner-lms-phase3b-central-candidate-owner-approval-20261009.json). Earlier ledger text about old subphase PRs or older SHA is historical.
 
 ---
 
@@ -977,3 +977,26 @@ Scope clarification: this means full Phase 3 **architectural and source-contract
 Canonical [current Phase 3 central topology and stage evidence](./reltroner-lms-phase3b-central-dev-topology-20261009.md), [machine receipt](./reltroner-lms-phase3b-central-dev-topology-20261009.json). This dated §26 supersedes earlier historical PR statuses without deleting past evidence.
 
 **Next:** `3B-07 HOLISTIC PHASE 3 ACCEPTANCE → 28 GATES CLASSIFIED AND EVIDENCED → ONE BE/FE SHA SNAPSHOT REVIEWED BY AI/HUMAN → NEW OWNER AUTHORIZATION BEFORE SOURCE MAIN MERGE`.
+
+---
+
+## 27. Phase 3 central PR candidate snapshots owner-approved; main merge STILL HOLD (2026-10-09)
+
+**Direct owner approval:** `aku aprove https://github.com/Reltroner/LMS-BE/pull/11 dan juga https://github.com/Reltroner/LMS-FE/pull/3 dan juga 76b2690220c459d4f67d848767d6c383f6a14e25`.
+
+| Approved item | Verified exact identity | Owner disposition |
+|---|---|---|
+| [LMS-BE Phase 3 PR #11](https://github.com/Reltroner/LMS-BE/pull/11) | `phase3-dev@f43c91de8150d2ad22de61154f9ec9391f1548df`, **DRAFT OPEN** | **Candidate accepted**, main merge withheld |
+| [LMS-FE Phase 3 PR #3](https://github.com/Reltroner/LMS-FE/pull/3) | `phase3-dev@3ee0ee0285388f0489016d1689d2ea2ae899dd97`, **DRAFT OPEN** | **Candidate accepted**, main merge withheld |
+| Documentation commit | `76b2690220c459d4f67d848767d6c383f6a14e25`, **docs PR #12 already merged** | **Documentation baseline accepted**, no extra merge needed |
+| LMS-BE / LMS-FE `main` | `e30a61780994d85671cbf079e6b9ce899b3fe837` / `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` | Frozen prior source remains **unchanged** |
+
+The documentation SHA belongs to `Reltroner/progress-documentation`, **not** LMS-BE or LMS-FE. It is a merge commit archiving staged 3B-02..06 engineering, and remains a historical provenance anchor even when the docs `main` SHA advances.
+
+**Approval provenance:** the connected GitHub account is the PR author and GitHub rejects `APPROVE` formal review of one's own PR (`422 Review Can not approve your own pull request`). Therefore the decision is recorded as **owner-authored intent as reported in this conversation**, in [BE PR #11 conversation](https://github.com/Reltroner/LMS-BE/pull/11#issuecomment-6084251300) and [FE PR #3 conversation](https://github.com/Reltroner/LMS-FE/pull/3#issuecomment-6084253885), not a formal `APPROVED` GitHub review.
+
+**Hard boundary:** no implicit approval to merge. Final owner source-merge authorization remains separate after 3B-07 has an immutable BE+FE cross-repo snapshot, gate-by-gate B3-AC01..28 classification, 44 invariant/ADR review, evidence of CI/negative tests, and explicit disposition of model-only runtime/crypto/DB/provider gaps. Do not infer absence of bugs or debt from green static-model CI. Production and Phase 4 are not authorized.
+
+Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-phase3b-central-candidate-owner-approval-20261009.json).
+
+**Checkpoint:** `3A FROZEN → 3B01 CONTRACT APPROVED → 3B02..06 CENTRAL CI GREEN → OWNER APPROVED CURRENT PR #11 + #3 CANDIDATES AND DOCS SHA → 3B07 HOLISTIC REVIEW PENDING → APP SOURCE MAIN MERGE HOLD`.
