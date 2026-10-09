@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 OWNER RATIFICATION OVERLAY — READ FIRST:** Phase **3A-04** has **12/12 ADR-03F architectural directions explicitly ACCEPTED by the project owner** on 2026-10-09. Creator uploads/submissions/grading/mentor artifact review and paid finance are **DEFERRED from initial v1** by accepting the corresponding recommendations. This does **NOT** ratify all subordinate detailed Identity/Persistence/Catalog ADRs, freeze Phase 3A in its entirety, authorize Phase 3B implementation, or authorize production mutation. Older entries "Phase 3A NEXT/NOT STARTED" and "owner ratification pending" are *dated history*, not current status. Current: [3A-04 ratification board](./reltroner-lms-phase3a-04-ratification-freeze-readiness-20261009.md) and [machine receipt](./reltroner-lms-phase3a-04-ratification-register-20261009.json). Both frozen Phase 0C/Phase 1 contracts remain unchanged.
+> **CURRENT 2026-10-09 FZ-04 OWNER CLOSURE — READ FIRST:** ADR-03F parent recommendations 12/12 were approved and **FZ-04 is now PASS at design-baseline level**: Identity 1 + Persistence 9 + Catalog 8 = 18 subordinate design dispositions. Exact unspecified crypto parameters, schema/lifecycle policies, catalog migration/retention and runtime tests remain hard-gated before affected implementation. Phase **3A overall is NOT FROZEN**, Phase **3B NOT AUTHORIZED**, production **NOT AUTHORIZED**. Earlier 3A-04 REVIEW HOLD/FZ-04 BLOCKED statements are historical evidence, superseded for this gate by [FZ-04 owner receipt](./reltroner-lms-phase3a-04-fz04-subordinate-adr-closure-20261009.md), [machine dispositions](./reltroner-lms-phase3a-04-fz04-subordinate-adr-dispositions-20261009.json). Frozen Phase 0C/1 contracts remain intact.
 
 ---
 
@@ -648,3 +648,30 @@ Do not promote old test counts into current product DoD. No Phase 3A work has pr
 
 **What was NOT done:** no changes to Phase 0C/1 normative invariant text, LMS-BE/LMS-FE, Studio source, Keycloak, VPS, PostgreSQL, Redis, frontend deployment, cost plans or production tokens. No domain runtime/CI suite executed as part of this owner ratification.
 
+
+---
+
+## 17. FZ-04 closure — owner action (2026-10-09 Asia/Jakarta)
+
+**User-owner instruction:** `menutup FZ-04` following explicit acceptance of 12 ADR-03F architectural recommendations. Recorded outcome: **FZ-04 PASS — DESIGN RATIFICATION WITH BOUNDED TECHNICAL DEFERALS**. This is not production release authorization, runtime PASS or completion of Phase 3A final freeze.
+
+| Subsidiary group | Count | Owner design disposition |
+|---|---:|---|
+| Identity `ADR-LMS-KC-001` | 1 | Accepted architecture baseline; installed Keycloak/token tests and internal trust remain mandatory future gates |
+| Persistence `PD-ADR-01..09` | 9 | Eight design directions accepted, one operational obligation with numerical targets deferred until measurement |
+| Catalog `ADR-LMS-CATALOG-001..008` | 8 | Seven design directions accepted; creator submission/assessment is explicitly DEFERRED from initial v1 |
+| **TOTAL** | **18** | **18/18 documented; no deployed capability claimed** |
+
+Source of decision truth:
+
+- [Owner FZ-04 ratification and all 18 bounded gates](./reltroner-lms-phase3a-04-fz04-subordinate-adr-closure-20261009.md).
+- [Machine-readable FZ-04 decision record](./reltroner-lms-phase3a-04-fz04-subordinate-adr-dispositions-20261009.json).
+- [Updated overall 3A-04 ratification register](./reltroner-lms-phase3a-04-ratification-register-20261009.json).
+
+**Remaining Phase 3A design freeze conditions:** `FZ-02` final owner acceptance of cross-contract invariant traceability as a freeze record, `FZ-10` separate authorized Phase 3B scoped work order, `FZ-11` explicit Phase 3A Final Design Freeze Acceptance Record. These **are not** automatically closed by FZ-04. The FZ-04 docs PR must be reviewed/merged to main and its final SHA pinned.
+
+**Technical blocking gates:** before Phase 4 identity/client/DB provisioning define and test installed Keycloak settings and internal workload assertions; before Phase 5 stable lesson IDs, migration, completion/retake policy; before Phase 6 Keycloak↔Audit reconciliation; before Phase 7 booking race/idempotency; before Phase 8 source-attested Knowledge ingestion; before FE release deny-by-default public build; before release establish measured RPO/RTO, HRM nonregression, resource/LLM cost ceilings.
+
+**Preservation:** 20 physical + 24 logical frozen invariants unchanged, 26 public API operations, 19 capabilities, nine semantic event names, four logical DB owners unchanged. No code/runtime tests or production mutation executed in this FZ-04 decision-recording work.
+
+**Checkpoint:** `3A-04 FZ-04 CLOSED (DESIGN) → 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
