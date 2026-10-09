@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 PHASE 3B-00 LOCAL GIT PREFLIGHT ACCEPTED — READ FIRST:** FZ-11 Phase 3A DESIGN FROZEN at `b9390a06ebc5db5377059a99109d59fea092cccb`; Phase 3B-00 Git/lockfile/CI INVENTORY read-only preflight is **ACCEPTED** from owner-supplied Windows PowerShell evidence plus independently verified remote SHA. `LMS-BE` clean `main@e30a61780994d85671cbf079e6b9ce899b3fe837`, six Composer lockfiles present. Isolated `LMS-FE` clean detached worktree `C:\Projects\lms-reltroner-studio-phase3b@f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`, npm lockfile present. Original FE worktree remains DIRTY but PRESERVED, not an implementation target. Local tools PHP 8.4.4/Composer 2.10.3/Node 22.23.1/npm 10.9.8 detected. **CI pipelines and real application test runs are NOT VERIFIED/PASSED**: no GitHub Actions workflows in either tree; 3B-05 must build CI, B3-AC01..28 NOT EXECUTED. The next gate is **3B-01 file allowlist/rollback/test scope approval** before IDE agent coding. No production authorization. [3B-00 report](./reltroner-lms-phase3b-00-local-git-ci-preflight-acceptance-20261009.md), [machine evidence](./reltroner-lms-phase3b-00-preflight-acceptance-20261009.json). All older `3B-00 LOCAL PREFLIGHT PENDING` labels are historical.
+> **CURRENT 2026-10-09 PHASE 3B-01 PHP CONTRACT TESTS PASS — READ FIRST:** FZ-11 Phase 3A design FROZEN (`b9390a06ebc5db5377059a99109d59fea092cccb`); 3B-00 Git preflight ACCEPTED. User-supplied Windows PowerShell at LMS-BE candidate HEAD `32f08586cba9b19a6a77c8a43967d2e14540591b`: PHP lint PASS, native PHP **22/22 STATIC CONTRACT TESTS PASS**, clean detached isolated backend worktree. Previous 19/19 GitHub source structural checks PASS. Exactly 26 frozen API operations and 19 capabilities; guest mentorship offerings remain authenticated-only by fail-closed contract policy. [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2) OPEN; **source PR owner merge authorization and final 3B-01 contract-only exit remain PENDING**. Six-service CI, external standards lint, real provider HTTP/Keycloak and production **NOT EXECUTED / NOT AUTHORIZED**. [Full 22-test receipt](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.md) and [machine receipt](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.json). Older pre-test snapshots are historical.
 
 ---
 
@@ -851,3 +851,65 @@ New canonical:
 **Next:** 3B-01 *file scope approval* for new root `LMS-BE/contracts/` content only; 26 public routes, 19 capabilities, RFC7807, pagination/idempotency; 4 acceptance IDs `B3-AC01..04`. No source edit/feature branch is accepted until exact file allowlist, rollback/test plan, source SHA and real review are authorized. No `LMS-FE` changes in 3B-01. No production changes.
 
 **Checkpoint:** `3A FROZEN → 3B-00 GIT PREFLIGHT PASS → 3B-01 ALLOWLIST APPROVAL PENDING → CODE NOT STARTED → PHASE 4/PRODUCTION NOT AUTHORIZED`.
+
+---
+
+## 23. Phase 3B-01 — OpenAPI and API contract implementation candidate (2026-10-09)
+
+**Direct owner request:** `aku terima merge PR #8 kemudian lakukan Phase 3B-01: OpenAPI & API Contracts`. PR #8 was already verified merged. Phase 3B-00 accepted its limited Git/lockfile/CI inventory scope.
+
+### 23.1 Source PR, allowlist and evidence
+
+| Source | Actual state |
+|---|---|
+| Documentation main before 3B-01 | `7dac3a2648895b5f426ba6ec0fa977c1093e0fc7` |
+| Backend baseline | `e30a61780994d85671cbf079e6b9ce899b3fe837` |
+| Backend feature branch candidate HEAD | `32f08586cba9b19a6a77c8a43967d2e14540591b` |
+| Implementation pull request | [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2), **OPEN / NOT MERGED** |
+| Diff | **8 NEW** `contracts/**` files only; no existing application code edits |
+| OpenAPI + policy contract | **26** frozen operations, **19** frozen capabilities, **22** path groups |
+| Error/model fixtures | RFC7807 + cursor + booking idempotency + 26 mock operation status cases |
+| Authorization synthetic cases | **9 positive**, **16 negative**, NOT actual deployed JWT tests |
+| Agent-executed structural checks | **19/19 PASS** against fetched GitHub source artifacts |
+| PHP CLI test + lint / PHPunit / CI / provider HTTP | **NOT EXECUTED** |
+| Phase 3B-01 exit acceptance | **HOLD FOR LOCAL TEST EVIDENCE AND PR REVIEW** |
+
+**Artifacts:** [Phase 3B-01 source implementation checkpoint](./reltroner-lms-phase3b-01-openapi-contract-candidate-20261009.md), [machine record](./reltroner-lms-phase3b-01-openapi-contract-candidate-20261009.json). Contract source is in `LMS-BE/contracts/` of feature branch; it does not imply existing Laravel business routes are implemented.
+
+### 23.2 Policy and deferred schema boundaries
+
+Guest `GET /api/v1/mentorship/offerings*` is **not opened**; explicit conservative policy requires valid `lms-user` and `mentorship.offering.read` until separate owner approval of public projection. `GET /api/v1/mentorship/availability` requires `mentorship.booking.create.self`. `admin.learning.read` and `admin.learning.override` remain reserved/unrouted. Candidate DTO fields / pagination limits / idempotency TTL / Keycloak scope and actual provider behavior remain future bounded gates; Phase 0C/1 and FZ-11 contracts unchanged.
+
+### 23.3 Deterministic next acceptance
+
+Review the new source PR and run from an isolated nonproduction local checkout pinned to its exact HEAD: `php -l contracts/tests/validate.php`, then `php contracts/tests/validate.php`. Capture exit codes/STDOUT and current SHA. If green, review B3-AC01–04 against 26 exact methods, 19 roles, Problem Details schemas, operation security and test fixtures. Do not sign provider runtime PASS based on model simulations. Do not merge feature source PR without evidence and human acceptance.
+
+**Latest checkpoint:** `3A FROZEN → 3B-00 ACCEPTED → 3B-01 SOURCE PR OPEN / STATIC REVIEW PASS → LOCAL PHP TESTS PENDING → PHASE 4 PRODUCTION NOT AUTHORIZED`.
+
+---
+
+## 24. Phase 3B-01 — Actual PHP syntax and contract-static execution evidence (2026-10-09)
+
+Evidence: project owner's Windows PowerShell console output, correlated to GitHub LMS-BE source PR #2 HEAD `32f08586cba9b19a6a77c8a43967d2e14540591b`. The assistant did **not** execute these commands on the owner's machine.
+
+| Checkpoint | Observed evidence / status |
+|---|---|
+| Backend isolated worktree | Detached at exact PR source candidate SHA; clean |
+| `php -l contracts/tests/validate.php` | **PASS — no syntax errors** |
+| `php contracts/tests/validate.php` | **22 PASS, 0 FAIL** |
+| Prior independent GitHub artifact inspection | 19/19 static checks PASS |
+| `B3-AC01` | **CONTRACT STATIC PASS** — 26 exact frozen method+path operations |
+| `B3-AC02` | **CONTRACT STATIC PASS** — 19 exact capabilities; offerings guest access denied pending separate release policy |
+| `B3-AC03` | **CONTRACT STATIC PASS** — RFC7807-compatible errors, request ID, cursor pagination, booking idempotency |
+| `B3-AC04` | **CONTRACT STATIC PASS** — route/owner/authz/status fixtures and positive/negative simulated claims |
+| [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2) | OPEN, NOT MERGED (last verified) |
+| Source PR owner merge approval | **NOT EXPLICITLY RECEIVED** |
+| Final 3B-01 contract-only exit | **PENDING** owner source review and merge SHA pin |
+| Full OpenAPI external linter, Laravel/HTTP provider, 3B-05 CI, real Keycloak | **NOT EXECUTED** — separate future gates |
+| Production | **NOT AUTHORIZED** |
+
+Detailed evidence: [22/22 PHP execution receipt](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.md) and [machine-readable log](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.json).
+
+Decision: **3B-01 SOURCE CONTRACT STATIC VERIFICATION READY FOR OWNER REVIEW**, not a deployed or production-certified API and not an automatic PR merge. No inference that the optional public mentorship offerings view was approved. Do not silently begin Phase 3B-02 without the appropriate phase transition review.
+
+**Current checkpoint:** `3A FROZEN → 3B-00 PASS → 3B-01 PHP STATIC 22/22 PASS → LMS-BE PR #2 OWNER MERGE/SIGN-OFF PENDING → PRODUCTION NOT AUTHORIZED`.
