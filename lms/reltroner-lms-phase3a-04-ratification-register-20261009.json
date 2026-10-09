@@ -3,7 +3,7 @@
   "record_id": "LMS-3A-04-RATIFICATION-20261009",
   "date": "2026-10-09",
   "timezone": "Asia/Jakarta",
-  "status": "ADR_03F_12_OF_12_OWNER_ACCEPTED_PHASE3A_FREEZE_HOLD",
+  "status": "ADR03F_12_OF_12_AND_FZ04_18_SUBORDINATE_DISPOSITIONS_APPROVED_FREEZE_HOLD",
   "phase_3a_frozen": false,
   "phase_3b_authorized": false,
   "production_mutation_authorized": false,
@@ -422,7 +422,9 @@
     },
     {
       "id": "FZ-04",
-      "status": "BLOCKED_SUBORDINATE_ADR_SPECIFIC_APPROVAL"
+      "status": "PASS_18_SUBORDINATE_ADRS_OWNER_DISPOSITIONED_WITH_BOUNDED_DEFERALS",
+      "evidence_receipt": "lms/reltroner-lms-phase3a-04-fz04-subordinate-adr-dispositions-20261009.json",
+      "not_runtime_test_pass": true
     },
     {
       "id": "FZ-05",
@@ -457,7 +459,7 @@
     "project_owner": "EXPLICIT_USER_DECLARATION",
     "reviewed_commit": "5fbad07e495cbcedbffe94464503be19abd80563",
     "date_time": null,
-    "outcome": "ACCEPTED_12_ADR_DIRECTIONS_ONLY",
+    "outcome": "ADR03F_12_ACCEPTED_AND_SUBORDINATE_FZ04_CLOSED_NO_PHASE_FREEZE",
     "chosen_creator_submission_scope": "DEFER_V1",
     "accepted_adr_ids": [
       "ADR-03F-01",
@@ -477,33 +479,40 @@
     "deferred_with_phase": [
       {
         "topic": "KC-001 detailed identity implementation specification",
-        "blocking_phase": "3B_BEFORE_PHASE4"
+        "blocking_phase": "3B_BEFORE_PHASE4",
+        "scope_note": "Architecture direction owner-ratified by FZ-04; only listed technical parameters/tests remain pending"
       },
       {
         "topic": "PD-ADR-01..09 full persistence/event design",
-        "blocking_phase": "3B_BEFORE_DOMAIN_IMPLEMENTATION"
+        "blocking_phase": "3B_BEFORE_DOMAIN_IMPLEMENTATION",
+        "scope_note": "Architecture direction owner-ratified by FZ-04; only listed technical parameters/tests remain pending"
       },
       {
         "topic": "Catalog detailed schema/migration",
-        "blocking_phase": "3B_BEFORE_PHASE5"
+        "blocking_phase": "3B_BEFORE_PHASE5",
+        "scope_note": "Architecture direction owner-ratified by FZ-04; only listed technical parameters/tests remain pending"
       },
       {
         "topic": "Internal caller delegated principal crypto specification",
-        "blocking_phase": "BEFORE_PRIVATE_DOMAIN_API_IMPLEMENTATION"
+        "blocking_phase": "BEFORE_PRIVATE_DOMAIN_API_IMPLEMENTATION",
+        "scope_note": "Architecture direction owner-ratified by FZ-04; only listed technical parameters/tests remain pending"
       },
       {
         "topic": "Knowledge authenticated ingestion protocol",
-        "blocking_phase": "BEFORE_PHASE8"
+        "blocking_phase": "BEFORE_PHASE8",
+        "scope_note": "Architecture direction owner-ratified by FZ-04; only listed technical parameters/tests remain pending"
       },
       {
         "topic": "Keycloak-Audit reconciliation protocol",
-        "blocking_phase": "BEFORE_PHASE6"
+        "blocking_phase": "BEFORE_PHASE6",
+        "scope_note": "Architecture direction owner-ratified by FZ-04; only listed technical parameters/tests remain pending"
       }
     ],
     "implementation_authorization": false,
     "decision_date": "2026-10-09",
     "chosen_grading_and_mentor_review_scope": "DEFER_V1",
-    "chosen_payments_and_entitlements_scope": "DEFER_V1"
+    "chosen_payments_and_entitlements_scope": "DEFER_V1",
+    "subordinate_adr_fz04": "OWNER_APPROVED_BOUNDED_ARCHITECTURE_DESIGN"
   },
   "documentation": {
     "historical_sources_preserved": true,
@@ -538,9 +547,29 @@
     "reviewed_main_sha": "5fbad07e495cbcedbffe94464503be19abd80563"
   },
   "remaining_freeze_decisions": [
-    "Detailed subordinate ADR dispositions or explicitly bounded deferrals",
-    "Explicit Phase 3A final design freeze acceptance",
-    "Separate Phase 3B implementation authorization",
-    "Docs ratification PR merged and pinned"
-  ]
+    "FZ-02 full cross-contract final owner freeze acceptance / closure",
+    "FZ-10 separate Phase 3B entry-exit and scoped authorization",
+    "FZ-11 final Phase 3A freeze acceptance record explicitly signed",
+    "FZ-04 closure docs PR review/merge and evidence SHA pin"
+  ],
+  "subordinate_adr_ratification": {
+    "status": "FZ04_CLOSED_ARCHITECTURE_DESIGN_ONLY",
+    "decision_date": "2026-10-09",
+    "date_timezone": "Asia/Jakarta",
+    "exact_time": null,
+    "owner_action_evidence": "menutup FZ-04",
+    "source_docs_main_sha": "6677ddcb48bc98f17f18a95e3a3c8de68bb3f7e6",
+    "markdown_receipt": "lms/reltroner-lms-phase3a-04-fz04-subordinate-adr-closure-20261009.md",
+    "machine_receipt": "lms/reltroner-lms-phase3a-04-fz04-subordinate-adr-dispositions-20261009.json",
+    "total": 18,
+    "identity": 1,
+    "persistence": 9,
+    "catalog": 8,
+    "scope": "Architecture baseline + bounded hard-gated unspecified details; NOT all implementation parameter acceptance",
+    "preserved_frozen_invariants": 44,
+    "deferred_creator_feature": true,
+    "phase_3a_freeze_approved": false,
+    "phase_3b_authorized": false,
+    "production_changes_authorized": false
+  }
 }

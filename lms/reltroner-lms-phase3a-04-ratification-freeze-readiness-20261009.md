@@ -8,7 +8,7 @@
 
 ## 0. Executive decision
 
-`3A-04 OWNER RATIFICATION 12/12 ACCEPTED → PHASE 3A FINAL DESIGN FREEZE HOLD → 3B NOT AUTHORIZED`.
+`3A-04 12/12 PARENT ADRS ACCEPTED → FZ-04 18/18 SUBORDINATE DISPOSITIONS → PHASE 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
 
 Three noninterchangeable statuses: **discovery PASS** means evidence observed, **design accepted** requires explicit owner decision, **implementation/runtime PASS** requires real negative/contract/integration tests. Neither docs Git commits nor an AI recommendation equate to acceptance of security or production readiness.
 
@@ -180,7 +180,7 @@ All 44 rows are **design-preserved only**. Crosswalk is not a claim of runtime c
 | `FZ-01` | Evidence precedence and SHA sources pinned | **PASS — GitHub inspection** |
 | `FZ-02` | 20+24 invariants all traced with planned acceptance | **TRACEABLE; owner acceptance pending** |
 | `FZ-03` | All 12 ADR-03F proposals explicitly accepted/rejected/deferred with gate | **PASS — owner accepted 12/12 direction recommendations** |
-| `FZ-04` | Identity KC-001, PD-ADR and Catalog review candidates have bounded signed dispositions | **BLOCKED — no owner signatures** |
+| `FZ-04` | Identity KC-001, PD-ADR and Catalog review candidates have bounded signed dispositions | **PASS — 18 subordinate ADR design dispositions with explicit technical hard gates; NOT runtime certified** |
 | `FZ-05` | Creator storage/submissions/mentor review and finance v1 scope selected | **PASS — BR-07/08/09 deferred, initial financial scope excluded** |
 | `FZ-06` | Public publication deny-by-default release policy signed | **PASS — design accepted; runtime FE negative suite pending** |
 | `FZ-07` | Internal delegation, Knowledge release trigger, Keycloak↔Audit reconciliation direction accepted | **PASS — direction accepted; cryptographic/operation details still implementation blockers** |
@@ -240,11 +240,20 @@ phase_4_production_mutation_authorized: false
 
 **Important:** precise signed token format, TTL, replay prevention, Keycloak runtime client configuration, database migrations and event retry budgets are still open implementation specifications. The recommended policy for `GET /api/v1/mentorship/availability` is authenticated-first; the exact capability/response matrix will be a Phase 3B fixture. No new public endpoint is implied.
 
-**Outstanding Phase 3A freeze work:** separately record acceptance or explicit bounded deferrals for KC-001, Persistence PD-ADR-01..09 and Catalog detailed candidates; confirm Phase 3B entry/exit scope and permission to implement; create an explicit final 3A freeze acceptance record. `FZ-03/FZ-05/FZ-06/FZ-07/FZ-09` are closed at architecture-direction level; `FZ-04/FZ-10/FZ-11` remain open.
+**Outstanding Phase 3A freeze work:** FZ-04 now closes the 18 subordinate design decisions with bounded deferred details. Remaining: FZ-02 final owner traceability acceptance, FZ-10 independent Phase 3B entry/exit scope and authorization, FZ-11 final Phase 3A freeze acceptance record, and this documentation PR merge. Runtime tests remain pending.
 
+## 8A. FZ-04 subordinate ADR closure (2026-10-09 owner instruction)
+
+The project owner instructed **menutup FZ-04** after accepting the 12 parent ADR recommendations. This closes **all 18 subordinate design dispositions**: KC-001 (1), PD-ADR-01..09 (9), CATALOG-001..008 (8).
+
+- [FZ-04 canonical bounded owner decision receipt](./reltroner-lms-phase3a-04-fz04-subordinate-adr-closure-20261009.md)
+- [Machine-readable 18-decision record](./reltroner-lms-phase3a-04-fz04-subordinate-adr-dispositions-20261009.json)
+- This acceptance is limited to architecture baselines and explicit deferrals. All unchosen cryptography details, schema fields, timestamps, retention, production capacity and tests have named future blocking gates.
+- Historical candidate pages have old NOT-HUMAN-RATIFIED labels that applied before the present dated receipt. They remain archived evidence; the implementation is still NOT accepted.
+- **FZ-02, FZ-10 and FZ-11 remain open.** This FZ-04 acceptance does NOT freeze Phase 3A, authorize Phase 3B coding or production mutation.
 ## 9. Final checkpoint / reproducible handoff
 
-`3A-04 OWNER RATIFICATION 12/12 ACCEPTED / FINAL PHASE 3A FREEZE HOLD / PHASE 3B NOT AUTHORIZED`.
+`3A-04 12/12 PARENT ADRS + FZ-04 18/18 DESIGN DISPOSITIONS ACCEPTED / FINAL PHASE 3A FREEZE HOLD / PHASE 3B NOT AUTHORIZED`.
 
 Source order for AI transfer: [physical FROZEN](./master-infrastructure-placement-contract.md) → [logical FROZEN](./logical-service-boundary-api-contract.md) → [ledger](./engineering-end-to-end-progress-ledger.md) → [KC review](./adr-lms-kc-001-identity-provisioning-review-candidate.md) → [03D persistence](./reltroner-lms-phase3a-03d-persistence-event-model-20261009.md) → [03E catalog](./reltroner-lms-phase3a-03e-catalog-manifest-versioning-20261009.md) → [03F cross-contract](./reltroner-lms-phase3a-03f-cross-contract-business-reconciliation-20261009.md) → this record.
 

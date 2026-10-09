@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3A-04-FZ04-CLOSURE-20261009",
+  "decision_date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "exact_decision_time": null,
+  "owner_decision_evidence": "User project owner instructed 'menutup FZ-04' after explicitly accepting ADR-03F-01..12",
+  "source_main_commit": "6677ddcb48bc98f17f18a95e3a3c8de68bb3f7e6",
+  "status": "FZ04_CLOSED_DESIGN_RATIFICATION_WITH_BOUNDED_DEFERALS",
+  "owner_authorization_scope": "RATIFY_SUBORDINATE_ARCHITECTURAL_BASELINES_AND_BIND_DEFERRED_DETAILS_TO_HARD_GATES",
+  "phase_3a_frozen": false,
+  "phase_3b_authorized": false,
+  "production_mutation_authorized": false,
+  "frozen_invariants": {
+    "infrastructure": 20,
+    "logical": 24,
+    "modified": 0
+  },
+  "decision_counts": {
+    "identity": 1,
+    "persistence": 9,
+    "catalog": 8,
+    "total": 18
+  },
+  "items": [
+    {
+      "id": "ADR-LMS-KC-001",
+      "group": "Identity",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Dedicated lms-user and lms-admin public OIDC Code+PKCE S256; lms-api resource-client role namespace, dedicated audience mapper, scoped roles and backend fail-closed checks. Preserve HRM clients and scopes unchanged.",
+      "deferred": "Installed Keycloak runtime/feature checks; exact lms-api client flags, redirect/logout/secret policies; Client Scopes Evaluate effective JWT claims; FE deployment env; JWKS freshness; internal service auth and admin adapter independent ADRs.",
+      "hard_gate": "3B identity configuration specification before Phase 4 provisioning; Phase 4 effective-token and HRM regression checks; internal trust and role-admin ADR before their endpoints."
+    },
+    {
+      "id": "PD-ADR-01",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Four service-owned logical DBs (Learning, Mentorship, Knowledge, Audit) on existing PostgreSQL instance; Gateway/Assistant have no canonical business database by default.",
+      "deferred": "Exact database identifiers, roles, schema naming, DDL, migrations, grants, backup/restore.",
+      "hard_gate": "3B schema/grant fixtures; Phase 4 owner-DB provisioning and negative cross-write tests."
+    },
+    {
+      "id": "PD-ADR-02",
+      "group": "Persistence",
+      "disposition": "ACCEPT_MINIMAL_BASELINE_WITH_POLICY_GATE",
+      "decision": "Learning owns enrollment and progress, initially one enrollment per principal/course with pinned curriculum revision; prior earned completion is not silently revoked.",
+      "deferred": "Retake policy, archive continuation, reset/completion rubric, concurrency and unknown ID response specifics.",
+      "hard_gate": "3B versioned API DTO/decision matrix; Phase 5 before Learning stateful endpoints."
+    },
+    {
+      "id": "PD-ADR-03",
+      "group": "Persistence",
+      "disposition": "ACCEPT_MINIMAL_BASELINE_WITH_POLICY_GATE",
+      "decision": "Initially capacity-one, 1:1 slot-based mentorship; PostgreSQL transactional occupancy uniqueness, never only count-before-insert.",
+      "deferred": "Final booking states/occupied status, time-zone rules, cancellation/reschedule and capacity variations.",
+      "hard_gate": "3B policy+DDL test fixtures; Phase 7 concurrent booking and lifecycle tests."
+    },
+    {
+      "id": "PD-ADR-04",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Mentorship-owned durable idempotency request record; scoped request-hash/key and response replay; same-key different payload conflicts; separate occupancy invariant.",
+      "deferred": "TTL/retention, status/error shape and maximum key payload, replay policy.",
+      "hard_gate": "3B OpenAPI idempotency DTO; Phase 7 deterministic duplicate/concurrency/failure tests."
+    },
+    {
+      "id": "PD-ADR-05",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Atomic local business-state/outbox intent; Redis at-least-once transport; consumer local inbox deduplication, leases and recoverable retry; no global exactly-once claim.",
+      "deferred": "Event envelope schemas/versions, transport topology/ACL, key rotation/auth, ordering, DLQ/quarantine/retention, retry budgets.",
+      "hard_gate": "3B event schemas and negative fixtures; Phase 4+ broker/workers and end-to-end replay drills before event-dependent features."
+    },
+    {
+      "id": "PD-ADR-06",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Knowledge-owned derived index staging, validated immutable release and atomic promotion; keep previous usable index on failure.",
+      "deferred": "Exact manifest digest, ACL/version labels, source producer identity, promotion pointer, index rollback details.",
+      "hard_gate": "3B Knowledge ingest contract; Phase 8 authorized reindex/failure tests."
+    },
+    {
+      "id": "PD-ADR-07",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Append-only audit facts and separately durable mutable administrative-operation workflow state; Audit database remains authority for audit history.",
+      "deferred": "DB privileges, retention/legal policy, tamper guarantees, auditor ACL and failure handling.",
+      "hard_gate": "3B append-only DDL/privilege specification; Phase 6 immutable audit and outage tests."
+    },
+    {
+      "id": "PD-ADR-08",
+      "group": "Persistence",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Role-admin operations require durable Audit intent then least-privilege Keycloak adapter, verified outcomes and reconciliation of ambiguous results; no distributed atomicity claim.",
+      "deferred": "Operation state machine and authorization, external action idempotency, reconciliation timing, privilege/scoping and access policy.",
+      "hard_gate": "3B admin-operations ADR and contracts; Phase 6 negative/uncertain-result tests BEFORE role PATCH enabled."
+    },
+    {
+      "id": "PD-ADR-09",
+      "group": "Persistence",
+      "disposition": "ACCEPT_OBLIGATION_DEFER_MEASURABLE_PARAMETERS",
+      "decision": "Backup/restore, retention, availability, runtime/concurrency and spend governance are mandatory for release; use measurement from existing shared VPS.",
+      "deferred": "Exact RPO/RTO, retention days, worker concurrency, CPU/RAM caps and monetary thresholds are NOT defined without baseline measurement.",
+      "hard_gate": "Phase 4 design resource preflight; Phase 11 measured operational SLO, restore, HRM nonregression before production release."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-001",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Source-controlled Git LMS catalog is canonical; immutable manifest produced from pinned inputs; no runtime canonical course CRUD/database.",
+      "deferred": "Compiler implementation and release signing/provenance.",
+      "hard_gate": "3B manifest compiler/schema CI; Phase 5 Learning integration."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-002",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Permanent lesson ID in checked-in frontmatter (or reviewed one-time equivalent), stable cross-release aliases/tombstones and collision/integrity checks; preserve existing stable IDs.",
+      "deferred": "One-time mapping across all 31 existing lessons, historic routes and migration compatibility; no proof all existing users have no progress.",
+      "hard_gate": "3B audited ID registry + route/search parity tests; Phase 5 pre-progress migration acceptance."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-003",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Deterministic SHA-256 canonical manifest version with JCS-style canonical input, separate course revision and public/internal-preview artifact channels.",
+      "deferred": "Exact canonicalization inclusion, semantic revision threshold, artifact signature, retention/rollback limits.",
+      "hard_gate": "3B versioned schema, deterministic dual-build test; Phase 5 release publication/rollback checks."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-004",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Enrollments pin approved course/curriculum revision; historical learning progress and earned completions never retroactively removed on unrelated course release.",
+      "deferred": "Course completion rubric, learner opt-in upgrade policy, archived visibility and API compatibility window.",
+      "hard_gate": "3B DTO/history contract; Phase 5 backcompat/concurrency tests."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-005",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Studio remains canonical editor/publisher; LMS holds references with source-attested edition, canon status and distribution/LLM-use rights only; no automatic canon promotion.",
+      "deferred": "Studio authorized release registry, per-source canon proofs, license/access attributes.",
+      "hard_gate": "3B metadata schema contract; before Phase 8 ingestion and public/AI citation."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-006",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Public static export and private Knowledge ingestion are independently permission-filtered; index release pinned; deny unattested/draft/unauthorized excerpts.",
+      "deferred": "Source-attested ACL policy schema, public FE build negative suite, reindex exact integration.",
+      "hard_gate": "3B privacy/manifest CI; Phase 8 permission/search leakage tests; FE release checks in Phase 10."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-007",
+      "group": "Catalog",
+      "disposition": "DEFER_FEATURE_INITIAL_V1_ACCEPT_CHANGE_CONTROL",
+      "decision": "Creator-generated submissions, stored journal/project bible, grading and mentor review are out of initial v1 scope; may not be implemented as incidental lesson output.",
+      "deferred": "Any future storage/file sharing/grading/reviewer workflows require new data ownership, API, capabilities, privacy, audit and retention ADR.",
+      "hard_gate": "Only reconsider after explicit new product approval + frozen-contract change control, before coding feature."
+    },
+    {
+      "id": "ADR-LMS-CATALOG-008",
+      "group": "Catalog",
+      "disposition": "ACCEPT_DESIGN_BASELINE",
+      "decision": "Studio-owned season/episode/chapter hierarchy and Current Lore/Backstory/Wiki modes remain Studio-domain references; LMS does not replicate authoritative canon graph.",
+      "deferred": "Exact attested reference relationship metadata and publication proof.",
+      "hard_gate": "3B optional source reference schema; Phase 8 indexing only with Studio release authority."
+    }
+  ],
+  "gate": {
+    "id": "FZ-04",
+    "result": "PASS_RATIFIED_DESIGN_BASELINE_WITH_EXPLICIT_DETAIL_GATES",
+    "evidence_class": "OWNER_INSTRUCTION_AND_READ_ONLY_GITHUB_CONTRACT_REVIEW",
+    "not_equivalent_to": "RUNTIME_PROVISIONING_OR_TEST_PASS"
+  },
+  "remaining_phase3a_freeze_gates": [
+    "FZ-02 exact cross-contract acceptance signature as required",
+    "FZ-10 explicit Phase 3B entry/exit and scoped authorization",
+    "FZ-11 separate Phase 3A final design freeze acceptance record",
+    "Review/merge this documentation PR"
+  ],
+  "source_docs": [
+    "lms/adr-lms-kc-001-identity-provisioning-review-candidate.md",
+    "lms/reltroner-lms-phase3a-03d-persistence-event-model-20261009.md",
+    "lms/reltroner-lms-phase3a-03e-catalog-manifest-versioning-20261009.md",
+    "lms/reltroner-lms-phase3a-04-ratification-register-20261009.json"
+  ]
+}
