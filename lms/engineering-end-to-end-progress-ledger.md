@@ -1174,3 +1174,48 @@ Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-ph
 **Impact on frozen architecture:** No source repo changed, no postmerge additional commit, no production change or Phase4 authorization, no modification of 28/28 owner-approved Phase3B scoped gate status or 44 invariant trace-only scope. If owner later authorizes a new FE portability hardening work order, proposed deterministic source-level remediation is LF normalization **only in ignored publish-allowlisted Contentlayer staging**, plus CRLF/LF test fixtures, Linux + Windows verification, separate Contentlayer/Clipanion `ERR_INVALID_ARG_TYPE` triage; no implicit source work authorized by this local log.
 
 **Checkpoint:** `PHASE3 MAIN MERGE CI GREEN → PHP SODIUM FIXED → LOCAL BE PASS 255 CONTRACT + 100 LARAVEL/725 ASSERTIONS → FE 9 CATALOG PASS → NORMAL WIN BUILD FAIL CRLF → CONTROLLED LF STAGING GENERATED 3/3 AND NEXT STATIC 25/25 + PRIVACY PASS → CONTENTLAYER CLI ERROR REMAINS → NO SOURCE CHANGES → PHASE4 HOLD`.
+
+---
+
+## 36. Post-Phase-3 LMS-FE Windows Contentlayer portability hardening — PR #4 (2026-10-10)
+
+**Precedence and scope:** New append-only status checkpoint, **not** a retroactive revision of the earlier §35 experimental LF-staging receipt, the frozen Phase 3 28/28 acceptance (27 scoped, one with owner branch-governance waiver, and 1 trace-only), the 44/44 traceable invariants, or Phase 0C/1 architecture. The standard Windows build is GREEN **on a new reviewed non-main PR candidate**, not on the original frozen FE main tree. Binding [BRANCH-GOV-001](./branch-gov-001-main-branch-contractual-protection-20261010.md) and [GOV-WVR-001](./gov-wvr-001-phase3b-branch-protection-owner-exception-20261010.md) remain effective. Production and Phase 4 remain unauthorized.
+
+### 36.1 Immutable identity and limited implementation
+
+| Field | Observed value |
+|---|---|
+| Application PR | [Reltroner/LMS-FE #4](https://github.com/Reltroner/LMS-FE/pull/4) — **DRAFT/OPEN/UNMERGED** |
+| Frozen Phase 3 FE main/base SHA | `cc3d9c132d293058c0ff37c93ef4b3ab5547ad34` |
+| Audited post-freeze source candidate | `056c18f93aced59efb3d637066f1de3fa015576c` |
+| PR HEAD, empty Cloudflare skip-sentinel | `83bb9871ad05eb1d1c04bfca44cbbd9037592b78` (message begins `[CF-Pages-Skip]`) |
+| Identical source tree at candidate and sentinel | `988433aa4825fe48771af4ca9019824400a7af13`; sentinel adds no file changes |
+| Scope | 2 files only, +296/−24: `scripts/prepare-public-content.mjs` and `tests/catalog-contract.test.mjs` |
+| Original dirty FE workspace | `C:\Projects\lms-reltroner-studio` remained untouched; isolated worktree `C:\Projects\lms-reltroner-studio-phase3b-main-verify-20261010` used |
+
+The change normalizes CRLF and standalone CR to LF **only after the published manifest allowlist**, when writing approved Git-ignored `.public-content/` staged MDX files. The source `content/` files, identity paths, frozen `contracts/`, dependencies, workflows and runtime infrastructure are unchanged. Existing file/path/symlink guards, published-only scope, exclusive `wx` creation and exact staging count checks remain. The existing 9 catalog/privacy tests are preserved; WIN-01..WIN-10 add UTF-8, source immutability, publication denial, idempotence, checksum and *synthetic CRLF → actual production staging* regression tests compatible with Linux/Windows.
+
+### 36.2 Source-pinned local and Linux evidence
+
+| Validation | Result / provenance |
+|---|---|
+| Windows 11, PowerShell 5.1, Node `22.23.1` | Owner-supplied local IDE/PowerShell transcript: **19/19** catalog/portability tests PASS; ordinary `npm run build` exit **0** without manual workaround; **3 Contentlayer documents**, Next.js static **25/25 pages**, typecheck/lint/resource/content/orphan validation PASS; `node scripts/phase3b-catalog.mjs --verify-out` **0 privacy findings**. Local execution was reported by operator, not performed via remote connector |
+| [GitHub Actions pull_request run 37980401106](https://github.com/Reltroner/LMS-FE/actions/runs/37980401106) | Independently retrieved Ubuntu 24.04/Node 22 **COMPLETED/SUCCESS** for exact HEAD `83bb987...`. `catalog-contract` job `113989142372`: **19/19 PASS**, including WIN-10; `frontend-build` job `113989142182`: npm ci, regular npm build, 3 docs, 25/25 static pages, validations and `--verify-out` all **SUCCESS** |
+| Security checks | `GitGuardian Security Checks` **SUCCESS** on exact HEAD; **3/3 total required HEAD checks** complete/success (2 Actions + GitGuardian) |
+| Published catalog | Exactly **31 registered**, **3 published**, **28 unpublished**; unchanged manifest digest `1dfecfddc97ce1676a719b1538e2d12d17a40c77f51370951dcf69e634b86e43` |
+| Diff/review | PR changed file list verified as the two paths above. No unresolved review threads or independent GitHub review submissions observed. Candidate reviewed as minimal post-freeze maintenance; **no final one-time source merge order** |
+
+### 36.3 Owner's direct Cloudflare dashboard checkpoint
+
+From the owner-supplied `Cloudflare Pages → lms-fe → Deployments` list, the project has `Automatic deployments enabled` and production hostname `lms.reltroner.com`. Dashboard entries for **preview PR HEAD `83bb987`** and **previous `main` Phase 3 merge `cc3d9c1`** explicitly show **“No deployment available”**, each with a `[CF-Pages-Skip]` prefix. An older `main` source `f2d4041` shows a deployed URL; older `phase3-dev` previews also show deployment URLs. These are **targeted UI-based observations**, not independent Cloudflare API/HTTP checks, and do not exclude unrelated deployments. **A future new merge commit does not automatically inherit the PR sentinel's skip prefix.** Since automatic production deployments remain enabled, a separately approved merge must protect the **actual new main merge commit title** with `[CF-Pages-Skip]`, or first obtain owner-approved and verified production auto-deploy disabling.
+
+### 36.4 Independent open defect and gates (avoid source-PR pollution)
+
+**Contentlayer/Clipanion CLI defect remains reproducible on both Windows and Linux**: after generating 3 valid documents the CLI prints `TypeError [ERR_INVALID_ARG_TYPE]` when an object result reaches Node 22 `process.exitCode`. The wrapper logs/catches the error while returning process exit **0**. Therefore successful artifacts/CI **do not certify clean CLI termination**. This defect is **not** caused by the CRLF fix and is kept as a separate, minimal-scope tooling follow-up; do not patch `node_modules`, suppress logs, upgrade dependencies speculatively or add unrelated code to PR #4.
+
+**Unclosed source-governance steps:** (1) PR #4 remains **DRAFT, unmerged** awaiting separate explicit **exact-PR one-time owner source-main merge authority** under BRANCH-GOV-001 (general housekeeping continuation is not that approval); (2) re-check immutable head/base, reviews and mandatory CI immediately before any authorized merge; (3) ensure `[CF-Pages-Skip]` on the **resulting new merge commit**; (4) independently verify new FE `push: main` Actions on the actual resulting SHA and archive a later postmerge receipt. The prior BE `main=a2672d0085fe84b55520f8f52f41a8c7fc8568a0` remains the accepted backend source baseline, not part of this FE maintenance PR.
+
+**Explicitly not authorized:** production/preview release, Keycloak, PostgreSQL, Redis, VPS, Cloudflare configuration mutation, additional application PRs, direct push/force-push to `main`, or Phase 4. GitHub technical `main` protection remains unconfigured under the Phase 3-specific owner waiver; manual PR review governance remains binding.
+
+**Checkpoint:** `PHASE3 FROZEN → FE PR4 ISOLATED LF-STAGING FIX → WINDOWS 19/19 + STANDARD BUILD PASS → LINUX 2/2 + GITGUARDIAN PASS → TARGETED CLOUDFLARE SKIP UI VERIFIED → CLI ERROR SEPARATE OPEN → PR4 DRAFT / MERGE HOLD → PHASE4/PRODUCTION NOT AUTHORIZED`.
+
