@@ -3,7 +3,7 @@
   "record_id": "LMS-3A-04-RATIFICATION-20261009",
   "date": "2026-10-09",
   "timezone": "Asia/Jakarta",
-  "status": "FZ02_44_ACCEPTED_FZ04_18_ACCEPTED_FZ10_SCOPE_APPROVED_CONDITIONALLY_FZ11_FREEZE_OPEN",
+  "status": "FZ11_OWNER_ACCEPTED_FINAL_3A_DESIGN_FREEZE_EFFECTIVE_AFTER_PR_MERGE_PHASE3B_SOURCE_ONLY",
   "phase_3a_frozen": false,
   "phase_3b_authorized": false,
   "production_mutation_authorized": false,
@@ -459,14 +459,18 @@
     },
     {
       "id": "FZ-11",
-      "status": "PARTIAL_12_OWNER_ADRS_ACCEPTED_NO_PHASE_FREEZE"
+      "status": "OWNER_SIGNED_FINAL_3A_DESIGN_FREEZE_ACTIVATES_ON_PR_MERGE",
+      "evidence_receipt": "lms/reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md",
+      "machine_receipt": "lms/reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json",
+      "pr_merge_required": true,
+      "production_authorized": false
     }
   ],
   "owner_signoff": {
     "project_owner": "EXPLICIT_USER_DECLARATION",
     "reviewed_commit": "5fbad07e495cbcedbffe94464503be19abd80563",
     "date_time": null,
-    "outcome": "FZ02_ACCEPTED_44_AND_FZ04_ACCEPTED_18_AND_ADR03F_ACCEPTED_12_WITH_FINAL_3A_FREEZE_OPEN",
+    "outcome": "FZ11_OWNER_ACCEPTED_FINAL_3A_DESIGN_FREEZE_CONDITIONAL_ON_DOCS_PR_MERGE",
     "chosen_creator_submission_scope": "DEFER_V1",
     "accepted_adr_ids": [
       "ADR-03F-01",
@@ -521,7 +525,8 @@
     "chosen_payments_and_entitlements_scope": "DEFER_V1",
     "subordinate_adr_fz04": "OWNER_APPROVED_BOUNDED_ARCHITECTURE_DESIGN",
     "invariant_traceability_fz02": "OWNER_ACCEPTED_44_DESIGN_MAPPINGS",
-    "phase3b_work_order_scope": "OWNER_ACCEPTED_CONDITIONAL_ON_FZ11"
+    "phase3b_work_order_scope": "OWNER_ACCEPTED_CONDITIONAL_ON_FZ11",
+    "final_phase_3a_freeze": "OWNER_SIGNED_2026-10-09_PENDING_GITHUB_PR_MERGE"
   },
   "documentation": {
     "historical_sources_preserved": true,
@@ -556,9 +561,9 @@
     "reviewed_main_sha": "5fbad07e495cbcedbffe94464503be19abd80563"
   },
   "remaining_freeze_decisions": [
-    "FZ-11 owner explicit final Phase 3A design freeze acceptance with SHA and deferral register",
-    "FZ-10 docs-only PR review/merge and final source pins",
-    "After FZ-11 activation: current BE/FE source preflight before each 3B code task"
+    "FZ-11 documentation PR merge and real merged SHA pinning",
+    "After merge, fresh BE/FE Git preflight and per-package scope for Phase 3B source-only work",
+    "Runtime/product acceptance remain Phase 3B and subsequent Phase 4–12 gates"
   ],
   "subordinate_adr_ratification": {
     "status": "FZ04_CLOSED_ARCHITECTURE_DESIGN_ONLY",
@@ -618,5 +623,30 @@
     "record": "lms/reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md",
     "work_order": "lms/reltroner-lms-phase3a-04-fz10-phase3b-work-order-20261009.json",
     "currently_executable": false
+  },
+  "fz11_final_design_freeze": {
+    "record_id": "LMS-3A-FINAL-FREEZE-20261009",
+    "date": "2026-10-09",
+    "timezone": "Asia/Jakarta",
+    "owner_request": "FZ-11 — Phase 3A Final Design Freeze Acceptance Record.",
+    "accepted_design_baseline": true,
+    "effective_in_main_when_merged": true,
+    "docs_main_before_fz11": "bf6aa64c5038aebcb13f4c0fff86dea047276de6",
+    "freeze_merge_sha": null,
+    "current_branch": "docs/phase3a-fz11-final-design-freeze-20261009",
+    "frozen_blobs": {
+      "placement": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+      "logical": "cf089b8df4b5ccb1761b504ffae662a0053bf03e"
+    },
+    "parent_adrs_accepted": 12,
+    "subordinate_adrs_dispositioned": 18,
+    "invariants_traced": 44,
+    "phase3b_workpackages": 7,
+    "phase3b_tests_required": 28,
+    "phase3b_tests_run_under_fz11": 0,
+    "frozen_scope": "architecture design, source/API/event/capability/service/database boundaries and bounded deferrals only",
+    "nonproduction_3b_scope_automatically_activates_after_fz11_pr_merge": true,
+    "entry_preflight_still_required": true,
+    "production_change_authorized": false
   }
 }
