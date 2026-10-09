@@ -1139,3 +1139,21 @@ Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-ph
 **Phase status:** `PHASE 3B NONPRODUCTION ENGINEERING EXIT = CLOSED / ACCEPTED / FROZEN ON PINNED BE+FE CANDIDATES`. **Distinct source-`main` merge authorization remains NOT GIVEN** and exact BE/FE postmerge source-main integration and `push: main` CI **NOT DONE**. No source changes or production mutation and no Keycloak/PostgreSQL/Redis/VPS/Cloudflare deployment authority. `PHASE4 = NOT AUTHORIZED`; a separate Phase4 work order/production authorization is required before provisioning. Both source main branches still `protected:false` in line with the explicit Phase 3 owner waiver; manual BRANCH-GOV-001 remains binding.
 
 **Checkpoint:** `3A FROZEN → 3B07R CI GREEN → 3B09 ADR RATIFIED → 3B10 AC07+AC25 CLOSED VIA TESTS+WAIVER → 3B11 AC28 OWNER ACCEPTED → 28/28 PHASE3B SCOPED ACCEPTED → PHASE3B NONPROD ENGINEERING EXIT FROZEN → SOURCE MAIN MERGE HOLD → POSTMERGE CI PENDING → PHASE4 NOT AUTHORIZED`.
+
+---
+
+## 34. Phase 3 Source-main integration — two owner-authorized source PR merges and push-main CI GREEN (2026-10-10)
+
+**Independent authorization received:** After accepting B3-AC28 and final nonproduction Phase 3 engineering exit, the owner explicitly instructed to merge both accepted Phase 3 candidates into `main`, verify new CI on each actual merge commit, and then pull locally for PowerShell 5.1 tests. The [complete new integration evidence receipt](./reltroner-lms-phase3b-main-merge-and-postmerge-ci-20261010.md) contains exact SHAs/CI/trees and local-test instructions.
+
+**Merge results (both GitHub `merged:true`, two-parent merge commits, candidate content tree unchanged):**
+- [BE PR #11 MERGED](https://github.com/Reltroner/LMS-BE/pull/11): `main=a2672d0085fe84b55520f8f52f41a8c7fc8568a0`, parents `e30a61780994d85671cbf079e6b9ce899b3fe837` and candidate `0fc17dabc1af845053ac525986f40fb260f73e4c`; exact Git tree `781b45937c6e532a49032dc9dd6e00ea7f01b759` equals accepted candidate. [NEW main-push CI 37970800113](https://github.com/Reltroner/LMS-BE/actions/runs/37970800113) **SUCCESS 7/7** at actual merge SHA.
+- [FE PR #3 MERGED](https://github.com/Reltroner/LMS-FE/pull/3): `main=cc3d9c132d293058c0ff37c93ef4b3ab5547ad34`, parents `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` and candidate `9795489d9b0e1a13d81675fac29e649900c4381d`; exact Git tree `0728aea6aae4ef5acd057272cacc92b5990b8fae` equals accepted candidate. [NEW main-push CI 37970833082](https://github.com/Reltroner/LMS-FE/actions/runs/37970833082) **SUCCESS 2/2** at actual merge SHA.
+
+**Cloudflare Pages safety:** Frontend main merge commit is prefixed `[CF-Pages-Skip]` (Cloudflare-supported deployment-skip) to prevent source-only integration from automatically deploying to Cloudflare Pages. At the observed merge SHA, GitHub listed **only two Actions check runs**, both `success`, with no Cloudflare Pages check. External Cloudflare project production status was **not independently audited** and no production deployment was authorized.
+
+**LOCAL WINDOWS POWERSHELL 5.1:** Not accessible through GitHub connector; no claim that a local pull or local tests were executed. Prepared an operator-run script with backend `C:\Projects\lms-reltroner-backend`, dirty original frontend `C:\Projects\lms-reltroner-studio` preserved via separate detached FE worktree `C:\Projects\lms-reltroner-studio-phase3b-main-verify-20261010`. It performs exact-SHA guarded `git pull --ff-only` on clean BE main, non-destructive FE fetch/worktree, PHP contracts, six Laravel services and frontend catalog/privacy/build. **Local verification PENDING** until the user runs PowerShell and supplies exact results.
+
+**Governance:** 28/28 Phase 3B nonproduction scoped dispositions accepted (27 scoped including GOV-WVR-001 + 1 trace), 44/44 invariant IDs tracked; GitHub `main` branch protection still `false` under explicit owner Phase3 waiver; Phase 4 and production **NOT AUTHORIZED**.
+
+**Checkpoint:** `PHASE3 ENGINEERING OWNER ACCEPTED → BE/FE SOURCE MAIN MERGED → TREE EQUALITY PASS → PUSH MAIN CI BE7/7+FE2/2 GREEN → LOCAL PS5.1 PENDING → PHASE4 HOLD`.
