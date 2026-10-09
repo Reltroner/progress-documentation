@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 FZ-11 FINAL DESIGN FREEZE OWNER ACCEPTANCE — READ FIRST:** Owner has explicitly accepted **FZ-11 final Phase 3A architectural design freeze**, on top of approved FZ-01..10 decisions: 44/44 frozen invariants traced, 12/12 parent ADR directions accepted, 18/18 bounded subordinate decisions, 7 Phase 3B contract/CI packages and 28 future acceptance tests. FZ-11 receipt is [here](./reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md), machine freeze manifest [here](./reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json). **EFFECTIVE IN MAIN ONLY ON REVIEW/MERGE OF FZ-11 PR + FINAL COMMIT SHA PIN.** After merge, Phase 3B **nonproduction source-only** work under FZ-10 can begin **only after fresh clean BE/FE Git/allowlist preflight**. Production Keycloak/VPS/PG/Redis/DNS/TLS/Cloudflare remains NOT AUTHORIZED. FZ-10, FZ-02 and historical NEXT/NOT RATIFIED/NOT FROZEN text below is dated history, superseded only for current design decision status. Implementation/runtime and all 16 product DoD release certification remain PENDING.
+> **CURRENT 2026-10-09 POST-MERGE FZ-11 FINAL DESIGN FREEZE — READ FIRST:** Project owner explicitly **ACCEPTED FZ-11**, and [GitHub PR #6](https://github.com/Reltroner/progress-documentation/pull/6) was verified **MERGED** into `main` at commit `b9390a06ebc5db5377059a99109d59fea092cccb` (2026-10-09T05:43:28Z). **PHASE 3A ARCHITECTURE DESIGN IS FROZEN — EFFECTIVE**. Frozen acceptance: 44 physical/logical invariants, 12 parent ADRs, 18 subordinate dispositions, six microservices, 26 public API operations, 19 capabilities, 9 events and four logical business database owners. FZ-10 seven-work-package Phase 3B **nonproduction source-only scope is active**, but **Phase 3B-00 LOCAL GIT/CI READ-ONLY PREFLIGHT remains required before any source editing**. The 28 Phase 3B CI/contract acceptance cases and final product release DoD are NOT EXECUTED/CERTIFIED. **PRODUCTION NOT AUTHORIZED.** Authoritative [activation receipt](./reltroner-lms-phase3a-fz11-postmerge-activation-20261009.md) and [machine activation record](./reltroner-lms-phase3a-fz11-postmerge-activation-20261009.json). Earlier 'PR merge pending' sections below are historical snapshots.
 
 ---
 
@@ -772,3 +772,41 @@ Signed documents: [FZ-11 Final Design Freeze Receipt](./reltroner-lms-phase3a-fz
 Frozen contract changes require a versioned impact ADR, owner approval, 44-invariant re-trace, and explicit compatibility/rollback; do not rewrite archival accepted records. AI handoff reading order: this latest ledger overlay → FZ-11 receipt → Phase 0C/Phase 1 FROZEN → FZ-02/03/04 owner register → FZ-10 3B work order → current Git repos/CI state.
 
 **Latest checkpoint (branch):** `FZ-11 OWNER SIGNED → REVIEW/MERGE DOCS PR → 3A DESIGN FROZEN IN MAIN → 3B SOURCE-ONLY PRECHECK → PHASE 4 PRODUCTION NOT AUTHORIZED`.
+
+---
+
+## 21. Phase 3A Final Design Freeze — GitHub PR #6 merge confirmed (2026-10-09)
+
+The explicit project owner acceptance message `aku ACCEPTED FZ-11` was received following verified [PR #6](https://github.com/Reltroner/progress-documentation/pull/6) **MERGED** state.
+
+| Evidence | Fact |
+|---|---|
+| **Immutable design freeze commit** | `b9390a06ebc5db5377059a99109d59fea092cccb` |
+| Merge timestamp | `2026-10-09T05:43:28Z` |
+| `LMS-BE` remote main freeze baseline rechecked | `e30a61780994d85671cbf079e6b9ce899b3fe837` |
+| `LMS-FE` remote main freeze baseline rechecked | `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` |
+| Two FROZEN parent architecture contract blobs | `b899761c9e833f9fa567055801b9ba0834ed56eb`; `cf089b8df4b5ccb1761b504ffae662a0053bf03e` |
+| FZ-01 through FZ-11 | **CLOSED within ARCHITECTURE-DESIGN / conditional work-order scope** |
+| Phase 3A | **FROZEN (DESIGN; EFFECTIVE IN MAIN)** |
+| FZ-10 Phase 3B source-only contract/CI scope | **AUTHORIZED — MUST PASS 3B-00 PREFLIGHT BEFORE FILE WRITES** |
+| 3B-00 local worktree clean/main-vs-origin preflight | **NOT YET VERIFIED** |
+| 28 mandatory Phase 3B acceptance tests | **NOT EXECUTED (0/28 under 3A/FZ11)** |
+| Phase 4 live provisioning and production change | **NOT AUTHORIZED** |
+| DOD-01..16 whole-product release | **NOT CERTIFIED** |
+
+### 21.1 Canonical post-merge decision and evidence links
+
+- [Post-merge activation receipt and exact freeze SHA](./reltroner-lms-phase3a-fz11-postmerge-activation-20261009.md).
+- [Machine-readable merge activation](./reltroner-lms-phase3a-fz11-postmerge-activation-20261009.json).
+- [Original FZ-11 signed design decision](./reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md).
+- [Updated FZ-11 baseline manifest](./reltroner-lms-phase3a-fz11-final-freeze-manifest-20261009.json).
+- [Frozen parent 0C and Phase 1 contracts](./master-infrastructure-placement-contract.md) and [logical binding](./logical-service-boundary-api-contract.md).
+- [Active 3B source-only entry/exit work order (FZ-10)](./reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md).
+
+### 21.2 First executable engineering step, no production access
+
+**Phase 3B-00 — deterministic Git & CI discovery in READ-ONLY mode**: inspect current local repo branches, HEAD/origin/main parity, `git status --short --branch`, Composer/npm lockfile versions, existing CI/workflows, and allowable files. Do not reset, merge, install packages, create DB tables, provision Keycloak, or authorize agent writes based only on remote SHA equality. Separate approval of each 3B feature-branch file allowlist/test plan is still mandatory before implementation.
+
+**Current authoritative engineering checkpoint:** `PHASE 3A FROZEN (DESIGN) → FZ-10 SOURCE-ONLY 3B SCOPE AUTHORIZED → 3B-00 READ-ONLY PREFLIGHT PENDING → PHASE 4 PRODUCTION NOT AUTHORIZED`.
+
+Historical entries referring to FZ-11 merge as pending remain unchanged for chronology and shall not override this dated post-merge receipt.
