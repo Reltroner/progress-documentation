@@ -3,7 +3,7 @@
   "record_id": "LMS-3A-04-RATIFICATION-20261009",
   "date": "2026-10-09",
   "timezone": "Asia/Jakarta",
-  "status": "REVIEW_COMPLETE_OWNER_RATIFICATION_PENDING_FREEZE_HOLD",
+  "status": "ADR_03F_12_OF_12_OWNER_ACCEPTED_PHASE3A_FREEZE_HOLD",
   "phase_3a_frozen": false,
   "phase_3b_authorized": false,
   "production_mutation_authorized": false,
@@ -163,110 +163,134 @@
     {
       "id": "ADR-03F-01",
       "topic": "Authority precedence / no crossing LMS-vs-Studio canon",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Keep frozen LMS topology + Studio canon publication authority separate",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-02",
       "topic": "Public static publication filtering",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Enforce published/approved-only route/search/asset build, deny drafts by default",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-03",
       "topic": "Stable ID + historic curriculum revision model",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Approve 03E candidates, specify one-time migration and long-term alias/tombstones",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-04",
       "topic": "Source-attested Studio reference + rights",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Require edition/status/release evidence and access/license policy for every imported reference",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-05",
       "topic": "Knowledge ingest trigger ownership",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Authenticated internal release-to-Knowledge request; Knowledge owns ingest job and events",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-06",
       "topic": "Creator submissions/assessments v1",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "**Defer** initial server-side storage/review unless owner chooses scope expansion",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "V1_PRODUCT_SCOPE_DECISION_BEFORE_3A_FREEZE"
+      "implementation_gate": "V1_PRODUCT_SCOPE_DECISION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-07",
       "topic": "Paid product/entitlement v1",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Exclude financial ledger and paid access from existing six-service v1 scope",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-08",
       "topic": "Internal workload/delegated principal auth",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Separate signed identity + workload authentication, fail closed",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "MUST_ACCEPT_DIRECTION_BEFORE_3A_FREEZE_AND_SPECIFY_BEFORE_INTERNAL_IMPLEMENTATION"
+      "implementation_gate": "MUST_ACCEPT_DIRECTION_BEFORE_3A_FREEZE_AND_SPECIFY_BEFORE_INTERNAL_IMPLEMENTATION",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-09",
       "topic": "Admin-Keycloak audit reconciliation",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Durable operation intent and verified outcomes; no fake atomicity",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "MUST_ACCEPT_DIRECTION_BEFORE_3A_FREEZE_AND_SPECIFY_BEFORE_INTERNAL_IMPLEMENTATION"
+      "implementation_gate": "MUST_ACCEPT_DIRECTION_BEFORE_3A_FREEZE_AND_SPECIFY_BEFORE_INTERNAL_IMPLEMENTATION",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-10",
       "topic": "Document split / ledger refresh",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Preserve combined historical file; issue separate 03C/03D canonical docs and 03F status overlay",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-11",
       "topic": "Availability and capability binding",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Document policy for `mentorship/availability` and unused admin-learning capabilities, no silent new route",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     },
     {
       "id": "ADR-03F-12",
       "topic": "Resource/cost governance",
-      "status": "OWNER_RATIFICATION_PENDING",
+      "status": "OWNER_ACCEPTED_ARCHITECTURAL_DIRECTION",
       "proposed_recommendation": "Prefer PostgreSQL FTS, Redis outbox, external LLM; schedule bounded workers on shared 1-vCPU VPS",
-      "owner_decision": null,
+      "owner_decision": "ACCEPT",
       "owner_timestamp": null,
-      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE"
+      "implementation_gate": "OWNER_RATIFICATION_BEFORE_3A_FREEZE",
+      "owner_decision_date": "2026-10-09",
+      "detailed_implementation_contract": "PENDING_WHERE_REQUIRED"
     }
   ],
   "business_requirements": [
@@ -310,25 +334,41 @@
       "id": "BR-07",
       "requirement": "User-generated project bible or 30-day journal **persisted in LMS**",
       "recommended_disposition": "DEFER FROM V1 unless owner explicitly promotes",
-      "owner_decision": null
+      "owner_decision": "DEFER_INITIAL_V1",
+      "owner_decision_date": "2026-10-09",
+      "based_on_accepted_adrs": [
+        "ADR-03F-06"
+      ]
     },
     {
       "id": "BR-08",
       "requirement": "Assessment/rubric submission/grading/mentor review",
       "recommended_disposition": "DEFER / NEW BUSINESS FEATURE",
-      "owner_decision": null
+      "owner_decision": "DEFER_INITIAL_V1",
+      "owner_decision_date": "2026-10-09",
+      "based_on_accepted_adrs": [
+        "ADR-03F-06"
+      ]
     },
     {
       "id": "BR-09",
       "requirement": "Mentorship with creator-output review",
       "recommended_disposition": "DEFER cross-service reviewer workflow; basic bookings remain in scope",
-      "owner_decision": null
+      "owner_decision": "DEFER_INITIAL_V1",
+      "owner_decision_date": "2026-10-09",
+      "based_on_accepted_adrs": [
+        "ADR-03F-06"
+      ]
     },
     {
       "id": "BR-10",
       "requirement": "Paid private sessions, subscriptions, Patreon/Kickstarter",
       "recommended_disposition": "DEFER financial/commercial ledger from Mentorship",
-      "owner_decision": null
+      "owner_decision": "DEFER_INITIAL_V1_FINANCIALS",
+      "owner_decision_date": "2026-10-09",
+      "based_on_accepted_adrs": [
+        "ADR-03F-07"
+      ]
     },
     {
       "id": "BR-11",
@@ -374,59 +414,133 @@
     },
     {
       "id": "FZ-02",
-      "status": "MAPPED_PENDING_OWNER"
+      "status": "MAPPED_OWNER_DIRECTION_ACCEPTED_DETAILED_TRACE_PENDING"
     },
     {
       "id": "FZ-03",
-      "status": "BLOCKED_OWNER_SIGNOFF"
+      "status": "PASS_12_OF_12_OWNER_ACCEPTED"
     },
     {
       "id": "FZ-04",
-      "status": "BLOCKED_OWNER_SIGNOFF"
+      "status": "BLOCKED_SUBORDINATE_ADR_SPECIFIC_APPROVAL"
     },
     {
       "id": "FZ-05",
-      "status": "BLOCKED_PRODUCT_SCOPE"
+      "status": "PASS_V1_SCOPE_DEFER_CREATOR_SUBMISSIONS_AND_PAID"
     },
     {
       "id": "FZ-06",
-      "status": "PROPOSED_PENDING_OWNER"
+      "status": "PASS_POLICY_ACCEPTED_RUNTIME_TEST_PENDING"
     },
     {
       "id": "FZ-07",
-      "status": "BLOCKED_SECURITY_DIRECTION"
+      "status": "PASS_DIRECTION_ACCEPTED_DETAIL_GATE_BEFORE_IMPLEMENTATION"
     },
     {
       "id": "FZ-08",
-      "status": "DESIGN_SCOPE_PRESERVED_NOT_RUNTIME_TESTED"
+      "status": "DESIGN_SCOPE_PRESERVED_RUNTIME_UNVERIFIED"
     },
     {
       "id": "FZ-09",
-      "status": "REVIEW_BRANCH_PENDING_MERGE"
+      "status": "PASS_DOCS_PR1_MERGED_MAIN"
     },
     {
       "id": "FZ-10",
-      "status": "PROPOSED_PENDING_OWNER"
+      "status": "PENDING_SEPARATE_PHASE3B_AUTHORIZATION"
     },
     {
       "id": "FZ-11",
-      "status": "BLOCKED_NO_OWNER_SIGNOFF"
+      "status": "PARTIAL_12_OWNER_ADRS_ACCEPTED_NO_PHASE_FREEZE"
     }
   ],
   "owner_signoff": {
-    "project_owner": null,
-    "reviewed_commit": null,
+    "project_owner": "EXPLICIT_USER_DECLARATION",
+    "reviewed_commit": "5fbad07e495cbcedbffe94464503be19abd80563",
     "date_time": null,
-    "outcome": "PENDING",
-    "chosen_creator_submission_scope": null,
-    "accepted_adr_ids": [],
+    "outcome": "ACCEPTED_12_ADR_DIRECTIONS_ONLY",
+    "chosen_creator_submission_scope": "DEFER_V1",
+    "accepted_adr_ids": [
+      "ADR-03F-01",
+      "ADR-03F-02",
+      "ADR-03F-03",
+      "ADR-03F-04",
+      "ADR-03F-05",
+      "ADR-03F-06",
+      "ADR-03F-07",
+      "ADR-03F-08",
+      "ADR-03F-09",
+      "ADR-03F-10",
+      "ADR-03F-11",
+      "ADR-03F-12"
+    ],
     "rejected_adr_ids": [],
-    "deferred_with_phase": [],
-    "implementation_authorization": false
+    "deferred_with_phase": [
+      {
+        "topic": "KC-001 detailed identity implementation specification",
+        "blocking_phase": "3B_BEFORE_PHASE4"
+      },
+      {
+        "topic": "PD-ADR-01..09 full persistence/event design",
+        "blocking_phase": "3B_BEFORE_DOMAIN_IMPLEMENTATION"
+      },
+      {
+        "topic": "Catalog detailed schema/migration",
+        "blocking_phase": "3B_BEFORE_PHASE5"
+      },
+      {
+        "topic": "Internal caller delegated principal crypto specification",
+        "blocking_phase": "BEFORE_PRIVATE_DOMAIN_API_IMPLEMENTATION"
+      },
+      {
+        "topic": "Knowledge authenticated ingestion protocol",
+        "blocking_phase": "BEFORE_PHASE8"
+      },
+      {
+        "topic": "Keycloak-Audit reconciliation protocol",
+        "blocking_phase": "BEFORE_PHASE6"
+      }
+    ],
+    "implementation_authorization": false,
+    "decision_date": "2026-10-09",
+    "chosen_grading_and_mentor_review_scope": "DEFER_V1",
+    "chosen_payments_and_entitlements_scope": "DEFER_V1"
   },
   "documentation": {
     "historical_sources_preserved": true,
     "standalone_archives_created_on_review_branch": true,
     "living_ledger_update_review_only": true
-  }
+  },
+  "owner_ratification": {
+    "decision": "ACCEPT_ALL_TWELVE_ADR_03F_RECOMMENDATIONS",
+    "accepted_adr_ids": [
+      "ADR-03F-01",
+      "ADR-03F-02",
+      "ADR-03F-03",
+      "ADR-03F-04",
+      "ADR-03F-05",
+      "ADR-03F-06",
+      "ADR-03F-07",
+      "ADR-03F-08",
+      "ADR-03F-09",
+      "ADR-03F-10",
+      "ADR-03F-11",
+      "ADR-03F-12"
+    ],
+    "decision_date": "2026-10-09",
+    "time_zone": "Asia/Jakarta",
+    "evidence_type": "EXPLICIT_PROJECT_OWNER_DECLARATION_IN_CONVERSATION",
+    "evidence_text": "aku menerima 12 rekomendasi ADR",
+    "scope": "ARCHITECTURAL_DIRECTION_ONLY",
+    "ratifies_subordinate_adr_details": false,
+    "authorizes_implementation": false,
+    "authorizes_production_mutation": false,
+    "approves_phase_3a_freeze": false,
+    "reviewed_main_sha": "5fbad07e495cbcedbffe94464503be19abd80563"
+  },
+  "remaining_freeze_decisions": [
+    "Detailed subordinate ADR dispositions or explicitly bounded deferrals",
+    "Explicit Phase 3A final design freeze acceptance",
+    "Separate Phase 3B implementation authorization",
+    "Docs ratification PR merged and pinned"
+  ]
 }
