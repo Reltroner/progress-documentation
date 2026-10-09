@@ -1,5 +1,8 @@
 # Reltroner LMS — Phase 3B-08 Security Ratification & Merge Governance Execution Packet
 
+> **Subsequent Phase 3B-10 binding exception:** [GOV-WVR-001](./gov-wvr-001-phase3b-branch-protection-owner-exception-20261010.md) records the owner's explicit refusal of GitHub Branch Protection Settings as a Phase 3 prerequisite. The `Settings → Branches` instruction in the historical 3B-08 plan **must not be presented as a current Phase 3 blocker**. [AC07/AC25 formal revalidation](./reltroner-lms-phase3b-10-ac07-ac25-formal-revalidation-20261010.md) changes the *nonproduction scoped* gate states but **not** the factual `protected:false`. Source merges/Phase4 remain unapproved.
+
+
 > **Subsequent owner decision — 2026-10-10 (Phase 3B-09):** ADR-LMS-TRUST-001 **OWNER-RATIFIED for Phase 3B NONPRODUCTION DESIGN ONLY**. The owner chose a **markdown-only manual governance contract** instead of enabling GitHub branch protection now: [BRANCH-GOV-001](./branch-gov-001-main-branch-contractual-protection-20261010.md). This Phase 3B-08 text below remains a **historical proposed GUI/admin implementation plan**, **not the current selected execution path**. Actual BE/FE `main` still `protected:false`; the manual contract is NOT technical enforcement; B3-AC25 remains partial, B3-AC28 blocked, and neither source PR may merge. The ratification also does not rewrite 3B-07R's historic gate matrix.
 
 > **Checkpoint:** 2026-10-10 Asia/Jakarta; **disposition:** GOVERNANCE DOCUMENTATION PREPARED; **SOURCE MERGE HOLD**, **PHASE 4 NOT AUTHORIZED**, **PRODUCTION UNTOUCHED**.  
