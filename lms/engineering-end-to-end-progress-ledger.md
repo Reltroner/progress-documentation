@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 PHASE 3B-01 PHP CONTRACT TESTS PASS — READ FIRST:** FZ-11 Phase 3A design FROZEN (`b9390a06ebc5db5377059a99109d59fea092cccb`); 3B-00 Git preflight ACCEPTED. User-supplied Windows PowerShell at LMS-BE candidate HEAD `32f08586cba9b19a6a77c8a43967d2e14540591b`: PHP lint PASS, native PHP **22/22 STATIC CONTRACT TESTS PASS**, clean detached isolated backend worktree. Previous 19/19 GitHub source structural checks PASS. Exactly 26 frozen API operations and 19 capabilities; guest mentorship offerings remain authenticated-only by fail-closed contract policy. [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2) OPEN; **source PR owner merge authorization and final 3B-01 contract-only exit remain PENDING**. Six-service CI, external standards lint, real provider HTTP/Keycloak and production **NOT EXECUTED / NOT AUTHORIZED**. [Full 22-test receipt](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.md) and [machine receipt](./reltroner-lms-phase3b-01-local-php-validation-evidence-20261009.json). Older pre-test snapshots are historical.
+> **CURRENT 2026-10-09 PHASE 3B OWNER-ACCEPTED 3B-01 / HOLISTIC SOURCE MERGE HOLD — READ FIRST:** Phase 3A design FROZEN at `b9390a06ebc5db5377059a99109d59fea092cccb`; Phase 3B-00 Git/CI inventory ACCEPTED. [Progress-documentation PR #9](https://github.com/Reltroner/progress-documentation/pull/9) **MERGED** and documentation `main` observed `a6879eb23de2188c2d966766901c80620eeff4b1`. Project owner explicitly **ACCEPTED the contract-only content** of [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2) (source HEAD `32f08586cba9b19a6a77c8a43967d2e14540591b`, **PHP LINT PASS + STATIC CONTRACT TESTS 22/22 PASS**) while explicitly **PROHIBITING SOURCE MERGE until Phase 3 engineering is complete end-to-end and one pinned cross-package BE/FE candidate snapshot is reviewed by AI and owner**. LMS-BE `main` remains FZ-11 source baseline `e30a61780994d85671cbf079e6b9ce899b3fe837`. PR #2 OPEN / NOT MERGED. Next: **3B-02** scoped non-main contract engineering, followed by 3B-03..07, **28/28 actual B3-AC evidence**, 44-invariant audit, cross-repo holistic AI/human review, then **NEW explicit owner merge authorization**. No production authorization. [Owner merge-hold contract](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.md) + [machine record](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.json). Older `owner merge approval pending` and `3B-01 not accepted` remarks are historical; current decision is contract-only acceptance with explicit merge hold.
 
 ---
 
@@ -913,3 +913,34 @@ Detailed evidence: [22/22 PHP execution receipt](./reltroner-lms-phase3b-01-loca
 Decision: **3B-01 SOURCE CONTRACT STATIC VERIFICATION READY FOR OWNER REVIEW**, not a deployed or production-certified API and not an automatic PR merge. No inference that the optional public mentorship offerings view was approved. Do not silently begin Phase 3B-02 without the appropriate phase transition review.
 
 **Current checkpoint:** `3A FROZEN → 3B-00 PASS → 3B-01 PHP STATIC 22/22 PASS → LMS-BE PR #2 OWNER MERGE/SIGN-OFF PENDING → PRODUCTION NOT AUTHORIZED`.
+
+---
+
+## 25. Owner ACCEPTED 3B-01 contract but forbids source merge pending holistic Phase 3 snapshot (2026-10-09)
+
+**Explicit owner instruction:** `aku terima merge #9 dan aku terima https://github.com/Reltroner/LMS-BE/pull/2 tetapi belum di merge dengan alasan phase 3 harus end-to-end selesai engineering supaya kalau di merge, AI bisa meriview snapshot menyeluruh end-to-end phase 3`.
+
+### 25.1 Verified merge states
+
+| Repo / pull request | GitHub fact | Owner disposition |
+|---|---|---|
+| [Documentation PR #9](https://github.com/Reltroner/progress-documentation/pull/9) | **MERGED**, docs `main@a6879eb23de2188c2d966766901c80620eeff4b1` observed | ACCEPTED, no need to merge again |
+| [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2) | **OPEN, NOT MERGED**, head `32f08586cba9b19a6a77c8a43967d2e14540591b` | **ACCEPTED 3B-01 CONTRACT-ONLY; SOURCE MERGE EXPLICITLY WITHHELD** |
+| `LMS-BE/main` | `e30a61780994d85671cbf079e6b9ce899b3fe837` | Still FZ-11 frozen source baseline, no source changes |
+| 3B-01 PHP local validation | 22 PASS, 0 FAIL; PHP lint PASS | Contract-static evidence accepted, not runtime proof |
+
+### 25.2 Global Phase 3B source merge gate
+
+**No individual source PR merge to `LMS-BE/main` or `LMS-FE/main` during Phase 3B.** Independently reviewed, non-main integration branches/candidate snapshots may collect scoped work while keeping owner-accepted PR #2 intact.
+
+Before allowing a source merge, require the cumulative **3B-01..3B-07** work-order evidence and **all 28/28 actual `B3-AC01..28` checks**, a pinned combined diff of LMS-BE and LMS-FE against their frozen SHA, 44 FZ-11 invariant checks with accepted ADR/deferral impacts, tested cross-package CI/mocks/negative access/privacy cases, an AI/human holistic end-to-end Phase 3 review, and a **separate explicit project-owner sign-off authorizing a source merge**.
+
+Scope clarification: this means full Phase 3 **architectural and source-contract/CI engineering**, not prematurely claiming Phase 4–12 product runtime and deployment acceptance.
+
+### 25.3 Follow-up work order and hard constraints
+
+**Next: Phase 3B-02 — OIDC Client and Internal Trust Contract** (`B3-AC05..08`), subject to a new reviewed branch topology, file allowlist, tests, rollback, current SHA preflight and no production changes. Maintain FZ-10 scope: 3B-03 persistence/event, 3B-04 manifest/privacy, 3B-05 independent CI, 3B-06 consumer/provider negative compatibility, 3B-07 holistic evidence freeze and final acceptance. Final aggregation must be pinned and reviewed before any source merge.
+
+**Canonical records:** [Owner Phase 3 holistic source merge hold](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.md), [machine record](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.json), [3B-01 accepted but unmerged candidate](./reltroner-lms-phase3b-01-openapi-contract-candidate-20261009.md).
+
+**Checkpoint:** `PHASE 3A FROZEN → 3B-00 ACCEPTED → 3B-01 CONTRACT-ONLY ACCEPTED (22/22), PR #2 MERGE HOLD → 3B-02..07 → HOLISTIC PHASE 3 AI REVIEW/28/28 → NEW OWNER SIGN-OFF BEFORE SOURCE MAIN MERGE`.
