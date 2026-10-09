@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3B01-LOCAL-PHP-VALIDATION-20261009",
+  "date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "exact_execution_time": null,
+  "provenance": "USER_PASTED_WINDOWS_POWERSHELL_TERMINAL_OUTPUT; ASSISTANT_DID_NOT_EXECUTE_ON_LOCAL_WINDOWS",
+  "phase": "3B-01",
+  "scope": "PHP_SOURCE_SYNTAX_AND_CONTRACT_STATIC_ASSERTIONS_ONLY",
+  "source": {
+    "repo": "Reltroner/LMS-BE",
+    "branch": "phase3b/01-openapi-api-contracts-20261009",
+    "head_sha": "32f08586cba9b19a6a77c8a43967d2e14540591b",
+    "pr_number": 2,
+    "url": "https://github.com/Reltroner/LMS-BE/pull/2",
+    "base_sha": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "head_verified_against_current_github": true
+  },
+  "local": {
+    "original_backend": "C:\\Projects\\lms-reltroner-backend",
+    "isolated_worktree": "C:\\Projects\\lms-reltroner-backend-phase3b01",
+    "worktree_head": "32f08586cba9b19a6a77c8a43967d2e14540591b",
+    "worktree_detached": true,
+    "worktree_clean": true,
+    "php_version_previously_observed": "8.4.4",
+    "expected_pr_sha_matches_fetch_head": true
+  },
+  "commands": [
+    {
+      "command": "php -l C:\\Projects\\lms-reltroner-backend-phase3b01\\contracts\\tests\\validate.php",
+      "reported_result": "No syntax errors detected",
+      "exit_code_indirectly_inferred_from_script_continuation": 0,
+      "explicit_exit_code_printed": false
+    },
+    {
+      "command": "php contracts/tests/validate.php",
+      "working_directory": "C:\\Projects\\lms-reltroner-backend-phase3b01",
+      "reported_result": "CONTRACT STATIC TESTS: 22 PASS; 0 FAIL",
+      "exit_code_indirectly_inferred_from_script_continuation": 0,
+      "explicit_exit_code_printed": false
+    }
+  ],
+  "checks": [
+    {
+      "id": 1,
+      "gate": "B3-AC01",
+      "result": "PASS",
+      "name": "OpenAPI 3.1.0"
+    },
+    {
+      "id": 2,
+      "gate": "B3-AC01",
+      "result": "PASS",
+      "name": "one public Gateway host"
+    },
+    {
+      "id": 3,
+      "gate": "B3-AC01",
+      "result": "PASS",
+      "name": "frozen Phase 1 SHA binding"
+    },
+    {
+      "id": 4,
+      "gate": "B3-AC01",
+      "result": "PASS",
+      "name": "exact frozen 26 method+path inventory, no extras"
+    },
+    {
+      "id": 5,
+      "gate": "B3-AC04",
+      "result": "PASS",
+      "name": "26 unique operation IDs and mapped policy records"
+    },
+    {
+      "id": 6,
+      "gate": "B3-AC02",
+      "result": "PASS",
+      "name": "exact frozen 19 capability namespace"
+    },
+    {
+      "id": 7,
+      "gate": "B3-AC04",
+      "result": "PASS",
+      "name": "per-route owner/client/capability/object-binding matrix matches OpenAPI"
+    },
+    {
+      "id": 8,
+      "gate": "B3-AC03",
+      "result": "PASS",
+      "name": "401 and 403 Problem Details declared by every operation"
+    },
+    {
+      "id": 9,
+      "gate": "B3-AC02",
+      "result": "PASS",
+      "name": "no anonymous default in 26-operation contract"
+    },
+    {
+      "id": 10,
+      "gate": "B3-AC02",
+      "result": "PASS",
+      "name": "reserved admin.learning capabilities have no invented public endpoints"
+    },
+    {
+      "id": 11,
+      "gate": "B3-AC02",
+      "result": "PASS",
+      "name": "offering guest access stays denied pending separate owner release decision"
+    },
+    {
+      "id": 12,
+      "gate": "B3-AC02",
+      "result": "PASS",
+      "name": "mentorship availability requires authenticated booking capability"
+    },
+    {
+      "id": 13,
+      "gate": "B3-AC03",
+      "result": "PASS",
+      "name": "durable booking creation idempotency key required"
+    },
+    {
+      "id": 14,
+      "gate": "B3-AC03",
+      "result": "PASS",
+      "name": "RFC7807-compatible error schema requires code/request_id and rejects stack fields"
+    },
+    {
+      "id": 15,
+      "gate": "B3-AC03",
+      "result": "PASS",
+      "name": "bounded cursor collection plus nullable next_cursor"
+    },
+    {
+      "id": 16,
+      "gate": "B3-AC03",
+      "result": "PASS",
+      "name": "all eight unbounded-list-risk routes have cursor+limit contract parameters"
+    },
+    {
+      "id": 17,
+      "gate": "B3-AC04",
+      "result": "PASS",
+      "name": "all internal OpenAPI JSON references resolve"
+    },
+    {
+      "id": 18,
+      "gate": "B3-AC04",
+      "result": "PASS",
+      "name": "exact per-operation mock status/errors/client/owner fixture coverage"
+    },
+    {
+      "id": 19,
+      "gate": "B3-AC03",
+      "result": "PASS",
+      "name": "each Problem Details example matches its HTTP status"
+    },
+    {
+      "id": 20,
+      "gate": "B3-AC03",
+      "result": "PASS",
+      "name": "Problem 401/403/409 and cursor example fixtures"
+    },
+    {
+      "id": 21,
+      "gate": "B3-AC04",
+      "result": "PASS",
+      "name": "positive capability/context MODEL simulations (NOT live provider)"
+    },
+    {
+      "id": 22,
+      "gate": "B3-AC04",
+      "result": "PASS",
+      "name": "negative capability/context MODEL simulations (NOT live provider)"
+    }
+  ],
+  "test_summary": {
+    "cases": 22,
+    "passed": 22,
+    "failed": 0,
+    "syntax_check": "PASS",
+    "contract_static_runner": "PASS",
+    "ci_contract_workflow_run": false,
+    "provider_http_run": false,
+    "keycloak_real_token_tests_run": false
+  },
+  "gates": [
+    {
+      "id": "B3-AC01",
+      "contract_static_test_status": "PASS",
+      "formal_exit": "OWNER_SOURCE_REVIEW_PENDING",
+      "runtime_provider_status": "NOT_TESTED"
+    },
+    {
+      "id": "B3-AC02",
+      "contract_static_test_status": "PASS",
+      "formal_exit": "OWNER_SOURCE_REVIEW_PENDING",
+      "optional_guest_release": "NOT_APPROVED_DENY_BY_DEFAULT"
+    },
+    {
+      "id": "B3-AC03",
+      "contract_static_test_status": "PASS",
+      "formal_exit": "OWNER_SOURCE_REVIEW_PENDING",
+      "external_openapi_31_standard_validator": "NOT_RUN"
+    },
+    {
+      "id": "B3-AC04",
+      "contract_static_test_status": "PASS_MODEL_AND_FIXTURES",
+      "formal_exit": "OWNER_SOURCE_REVIEW_PENDING",
+      "real_provider_tests": "NOT_RUN_RESERVED_3B06"
+    }
+  ],
+  "source_review": {
+    "exact_source_files_new": 8,
+    "all_under": "contracts/**",
+    "existing_service_code_modified": 0,
+    "source_pr_merged": false,
+    "approval_to_merge_source_PR2_explicit": false,
+    "documentation_PR9_merged": false
+  },
+  "remaining": [
+    "Owner source design approval of PR #2 including authenticated-only mentorship offerings policy",
+    "Approve merge of LMS-BE PR #2 after final review, not inferred from terminal output",
+    "Accept 3B-01 CONTRACT-ONLY exit at intended scope after source is merged and SHA pinned",
+    "3B-05 six-service CI and 3B-06 provider consumer tests remain distinct",
+    "No Phase 4 or production mutation"
+  ],
+  "production_authorized": false
+}
