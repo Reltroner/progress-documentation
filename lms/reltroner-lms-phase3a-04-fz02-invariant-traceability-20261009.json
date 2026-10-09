@@ -1,0 +1,1204 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3A-04-FZ02-20261009",
+  "review_date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "owner_instruction_evidence": "tutup FZ-02 — Final Cross-Contract Invariant Traceability Acceptance",
+  "exact_local_time": null,
+  "source_docs_main_commit": "78fb7db76b7a5b423825d687f0adc58ed88101ee",
+  "decision": "OWNER_ACCEPTED_FINAL_CROSS_CONTRACT_TRACEABILITY_DESIGN",
+  "gate": "FZ-02",
+  "gate_status": "PASS_DESIGN_TRACEABILITY_ONLY",
+  "phase_3a_frozen": false,
+  "phase_3b_authorized": false,
+  "production_mutation_authorized": false,
+  "number_of_invariants": {
+    "physical": 20,
+    "logical": 24,
+    "total": 44,
+    "dupes": 0,
+    "unmapped": 0
+  },
+  "normative_contracts_modified": false,
+  "design_conclusion": "No accepted design decision in ADR-03F-01..12 / 18 bounded subordinate ADR dispositions is identified here as authorized to override binding I-01..20 or P1-I01..24. Observed source drift and implementation gaps remain explicit blockers at their named future phases; therefore no runtime invariant is certified as PASS.",
+  "exception_policy": "Any actual deviation from a frozen invariant requires separately authorized versioned contract revision/ADR before implementation, not this FZ-02 acceptance.",
+  "global_release_overlays": [
+    "DOD-01 documentation/sign-off traceability only, product gate remains PENDING",
+    "DOD-13 six-service CI remains NOT EXECUTED",
+    "DOD-16 final product certification remains PENDING"
+  ],
+  "invariants": [
+    {
+      "id": "I-01",
+      "title": "Learner hostname",
+      "exact_normative_statement": "lms.reltroner.com = learner/user frontend",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1355,
+        "last_invariant_line": 1360
+      },
+      "dods": [
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-03F-01"
+      ],
+      "cc": [],
+      "planned_acceptance": "Learner hostname resolves and Cloudflare Pages static journey smoke tests",
+      "first_implementation_gate": "3B schema; Phase 10 FE release",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-02",
+      "title": "Admin hostname",
+      "exact_normative_statement": "lms-admin.reltroner.com = admin frontend",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1361,
+        "last_invariant_line": 1366
+      },
+      "dods": [
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-03F-01",
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [],
+      "planned_acceptance": "Admin hostname isolated from learner and origin-level auth tests",
+      "first_implementation_gate": "3B spec; Phase 10 FE rollout",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-03",
+      "title": "Public backend hostname",
+      "exact_normative_statement": "lms-api.reltroner.com = only public LMS backend/API entry point",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1367,
+        "last_invariant_line": 1372
+      },
+      "dods": [
+        "DOD-12",
+        "DOD-04"
+      ],
+      "adrs": [
+        "ADR-03F-08"
+      ],
+      "cc": [
+        "CC-08"
+      ],
+      "planned_acceptance": "Only lms-api public API ingress; no private service exposed via DNS/ports",
+      "first_implementation_gate": "3B trust; Phase 4 port scan",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-04",
+      "title": "Identity authority",
+      "exact_normative_statement": "auth.reltroner.com = canonical Reltroner OIDC/Keycloak authority",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1373,
+        "last_invariant_line": 1378
+      },
+      "dods": [
+        "DOD-03"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [
+        "CC-07",
+        "CC-18"
+      ],
+      "planned_acceptance": "Live OIDC issuer/JWKS and audience negative claims verification",
+      "first_implementation_gate": "3B config fixtures; Phase 4 runtime",
+      "review_qualification": "SOURCE_CLIENT_DRIFT_AND_CLIENT_ABSENCE_REMAIN",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-05",
+      "title": "Separate OIDC trust contexts",
+      "exact_normative_statement": "Learner and admin use separate OIDC client identities.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1379,
+        "last_invariant_line": 1382
+      },
+      "dods": [
+        "DOD-03",
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [
+        "CC-07",
+        "CC-18"
+      ],
+      "planned_acceptance": "Two public OIDC clients code+PKCE exact origin/redirect and cross-client denial",
+      "first_implementation_gate": "3B/4 + FE Phase 10",
+      "review_qualification": "LMS_CLIENTS_NOT_PROVISIONED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-06",
+      "title": "Frontend authorization is non-authoritative",
+      "exact_normative_statement": "UI state never grants privilege.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1383,
+        "last_invariant_line": 1386
+      },
+      "dods": [
+        "DOD-03"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [
+        "CC-18"
+      ],
+      "planned_acceptance": "Missing or spoofed frontend roles cannot grant backend capability",
+      "first_implementation_gate": "3B API matrix; Phase 4 auth tests",
+      "review_qualification": "FE_ROLE_FALLBACK_UX_ONLY_MUST_NOT_BECOME_AUTH",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-07",
+      "title": "Server-side admin enforcement",
+      "exact_normative_statement": "All admin privilege is enforced server-side.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1387,
+        "last_invariant_line": 1390
+      },
+      "dods": [
+        "DOD-03",
+        "DOD-08"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001",
+        "PD-ADR-08"
+      ],
+      "cc": [
+        "CC-12"
+      ],
+      "planned_acceptance": "Admin routes require admin-client context, required capability and audited adapter",
+      "first_implementation_gate": "3B tests; Phase 6 admin API",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-08",
+      "title": "Internal service privacy",
+      "exact_normative_statement": "Internal microservices are not publicly addressable.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1391,
+        "last_invariant_line": 1394
+      },
+      "dods": [
+        "DOD-02",
+        "DOD-12"
+      ],
+      "adrs": [
+        "ADR-03F-08"
+      ],
+      "cc": [
+        "CC-08"
+      ],
+      "planned_acceptance": "Deny direct public access to all five non-Gateway service ingress paths",
+      "first_implementation_gate": "3B trust; Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-09",
+      "title": "Durable truth",
+      "exact_normative_statement": "PostgreSQL is the durable LMS business-state authority.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1395,
+        "last_invariant_line": 1398
+      },
+      "dods": [
+        "DOD-02",
+        "DOD-06",
+        "DOD-07",
+        "DOD-08"
+      ],
+      "adrs": [
+        "PD-ADR-01"
+      ],
+      "cc": [],
+      "planned_acceptance": "Durable writes in owned PG databases survive Redis loss and restart",
+      "first_implementation_gate": "3B DDL; Phase 4+",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-10",
+      "title": "Logical ownership",
+      "exact_normative_statement": "Each domain service owns its own logical data.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1399,
+        "last_invariant_line": 1402
+      },
+      "dods": [
+        "DOD-01",
+        "DOD-02"
+      ],
+      "adrs": [
+        "PD-ADR-01"
+      ],
+      "cc": [],
+      "planned_acceptance": "Domain database roles restrict access to own schema/database",
+      "first_implementation_gate": "3B grants; Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-11",
+      "title": "No cross-service direct writes",
+      "exact_normative_statement": "No service may directly write another service's database.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1403,
+        "last_invariant_line": 1406
+      },
+      "dods": [
+        "DOD-02"
+      ],
+      "adrs": [
+        "PD-ADR-01"
+      ],
+      "cc": [],
+      "planned_acceptance": "Cross-service write credential negative suite",
+      "first_implementation_gate": "3B grant spec; Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-12",
+      "title": "Redis is ephemeral",
+      "exact_normative_statement": "Redis contains no irreplaceable business truth.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1407,
+        "last_invariant_line": 1410
+      },
+      "dods": [
+        "DOD-14"
+      ],
+      "adrs": [
+        "PD-ADR-05"
+      ],
+      "cc": [
+        "CC-13"
+      ],
+      "planned_acceptance": "Redis flushed/unavailable does not lose committed domain or critical event intent",
+      "first_implementation_gate": "3B fixtures; Phase 4/11",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-13",
+      "title": "Premium Hosting role",
+      "exact_normative_statement": "Premium Web Hosting is the LMS public asset origin, not the application core.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1411,
+        "last_invariant_line": 1414
+      },
+      "dods": [
+        "DOD-11",
+        "DOD-12"
+      ],
+      "adrs": [
+        "ADR-03F-12"
+      ],
+      "cc": [],
+      "planned_acceptance": "Static assets served from Premium Hosting, not running app core",
+      "first_implementation_gate": "Phase 10/11 live delivery proof",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-14",
+      "title": "Frontend delivery",
+      "exact_normative_statement": "Cloudflare Pages is the target delivery platform for learner and admin LMS frontends.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1415,
+        "last_invariant_line": 1418
+      },
+      "dods": [
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-03F-12"
+      ],
+      "cc": [],
+      "planned_acceptance": "Learner/admin Cloudflare Pages independent build and deploy",
+      "first_implementation_gate": "Phase 10",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-15",
+      "title": "No KVM1 LLM inference",
+      "exact_normative_statement": "The current VPS must not run local LLM inference.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1419,
+        "last_invariant_line": 1422
+      },
+      "dods": [
+        "DOD-10",
+        "DOD-15"
+      ],
+      "adrs": [
+        "ADR-03F-12"
+      ],
+      "cc": [
+        "CC-21"
+      ],
+      "planned_acceptance": "VPS process inventory excludes local LLM; provider budget/authorization",
+      "first_implementation_gate": "Phase 9/11",
+      "review_qualification": "VPS_CAPACITY_MEASUREMENT_OPEN",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-16",
+      "title": "Cloudflare is not truth",
+      "exact_normative_statement": "Cloudflare edge/cache is not a canonical business-state store.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1423,
+        "last_invariant_line": 1426
+      },
+      "dods": [
+        "DOD-05",
+        "DOD-14"
+      ],
+      "adrs": [
+        "ADR-LMS-CATALOG-001",
+        "PD-ADR-05"
+      ],
+      "cc": [],
+      "planned_acceptance": "Purge caches and rebuild without losing canonical catalog or learner DB state",
+      "first_implementation_gate": "3B artifact contract; Phase 5/11",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-17",
+      "title": "Minimal VPS public ingress",
+      "exact_normative_statement": "Only explicitly required public ingress is exposed; internal data/services remain private.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1427,
+        "last_invariant_line": 1430
+      },
+      "dods": [
+        "DOD-12"
+      ],
+      "adrs": [
+        "ADR-03F-08"
+      ],
+      "cc": [
+        "CC-08"
+      ],
+      "planned_acceptance": "Public ingress TLS/UFW probe allows only approved listeners",
+      "first_implementation_gate": "Phase 4/11",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-18",
+      "title": "Immutable asset strategy",
+      "exact_normative_statement": "Public LMS asset releases are versioned/immutable wherever practical.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1431,
+        "last_invariant_line": 1434
+      },
+      "dods": [
+        "DOD-05",
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-LMS-CATALOG-003"
+      ],
+      "cc": [
+        "CC-19"
+      ],
+      "planned_acceptance": "Pinned jsDelivr/public artifacts retain immutability, alias rollback",
+      "first_implementation_gate": "3B hash spec; Phase 5/10",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-19",
+      "title": "Versioned API contract",
+      "exact_normative_statement": "Public backend APIs are versioned.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1435,
+        "last_invariant_line": 1438
+      },
+      "dods": [
+        "DOD-04"
+      ],
+      "adrs": [
+        "ADR-03F-11"
+      ],
+      "cc": [
+        "CC-09",
+        "CC-10"
+      ],
+      "planned_acceptance": "OpenAPI route inventory enforces /api/v1 versioned API",
+      "first_implementation_gate": "Phase 3B",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "I-20",
+      "title": "Complexity must be justified",
+      "exact_normative_statement": "New infrastructure is introduced only after a measurable or contractual requirement exists.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/master-infrastructure-placement-contract.md",
+        "blob_sha": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+        "heading_line": 1439,
+        "last_invariant_line": 1442
+      },
+      "dods": [
+        "DOD-01",
+        "DOD-15"
+      ],
+      "adrs": [
+        "ADR-03F-12"
+      ],
+      "cc": [
+        "CC-21"
+      ],
+      "planned_acceptance": "Resource-cost ADR and measured load justify any added infra",
+      "first_implementation_gate": "3B review; Phase 11",
+      "review_qualification": "MEASURABLE_OPERATIONAL_BUDGET_OPEN",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I01",
+      "title": "Gateway is ingress, not domain owner",
+      "exact_normative_statement": "The Gateway owns public API ingress behavior and no default business database.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1476,
+        "last_invariant_line": 1479
+      },
+      "dods": [
+        "DOD-02",
+        "DOD-04"
+      ],
+      "adrs": [
+        "ADR-03F-01",
+        "PD-ADR-01"
+      ],
+      "cc": [],
+      "planned_acceptance": "Gateway routes and authorization only, no domain persistence database",
+      "first_implementation_gate": "3B contract; Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I02",
+      "title": "Static Content Catalog remains canonical initially",
+      "exact_normative_statement": "Course/module/lesson/path/resource content remains source-controlled for the initial architecture.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1480,
+        "last_invariant_line": 1483
+      },
+      "dods": [
+        "DOD-05"
+      ],
+      "adrs": [
+        "ADR-LMS-CATALOG-001"
+      ],
+      "cc": [
+        "CC-02"
+      ],
+      "planned_acceptance": "Pinned Git compiled immutable catalog; no runtime canonical content DB",
+      "first_implementation_gate": "3B/5",
+      "review_qualification": "CANONICAL_MANIFEST_NOT_IMPLEMENTED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I03",
+      "title": "Learning Service owns learner state",
+      "exact_normative_statement": "Enrollment, progress, completion, and bookmarks belong to Learning Service.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1484,
+        "last_invariant_line": 1487
+      },
+      "dods": [
+        "DOD-06"
+      ],
+      "adrs": [
+        "PD-ADR-02",
+        "ADR-LMS-CATALOG-004"
+      ],
+      "cc": [
+        "CC-03"
+      ],
+      "planned_acceptance": "Learning-only durable enrollment/progress/completion/bookmark tests against catalog revision",
+      "first_implementation_gate": "3B schema; Phase 5",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I04",
+      "title": "Mentorship Service owns mentorship state",
+      "exact_normative_statement": "Offering, availability, booking, and session lifecycle belong to Mentorship Service.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1488,
+        "last_invariant_line": 1491
+      },
+      "dods": [
+        "DOD-07"
+      ],
+      "adrs": [
+        "PD-ADR-03",
+        "PD-ADR-04"
+      ],
+      "cc": [
+        "CC-11"
+      ],
+      "planned_acceptance": "Mentorship DB booking/slot uniqueness, idempotency, availability/session tests",
+      "first_implementation_gate": "3B DTO; Phase 7",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I05",
+      "title": "Knowledge Service owns derived searchable state",
+      "exact_normative_statement": "Knowledge indexes are rebuildable and non-canonical.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1492,
+        "last_invariant_line": 1495
+      },
+      "dods": [
+        "DOD-09"
+      ],
+      "adrs": [
+        "PD-ADR-06",
+        "ADR-LMS-CATALOG-006"
+      ],
+      "cc": [
+        "CC-05",
+        "CC-06"
+      ],
+      "planned_acceptance": "Derived indexes rebuild, staged publish and ACL enforcement tests",
+      "first_implementation_gate": "3B protocol; Phase 8",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I06",
+      "title": "Assistant is orchestration only",
+      "exact_normative_statement": "Assistant Service never becomes canonical business state authority.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1496,
+        "last_invariant_line": 1499
+      },
+      "dods": [
+        "DOD-10"
+      ],
+      "adrs": [
+        "ADR-03F-08"
+      ],
+      "cc": [
+        "CC-05",
+        "CC-08"
+      ],
+      "planned_acceptance": "Assistant tool cannot become owner of domain writes or source canon; permission tests",
+      "first_implementation_gate": "3B trust; Phase 9",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I07",
+      "title": "Audit is durable and append-only",
+      "exact_normative_statement": "Privileged LMS actions requiring accountability are persisted by Audit Service.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1500,
+        "last_invariant_line": 1503
+      },
+      "dods": [
+        "DOD-08"
+      ],
+      "adrs": [
+        "PD-ADR-07",
+        "PD-ADR-08"
+      ],
+      "cc": [
+        "CC-12"
+      ],
+      "planned_acceptance": "Append-only Audit + admin operation intent and recovery",
+      "first_implementation_gate": "3B schema; Phase 6",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I08",
+      "title": "Keycloak remains identity authority",
+      "exact_normative_statement": "The LMS does not create a competing credential/identity store.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1504,
+        "last_invariant_line": 1507
+      },
+      "dods": [
+        "DOD-03"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [
+        "CC-07"
+      ],
+      "planned_acceptance": "OIDC subject bound to Keycloak; no independent LMS passwords/users",
+      "first_implementation_gate": "Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I09",
+      "title": "Separate browser clients",
+      "exact_normative_statement": "`lms-user` and `lms-admin` are separate OIDC public-client trust contexts.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1508,
+        "last_invariant_line": 1511
+      },
+      "dods": [
+        "DOD-03",
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [
+        "CC-07",
+        "CC-18"
+      ],
+      "planned_acceptance": "Separate lms-user/lms-admin login context, admin origin checks",
+      "first_implementation_gate": "Phase 4/10",
+      "review_qualification": "LMS_CLIENTS_NOT_PROVISIONED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I10",
+      "title": "LMS API is the protected resource",
+      "exact_normative_statement": "Backend tokens target the `lms-api` audience.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1512,
+        "last_invariant_line": 1515
+      },
+      "dods": [
+        "DOD-03"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [
+        "CC-07"
+      ],
+      "planned_acceptance": "Wrong audience accepted? Must reject; valid access token targets lms-api",
+      "first_implementation_gate": "Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I11",
+      "title": "Capability-based authorization",
+      "exact_normative_statement": "Backend operations authorize capabilities, not merely frontend persona labels.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1516,
+        "last_invariant_line": 1519
+      },
+      "dods": [
+        "DOD-03",
+        "DOD-08"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001",
+        "ADR-03F-11"
+      ],
+      "cc": [
+        "CC-10"
+      ],
+      "planned_acceptance": "Per-route authorized capability + principal ownership; no persona bypass",
+      "first_implementation_gate": "3B OpenAPI; Phase 4/6",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I12",
+      "title": "No backend fallback-to-student authorization",
+      "exact_normative_statement": "Missing capability claims fail closed.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1520,
+        "last_invariant_line": 1523
+      },
+      "dods": [
+        "DOD-03"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [
+        "CC-18"
+      ],
+      "planned_acceptance": "Missing claim results 401/403 fail-closed, no student default",
+      "first_implementation_gate": "3B matrix; Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I13",
+      "title": "One public API version namespace",
+      "exact_normative_statement": "Initial business API surface uses `/api/v1`.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1524,
+        "last_invariant_line": 1527
+      },
+      "dods": [
+        "DOD-04"
+      ],
+      "adrs": [
+        "ADR-03F-11"
+      ],
+      "cc": [
+        "CC-09"
+      ],
+      "planned_acceptance": "All 26 frozen endpoints covered by versioned /api/v1 schema; no invented routes",
+      "first_implementation_gate": "Phase 3B",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I14",
+      "title": "No direct public microservice exposure",
+      "exact_normative_statement": "Clients call only `lms-api.reltroner.com`.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1528,
+        "last_invariant_line": 1531
+      },
+      "dods": [
+        "DOD-02",
+        "DOD-12"
+      ],
+      "adrs": [
+        "ADR-03F-08"
+      ],
+      "cc": [
+        "CC-08"
+      ],
+      "planned_acceptance": "Network/service caller negatives prevent direct browser access to domain apps",
+      "first_implementation_gate": "Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I15",
+      "title": "No cross-service database writes",
+      "exact_normative_statement": "Service ownership is enforced at database-credential level.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1532,
+        "last_invariant_line": 1535
+      },
+      "dods": [
+        "DOD-02"
+      ],
+      "adrs": [
+        "PD-ADR-01"
+      ],
+      "cc": [],
+      "planned_acceptance": "Scoped DB user privilege denies cross-service UPDATE/INSERT",
+      "first_implementation_gate": "3B grant schema; Phase 4",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I16",
+      "title": "No distributed DB transactions",
+      "exact_normative_statement": "Cross-service consistency uses explicit calls/events/compensation.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1536,
+        "last_invariant_line": 1539
+      },
+      "dods": [
+        "DOD-07",
+        "DOD-14"
+      ],
+      "adrs": [
+        "PD-ADR-05",
+        "PD-ADR-08"
+      ],
+      "cc": [
+        "CC-12",
+        "CC-13"
+      ],
+      "planned_acceptance": "No cross-DB transaction; outbox/idempotency/reconciliation under failure",
+      "first_implementation_gate": "3B event/test schema; Phase 7/11",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I17",
+      "title": "Durable event intent uses outbox",
+      "exact_normative_statement": "Redis transport is not the only copy of correctness-critical event intent.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1540,
+        "last_invariant_line": 1543
+      },
+      "dods": [
+        "DOD-14"
+      ],
+      "adrs": [
+        "PD-ADR-05"
+      ],
+      "cc": [
+        "CC-13"
+      ],
+      "planned_acceptance": "Atomic local outbox and consumer inbox survive broker duplication/crashes",
+      "first_implementation_gate": "3B fixtures; Phase 4/11",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I18",
+      "title": "Public search stays static where possible",
+      "exact_normative_statement": "Public catalog search does not require backend runtime dependency.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1544,
+        "last_invariant_line": 1547
+      },
+      "dods": [
+        "DOD-09",
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-LMS-CATALOG-006"
+      ],
+      "cc": [
+        "CC-01",
+        "CC-05"
+      ],
+      "planned_acceptance": "Public static search build excludes draft/private records; no backend dependency",
+      "first_implementation_gate": "3B FE privacy CI; Phase 10",
+      "review_qualification": "FE_DRAFT_FILTER_SOURCE_RISK",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I19",
+      "title": "Permission-aware search goes through Knowledge Service",
+      "exact_normative_statement": "Private/authorized search is backend-enforced.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1548,
+        "last_invariant_line": 1551
+      },
+      "dods": [
+        "DOD-09"
+      ],
+      "adrs": [
+        "ADR-LMS-CATALOG-006",
+        "PD-ADR-06"
+      ],
+      "cc": [
+        "CC-05"
+      ],
+      "planned_acceptance": "Private search checks ACL before data/snippet/citation; stale rights fail closed",
+      "first_implementation_gate": "Phase 8",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I20",
+      "title": "Assistant mutation uses domain APIs",
+      "exact_normative_statement": "AI can never bypass service invariants.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1552,
+        "last_invariant_line": 1555
+      },
+      "dods": [
+        "DOD-10"
+      ],
+      "adrs": [
+        "ADR-03F-08"
+      ],
+      "cc": [
+        "CC-08"
+      ],
+      "planned_acceptance": "All Assistant mutations invoke authorized domain APIs via validated delegation",
+      "first_implementation_gate": "3B internal trust; Phase 9",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I21",
+      "title": "Initial Assistant is authenticated-only",
+      "exact_normative_statement": "Guest AI requires a later cost/abuse contract.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1556,
+        "last_invariant_line": 1559
+      },
+      "dods": [
+        "DOD-10"
+      ],
+      "adrs": [
+        "ADR-03F-12"
+      ],
+      "cc": [],
+      "planned_acceptance": "Guest Assistant calls denied; bounded authenticated AI provider usage",
+      "first_implementation_gate": "Phase 9",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I22",
+      "title": "No browser-native canonical content CRUD initially",
+      "exact_normative_statement": "Admin presence does not move source-controlled course authority into a runtime database.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1560,
+        "last_invariant_line": 1563
+      },
+      "dods": [
+        "DOD-05",
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-LMS-CATALOG-001",
+        "ADR-03F-07"
+      ],
+      "cc": [
+        "CC-09"
+      ],
+      "planned_acceptance": "No public browser-native lesson/course CRUD; source-controlled release only",
+      "first_implementation_gate": "3B endpoint allowlist; Phase 10",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I23",
+      "title": "Instructor uses admin plane",
+      "exact_normative_statement": "Privileged instructor workflows use `lms-admin.reltroner.com`, not a third frontend hostname.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1564,
+        "last_invariant_line": 1567
+      },
+      "dods": [
+        "DOD-11"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001"
+      ],
+      "cc": [],
+      "planned_acceptance": "Instructor privileged flows routed via lms-admin, no third origin",
+      "first_implementation_gate": "Phase 10",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    },
+    {
+      "id": "P1-I24",
+      "title": "Identity copies are projections only",
+      "exact_normative_statement": "`sub` is the principal reference; copied identity attributes are not authoritative.",
+      "source": {
+        "repository": "Reltroner/progress-documentation",
+        "path": "lms/logical-service-boundary-api-contract.md",
+        "blob_sha": "cf089b8df4b5ccb1761b504ffae662a0053bf03e",
+        "heading_line": 1568,
+        "last_invariant_line": 1571
+      },
+      "dods": [
+        "DOD-03",
+        "DOD-06"
+      ],
+      "adrs": [
+        "ADR-LMS-KC-001",
+        "PD-ADR-02"
+      ],
+      "cc": [],
+      "planned_acceptance": "Business state keyed on signed sub, copied identity fields not authoritative",
+      "first_implementation_gate": "3B DTO; Phase 4/5",
+      "review_qualification": "NO_NORMATIVE_CONFLICT_IDENTIFIED",
+      "classification": "OWNER_ACCEPTED_DESIGN_TRACEABILITY_ONLY",
+      "implementation_status": "NOT_VERIFIED_BY_THIS_REVIEW"
+    }
+  ],
+  "cross_contract_open_risks": {
+    "FE_DRAFT_FILTER_SOURCE_RISK": "CC-01 public static routes/search include draft in inspected FE source; production exposure not established",
+    "SOURCE_CLIENT_DRIFT_AND_CLIENT_ABSENCE_REMAIN": "CC-07/18 clients missing and FE sample config drift; effective tokens not tested",
+    "VPS_CAPACITY_MEASUREMENT_OPEN": "CC-21 production cost/capacity unresolved",
+    "MEASURABLE_OPERATIONAL_BUDGET_OPEN": "CC-21 baseline SLO/retention not measured",
+    "FE_ROLE_FALLBACK_UX_ONLY_MUST_NOT_BECOME_AUTH": "CC-18 frontend role fallback must not become authorization"
+  },
+  "remaining_final_phase_3a_gates": [
+    "FZ-10 separate owner-authorized Phase 3B work order with entry/exit and task scope",
+    "FZ-11 explicit final Phase 3A design freeze acceptance record",
+    "Docs-only FZ-02 PR review/merge and resulting SHA pinning"
+  ]
+}
