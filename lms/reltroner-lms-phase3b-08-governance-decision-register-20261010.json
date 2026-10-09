@@ -3,7 +3,7 @@
   "record_id": "LMS-PHASE3B-08-GOVERNANCE-DECISION-REGISTER-20261010",
   "date": "2026-10-10",
   "timezone": "Asia/Jakarta",
-  "classification": "PREPARED_NOT_OWNER_RATIFIED_SOURCE_MERGE_HOLD",
+  "classification": "OWNER_RATIFIED_CRYPTO_NONPRODUCTION_MANUAL_BRANCH_POLICY_ADOPTED_MERGE_HOLD",
   "snapshot": {
     "backend": {
       "repository": "Reltroner/LMS-BE",
@@ -50,8 +50,8 @@
   "security_adr": {
     "id": "ADR-LMS-TRUST-001",
     "path": "lms/adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md",
-    "recommendation_only": true,
-    "owner_ratified": false,
+    "recommendation_only": false,
+    "owner_ratified": true,
     "proposal": {
       "jws_algorithm": "EdDSA",
       "curve": "Ed25519",
@@ -61,7 +61,9 @@
       "key_distribution": "per-caller pinned public key registry with bound kid",
       "replay": "atomic one-time Redis jti reservation with fail-closed unknown state; recovery quarantine >=65s after verified keyspace loss"
     },
-    "runtime_proof_observed": false
+    "runtime_proof_observed": false,
+    "owner_ratified_scope": "NONPRODUCTION_PHASE3B_DESIGN_ONLY",
+    "source_contract_proposal_marker_reconciled": false
   },
   "gate_count": 28,
   "gate_distribution_before_owner_actions": {
@@ -76,15 +78,17 @@
   "remaining_decisions": [
     {
       "id": "B3-AC07",
-      "current": "PARTIAL_EVIDENCE",
-      "owner_action": "Explicitly ratify/revise named Ed25519/TTL/key/rotation/replay design parameters",
-      "source_mutation_allowed": false
+      "current": "PARTIAL_EVIDENCE_IN_HISTORIC_3B07R_UNTIL_REVALIDATION",
+      "owner_action": "DONE: owner has ratified profile; reconcile source candidate pending-ADR marker and publish new gated evidence before changing historical audit classification",
+      "source_mutation_allowed": false,
+      "owner_ratification_decision": "APPROVED_DESIGN_ONLY"
     },
     {
       "id": "B3-AC25",
-      "current": "PARTIAL_EVIDENCE",
-      "owner_action": "Enable and re-read BE+FE main branch PR/check/no-force-push/deletion protections; record exact check contexts",
-      "source_mutation_allowed": false
+      "current": "PARTIAL_EVIDENCE_MANUAL_POLICY_ADOPTED_TECHNICAL_GAP_OPEN",
+      "owner_action": "Owner chose markdown-only manual branch governance; document is binding process but NOT a technical substitute for protected:true; hard gate/equivalent-risk waiver remains separately unresolved",
+      "source_mutation_allowed": false,
+      "technical_enforcement": "ABSENT"
     },
     {
       "id": "B3-AC28",
@@ -99,20 +103,41 @@
     "production_mutation_authorized": false,
     "phase4_authorized": false,
     "postmerge_main_ci_observed": false,
-    "doc_merge_not_sufficient_for_owner_signoff": true
+    "doc_merge_not_sufficient_for_owner_signoff": true,
+    "github_settings_policy_only": true,
+    "branch_governance_contract_owner_accepted": true,
+    "github_main_technical_protection_enforced": false,
+    "phase3b_final_exit_owner_accepted": false
   },
   "source_documents": [
+    "lms/branch-gov-001-main-branch-contractual-protection-20261010.md",
     "lms/reltroner-lms-phase3b-08-security-and-final-merge-governance-20261010.md",
     "lms/adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md",
     "lms/reltroner-lms-phase3b-07r-remediation-and-revalidation-20261009.md"
   ],
   "follow_up_order": [
-    "Owner ADR decision",
-    "Owner GitHub main branch protection GUI update",
-    "Read-only verification branch rules+CI+source SHA",
-    "Final Phase 3B scoped sign-off",
-    "Separate one-time BE/FE source main merge instruction",
-    "Actual postmerge main SHAs+main-push CI evidence",
+    "ADR-LMS-TRUST-001 owner ratified (design-only) 2026-10-10",
+    "Manual branch governance contract adopted; actual GitHub protected:false remains observed",
+    "Review/reconcile prior source pending-ADR markers and provide a fresh versioned 28/44 delta",
+    "Owner must explicitly resolve or formally waive FZ10 technical branch protection acceptance deficit before asserting final exit",
+    "Separate Phase 3B scoped nonproduction exit sign-off on exact BE/FE SHAs",
+    "Separate explicit once-only source merge authorization if gates satisfied",
+    "Actual postmerge main SHAs+push-main CI evidence after authorized merge",
     "Separate Phase 4 nonproduction authorization"
-  ]
+  ],
+  "latest_governance_decision": {
+    "date": "2026-10-10",
+    "timezone": "Asia/Jakarta",
+    "owner_adr_statement": "aku menyetujui menyetujui ratifikasi ADR-LMS-TRUST-001 dengan seluruh parameter pada tabel di atas, khusus untuk desain nonproduction Phase 3B.",
+    "owner_branch_choice": "Markdown-only/manual contractual main governance in progress-documentation/lms instead of applying GitHub Settings branch protection now",
+    "contract_path": "lms/branch-gov-001-main-branch-contractual-protection-20261010.md",
+    "github_branch_protection_enabled": false,
+    "technical_enforcement_gap_remaining": true,
+    "be_fe_source_merge_authorized": false
+  },
+  "source_evidence_now": {
+    "historical_gate_distribution_3b07r_unchanged": true,
+    "gate_28_final_revalidation_after_owner_decision_not_yet_executed": true,
+    "original_3b07r_total": 28
+  }
 }
