@@ -1124,3 +1124,18 @@ Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-ph
 **Remaining B3-AC28:** No unambiguous distinct owner final **Phase 3B nonproduction exit acceptance** or one-time BE/FE source merge instruction has been supplied; source `main` merges remain **HOLD** and Phase 4 **NOT AUTHORIZED**. **GitHub Settings is no longer a prerequisite for exit**; the remaining gate is final acceptance and separate merge authority, not further 3B-01..06 engineering.
 
 **Checkpoint:** `3B07R REMEDIATION GREEN → 3B09 ADR OWNER-RATIFIED → 3B10 AC07 PASS + AC25 PASS_WITH_WAIVER → 26 SCOPED/1 TRACE/0 PARTIAL/1 BLOCKED → FINAL 3B EXIT SIGN-OFF PENDING (NOT SETTINGS) → BE/FE MAIN MERGE HOLD → PHASE4 NOT AUTHORIZED`.
+
+
+---
+
+## 33. Phase 3B-11 — Final owner exit acceptance B3-AC28 (2026-10-10)
+
+**Owner's exact final instruction:** `B3-AC28 resmi aku terima`. This is an explicit final **owner Phase 3B engineering exit sign-off** for the fixed, nonproduction contracts, fixtures, source-CI and invariant-traceability evidence snapshot, after prior owner ratification of ADR-LMS-TRUST-001 and explicit GOV-WVR-001 acceptance of manual branch governance without configuring GitHub Branch Protection Settings.
+
+**Source evidence unchanged:** [BE PR #11](https://github.com/Reltroner/LMS-BE/pull/11) remains `DRAFT/OPEN/UNMERGED`, source `0fc17dabc1af845053ac525986f40fb260f73e4c`, main `e30a61780994d85671cbf079e6b9ce899b3fe837`; [BE CI 37960568787](https://github.com/Reltroner/LMS-BE/actions/runs/37960568787) SUCCESS 7/7 / 255 synthetic contract-model assertions. [FE PR #3](https://github.com/Reltroner/LMS-FE/pull/3) `DRAFT/OPEN/UNMERGED`, source `9795489d9b0e1a13d81675fac29e649900c4381d`, main `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`; [FE CI 37960704557](https://github.com/Reltroner/LMS-FE/actions/runs/37960704557) SUCCESS 2/2, 9 catalog tests. These are previously completed CI runs rechecked read-only, **not new postmerge main CI**.
+
+**Latest final 28 gate revalidation:** [Signed-in-conversation final owner acceptance receipt](./reltroner-lms-phase3b-11-final-owner-exit-acceptance-20261010.md) and [machine-readable 28-gate final distribution](./reltroner-lms-phase3b-11-final-28-gate-exit-acceptance-20261010.json). **27 PASS_SCOPED (one is B3-AC25 with owner branch-enforcement waiver) + 1 PASS_TRACE_ONLY (B3-AC26) + 0 PARTIAL + 0 BLOCKED**. **28/28 accepted on Phase 3B's precise nonproduction/traceability scope**, not 28 runtime PASS. B3-AC28 **PASS_SCOPED** because the owner finally accepted exit; 44/44 invariant IDs traced, 0 additionally production-certified.
+
+**Phase status:** `PHASE 3B NONPRODUCTION ENGINEERING EXIT = CLOSED / ACCEPTED / FROZEN ON PINNED BE+FE CANDIDATES`. **Distinct source-`main` merge authorization remains NOT GIVEN** and exact BE/FE postmerge source-main integration and `push: main` CI **NOT DONE**. No source changes or production mutation and no Keycloak/PostgreSQL/Redis/VPS/Cloudflare deployment authority. `PHASE4 = NOT AUTHORIZED`; a separate Phase4 work order/production authorization is required before provisioning. Both source main branches still `protected:false` in line with the explicit Phase 3 owner waiver; manual BRANCH-GOV-001 remains binding.
+
+**Checkpoint:** `3A FROZEN → 3B07R CI GREEN → 3B09 ADR RATIFIED → 3B10 AC07+AC25 CLOSED VIA TESTS+WAIVER → 3B11 AC28 OWNER ACCEPTED → 28/28 PHASE3B SCOPED ACCEPTED → PHASE3B NONPROD ENGINEERING EXIT FROZEN → SOURCE MAIN MERGE HOLD → POSTMERGE CI PENDING → PHASE4 NOT AUTHORIZED`.
