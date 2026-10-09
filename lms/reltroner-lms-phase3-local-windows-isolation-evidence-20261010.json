@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-PHASE3-LOCAL-POWERSHELL-5_1-WINDOWS-ISOLATION-20261010",
+  "date": "2026-10-10",
+  "timezone": "Asia/Jakarta",
+  "source_of_evidence": "owner_supplied_powershell_transcripts_and_followup_isolation_log",
+  "scope": "NONPRODUCTION_WINDOWS_LOCAL_VALIDATION_ONLY",
+  "authoritative_record": "lms/reltroner-lms-phase3-local-windows-powershell-isolation-receipt-20261010.md",
+  "historic_source_merge_record": "lms/reltroner-lms-phase3-main-integration-postmerge-ci-20261010.json",
+  "backend": {
+    "repository": "Reltroner/LMS-BE",
+    "sha": "a2672d0085fe84b55520f8f52f41a8c7fc8568a0",
+    "local_pull": "PASS_ALREADY_UP_TO_DATE",
+    "php_cli_version": "8.4.4",
+    "php_sodium": "PASS_AFTER_LOCAL_PHP_INI_CHANGE",
+    "php_syntax_harnesses": {
+      "passed": 7
+    },
+    "contract_assertions": {
+      "passed": 255,
+      "failed": 0,
+      "scoped_as": "synthetic_contract_mock_and_crypto_model"
+    },
+    "services": [
+      {
+        "name": "gateway",
+        "tests": 20,
+        "assertions": 140,
+        "pass": true
+      },
+      {
+        "name": "learning",
+        "tests": 16,
+        "assertions": 117,
+        "pass": true
+      },
+      {
+        "name": "mentorship",
+        "tests": 16,
+        "assertions": 117,
+        "pass": true
+      },
+      {
+        "name": "knowledge",
+        "tests": 16,
+        "assertions": 117,
+        "pass": true
+      },
+      {
+        "name": "assistant",
+        "tests": 16,
+        "assertions": 117,
+        "pass": true
+      },
+      {
+        "name": "audit",
+        "tests": 16,
+        "assertions": 117,
+        "pass": true
+      }
+    ],
+    "service_totals": {
+      "tests_passed": 100,
+      "assertions_passed": 725,
+      "failed": 0
+    },
+    "all_6_service_phpunit_passed": true
+  },
+  "frontend": {
+    "repository": "Reltroner/LMS-FE",
+    "sha": "cc3d9c132d293058c0ff37c93ef4b3ab5547ad34",
+    "local_workspace": "C:\\Projects\\lms-reltroner-studio-phase3b-main-verify-20261010",
+    "original_workspace_preserved": true,
+    "detached_worktree": true,
+    "source_tracked_changes": false,
+    "source_crlf_in_published_mdx": true,
+    "source_crlf_counts": [
+      {
+        "file": "01-http-overview.mdx",
+        "crlf": 39,
+        "lf_only": 0
+      },
+      {
+        "file": "02-http-methods.mdx",
+        "crlf": 31,
+        "lf_only": 0
+      },
+      {
+        "file": "03-rest-introduction.mdx",
+        "crlf": 31,
+        "lf_only": 0
+      }
+    ],
+    "registered_mdx_total": 31,
+    "published_staged_mdx_count": 3,
+    "original_windows_npm_run_build": "FAIL",
+    "original_failure": {
+      "contentlayer_documents": 0,
+      "parser": "YAMLParseError unexpected scalar",
+      "next_error": "static lesson route falsely reports missing generateStaticParams",
+      "next_route_source_has_generateStaticParams": true
+    },
+    "isolated_lf_workaround": {
+      "only_gitignored_staging_changed": true,
+      "staged_mdx_normalized": 3,
+      "source_files_changed": false,
+      "contentlayer_documents_generated": 3,
+      "contentlayer_emitted_internal_error": "ERR_INVALID_ARG_TYPE",
+      "contentlayer_clean_cli_completion_verified": false,
+      "next_build_webpack": "PASS",
+      "static_pages_generated": 25,
+      "publication_only_artifact_scan": "PASS",
+      "manifest_sha256": "1dfecfddc97ce1676a719b1538e2d12d17a40c77f51370951dcf69e634b86e43",
+      "overall": "PASS_UNDER_EXPLICIT_WORKAROUND"
+    },
+    "catalog_negative_tests": {
+      "passed": 9,
+      "failed": 0
+    },
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "content_validation": "PASS",
+    "resource_validation": "PASS",
+    "orphan_validation": "PASS",
+    "normal_windows_build_fully_green": false
+  },
+  "governance": {
+    "phase3_nonproduction_exit_owner_accepted": true,
+    "source_main_merged": true,
+    "postmerge_push_main_ci_green": true,
+    "be_ci_run_id": 37970800113,
+    "fe_ci_run_id": 37970833082,
+    "live_runtime_production_certified": false,
+    "phase4_authorized": false,
+    "production_authorized": false,
+    "branch_protection_owner_waiver": "GOV-WVR-001",
+    "followup_fe_source_fix_authorized": false
+  }
+}
