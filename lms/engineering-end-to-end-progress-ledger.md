@@ -1084,3 +1084,28 @@ Machine receipt: [Phase 3 Central Candidate Owner Acceptance](./reltroner-lms-ph
 **Distribution remains unchanged:** **24 PASS_SCOPED + 1 PASS_TRACE_ONLY + 2 PARTIAL_EVIDENCE + 1 BLOCKED**. The 44 frozen invariants retain source/design trace only, **0 newly live runtime-certified**.
 
 **Checkpoint:** `3B07R REVALIDATED GREEN → 3B08 SECURITY/BRANCH GOVERNANCE PACKET WRITTEN (NOT SIGNED) → OWNER ADR+GITHUB RULES REQUIRED → FINAL 3B EXIT HOLD → SOURCE MAIN MERGE HOLD → PHASE4 NOT AUTHORIZED`.
+
+---
+
+## 31. Phase 3B-09 — Owner ratifies ADR-LMS-TRUST-001; selects contractual `main` governance instead of GitHub Settings (2026-10-10)
+
+**Exact human decision:** Owner approved **all** ADR-LMS-TRUST-001 cryptographic design parameters (EdDSA/Ed25519 JWS; 60s max TTL; 5s skew; 180s routine key rotation overlap; pinned per-service Ed25519 public keys; atomic single-use Redis `jti`; >=65s fail-closed replay-store recovery quarantine), **strictly for Phase 3B nonproduction contract design**. No signing key provisioning, Keycloak adaptation or real network assertions authorized.
+
+**Branch-governance choice:** Owner selected a new documentation-only markdown contract **instead of actually enabling** GitHub `Settings → Branches` rules at this checkpoint. The resulting [BRANCH-GOV-001 — main branch contractual protection / manual merge governance](./branch-gov-001-main-branch-contractual-protection-20261010.md) makes PR-only workflow, required exact check-run names, SHA-pinned evidence, no force push/deletion, review conversation closure and separate owner one-time merge instruction **normative human operating procedures**. It **does not make `main protected:true`**; technical bypass remains possible, and this project owner decision does **not** silently waive any FZ-10 hard gate requiring enforceable branch rules.
+
+**Source snapshots unchanged:**
+- [LMS-BE PR #11](https://github.com/Reltroner/LMS-BE/pull/11) — draft/open, `phase3-dev` `0fc17dabc1af845053ac525986f40fb260f73e4c`, `main` `e30a61780994d85671cbf079e6b9ce899b3fe837`, [CI 7/7 SUCCESS](https://github.com/Reltroner/LMS-BE/actions/runs/37960568787) / 255 contract-model assertions.
+- [LMS-FE PR #3](https://github.com/Reltroner/LMS-FE/pull/3) — draft/open, `phase3-dev` `9795489d9b0e1a13d81675fac29e649900c4381d`, `main` `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`, [CI 2/2 SUCCESS](https://github.com/Reltroner/LMS-FE/actions/runs/37960704557) / 9 catalog tests.
+- `main` branch protection observed **false** on both at 3B-09 preflight. No source PR merge, source source-code SHA change or production mutation as part of 3B-09.
+
+**Gate disposition:**
+- `B3-AC07 / R-03`: **OWNER RATIFICATION DECISION COMPLETE (DESIGN)**. The 3B-07R historical `PARTIAL_EVIDENCE` row remains archived; BE source trust schema still contains historical `PENDING_SECURITY_ADR` markers. A new SHA-pinned reconciliation/evidence delta is needed before the formal acceptance row is promoted. Runtime cryptographic verification still future Phase 4+.
+- `B3-AC25 / R-02`: **PARTIAL_EVIDENCE / TECHNICAL MAIN BRANCH RULES ABSENT**. Contractual manual controls are now documented as owner's selected mode; they are not machine-enforced protection. No automatic waiver of FZ-10 acceptance from a documentation merge.
+- `B3-AC28`: **BLOCKED**, missing final scoped Phase 3B owner exit and **separate** source-merge instruction.
+- `B3-AC26`: **PASS_TRACE_ONLY** for all 44 frozen invariant IDs, zero added runtime certifications.
+
+**Historical 3B-07R distribution is not retroactively edited:** 24 PASS_SCOPED + 1 PASS_TRACE_ONLY + 2 PARTIAL_EVIDENCE + 1 BLOCKED. Ratification is a **new dated decision event**; any new count requires a new 28-gate versioned revalidation, not rewriting the old 07R record.
+
+**Next required authority:** Explicitly review technical-enforcement residual risk against the original FZ-10 branch-governance acceptance obligation; obtain new owner-scoped final Phase 3B exit on the two immutable source SHA candidates and a **distinct one-time merge authorization**, if and only if all final hard gates/waivers are auditable. After approved merge, actual `main` SHA + new `push: main` CI must pass. Phase 4/production still **NOT AUTHORIZED**.
+
+**Checkpoint:** `3B07R CI GREEN → 3B08 GOVERNANCE PREPARED → 3B09 CRYPTO ADR OWNER-RATIFIED (DESIGN) + MANUAL MAIN POLICY OWNER-ADOPTED → R-02 UNENFORCED / AC25 PARTIAL → AC28 BLOCKED → BE/FE MAIN MERGE HOLD → PHASE4 NOT AUTHORIZED`.
