@@ -1,5 +1,8 @@
 # Reltroner LMS — End-to-End Engineering Progress Ledger & AI Handoff
 
+> **CURRENT STATUS NOTICE (2026-10-10):** For present work and AI navigation, **read [Canonical LMS AI Entry & Engineering State](./README.md) first**, then this ledger's **latest section**. Earlier top-of-file statements saying Phase 3B source PRs are DRAFT/BLOCKED are **dated historical snapshots, not the live status**. Phase 3B is owner-accepted/frozen; FE PR #4 and #5 are now merged; **Phase 4 and production deployment are NOT authorized**. The 20+24 frozen invariant requirements remain normative in their parent contracts. This is a status overlay, **not an amendment of historical evidence**.
+
+
 > **Document class:** LIVING operational engineering ledger, evidence register, roadmap, and AI-to-AI handoff.
 > **Status:** CURRENT BASELINE / NOT A PRODUCT RELEASE CERTIFICATE.
 > **Snapshot date:** 2026-10-09 (UTC+7 project reporting context; Git/GitHub facts are SHA-based).
@@ -1266,4 +1269,21 @@ This is **source-main integration only**; the observed Cloudflare skip prefix is
 **Project state:** Phase 3 owner accepted **28/28** within nonproduction/trace-only scope; **44/44** frozen invariants traced, zero new live/runtime certifications. Phase 3 source-main integration and subsequent isolated Windows LF portability merge now have exact successful CI evidence. **LMS-BE stays unchanged**. `PHASE4 = NOT AUTHORIZED`; production Keycloak/PostgreSQL/Redis/VPS/Cloudflare changes are **NOT AUTHORIZED** without separate work order. No assumption of a live full-system integration test.
 
 **Checkpoint:** `PHASE3 FROZEN → FE PR4 MERGED SHA d0e4d743 → SOURCE TREE IDENTICAL → NEW PUSH-MAIN CI 2/2 GREEN / 19 TESTS / 25 STATIC PAGES / PRIVACY PASS → CLOUDFLARE SKIP COMMIT PREFIX VERIFIED BUT PROJECT DASHBOARD PENDING → CLI ERROR OPEN SEPARATE → NO PHASE4/PRODUCTION AUTHORIZATION`.
+
+---
+
+## 38. FE PR #5 Contentlayer CLI closure and canonical AI handoff (2026-10-10)
+
+**Owner instruction:** Integrate PR #5 before beginning Phase 4 read-only discovery, reduce navigation noise, preserve frozen contracts/dated evidence, and establish an AI handoff entry point. Owner approval of **PR #5 integration** is applied only to the reviewed source head; it does **not** authorize Phase 4 or Cloudflare production.
+
+- **Source:** [FE PR #5](https://github.com/Reltroner/LMS-FE/pull/5) merged with exact `expected_head_sha=5f2ac1f4383dfd2fe8a09ce4a33294d73cd71083` into prior FE `main=d0e4d74319ad3c481df23a89025eb4e2c43c45b7`. Resulting FE `main=eb01a4d2c924299b929aebf0f4826b94cf341fc6`. GitHub merge commit has parent SHAs exactly old-main + reviewed PR-head, title begins `[CF-Pages-Skip]`, and Git tree matches the reviewed candidate `d85e5da67c61a4ce639aebbed7abc460155c6bbc`. Exactly **3 code/package files** (`scripts/build-contentlayer.mjs`, `package.json`, `package-lock.json`); no frozen architecture/API/MDX/Cloudflare files touched.
+- **Verified Linux PR CI:** [run 37985410974](https://github.com/Reltroner/LMS-FE/actions/runs/37985410974) 2/2 GREEN, 19/19 tests, 3 published Contentlayer docs, 25/25 pages, privacy gate and GitGuardian PASS. No `ERR_INVALID_ARG_TYPE` in raw build logs.
+- **Windows evidence at exact source candidate:** owner PowerShell 5.1 isolated checkout `5f2ac1f...` logged 19/19 PASS, standard build 3 docs/25 pages, published-only verifier PASS, clean exit, negative test with removed `.public-content` staging produced **0 docs / exit 1**, then restored stage successfully with clean worktree. **Not** claimed as a Windows run on merge commit SHA (the Git tree is identical).
+- **New verified postmerge CI:** [GitHub Actions push-main run 37987959614](https://github.com/Reltroner/LMS-FE/actions/runs/37987959614) on exact `eb01a4d2...` **COMPLETED/SUCCESS**; `catalog-contract` 19 PASS 0 FAIL; `frontend-build` npm ci + standard npm run build PASS, 3 published of 31, 3 generated docs, TS/lint/validation, 25/25 static pages, output privacy PASS. Independently fetched **raw GitHub Actions logs show zero prior Clipanion `ERR_INVALID_ARG_TYPE`**. Thus `CLI_ISSUE_FIXED_ON_MAIN_WITH_PR_AND_POSTMERGE_LINUX_PROOF`, not a claim every future CLI failure path is verified.
+- **BE:** `main=a2672d0085fe84b55520f8f52f41a8c7fc8568a0` remains unchanged. Phase 3 nonproduction acceptance **28/28 (27 scoped including waiver + one trace-only)**; **44/44 design/contract invariant trace**, zero newly live/runtime certified.
+- **Cloudflare exclusion:** actual new FE merge commit title has `[CF-Pages-Skip]`. **Project-side Production/main deployment row for merge SHA `eb01a4d2...` is PENDING owner dashboard verification**. Owner's earlier screenshot documented a `skipped` **Preview** entry associated with prior merge `d0e4d743...`, not definitive Production/main history. No Cloudflare API, deployment, retry, rollback, traffic/certificate or DNS claim is fabricated.
+- **AI documentation consolidation:** [single LMS README](./README.md) is the authoritative **navigation/current-state** entry, indexing all 57 preexisting records without deleting/moving frozen history. It does not supersede Phase 0C/1 or ratified ADRs. Historical ledger §§0–37 remain byte-preserved outside the new header notice. Future AI must read current state via README/latest section rather than the historical 2026-10-09 opening paragraph.
+- **Worktree cleanup:** user-supplied screenshot shows several likely test worktrees under `C:\Projects`, but their cleanliness/parent repo/branch registration is **unverified from the image**. Do not delete automatically. Verify the actual `git worktree list --porcelain`, tracked/untracked statuses, HEAD and ignored outputs; use non-force removal only for operator-approved clean disposable worktrees. Maintain Phase 3 audit trace and primary projects.
+
+**Checkpoint:** `PHASE3_28/28_CLOSED → FE_PR5_MERGED=eb01a4d2 → PUSH_MAIN_LINUX_2/2_GREEN → CONTENTLAYER_OLD_EXCEPTION_ABSENT → DOC_CANONICAL_README_CREATED → CLOUDFARE_PRODUCTION_NEW_SHA_UI_PENDING → WORKTREE_CLEANUP_SAFETY_FIRST → PHASE4_NOT_AUTHORIZED`.
 
