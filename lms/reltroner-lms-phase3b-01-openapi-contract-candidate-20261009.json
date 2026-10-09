@@ -90,7 +90,7 @@
   "policy": "ALL_26_REQUIRE_OIDC_ACCESS_TOKEN_GUEST_OFFERINGS_DENIED_UNTIL_OWNER_APPROVAL",
   "next_checkpoint": "3B-01 LOCAL PHP STATIC VALIDATION, SOURCE PR REVIEW, THEN B3-AC01..04 OWNER ACCEPTANCE",
   "production_mutation_authorized": false,
-  "phase_3b_01_exit_accepted": true,
+  "phase_3b_01_exit_accepted": false,
   "test_evidence": {
     "source": "owner-supplied Windows PowerShell console output",
     "local_isolated_head_sha": "32f08586cba9b19a6a77c8a43967d2e14540591b",
@@ -119,5 +119,7 @@
     "requirements_for_source_merge": "all 3B-01..07, actual 28/28 FZ10 checks, BE/FE SHA-bound integrated snapshot, AI/human review, NEW owner signoff",
     "source_merge_hold_receipt": "lms/reltroner-lms-phase3-holistic-source-merge-hold-20261009.md"
   },
-  "phase_3b_01_exit_scope": "CONTRACT_ONLY_OWNER_ACCEPTED_STATIC_ASSERTIONS; NOT 3B-07_FULL_RUNTIME_CI_EXIT"
+  "phase_3b_01_exit_scope": "CONTRACT_ONLY_OWNER_ACCEPTED_STATIC_ASSERTIONS; NOT 3B-07_FULL_RUNTIME_CI_EXIT",
+  "phase_3b_01_owner_contract_only_accepted": true,
+  "phase_3b_01_exit_status": "OWNER_APPROVED_CONTRACT_CONTENT_STATIC_22_22; SOURCE_NOT_MERGED; FULL_3B_CERTIFICATION_PENDING"
 }
