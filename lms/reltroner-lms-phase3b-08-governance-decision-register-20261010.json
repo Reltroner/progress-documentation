@@ -3,7 +3,7 @@
   "record_id": "LMS-PHASE3B-08-GOVERNANCE-DECISION-REGISTER-20261010",
   "date": "2026-10-10",
   "timezone": "Asia/Jakarta",
-  "classification": "OWNER_RATIFIED_CRYPTO_NONPRODUCTION_MANUAL_BRANCH_POLICY_ADOPTED_MERGE_HOLD",
+  "classification": "OWNER_RATIFIED_ADR_AND_TECHNICAL_BRANCH_GOVERNANCE_WAIVER_ACCEPTED_PHASE3_EXIT_GATE_PENDING",
   "snapshot": {
     "backend": {
       "repository": "Reltroner/LMS-BE",
@@ -63,7 +63,7 @@
     },
     "runtime_proof_observed": false,
     "owner_ratified_scope": "NONPRODUCTION_PHASE3B_DESIGN_ONLY",
-    "source_contract_proposal_marker_reconciled": false
+    "source_contract_proposal_marker_reconciled": "TEMPORALLY_SUPERSEDED_BY_2026_10_10_ADR_IN_PHASE3_EVIDENCE;SOURCE_MARKERS_REMAIN_AND_PHASE4_MUST_NORMALIZE"
   },
   "gate_count": 28,
   "gate_distribution_before_owner_actions": {
@@ -78,17 +78,19 @@
   "remaining_decisions": [
     {
       "id": "B3-AC07",
-      "current": "PARTIAL_EVIDENCE_IN_HISTORIC_3B07R_UNTIL_REVALIDATION",
-      "owner_action": "DONE: owner has ratified profile; reconcile source candidate pending-ADR marker and publish new gated evidence before changing historical audit classification",
+      "current": "PASS_SCOPED_DESIGN_ONLY",
+      "owner_action": "Ratification and formal 28-gate source-evidence revalidation complete; source historical proposal metadata still to normalize before Phase4 runtime",
       "source_mutation_allowed": false,
-      "owner_ratification_decision": "APPROVED_DESIGN_ONLY"
+      "owner_ratification_decision": "APPROVED_DESIGN_ONLY",
+      "technical_scope_only": true
     },
     {
       "id": "B3-AC25",
-      "current": "PARTIAL_EVIDENCE_MANUAL_POLICY_ADOPTED_TECHNICAL_GAP_OPEN",
-      "owner_action": "Owner chose markdown-only manual branch governance; document is binding process but NOT a technical substitute for protected:true; hard gate/equivalent-risk waiver remains separately unresolved",
+      "current": "PASS_SCOPED_WITH_OWNER_WAIVER",
+      "owner_action": "Owner explicitly waived technical GitHub branch protection requirement for Phase3, subject to BRANCH-GOV-001 manual controls; protected:false remains factual",
       "source_mutation_allowed": false,
-      "technical_enforcement": "ABSENT"
+      "technical_enforcement": "ABSENT",
+      "waiver": "GOV-WVR-001"
     },
     {
       "id": "B3-AC28",
@@ -107,23 +109,24 @@
     "github_settings_policy_only": true,
     "branch_governance_contract_owner_accepted": true,
     "github_main_technical_protection_enforced": false,
-    "phase3b_final_exit_owner_accepted": false
+    "phase3b_final_exit_owner_accepted": false,
+    "branch_protection_exempt_from_phase3_exit_owner_approved": true
   },
   "source_documents": [
+    "lms/reltroner-lms-phase3b-10-ac07-ac25-formal-revalidation-20261010.md",
+    "lms/gov-wvr-001-phase3b-branch-protection-owner-exception-20261010.md",
     "lms/branch-gov-001-main-branch-contractual-protection-20261010.md",
     "lms/reltroner-lms-phase3b-08-security-and-final-merge-governance-20261010.md",
     "lms/adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md",
     "lms/reltroner-lms-phase3b-07r-remediation-and-revalidation-20261009.md"
   ],
   "follow_up_order": [
-    "ADR-LMS-TRUST-001 owner ratified (design-only) 2026-10-10",
-    "Manual branch governance contract adopted; actual GitHub protected:false remains observed",
-    "Review/reconcile prior source pending-ADR markers and provide a fresh versioned 28/44 delta",
-    "Owner must explicitly resolve or formally waive FZ10 technical branch protection acceptance deficit before asserting final exit",
-    "Separate Phase 3B scoped nonproduction exit sign-off on exact BE/FE SHAs",
-    "Separate explicit once-only source merge authorization if gates satisfied",
-    "Actual postmerge main SHAs+push-main CI evidence after authorized merge",
-    "Separate Phase 4 nonproduction authorization"
+    "B3-AC07 scoped PASS after explicit owner design ADR ratification",
+    "B3-AC25 scoped PASS with explicit owner waiver GOV-WVR-001; no GitHub settings required for Phase 3",
+    "B3-AC28 remains BLOCKED awaiting final 3B nonproduction exit acceptance on exact BE/FE SHA pair",
+    "Separate one-time owner source main-merge instruction",
+    "Postmerge main CI GREEN on actual main SHA pair",
+    "Separate Phase4 nonproduction work order"
   ],
   "latest_governance_decision": {
     "date": "2026-10-10",
@@ -139,5 +142,28 @@
     "historical_gate_distribution_3b07r_unchanged": true,
     "gate_28_final_revalidation_after_owner_decision_not_yet_executed": true,
     "original_3b07r_total": 28
-  }
+  },
+  "governance_exception": {
+    "id": "GOV-WVR-001",
+    "date": "2026-10-10",
+    "owner_approved": true,
+    "scope": "PHASE3_NONPRODUCTION_BRANCH_PROTECTION_TECHNICAL_ENFORCEMENT_ONLY",
+    "required_settings_change": false,
+    "github_protected_actual": false,
+    "compensating_control": "BRANCH-GOV-001",
+    "residual_risk": "ACCEPTED_BY_OWNER_FOR_PHASE3",
+    "does_not_authorize_source_merge": true,
+    "does_not_authorize_phase4": true
+  },
+  "gate_distribution_after_owner_exception": {
+    "PASS_SCOPED": 26,
+    "PASS_TRACE_ONLY": 1,
+    "PARTIAL_EVIDENCE": 0,
+    "BLOCKED": 1
+  },
+  "gate_updated_ids": [
+    "B3-AC07",
+    "B3-AC25"
+  ],
+  "gate_revalidation_file": "lms/reltroner-lms-phase3b-10-acceptance-28-governance-revalidation-20261010.json"
 }
