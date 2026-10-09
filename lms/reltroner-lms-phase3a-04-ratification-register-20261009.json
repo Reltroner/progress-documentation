@@ -3,7 +3,7 @@
   "record_id": "LMS-3A-04-RATIFICATION-20261009",
   "date": "2026-10-09",
   "timezone": "Asia/Jakarta",
-  "status": "ADR03F_12_OF_12_AND_FZ04_18_SUBORDINATE_DISPOSITIONS_APPROVED_FREEZE_HOLD",
+  "status": "FZ02_44_OF_44_ACCEPTED_AND_FZ04_18_OF_18_ACCEPTED_FINAL_3A_FREEZE_HOLD",
   "phase_3a_frozen": false,
   "phase_3b_authorized": false,
   "production_mutation_authorized": false,
@@ -414,7 +414,10 @@
     },
     {
       "id": "FZ-02",
-      "status": "MAPPED_OWNER_DIRECTION_ACCEPTED_DETAILED_TRACE_PENDING"
+      "status": "PASS_44_OF_44_FROZEN_INVARIANTS_OWNER_ACCEPTED_DESIGN_TRACEABILITY",
+      "evidence_receipt": "lms/reltroner-lms-phase3a-04-fz02-cross-contract-invariant-traceability-20261009.md",
+      "machine_receipt": "lms/reltroner-lms-phase3a-04-fz02-invariant-traceability-20261009.json",
+      "runtime_verified": false
     },
     {
       "id": "FZ-03",
@@ -459,7 +462,7 @@
     "project_owner": "EXPLICIT_USER_DECLARATION",
     "reviewed_commit": "5fbad07e495cbcedbffe94464503be19abd80563",
     "date_time": null,
-    "outcome": "ADR03F_12_ACCEPTED_AND_SUBORDINATE_FZ04_CLOSED_NO_PHASE_FREEZE",
+    "outcome": "FZ02_ACCEPTED_44_AND_FZ04_ACCEPTED_18_AND_ADR03F_ACCEPTED_12_WITH_FINAL_3A_FREEZE_OPEN",
     "chosen_creator_submission_scope": "DEFER_V1",
     "accepted_adr_ids": [
       "ADR-03F-01",
@@ -512,7 +515,8 @@
     "decision_date": "2026-10-09",
     "chosen_grading_and_mentor_review_scope": "DEFER_V1",
     "chosen_payments_and_entitlements_scope": "DEFER_V1",
-    "subordinate_adr_fz04": "OWNER_APPROVED_BOUNDED_ARCHITECTURE_DESIGN"
+    "subordinate_adr_fz04": "OWNER_APPROVED_BOUNDED_ARCHITECTURE_DESIGN",
+    "invariant_traceability_fz02": "OWNER_ACCEPTED_44_DESIGN_MAPPINGS"
   },
   "documentation": {
     "historical_sources_preserved": true,
@@ -547,10 +551,9 @@
     "reviewed_main_sha": "5fbad07e495cbcedbffe94464503be19abd80563"
   },
   "remaining_freeze_decisions": [
-    "FZ-02 full cross-contract final owner freeze acceptance / closure",
-    "FZ-10 separate Phase 3B entry-exit and scoped authorization",
-    "FZ-11 final Phase 3A freeze acceptance record explicitly signed",
-    "FZ-04 closure docs PR review/merge and evidence SHA pin"
+    "FZ-10 separate Phase 3B entry/exit and explicitly scoped authorization",
+    "FZ-11 final Phase 3A design freeze acceptance record and SHA pin",
+    "FZ-02 documentation-only PR review/merge and SHA pin"
   ],
   "subordinate_adr_ratification": {
     "status": "FZ04_CLOSED_ARCHITECTURE_DESIGN_ONLY",
@@ -571,5 +574,28 @@
     "phase_3a_freeze_approved": false,
     "phase_3b_authorized": false,
     "production_changes_authorized": false
+  },
+  "invariant_traceability_ratification": {
+    "gate": "FZ-02",
+    "decision": "ACCEPT",
+    "scope": "DESIGN_SOURCE_ADR_DOD_AND_PLANNED_TEST_MAPPING_ONLY",
+    "owner_evidence": "tutup FZ-02 — Final Cross-Contract Invariant Traceability Acceptance",
+    "owner_decision_date": "2026-10-09",
+    "timezone": "Asia/Jakarta",
+    "exact_clock_time": null,
+    "physical_count": 20,
+    "logical_count": 24,
+    "total": 44,
+    "duplicates": 0,
+    "unmapped": 0,
+    "new_implementation_tests_run": 0,
+    "normative_contract_changes": 0,
+    "last_verified_frozen_blobs": {
+      "physical": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+      "logical": "cf089b8df4b5ccb1761b504ffae662a0053bf03e"
+    },
+    "raw_source_sha": "78fb7db76b7a5b423825d687f0adc58ed88101ee",
+    "receipt": "lms/reltroner-lms-phase3a-04-fz02-cross-contract-invariant-traceability-20261009.md",
+    "future_runtime_gates": "Phase 3B/4–12 negative, security, data, operation and final DOD certification"
   }
 }
