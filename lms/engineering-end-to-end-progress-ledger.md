@@ -1219,3 +1219,51 @@ From the owner-supplied `Cloudflare Pages → lms-fe → Deployments` list, the 
 
 **Checkpoint:** `PHASE3 FROZEN → FE PR4 ISOLATED LF-STAGING FIX → WINDOWS 19/19 + STANDARD BUILD PASS → LINUX 2/2 + GITGUARDIAN PASS → TARGETED CLOUDFLARE SKIP UI VERIFIED → CLI ERROR SEPARATE OPEN → PR4 DRAFT / MERGE HOLD → PHASE4/PRODUCTION NOT AUTHORIZED`.
 
+---
+
+## 37. LMS-FE PR #4 controlled main merge and exact push-main CI (2026-10-10)
+
+**Authority and classification:** This receipt records the owner's explicit one-time command to merge [Reltroner/LMS-FE PR #4](https://github.com/Reltroner/LMS-FE/pull/4) **only at HEAD `83bb9871ad05eb1d1c04bfca44cbbd9037592b78`**, using a merge commit whose title begins `[CF-Pages-Skip]`, followed by fresh push-main CI verification and append-only archiving. Production deployment and Phase 4 were expressly **NOT** authorized. This is an **isolated post-Phase-3 source-portability merge**, not a reopening of the frozen Phase 3 28/28 scoped acceptance or 44/44 design/contract invariant traceability. Prior §35 and §36 remain historical checkpoint evidence; do not overwrite their past-tense statuses.
+
+### 37.1 Mandatory manual governance preflight — PASS
+
+BRANCH-GOV-001's exact source/PR/CI review requirements were rechecked immediately before merging:
+- **Application PR:** #4, open/draft before transition, head exactly `83bb9871ad05eb1d1c04bfca44cbbd9037592b78`, `main` exactly `cc3d9c132d293058c0ff37c93ef4b3ab5547ad34`, GitHub mergeability true, 2 commits ahead/0 behind, no unresolved review threads or PR comments, no third-party GitHub review asserted.
+- **Expected diff:** only `scripts/prepare-public-content.mjs` and `tests/catalog-contract.test.mjs` changed, +296/−24; source `056c18f93aced59efb3d637066f1de3fa015576c` and empty Cloudflare sentinel `83bb987...` had identical Git tree `988433aa4825fe48771af4ca9019824400a7af13`.
+- **Exact PR check runs:** `catalog-contract` and `frontend-build` (GitHub Actions) and `GitGuardian Security Checks` all **completed/success** against PR head. Exact [PR Linux CI run 37980401106](https://github.com/Reltroner/LMS-FE/actions/runs/37980401106) completed/success; Windows PowerShell 5.1 acceptance was separately owner reported and recorded in §36.
+- **Paired frozen BE baseline** remained `a2672d0085fe84b55520f8f52f41a8c7fc8568a0`; no new BE work. Both source `main` branches still have GitHub technical `protected:false`, consistent with owner GOV-WVR-001/manual BRANCH-GOV-001 policy; this fact is **not** a technical enforcement claim.
+- **Owner instruction:** explicit, separate exact-PR merge approval now supplied. The Draft PR was marked Ready (required for GitHub merge) without source changes. Immediately premerge main SHA, PR head, expected mandatory checks and review threads were re-read and still matched. Merge API included exact `expected_head_sha` guard.
+
+### 37.2 Actual controlled GitHub merge — VERIFIED
+
+| Property | Actual result |
+|---|---|
+| PR status | [LMS-FE #4](https://github.com/Reltroner/LMS-FE/pull/4) **MERGED / CLOSED** |
+| Merge method | GitHub **merge commit**, no squash, rebase or force push |
+| Actual new FE `main` SHA | **`d0e4d74319ad3c481df23a89025eb4e2c43c45b7`** |
+| Parent 1 (pre-merge main) | `cc3d9c132d293058c0ff37c93ef4b3ab5547ad34` |
+| Parent 2 (reviewed PR HEAD) | `83bb9871ad05eb1d1c04bfca44cbbd9037592b78` |
+| Git tree (new main == reviewed source) | **`988433aa4825fe48771af4ca9019824400a7af13`** |
+| Actual merge commit subject | **`[CF-Pages-Skip] Merge pull request #4 from Reltroner/fix/windows-contentlayer-staging-lf-20261010`** |
+| Merge-added files | None beyond the two audited candidate changes; head-to-merge Git tree equal |
+| Post-merge `main` | GitHub branch API confirms `d0e4d743...` |
+
+This is **source-main integration only**; the observed Cloudflare skip prefix is on the **new resulting merge commit**, not merely on the older PR sentinel.
+
+### 37.3 Independent new push-main CI — 2/2 SUCCESS
+
+[GitHub Actions run 37983555130](https://github.com/Reltroner/LMS-FE/actions/runs/37983555130) was independently read from GitHub: `event=push`, `head_branch=main`, exact `head_sha=d0e4d74319ad3c481df23a89025eb4e2c43c45b7`, **completed/success**. This is a **new** CI run, not the old PR run.
+- `catalog-contract` job `113999781100`: **SUCCESS**, `19/19 PASS`, `0 FAIL`, including WIN-10 forced-CRLF integration fixture; 3-published-of-31 manifest digest remained `1dfecfddc97ce1676a719b1538e2d12d17a40c77f51370951dcf69e634b86e43`.
+- `frontend-build` job `113999781563`: **SUCCESS** (`npm ci`, ordinary `npm run build`); staging 3 published MDX, Contentlayer generated **3 documents**, TypeScript/lint/content/resources/orphans passed, Next.js generated **25/25 static pages**, `node scripts/phase3b-catalog.mjs --verify-out` **PASS**.
+- GitHub main SHA had exactly the two expected successful `github-actions` check runs; **no Cloudflare Pages check observed**, which is consistent with but **does not independently prove** absence of a Cloudflare deployment.
+
+### 37.4 Residual evidence / stop boundaries
+
+**Cloudflare Pages:** The owner previously supplied Pages dashboard evidence that older skip-prefixed commits `83bb987` (preview) and `cc3d9c1` (production source) showed **No deployment available**. For the **new `d0e4d743` main merge SHA**, a fresh Cloudflare Pages dashboard/deployment API observation has **not** been supplied or independently accessed. Final **project-side** confirmation of `No deployment available` remains **PENDING OWNER UI VERIFICATION**. A green GitHub Actions run and absence of Cloudflare check do **not** prove the live production deployment stayed unchanged. **Do not initiate, retry, delete or rollback Cloudflare deployments** as part of this source-only authorization.
+
+**Tooling defect OPEN:** The independent `TypeError [ERR_INVALID_ARG_TYPE]` caused by Contentlayer/Clipanion assigning an object to Node 22 `process.exitCode` is **still reproduced in new postmerge Ubuntu logs after generating 3 docs**; the wrapper catches/logs it, process reports exit zero and downstream output validation passes. This is **not** clean CLI termination. Keep it as separate scoped tooling debt; **do not** patch `node_modules`, suppress stderr, add dependency changes or create a mixed-scope follow-up to PR #4.
+
+**Project state:** Phase 3 owner accepted **28/28** within nonproduction/trace-only scope; **44/44** frozen invariants traced, zero new live/runtime certifications. Phase 3 source-main integration and subsequent isolated Windows LF portability merge now have exact successful CI evidence. **LMS-BE stays unchanged**. `PHASE4 = NOT AUTHORIZED`; production Keycloak/PostgreSQL/Redis/VPS/Cloudflare changes are **NOT AUTHORIZED** without separate work order. No assumption of a live full-system integration test.
+
+**Checkpoint:** `PHASE3 FROZEN → FE PR4 MERGED SHA d0e4d743 → SOURCE TREE IDENTICAL → NEW PUSH-MAIN CI 2/2 GREEN / 19 TESTS / 25 STATIC PAGES / PRIVACY PASS → CLOUDFLARE SKIP COMMIT PREFIX VERIFIED BUT PROJECT DASHBOARD PENDING → CLI ERROR OPEN SEPARATE → NO PHASE4/PRODUCTION AUTHORIZATION`.
+
