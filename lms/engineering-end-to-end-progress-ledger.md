@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 POST-MERGE FZ-11 FINAL DESIGN FREEZE — READ FIRST:** Project owner explicitly **ACCEPTED FZ-11**, and [GitHub PR #6](https://github.com/Reltroner/progress-documentation/pull/6) was verified **MERGED** into `main` at commit `b9390a06ebc5db5377059a99109d59fea092cccb` (2026-10-09T05:43:28Z). **PHASE 3A ARCHITECTURE DESIGN IS FROZEN — EFFECTIVE**. Frozen acceptance: 44 physical/logical invariants, 12 parent ADRs, 18 subordinate dispositions, six microservices, 26 public API operations, 19 capabilities, 9 events and four logical business database owners. FZ-10 seven-work-package Phase 3B **nonproduction source-only scope is active**, but **Phase 3B-00 LOCAL GIT/CI READ-ONLY PREFLIGHT remains required before any source editing**. The 28 Phase 3B CI/contract acceptance cases and final product release DoD are NOT EXECUTED/CERTIFIED. **PRODUCTION NOT AUTHORIZED.** Authoritative [activation receipt](./reltroner-lms-phase3a-fz11-postmerge-activation-20261009.md) and [machine activation record](./reltroner-lms-phase3a-fz11-postmerge-activation-20261009.json). Earlier 'PR merge pending' sections below are historical snapshots.
+> **CURRENT 2026-10-09 PHASE 3B-00 LOCAL GIT PREFLIGHT ACCEPTED — READ FIRST:** FZ-11 Phase 3A DESIGN FROZEN at `b9390a06ebc5db5377059a99109d59fea092cccb`; Phase 3B-00 Git/lockfile/CI INVENTORY read-only preflight is **ACCEPTED** from owner-supplied Windows PowerShell evidence plus independently verified remote SHA. `LMS-BE` clean `main@e30a61780994d85671cbf079e6b9ce899b3fe837`, six Composer lockfiles present. Isolated `LMS-FE` clean detached worktree `C:\Projects\lms-reltroner-studio-phase3b@f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`, npm lockfile present. Original FE worktree remains DIRTY but PRESERVED, not an implementation target. Local tools PHP 8.4.4/Composer 2.10.3/Node 22.23.1/npm 10.9.8 detected. **CI pipelines and real application test runs are NOT VERIFIED/PASSED**: no GitHub Actions workflows in either tree; 3B-05 must build CI, B3-AC01..28 NOT EXECUTED. The next gate is **3B-01 file allowlist/rollback/test scope approval** before IDE agent coding. No production authorization. [3B-00 report](./reltroner-lms-phase3b-00-local-git-ci-preflight-acceptance-20261009.md), [machine evidence](./reltroner-lms-phase3b-00-preflight-acceptance-20261009.json). All older `3B-00 LOCAL PREFLIGHT PENDING` labels are historical.
 
 ---
 
@@ -810,3 +810,44 @@ The explicit project owner acceptance message `aku ACCEPTED FZ-11` was received 
 **Current authoritative engineering checkpoint:** `PHASE 3A FROZEN (DESIGN) → FZ-10 SOURCE-ONLY 3B SCOPE AUTHORIZED → 3B-00 READ-ONLY PREFLIGHT PENDING → PHASE 4 PRODUCTION NOT AUTHORIZED`.
 
 Historical entries referring to FZ-11 merge as pending remain unchanged for chronology and shall not override this dated post-merge receipt.
+
+---
+
+## 22. Phase 3B-00 — Local Git and CI Discovery Preflight ACCEPTED (2026-10-09)
+
+**Evidence source:** project-owner supplied Windows PowerShell command output demonstrating frozen-SHA, cached-origin/main, clean target worktrees and lockfile presence for two repositories. GitHub read-only inspection independently verified `LMS-BE/main` and `LMS-FE/main` remained pinned. **These results were not executed by the assistant on the user's Windows machine.**
+
+### 22.1 Final local results
+
+| Gate | Backend | Frontend isolated |
+|---|---|---|
+| Local path | `C:\Projects\lms-reltroner-backend` | `C:\Projects\lms-reltroner-studio-phase3b` |
+| Branch context | `main` | `detached HEAD` on FZ-11 SHA |
+| Expected HEAD | `e30a61780994d85671cbf079e6b9ce899b3fe837` | `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` |
+| Local HEAD = frozen SHA | **PASS** | **PASS** |
+| Local cached origin/main = frozen SHA | **PASS** | **PASS** |
+| Target working tree clean | **PASS** | **PASS** |
+| Lockfile presence | **6/6** `composer.lock` | **1/1** `package-lock.json` |
+| Original FE workspace preserved | N/A | **PASS**; original FE has 2 modified + 1 untracked, unchanged before/after isolation |
+
+**Environment detected:** PHP 8.4.4, Composer 2.10.3, Node 22.23.1, npm 10.9.8. Lockfile presence and detected versions are not proofs that Composer/npm installations, PHPunit suites, Next builds, or production runtime are operational.
+
+### 22.2 CI discovery classification
+
+- Six backend Laravel 13 service folders, 36 test source files, six service-specific composer locks, PHPUnit 12.5.38 locked.
+- Frontend Next.js 16.2.6, package-lock v3, repository-defined typecheck/lint/content/resources/orphans/build scripts.
+- No committed GitHub Actions workflows in BE/FE trees; no recorded main GitHub Actions workflows. A FE Cloudflare Pages commit check succeeded, but it is **NOT** the complete contract/CI validation suite.
+- **B3-AC01..28 currently 0/28 observed PASS in Phase 3B**. Six-service PHP test and FE privacy-negative build remain **NOT EXECUTED**. This absence is an accepted 3B-00 inventory finding and must be remediated by 3B-05 and later packages.
+
+### 22.3 Decision, boundary and next phase
+
+**3B-00 RESULT: PASS for READ-ONLY GIT/LOCKFILE/CI INVENTORY PREFLIGHT**. The owner-supplied local `PASS/PASS` evidence completes Git eligibility preflight without modifying source. `PB00-12` file allowlist acceptance is explicitly transferred to the **3B-01 entry gate**; it is NOT deemed owner-ratified merely by pasting terminal output.
+
+New canonical:
+- [3B-00 Acceptance & 3B-01 proposed allowlist](./reltroner-lms-phase3b-00-local-git-ci-preflight-acceptance-20261009.md).
+- [3B-00 Machine evidence](./reltroner-lms-phase3b-00-preflight-acceptance-20261009.json).
+- [FZ-10 work order](./reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md).
+
+**Next:** 3B-01 *file scope approval* for new root `LMS-BE/contracts/` content only; 26 public routes, 19 capabilities, RFC7807, pagination/idempotency; 4 acceptance IDs `B3-AC01..04`. No source edit/feature branch is accepted until exact file allowlist, rollback/test plan, source SHA and real review are authorized. No `LMS-FE` changes in 3B-01. No production changes.
+
+**Checkpoint:** `3A FROZEN → 3B-00 GIT PREFLIGHT PASS → 3B-01 ALLOWLIST APPROVAL PENDING → CODE NOT STARTED → PHASE 4/PRODUCTION NOT AUTHORIZED`.

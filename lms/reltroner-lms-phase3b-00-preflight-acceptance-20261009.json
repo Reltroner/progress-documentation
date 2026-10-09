@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3B-00-GIT-CI-PREFLIGHT-20261009",
+  "date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "timestamp_unknown": true,
+  "project_phase": "3B-00",
+  "decision": "GIT_AND_CI_DISCOVERY_PREFLIGHT_ACCEPTED_3B01_FILE_SCOPE_REVIEW_NEXT",
+  "source_of_local_evidence": "USER_SUPPLIED_WINDOWS_POWERSHELL_OUTPUT_IN_CONVERSATION_NOT_INDEPENDENT_REMOTE_EXECUTION",
+  "scope": "READ_ONLY_GIT_BASELINE_LOCAL_INVENTORY_AND_CI_DISCOVERY",
+  "frozen_baseline": {
+    "fz11_design_freeze_sha": "b9390a06ebc5db5377059a99109d59fea092cccb",
+    "progress_docs_main_before_report": "6d7ae4399f8e1fc770ef7d41968af1d2b030053e",
+    "backend_main": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "frontend_main": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+    "physical_contract_blob": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+    "logical_contract_blob": "cf089b8df4b5ccb1761b504ffae662a0053bf03e"
+  },
+  "workspaces": {
+    "backend": {
+      "path": "C:\\Projects\\lms-reltroner-backend",
+      "branch": "main",
+      "head": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+      "origin_main_cached": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+      "working_tree_clean": true,
+      "composer_lockfiles_present": 6,
+      "git_preflight": "PASS"
+    },
+    "frontend_original": {
+      "path": "C:\\Projects\\lms-reltroner-studio",
+      "branch": "main",
+      "head": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+      "working_tree_clean": false,
+      "preserved": true,
+      "modified": [
+        "content/courses/worldbuilding-operating-system/lessons/00-course-orientation.mdx",
+        "docs/auth/sso-architecture-roadmap.md"
+      ],
+      "untracked": [
+        "structure.txt"
+      ],
+      "preserved_evidence": "status before/after Git worktree add identical; no file reset/stash/clean"
+    },
+    "frontend_isolated": {
+      "path": "C:\\Projects\\lms-reltroner-studio-phase3b",
+      "branch": "(detached HEAD)",
+      "head": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+      "origin_main_cached": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+      "working_tree_clean": true,
+      "package_lock_present": true,
+      "git_preflight": "PASS"
+    }
+  },
+  "versions_local": {
+    "php": "8.4.4",
+    "composer": "2.10.3",
+    "node": "22.23.1",
+    "npm": "10.9.8"
+  },
+  "read_only_ci_inventory": {
+    "backend_six_composer_lockfiles": true,
+    "laravel_locked": "13.35.0",
+    "phpunit_locked": "12.5.38",
+    "backend_test_source_files": 36,
+    "frontend_package_lock_v": 3,
+    "next_locked": "16.2.6",
+    "github_action_workflows_in_source": {
+      "backend": 0,
+      "frontend": 0
+    },
+    "commit_check_runs": {
+      "backend": 0,
+      "frontend_cloudflare_pages_success": 1
+    },
+    "full_backend_test_results_observed_in_phase3b00": 0,
+    "full_frontend_build_results_observed_in_phase3b00": 0,
+    "full_CI_coverage_certified": false
+  },
+  "acceptance_gates": [
+    {
+      "id": "PB00-01",
+      "requirement": "FZ-11 owner design freeze effective in docs main",
+      "status": "PASS",
+      "evidence": "GitHub PR #6 merged, PR #7 activation merged",
+      "evidence_class": "GITHUB_READ_ONLY_VERIFIED"
+    },
+    {
+      "id": "PB00-02",
+      "requirement": "GitHub LMS-BE/FE remote main SHA frozen equality",
+      "status": "PASS",
+      "evidence": "Both main SHA exact matching FZ-11",
+      "evidence_class": "GITHUB_READ_ONLY_VERIFIED"
+    },
+    {
+      "id": "PB00-03",
+      "requirement": "Six standalone Laravel service directory inventory",
+      "status": "PASS",
+      "evidence": "gateway, learning, mentorship, knowledge, assistant, audit",
+      "evidence_class": "GITHUB_READ_ONLY_VERIFIED"
+    },
+    {
+      "id": "PB00-04",
+      "requirement": "Six committed Composer and one npm lockfile present",
+      "status": "PASS_PRESENCE_ONLY",
+      "evidence": "Six backend + one isolated frontend lockfile existence",
+      "evidence_class": "USER_POWERSHELL_EVIDENCE"
+    },
+    {
+      "id": "PB00-05",
+      "requirement": "Baseline CI inventory and gaps documented",
+      "status": "PASS_DISCOVERY_ONLY",
+      "evidence": "No .github/workflows in inspected trees; BE 0 checks; FE Cloudflare Pages check success only; no project test suite execution",
+      "evidence_class": "GITHUB_READ_ONLY_VERIFIED"
+    },
+    {
+      "id": "PB00-06",
+      "requirement": "Correct local clone paths and origin identification",
+      "status": "PASS",
+      "evidence": "C:\\Projects\\lms-reltroner-backend; C:\\Projects\\lms-reltroner-studio-phase3b isolated worktree",
+      "evidence_class": "USER_POWERSHELL_EVIDENCE"
+    },
+    {
+      "id": "PB00-07",
+      "requirement": "Local HEAD/branch trust context",
+      "status": "PASS",
+      "evidence": "BE main; FE detached isolated HEAD; both exact expected SHAs",
+      "evidence_class": "USER_POWERSHELL_EVIDENCE"
+    },
+    {
+      "id": "PB00-08",
+      "requirement": "Cached origin/main SHA parity",
+      "status": "PASS_WITH_FRESH_REMOTE_CROSSCHECK",
+      "evidence": "Local origin/main equals expected, checked independently against contemporaneous GitHub remote main",
+      "evidence_class": "USER_POWERSHELL_AND_GITHUB_EVIDENCE"
+    },
+    {
+      "id": "PB00-09",
+      "requirement": "Clean target workspaces and safe original FE preservation",
+      "status": "PASS",
+      "evidence": "BE clean; FE isolated clean; original FE remains dirty but unmodified",
+      "evidence_class": "USER_POWERSHELL_EVIDENCE"
+    },
+    {
+      "id": "PB00-10",
+      "requirement": "Local committed lockfile presence",
+      "status": "PASS_PRESENCE_ONLY",
+      "evidence": "All 7 files present; no lockfile integrity or dependency execution claim",
+      "evidence_class": "USER_POWERSHELL_EVIDENCE"
+    },
+    {
+      "id": "PB00-11",
+      "requirement": "Local PHP/Composer/Node/npm available",
+      "status": "PASS_DETECTION_ONLY",
+      "evidence": "PHP 8.4.4, Composer 2.10.3, Node 22.23.1, npm 10.9.8",
+      "evidence_class": "USER_POWERSHELL_EVIDENCE"
+    },
+    {
+      "id": "PB00-12",
+      "requirement": "3B-01 file allowlist owner acceptance",
+      "status": "TRANSFERRED_TO_3B01_ENTRY",
+      "evidence": "Contracts-only proposed; no file writes until owner/reviewer approves exact allowlist, tests, rollback",
+      "evidence_class": "PROPOSED_SCOPE_NOT_YET_RATIFIED"
+    }
+  ],
+  "gate_summary": {
+    "git_local_and_remote": "PASS",
+    "isolation": "PASS",
+    "dependency_presence": "PASS",
+    "CI_DISCOVERY": "PASS",
+    "CI_ACTUAL_EXECUTION": "NOT_EXECUTED",
+    "phase3B01_file_allowlist": "AWAITING_OWNER_APPROVAL",
+    "phase3B01_CODING": "NOT_STARTED"
+  },
+  "proposed_3b01_allowlist": {
+    "repository": "Reltroner/LMS-BE",
+    "base_sha": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "allowed_new_paths": [
+      "contracts/README.md",
+      "contracts/openapi/v1/**",
+      "contracts/authz/**",
+      "contracts/schemas/**",
+      "contracts/examples/**",
+      "contracts/tests/**"
+    ],
+    "excluded_existing_paths": [
+      "services/**",
+      "database/**",
+      ".github/workflows/**",
+      ".env*",
+      "composer.json",
+      "composer.lock",
+      "scripts/",
+      "**/routes/**"
+    ],
+    "requirement": "Before IDE source changes obtain owner approval for the exact per-subphase file allowlist, rollback and test steps; use isolated feature branch, not main"
+  },
+  "phase3b01_exit_ids": [
+    "B3-AC01",
+    "B3-AC02",
+    "B3-AC03",
+    "B3-AC04"
+  ],
+  "future_guards": [
+    "No source write to original FE worktree; original dirty files preserved",
+    "No git reset/clean/stash/force, composer install or npm install merely to claim preflight PASS",
+    "No production Keycloak/HRM/VPS/PostgreSQL/Redis/DNS/TLS/Cloudflare mutations",
+    "No new public operation/capability/event/DB authority without change control",
+    "Test suite execution and CI must be proved independently before 3B exit"
+  ],
+  "owner_ratification_status": "LOCAL_PASS_RESULT_USER_SUPPLIED; EXACT_3B01_ALLOWLIST_NOT_EXPLICITLY_ACCEPTED",
+  "docs_merge_status": "REVIEW_BRANCH_DRAFT_UNTIL_PR_MERGE",
+  "production_mutation_authorized": false
+}
