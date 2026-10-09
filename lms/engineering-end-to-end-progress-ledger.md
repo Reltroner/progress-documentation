@@ -13,7 +13,7 @@
 > **Authority rule:** This ledger reports current state. It does **not** silently amend frozen topology, ownership, identities, security invariants, or API resource families. Conflicting proposed decisions require a versioned contract revision or ADR.
 
 
-> **CURRENT 2026-10-09 FZ-02 OWNER ACCEPTANCE — READ FIRST:** Phase **3A-04** has owner acceptance of 12/12 parent ADR-03F directions, **18/18 FZ-04 subordinate ADR design dispositions** and **44/44 FZ-02 source-to-ADR-to-DoD-to-future-test invariant mappings** (20 physical + 24 logical). These approvals are at **ARCHITECTURE DESIGN** level only. **No 44-invariant runtime certification** follows from FZ-02; the FE public draft-risk, unprovisioned Keycloak clients and other implementation blockers remain. **Phase 3A final design freeze is NOT YET SIGNED, Phase 3B NOT AUTHORIZED, production NOT AUTHORIZED**. Older FZ-02/FZ-04 PENDING declarations are historical. Read [FZ-02 receipt](./reltroner-lms-phase3a-04-fz02-cross-contract-invariant-traceability-20261009.md), [FZ-04 receipt](./reltroner-lms-phase3a-04-fz04-subordinate-adr-closure-20261009.md), and the [machine ratification register](./reltroner-lms-phase3a-04-ratification-register-20261009.json). Frozen Phase 0C and Phase 1 normative documents remain untouched.
+> **CURRENT 2026-10-09 FZ-10 CONDITIONAL WORK ORDER APPROVAL — READ FIRST:** Project owner accepted ADR-03F 12/12, FZ-04 subordinate decisions 18/18 and FZ-02 44/44 invariants design traceability. **FZ-10 Phase 3B entry/exit plan is now OWNER APPROVED, CONDITIONAL on explicit FZ-11 final Phase 3A freeze and documentation merge.** 7 staged work packages, 26 frozen operations, 19 capabilities, nine events and 28 unexecuted test requirements are defined. **No Phase 3B coding is executable yet.** No LMS-BE/FE source change, Keycloak/VPS/DB/prod mutation or Phase 4 permission is granted. Prior FZ-10 PENDING/FZ-11 OPEN statements below are historical until amended by signed future receipt. Read [FZ-10 owner work order](./reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md) and [machine work package register](./reltroner-lms-phase3a-04-fz10-phase3b-work-order-20261009.json).
 
 ---
 
@@ -699,3 +699,37 @@ Source of decision truth:
 **Other gate status:** `FZ-03 PASS`, `FZ-04 PASS`, `FZ-05 PASS`, `FZ-06/07 PASS-DESIGN`, `FZ-09 PASS`. **`FZ-10` and `FZ-11` remain OPEN**: the user has not approved a separately scoped Phase 3B work order or signed a final Phase 3A freeze acceptance record. Docs-only FZ-02 PR still needs merge and final SHA pin.
 
 **Operational checkpoint:** `3A-04 FZ-02 CLOSED (44/44 DESIGN) → FZ-10/FZ-11 OPEN → 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
+
+---
+
+## 19. FZ-10 approved Phase 3B Contract/CI Entry/Exit Work Order (2026-10-09)
+
+**Explicit project owner instruction:** `lanjutkan FZ-10 — Phase 3B Entry/Exit Contract & Implementation Authorization`. Recorded governance result: **FZ-10 PASS (OWNER-SCOPED CONDITIONAL AUTHORIZATION)**. 3A itself is **NOT FROZEN** until FZ-11 owner acceptance; code implementation is **NOT YET EXECUTABLE**.
+
+**Evidence and source baselines:** documentation main `6dbc98d32ea9416f0bdb57045ae6d2e15db16199` (merged PR #4 FZ-02); LMS-BE main `e30a61780994d85671cbf079e6b9ce899b3fe837` and LMS-FE main `f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7` at FZ-10 read-only inspection. Both Phase 0C/1 binding contract blobs unchanged.
+
+### 19.1 Approved future work order, not started
+
+| Work package | Approved future work | Current |
+|---|---|---|
+| 3B-01 | Complete 26-op versioned OpenAPI and 19-cap route/Problem Details/idempotency matrix | NOT STARTED |
+| 3B-02 | OIDC JWT/PKCE client scope fixtures + workload assertion and delegated-principal negative matrix | NOT STARTED |
+| 3B-03 | Four owner DB schema/grants candidate, 9 versioned event schemas, outbox/inbox & admin reconciliation contract | NOT STARTED |
+| 3B-04 | Stable 31 lesson ID migration map, manifest canonical build, public draft/privacy negative build tests | NOT STARTED |
+| 3B-05 | Six independent Laravel/PHP CI checks plus LMS-FE build/validator CI and source fixture checks | NOT STARTED |
+| 3B-06 | Consumer/provider mock compatibility plus negative security/ACL/replay tests | NOT STARTED |
+| 3B-07 | Evidence-index, reproducible CI SHA pins, full contract test assessment, human 3B exit review | NOT STARTED |
+
+**Future exit:** 28/28 mandatory B3-AC checks must actually PASS, six-service PHP + FE CI reproducible and no unauthorized contract drift; 44 invariant future run-time gates remain explicit. **None of B3-AC01..28 has run in this FZ-10 approval.**
+
+**Documentation:** [FZ-10 entry/exit contract and owner scope](./reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md), [machine work order](./reltroner-lms-phase3a-04-fz10-phase3b-work-order-20261009.json), [live ratification gates](./reltroner-lms-phase3a-04-ratification-register-20261009.json).
+
+### 19.2 Hard boundaries and next gate
+
+- **FZ-10 CLOSED as CONDITIONAL work-order authorization**, not unconditional project execution.
+- **FZ-11 OPEN**: explicit owner Final Phase 3A Design Freeze Acceptance Record, reviewed/merged SHA, accepted residuals and Phase 3B activation instruction.
+- **Implementation preflight after FZ-11**: inspect current repo refs and file scopes, run read-only discovery, branch from accepted SHA, then small scope/CI/test cycles; no blind source changes.
+- Production Keycloak client creation, real PostgreSQL migrations, Redis/VPS runtime changes, DNS/TLS, Cloudflare publishing and external LLM API deployment remain separately gated (Phase 4+).
+- 26 public API families, 19 capability names, 9 event names, 4 logical database owners and 44 frozen invariants must remain identical unless new signed change control is approved.
+
+**Checkpoint:** `FZ-10 WORK ORDER APPROVED CONDITIONALLY → FZ-11 FINAL 3A FREEZE PENDING → PHASE 3B NOT EXECUTABLE YET`.
