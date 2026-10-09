@@ -1,7 +1,7 @@
 # Reltroner LMS — Phase 3B-01 OpenAPI and Public API Contract Implementation Candidate
 
 > **As of 2026-10-09, Asia/Jakarta.**
-> **Latest: SOURCE PR #2 OPEN / PHP LINT PASS / CONTRACT STATIC TESTS 22/22 PASS / CI + RUNTIME NOT EXECUTED / OWNER EXIT SIGN-OFF PENDING.**
+> **LATEST OWNER DISPOSITION:** **3B-01 CONTRACT-ONLY ACCEPTED** with PHP lint and 22/22 static contracts PASS; **LMS-BE PR #2 IS INTENTIONALLY OPEN / MERGE HOLD UNTIL FULL PHASE 3 END-TO-END ENGINEERING & HOLISTIC AI REVIEW**; CI/runtime not executed.
 > **Owner instruction:** `aku terima merge PR #8 kemudian lakukan Phase 3B-01: OpenAPI & API Contracts`.
 
 ## 1. Source authority, merge and branch
@@ -69,6 +69,17 @@ After the original source candidate was opened, the project owner created an iso
 
 **Interpretation:** B3-AC01..04 have passed the scoped PHP static contract runner and mock/fixture assertions. This is stronger than the prior GitHub-artifact structural-only review, but **not** a full OpenAPI standards linter, real service provider HTTP verification, six-service CI, live Keycloak, or authorization to deploy. Source PR #2 is still **OPEN** and its formal merge/3B-01 exit still requires explicit owner approval.
 
+## 4B. Owner decision: approved contract-only but explicitly defer source merge (2026-10-09)
+
+User explicitly accepted the contract content of LMS-BE PR #2 after accepting documentation PR #9, **but forbade merging source PR #2 until all Phase 3 engineering has been completed end-to-end**. The purpose is to let an AI and human reviewer examine one complete immutable backend/frontend Phase 3 snapshot, not disconnected early main snapshots.
+
+- [PR #9](https://github.com/Reltroner/progress-documentation/pull/9): **MERGED** on GitHub. Its evidence is in documentation `main`.
+- [LMS-BE PR #2](https://github.com/Reltroner/LMS-BE/pull/2): **OWNER-ACCEPTED CONTRACT-ONLY / REMAINS OPEN / DO NOT MERGE**. Accepted candidate head is `32f08586cba9b19a6a77c8a43967d2e14540591b`.
+- Accepted scope: exact 26 route contract candidate, 19 capability list, deny-by-default guest offerings, provisional DTO hard gates, 22/22 local static PHP tests, and clean isolated source review.
+- Not accepted: production provider behavior, new public guest policy, overall Phase 3B 28/28 acceptance, or the PR's merge into source `main`.
+- [Binding Phase 3 holistic source merge hold](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.md) and [machine gate](./reltroner-lms-phase3-holistic-source-merge-hold-20261009.json) require completion of 3B-01..07, exact BE/FE integrated SHA snapshots, reproducible tests, audit across 44 invariants, independent AI/human review and **new explicit owner merge authorization**.
+
+**Subphase authority:** 3B-01's **contract-only content is owner accepted**; aggregate Phase 3 source integration and release remains **PENDING**. No need to merge PR #2 to start subsequent reviewed non-main Phase 3B work. Do not claim real provider/Keycloak CI PASS.
 ## 5. Remaining source/design and operational guards
 
 - No writes to `services/**`, LMS-FE, Studio, `.github/workflows/**`, application `.env`, running Keycloak, DB migrations, VPS, Cloudflare or paid infrastructure.
@@ -76,4 +87,4 @@ After the original source candidate was opened, the project owner created an iso
 - FZ-11 architecture baseline remains binding, changes require an explicit versioned ADR/owner approval.
 - Phase 3B-05 CI and Phase 3B-06 provider compatibility are separate; a static test cannot prove deployed business endpoint behavior.
 
-**Updated checkpoint:** `3A FROZEN → 3B-00 PASS → 3B-01 PHP STATIC 22/22 PASS → LMS-BE PR #2 OWNER MERGE/SIGN-OFF PENDING → RUNTIME/PRODUCTION NOT AUTHORIZED`.
+**Latest checkpoint:** `3A FROZEN → 3B-00 PASS → 3B-01 CONTRACT ONLY ACCEPTED (22/22 STATIC) → PR #2 SOURCE MERGE EXPLICIT HOLD → 3B-02..07 & 28/28 → HOLISTIC AI REVIEW → NEW OWNER MERGE SIGN-OFF`.
