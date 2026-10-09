@@ -1,0 +1,736 @@
+{
+  "schema_version": 1,
+  "record_id": "LMS-3A-04-FZ10-20261009",
+  "date": "2026-10-09",
+  "timezone": "Asia/Jakarta",
+  "owner_instruction": "lanjutkan FZ-10 — Phase 3B Entry/Exit Contract & Implementation Authorization",
+  "authorization": "APPROVED_WORK_ORDER_ONLY_CONDITIONALLY_EXECUTABLE_AFTER_FZ11_FINAL_FREEZE_AND_DOC_PR_MERGE",
+  "FZ10": "PASS_SCOPE_ENTRY_EXIT_APPROVED_CONDITIONAL",
+  "phase3A_frozen": false,
+  "phase3B_currently_executable": false,
+  "phase4_or_production_authorized": false,
+  "implementation_permission_scope": "nonproduction source/contract/fixtures/CI branches ONLY after signed FZ11",
+  "preconditions": [
+    "FZ-01..09 design closure documented and FZ10 docs merged",
+    "FZ-11 final Phase 3A signed freeze receipt merged with exact SHA",
+    "Fresh BE/FE Git branch, clean status, base SHA verification and explicitly approved subphase branch",
+    "No production change; no unapproved contract deviation"
+  ],
+  "frozen_baseline": {
+    "baseline_docs_sha": "6dbc98d32ea9416f0bdb57045ae6d2e15db16199",
+    "baseline_backend_sha": "e30a61780994d85671cbf079e6b9ce899b3fe837",
+    "baseline_frontend_sha": "f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7",
+    "physical_contract_blob": "b899761c9e833f9fa567055801b9ba0834ed56eb",
+    "logical_contract_blob": "cf089b8df4b5ccb1761b504ffae662a0053bf03e"
+  },
+  "hard_boundaries": {
+    "six_independent_microservices": true,
+    "external_operations": 26,
+    "capability_namespace_count": 19,
+    "event_names": 9,
+    "owned_logical_DBs": 4,
+    "physical_invariants": 20,
+    "logical_invariants": 24,
+    "global_product_DODs": 16
+  },
+  "scope_exclusion": [
+    "Production Keycloak client creation or global scope edits",
+    "Production VPS/Redis/PostgreSQL/DNS/TLS/Cloudflare deployment",
+    "Full 26 endpoint business handler implementation",
+    "Live DB migrations or privileged Keycloak admin mutations",
+    "Creator-submission/assessment/payment/service additions",
+    "Guest AI, local LLM, Meilisearch/Kafka/Kubernetes or extra paid infra",
+    "Canonical Studio story/canon editorial changes or unauthorized LLM training data"
+  ],
+  "operations": [
+    {
+      "id": "API-01",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "owner": "gateway",
+      "capability": "AUTHENTICATED_NO_NAMED_CAPABILITY",
+      "client": "any_valid_lms_client",
+      "rule": "Safe principal projection only",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-02",
+      "method": "GET",
+      "path": "/api/v1/learning/enrollments",
+      "owner": "learning",
+      "capability": "learning.enrollment.read.self",
+      "client": "lms-user",
+      "rule": "Scoped to authenticated sub",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-03",
+      "method": "POST",
+      "path": "/api/v1/learning/enrollments",
+      "owner": "learning",
+      "capability": "learning.enrollment.create.self",
+      "client": "lms-user",
+      "rule": "Version-pinned course enrollment",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-04",
+      "method": "GET",
+      "path": "/api/v1/learning/enrollments/{enrollment_id}",
+      "owner": "learning",
+      "capability": "learning.enrollment.read.self",
+      "client": "lms-user",
+      "rule": "Ownership by signed sub",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-05",
+      "method": "GET",
+      "path": "/api/v1/learning/courses/{course_id}/progress",
+      "owner": "learning",
+      "capability": "learning.progress.read.self",
+      "client": "lms-user",
+      "rule": "Current accepted curriculum revision",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-06",
+      "method": "PUT",
+      "path": "/api/v1/learning/courses/{course_id}/lessons/{lesson_id}/progress",
+      "owner": "learning",
+      "capability": "learning.progress.write.self",
+      "client": "lms-user",
+      "rule": "Stable lesson IDs; enrollment server resolved",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-07",
+      "method": "GET",
+      "path": "/api/v1/learning/bookmarks",
+      "owner": "learning",
+      "capability": "learning.bookmark.read.self",
+      "client": "lms-user",
+      "rule": "Owner only",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-08",
+      "method": "PUT",
+      "path": "/api/v1/learning/bookmarks/{content_id}",
+      "owner": "learning",
+      "capability": "learning.bookmark.write.self",
+      "client": "lms-user",
+      "rule": "Idempotent bookmark",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-09",
+      "method": "DELETE",
+      "path": "/api/v1/learning/bookmarks/{content_id}",
+      "owner": "learning",
+      "capability": "learning.bookmark.write.self",
+      "client": "lms-user",
+      "rule": "Owned bookmark only",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-10",
+      "method": "GET",
+      "path": "/api/v1/mentorship/offerings",
+      "owner": "mentorship",
+      "capability": "mentorship.offering.read",
+      "client": "PENDING_PUBLIC_PROJECTION_POLICY",
+      "rule": "Optional guest-safe offering view, policy required",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-11",
+      "method": "GET",
+      "path": "/api/v1/mentorship/offerings/{offering_id}",
+      "owner": "mentorship",
+      "capability": "mentorship.offering.read",
+      "client": "PENDING_PUBLIC_PROJECTION_POLICY",
+      "rule": "No private mentor attributes for guest",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-12",
+      "method": "GET",
+      "path": "/api/v1/mentorship/availability",
+      "owner": "mentorship",
+      "capability": "mentorship.booking.create.self",
+      "client": "authenticated_lms_user",
+      "rule": "Owner approved booking-oriented availability; no anonymous exposure",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-13",
+      "method": "GET",
+      "path": "/api/v1/mentorship/bookings",
+      "owner": "mentorship",
+      "capability": "mentorship.booking.read.self",
+      "client": "lms-user",
+      "rule": "Bookings for signed sub only",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-14",
+      "method": "POST",
+      "path": "/api/v1/mentorship/bookings",
+      "owner": "mentorship",
+      "capability": "mentorship.booking.create.self",
+      "client": "lms-user",
+      "rule": "Durable idempotency and occupancy uniqueness",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-15",
+      "method": "GET",
+      "path": "/api/v1/mentorship/bookings/{booking_id}",
+      "owner": "mentorship",
+      "capability": "mentorship.booking.read.self",
+      "client": "lms-user",
+      "rule": "Object authorization",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-16",
+      "method": "POST",
+      "path": "/api/v1/mentorship/bookings/{booking_id}/cancel",
+      "owner": "mentorship",
+      "capability": "mentorship.booking.cancel.self",
+      "client": "lms-user",
+      "rule": "Cancellation lifecycle and replay",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-17",
+      "method": "GET",
+      "path": "/api/v1/knowledge/search",
+      "owner": "knowledge",
+      "capability": "knowledge.search",
+      "client": "authenticated_lms_client",
+      "rule": "ACL checked in Knowledge",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-18",
+      "method": "POST",
+      "path": "/api/v1/assistant/query",
+      "owner": "assistant",
+      "capability": "assistant.use",
+      "client": "authenticated_lms_client",
+      "rule": "No direct state mutation",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-19",
+      "method": "GET",
+      "path": "/api/v1/admin/principals",
+      "owner": "gateway+audit",
+      "capability": "admin.principal.read",
+      "client": "lms-admin",
+      "rule": "Restricted Keycloak projection",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-20",
+      "method": "GET",
+      "path": "/api/v1/admin/principals/{principal_id}",
+      "owner": "gateway+audit",
+      "capability": "admin.principal.read",
+      "client": "lms-admin",
+      "rule": "Privileged principal projection",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-21",
+      "method": "PATCH",
+      "path": "/api/v1/admin/principals/{principal_id}/roles",
+      "owner": "gateway+audit",
+      "capability": "admin.principal.role.manage",
+      "client": "lms-admin",
+      "rule": "Durable audit intent and reconciliation",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-22",
+      "method": "GET",
+      "path": "/api/v1/admin/mentorship/bookings",
+      "owner": "mentorship+audit",
+      "capability": "admin.mentorship.read",
+      "client": "lms-admin",
+      "rule": "Admin plane only",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-23",
+      "method": "GET",
+      "path": "/api/v1/admin/mentorship/bookings/{booking_id}",
+      "owner": "mentorship+audit",
+      "capability": "admin.mentorship.read",
+      "client": "lms-admin",
+      "rule": "Admin plane only",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-24",
+      "method": "PATCH",
+      "path": "/api/v1/admin/mentorship/bookings/{booking_id}",
+      "owner": "mentorship+audit",
+      "capability": "admin.mentorship.manage",
+      "client": "lms-admin",
+      "rule": "Audit privileged edit",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-25",
+      "method": "GET",
+      "path": "/api/v1/admin/audit-events",
+      "owner": "audit",
+      "capability": "admin.audit.read",
+      "client": "lms-admin",
+      "rule": "Audit readonly, bounded pagination",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    },
+    {
+      "id": "API-26",
+      "method": "GET",
+      "path": "/api/v1/admin/audit-events/{audit_event_id}",
+      "owner": "audit",
+      "capability": "admin.audit.read",
+      "client": "lms-admin",
+      "rule": "Audit readonly",
+      "contract_status": "FROZEN_RESOURCE_FAMILY_IMPL_PENDING"
+    }
+  ],
+  "capabilities": [
+    "learning.enrollment.read.self",
+    "learning.enrollment.create.self",
+    "learning.progress.read.self",
+    "learning.progress.write.self",
+    "learning.bookmark.read.self",
+    "learning.bookmark.write.self",
+    "mentorship.offering.read",
+    "mentorship.booking.read.self",
+    "mentorship.booking.create.self",
+    "mentorship.booking.cancel.self",
+    "knowledge.search",
+    "assistant.use",
+    "admin.principal.read",
+    "admin.principal.role.manage",
+    "admin.mentorship.read",
+    "admin.mentorship.manage",
+    "admin.learning.read",
+    "admin.learning.override",
+    "admin.audit.read"
+  ],
+  "events": [
+    "learning.enrollment.created",
+    "learning.progress.updated",
+    "learning.course.completed",
+    "mentorship.booking.created",
+    "mentorship.booking.cancelled",
+    "mentorship.session.completed",
+    "identity.role.changed",
+    "knowledge.index.requested",
+    "knowledge.index.completed"
+  ],
+  "work_packages": [
+    {
+      "id": "3B-01",
+      "name": "API & OpenAPI 3.1 Contracts",
+      "repos": [
+        "LMS-BE"
+      ],
+      "allowed": "Versioned OpenAPI specs, API DTO/Problem Details examples, route-capability and client-context matrices, test-only provider/consumer mock harness; no real business controller",
+      "deliverables": [
+        "openapi-v1.yaml/json",
+        "operation-capability-policy-matrix",
+        "RFC7807/error schemas",
+        "pagination/idempotency fixtures"
+      ],
+      "exit": [
+        "B3-AC01",
+        "B3-AC02",
+        "B3-AC03",
+        "B3-AC04"
+      ],
+      "blockers": "Guest offerings policy, availability permission and 26-route parity before provider certification"
+    },
+    {
+      "id": "3B-02",
+      "name": "OIDC Client and Internal Trust Contract",
+      "repos": [
+        "LMS-BE"
+      ],
+      "allowed": "Sanitized token fixtures (not real JWT), client/aud/azp/capability denial matrix, authenticated workload signed delegation spec, rotation/replay/freshness test vectors, no live Keycloak administration",
+      "deliverables": [
+        "identity-policy/schema",
+        "sanitized-invalid-token-matrix",
+        "internal-delegation-ADR/spec",
+        "client-scope-config-candidate"
+      ],
+      "exit": [
+        "B3-AC05",
+        "B3-AC06",
+        "B3-AC07",
+        "B3-AC08"
+      ],
+      "blockers": "Cryptographic algorithm/keys, replay and delegation must be approved as contract before private handlers"
+    },
+    {
+      "id": "3B-03",
+      "name": "Persistence/Event Contract",
+      "repos": [
+        "LMS-BE"
+      ],
+      "allowed": "Four service-owned schema/grant candidates, 9 versioned semantic event payload schemas, outbox/inbox/idempotency and failure-contract mock tests; NO production migrations",
+      "deliverables": [
+        "4-owner-schema-contracts",
+        "9-event-schema-fixtures",
+        "outbox-inbox-delivery-contract",
+        "booking-slot-constraint-design",
+        "admin-audit-reconciliation-spec"
+      ],
+      "exit": [
+        "B3-AC09",
+        "B3-AC10",
+        "B3-AC11",
+        "B3-AC12"
+      ],
+      "blockers": "No cross DB write, no global 2PC or Redis-only correctness"
+    },
+    {
+      "id": "3B-04",
+      "name": "Catalog Manifest, Stable IDs & Public Privacy Guard",
+      "repos": [
+        "LMS-FE"
+      ],
+      "allowed": "Stable lesson frontmatter IDs, reviewed source-only ID registry, deterministic manifest compiler/validator/test fixtures, public build filtering across all static output and indexing; no canon/content editorial rewrite",
+      "deliverables": [
+        "versioned-manifest-schema+tests",
+        "31-lesson-ID-migration-map",
+        "public-only-asset/search/route-test",
+        "Studio-provenance-policy"
+      ],
+      "exit": [
+        "B3-AC13",
+        "B3-AC14",
+        "B3-AC15",
+        "B3-AC16"
+      ],
+      "blockers": "No production release, no unapproved Studio canon attestation, avoid frontend student role security assumption"
+    },
+    {
+      "id": "3B-05",
+      "name": "Independent Six-Service + FE CI",
+      "repos": [
+        "LMS-BE",
+        "LMS-FE"
+      ],
+      "allowed": "GitHub Actions/test harness, composer install locked dependencies, PHPUnit matrix each of six apps, static lint, FE typecheck/content/static build/privacy checks; no deployment credentials",
+      "deliverables": [
+        "6-service-PHP-CI-matrix",
+        "FE-content-privacy-build-checks",
+        "contract-version-lint",
+        "reproducible-lockfile-check"
+      ],
+      "exit": [
+        "B3-AC17",
+        "B3-AC18",
+        "B3-AC19",
+        "B3-AC20"
+      ],
+      "blockers": "CI must not invoke production services, create/deploy VPS DB, or print secrets"
+    },
+    {
+      "id": "3B-06",
+      "name": "Consumer/Provider and Negative Compatibility",
+      "repos": [
+        "LMS-BE",
+        "LMS-FE"
+      ],
+      "allowed": "Mock contract providers, schema validation, negative auth/ownership/private-index/replay and backward-compat fixtures; no external service live calls required",
+      "deliverables": [
+        "provider-consumer-snapshot-tests",
+        "negative-auth-and-object-access-fixtures",
+        "event-replay-index-version-compat-tests",
+        "private-ingest-trust-schema-tests"
+      ],
+      "exit": [
+        "B3-AC21",
+        "B3-AC22",
+        "B3-AC23",
+        "B3-AC24"
+      ],
+      "blockers": "All assertions source-based; no invented runtime responses; every negative test must prove denial"
+    },
+    {
+      "id": "3B-07",
+      "name": "3B Certification & Evidence Freeze",
+      "repos": [
+        "LMS-BE",
+        "LMS-FE",
+        "progress-documentation"
+      ],
+      "allowed": "Run approved CI on pinned commits, gather evidence, compare 44 invariant design map and 16 product DoD, document open product/runtime gates; docs-only release proposal, no deployment",
+      "deliverables": [
+        "signed-CI-evidence-index",
+        "source-SHA-matrix",
+        "risk/deferral-register",
+        "Phase3B-exit-acceptance-proposal"
+      ],
+      "exit": [
+        "B3-AC25",
+        "B3-AC26",
+        "B3-AC27",
+        "B3-AC28"
+      ],
+      "blockers": "Human acceptance of 3B exit; Phase 4 remains separately authorized"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "B3-AC01",
+      "requirement": "26 unique frozen API method+paths in versioned OpenAPI, no extra public family",
+      "work_package": "3B-01",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC02",
+      "requirement": "19 exact capabilities declared, admin.learning.* reserved/unrouted, explicit guest-offerings policy",
+      "work_package": "3B-01",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC03",
+      "requirement": "401/403, RFC7807, request ID, bounded pagination and idempotency schema examples validation",
+      "work_package": "3B-01",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC04",
+      "requirement": "Every operation has owned service, method, authorization rule and status/error fixture; provider mocks align",
+      "work_package": "3B-01",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC05",
+      "requirement": "Identity schema pins issuer/audience/azp, separate clients, PKCE S256, denial on missing cap",
+      "work_package": "3B-02",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC06",
+      "requirement": "Invalid/sibling client, ID-token misuse, forged/stale roles, issuer/aud mismatch negative fixtures",
+      "work_package": "3B-02",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC07",
+      "requirement": "Workload identity + signed delegation schema and recipient/caller/operation bound claims, rotation/nonce/replay negative fixture",
+      "work_package": "3B-02",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC08",
+      "requirement": "No HRM global mapper edits or unbound principal headers, Keycloak provisioning deferred Phase 4",
+      "work_package": "3B-02",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC09",
+      "requirement": "4 databases owner/grant spec, negative cross-read/write and migration compatibility fixtures",
+      "work_package": "3B-03",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC10",
+      "requirement": "9 semantic event names and versioned payload schemas with source/PII bounds",
+      "work_package": "3B-03",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC11",
+      "requirement": "Outbox/inbox dedup/retry/failover contract includes commit-before-publish crash and broker duplicate tests",
+      "work_package": "3B-03",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC12",
+      "requirement": "Slot occupancy plus idempotency independent; admin role mutation Audit intent/reconciliation spec",
+      "work_package": "3B-03",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC13",
+      "requirement": "All 31 MDX lessons have audited stable IDs or versioned migration fixtures; slug renames preserve ID",
+      "work_package": "3B-04",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC14",
+      "requirement": "Manifest JSON canonicalization deterministic on repeat build; published course revision distinct from global hash",
+      "work_package": "3B-04",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC15",
+      "requirement": "Public static output negative suite excludes unpublished routes, bundled search, sitemap, metadata, asset refs",
+      "work_package": "3B-04",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC16",
+      "requirement": "Studio published canon attestation/access-rights separate from LMS publication; unattested filtered",
+      "work_package": "3B-04",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC17",
+      "requirement": "6 independent Laravel service CI checks run and pass on locked dependencies with recorded output",
+      "work_package": "3B-05",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC18",
+      "requirement": "Next.js FE build, typecheck, lint, content/resource/orphan and public privacy tests pass on pinned FE SHA",
+      "work_package": "3B-05",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC19",
+      "requirement": "CI catches intentionally malformed OpenAPI, role escalation, catalog draft, event schema drift fixtures",
+      "work_package": "3B-05",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC20",
+      "requirement": "No direct prod DB/Keycloak/VPS, no secrets/tokens embedded in fixtures/logs, failed jobs fail closed",
+      "work_package": "3B-05",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC21",
+      "requirement": "Consumer/provider version compatibility rejects breaking differences within /api/v1 without approved strategy",
+      "work_package": "3B-06",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC22",
+      "requirement": "Negative contract suites cover unauthorized object IDs, admin context, guest service, private search snippets",
+      "work_package": "3B-06",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC23",
+      "requirement": "Outbox duplicate/out-of-order and index rollback contract tests pass using isolated deterministic simulations",
+      "work_package": "3B-06",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC24",
+      "requirement": "Knowledge release authentication/provenance contract rejects unapproved Git artifact and forged release",
+      "work_package": "3B-06",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC25",
+      "requirement": "All scoped acceptance tests/fixtures green with CI run URL, timestamp, commits and reviewer evidence",
+      "work_package": "3B-07",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC26",
+      "requirement": "44 frozen invariants linked to tests or still explicit future runtime gates; no fake runtime certification",
+      "work_package": "3B-07",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC27",
+      "requirement": "No unapproved source/service/API/capability/event/DB ownership drift; all deviations rejected or formal ADR",
+      "work_package": "3B-07",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    },
+    {
+      "id": "B3-AC28",
+      "requirement": "Signed 3B exit acceptance plus distinct Phase 4 work order/production authorization before provisioning",
+      "work_package": "3B-07",
+      "state": "SPECIFIED_NOT_EXECUTED",
+      "mandatory": true
+    }
+  ],
+  "entry_gates": [
+    {
+      "id": "ENTRY-01",
+      "status": "PASS_OWNER_DESIGN",
+      "meaning": "FZ-02/03/04 decisions accepted and PRs merged"
+    },
+    {
+      "id": "ENTRY-02",
+      "status": "BLOCKED_FZ11",
+      "meaning": "Explicit final 3A freeze acceptance, merged & pinned"
+    },
+    {
+      "id": "ENTRY-03",
+      "status": "TO_VERIFY_BEFORE_CODING",
+      "meaning": "Fresh Git HEAD, clean tree and no divergence"
+    },
+    {
+      "id": "ENTRY-04",
+      "status": "TO_VERIFY_BEFORE_CODING",
+      "meaning": "Approved subphase file allowlist and CI/rollback plan"
+    },
+    {
+      "id": "ENTRY-05",
+      "status": "TO_VERIFY_BEFORE_CODING",
+      "meaning": "No live secrets/prod service dependencies in tests"
+    }
+  ],
+  "exit_gate": {
+    "all_mandatory_acceptance_pass": 28,
+    "actual_pass_now": 0,
+    "required_evidence": [
+      "CI URL, timestamp, commit SHA, test command and output",
+      "diff file list and code review",
+      "schema/contract snapshots",
+      "negative tests with observed denials",
+      "owner 3B exit signature"
+    ],
+    "not_equivalent_to": "Real system production security or Phase 4 deployment approval"
+  },
+  "blocked_after_FZ10": [
+    "FZ-11 final Phase 3A freeze sign-off and docs merge",
+    "3B executable subphase work only after FZ11",
+    "Phase 4 separate production change window"
+  ],
+  "owner_decision_classification": "User authorized FZ-10 plan/conditional future work, not immediate mutation of source or production"
+}
