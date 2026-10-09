@@ -8,7 +8,7 @@
 
 ## 0. Executive decision
 
-`3A-04 12/12 PARENT + FZ-04 18/18 + FZ-02 44/44 DESIGN TRACE ACCEPTED → PHASE 3A FINAL FREEZE HOLD → 3B NOT AUTHORIZED`.
+`3A-04 FZ-02/03/04 ACCEPTED + FZ-10 WORK ORDER APPROVED CONDITIONALLY → FZ-11 FINAL FREEZE REQUIRED → 3B CODING NOT YET AUTHORIZED`.
 
 Three noninterchangeable statuses: **discovery PASS** means evidence observed, **design accepted** requires explicit owner decision, **implementation/runtime PASS** requires real negative/contract/integration tests. Neither docs Git commits nor an AI recommendation equate to acceptance of security or production readiness.
 
@@ -186,7 +186,7 @@ All 44 rows are **design-preserved only**. Crosswalk is not a claim of runtime c
 | `FZ-07` | Internal delegation, Knowledge release trigger, Keycloak↔Audit reconciliation direction accepted | **PASS — direction accepted; cryptographic/operation details still implementation blockers** |
 | `FZ-08` | 26 operations/19 capabilities/9 event names/4 DB ownership remain unchanged | **PASS CONTRACT CROSSWALK; no runtime proof** |
 | `FZ-09` | Canonical standalone docs + dated ledger overlay reviewed/merged | **PASS — documentation PR #1 merged to main at 5fbad07e...** |
-| `FZ-10` | 3B scope/entry/exit and no production mutation rule approved | **PROPOSED** |
+| `FZ-10` | Phase 3B contract/CI scope, 7 work packages, 28 exit checks and no production mutation rule | **PASS — OWNER-APPROVED CONDITIONAL WORK ORDER; FZ-11 ACTIVATION REQUIRED** |
 | `FZ-11` | Dated owner sign-off record with approved ADR IDs and hashes | **PARTIAL — owner accepted 12 directions; final phase freeze separately pending** |
 
 **Result: PARTIAL CLOSURE / FINAL FREEZE HOLD.** The owner has ratified all 12 ADR-03F architectural directions, including v1 deferrals. Detailed subordinate ADR disposition, final Phase 3A freeze authorization and Phase 3B authorization remain separate gates.
@@ -240,7 +240,7 @@ phase_4_production_mutation_authorized: false
 
 **Important:** precise signed token format, TTL, replay prevention, Keycloak runtime client configuration, database migrations and event retry budgets are still open implementation specifications. The recommended policy for `GET /api/v1/mentorship/availability` is authenticated-first; the exact capability/response matrix will be a Phase 3B fixture. No new public endpoint is implied.
 
-**Outstanding Phase 3A freeze work:** FZ-02 and FZ-04 are both owner-accepted at DESIGN level. Only FZ-10 (explicit scope/authorization for 3B), FZ-11 (separate final Phase 3A design freeze acceptance), and review/merge of this docs PR remain at the final design-governance gate. Runtime tests remain pending for affected implementation phases.
+**Outstanding Phase 3A freeze work:** FZ-02/FZ-03/FZ-04 and FZ-10 are owner-accepted at their limited DESIGN/WORK-ORDER scope. **Only FZ-11** remains as final architecture-freeze authorization, plus merge/pin of this docs PR and fresh Git source preflight before any Phase 3B coding. Runtime tests remain pending.
 
 ## 8A. FZ-04 subordinate ADR closure (2026-10-09 owner instruction)
 
@@ -259,6 +259,15 @@ Project owner instructed `tutup FZ-02 — Final Cross-Contract Invariant Traceab
 - [Machine-readable 44-invariant record](./reltroner-lms-phase3a-04-fz02-invariant-traceability-20261009.json)
 - **FZ-02 PASS (design-only):** 44/44 mapped; no parent invariant revised. **0 newly runtime-certified**; actual source drift, FE draft publication risk, missing Keycloak clients, internal trust and other 3B/4–12 tests remain open.
 - **FZ-10 and FZ-11 OPEN:** this approval does not authorize Phase 3B implementation, certify Phase 3A as FROZEN or permit production changes.
+## 8C. FZ-10 owner-approved Phase 3B work order (conditional activation)
+
+On 2026-10-09 project owner requested FZ-10 Entry/Exit Contract & Implementation Authorization. This selects the **bounded future Phase 3B source-only work order**, not immediate application coding or production authorization.
+
+- [FZ-10 entry/exit and conditional implementation scope](./reltroner-lms-phase3a-04-fz10-phase3b-entry-exit-authorization-20261009.md)
+- [FZ-10 machine work order: 7 packages, 26 routes, 19 capabilities, 9 events and 28 acceptance tests](./reltroner-lms-phase3a-04-fz10-phase3b-work-order-20261009.json)
+- **PASS (conditional):** scope, entry/exit acceptance, owner work-order direction and prohibited production actions are fixed.
+- **Block:** FZ-11 final Phase 3A freeze with explicit owner signature, merged SHA and fresh BE/FE preflight **MUST precede any IDE code work**.
+- This review does not mark B3-AC01..28 PASS; every acceptance test is **NOT EXECUTED**.
 ## 9. Final checkpoint / reproducible handoff
 
 `3A-04 12/12 PARENT ADRS + FZ-04 18/18 DESIGN DISPOSITIONS ACCEPTED / FINAL PHASE 3A FREEZE HOLD / PHASE 3B NOT AUTHORIZED`.
