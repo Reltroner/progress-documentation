@@ -105,3 +105,12 @@ Suggested manual operator control: before any merge, record two independent read
 - [End-to-End Engineering Progress Ledger](./engineering-end-to-end-progress-ledger.md)
 
 **Effective governance status after document merge:** `OWNER RATIFIED CRYPTO DESIGN → CONTRACTUAL BRANCH GOVERNANCE ADOPTED → GITHUB MAIN SETTINGS STILL UNPROTECTED → B3-AC25 PARTIAL / B3-AC28 BLOCKED → SOURCE MERGE HOLD → PHASE4 NOT AUTHORIZED`.
+
+
+---
+
+## 7. Binding subsequent Phase 3 exception — GOV-WVR-001 (2026-10-10)
+
+**Owner explicitly approved Phase 3 closure WITHOUT configuring GitHub Branch Protection Settings.** [GOV-WVR-001](./gov-wvr-001-phase3b-branch-protection-owner-exception-20261010.md) is the separate, narrowly scoped waiver anticipated by §5; the owner accepts higher residual risk of unprevented direct/forced pushes while requiring **every** PR-only, check-run, immutable SHA, human sign-off and no-history-rewrite control above as manual project policy. This later signed-in-conversation decision **supersedes only the old technical-protection premerge hard-gate interpretation for Phase 3**, not the factual `protected:false` state, any frozen architectural invariant, the Phase 3 CI acceptance requirement or a distinct BE/FE source-merge authorization.
+
+[Phase 3B-10 acceptance revalidation](./reltroner-lms-phase3b-10-ac07-ac25-formal-revalidation-20261010.md) marks `B3-AC25=PASS_SCOPED_WITH_OWNER_WAIVER` (normalized scoped pass); `B3-AC28` remains separately blocked awaiting explicit final phase exit and source-merge decision. **No GitHub Settings action is required to close Phase 3** under this owner exception. No production or Phase 4 authority is inferred.
