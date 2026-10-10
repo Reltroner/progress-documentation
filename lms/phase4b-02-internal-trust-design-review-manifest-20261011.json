@@ -136,5 +136,42 @@
     "design_ratification": "HOLD_PENDING_EXPLICIT_OWNER_DECISION_AND_PROOF",
     "source_code_authorized": false,
     "production_authorized": false
+  },
+  "e40_feasibility": {
+    "record": "phase4b-02-e40-d02-01-dual-assertion-and-d02-02-replay-integrity-feasibility-proof-20261011.md",
+    "method": "isolated PHP sodium Ed25519 with two JWS test keys + Redis-only fault model + OS-file-lock replay ledger model",
+    "executor": "assistant isolated Linux container",
+    "php_version": "8.4.24",
+    "reproducible_zip_filename": "LMS-P4B02-D02-D01-ISOLATED-PROOF-20261011.zip",
+    "proof_php_sha256": "0DF6D1D50BCB99D0EEE2D7F7422ECADB7DE21C1DE96BF191B4DC2045F499867E",
+    "execution": {
+      "total": 30,
+      "passed": 30,
+      "failed": 0,
+      "crypto_request_binding_cases": 17,
+      "replay_failure_model_cases": 13,
+      "actual_redis_used": false,
+      "actual_postgres_used": false,
+      "actual_keycloak_used": false,
+      "network_calls": false,
+      "production_access": false
+    },
+    "critical_finding": {
+      "redis_only_with_silent_nonce_loss": "UNSAFE_COUNTEREXAMPLE_PROVEN_IN_MODEL",
+      "independent_durable_ledger": "MODEL_GREEN_ONLY",
+      "live_redis_loss_detection": "NOT_PROVEN",
+      "live_postgres_atomicity_and_failover": "NOT_PROVEN"
+    },
+    "d02_01": "ROLE_SEPARATED_TWO_JWS_SIGNED_HTTP_TARGET_BINDING_MODEL_GREEN_OWNER_WIRE_RATIFICATION_PENDING",
+    "d02_02": "REDIS_ONLY_INTEGRITY_BLOCKED_REVISED_ADR_DURABLE_AUTHORITY_ALTERNATIVE_PENDING_OWNER_AND_REAL_PG18_REDIS8_TESTS",
+    "d02_03": "PENDING_ERROR_CONTRACT_APPROVAL",
+    "d02_04": "TEST_ONLY_LOCAL_EPHEMERAL_KEY_SCOPE_EXECUTED_REAL_NONPROD_SERVERS_PENDING_APPROVAL",
+    "d02_05": "EFFECTIVE_KEYCLOAK_ACCESS_JWT_ALG_CLIENT_SCOPE_UNVERIFIED",
+    "candidate_adr_amendment_required": true,
+    "canonical_t02_cases_drafted": 86,
+    "canonical_t02_cases_executed": 0,
+    "owner_design_ratification": "HOLD",
+    "source_implementation_authorized": false,
+    "production_authorized": false
   }
 }
