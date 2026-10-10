@@ -387,7 +387,7 @@
   "e46_f0r_offline_context_review": {
     "receipt": "phase4b-02-e46-f0-owner-windows-evidence-and-f0r-offline-context-classification-20261011.md",
     "artifact": "LMS-P4B02-E46-F0R-OFFLINE-CONTEXT-REVIEW-PS51.ps1",
-    "artifact_sha256": "436A722AC06A253885B538DA2E5588C64F7B0A55236EF5975715647E5EB49805",
+    "artifact_sha256": "A94D79BA341452B3715CA99013221CB62BE0CC4E4838C8CDD874F53AFBCB0131",
     "file_utf8_bom_crlf_lines": 159,
     "operator_windows_execution": "PENDING",
     "classifies_endpoint_protocol_only": true,
