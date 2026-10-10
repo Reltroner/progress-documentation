@@ -121,14 +121,14 @@ PASS_SOURCE = verified from current GitHub/documented owner decision; PARTIAL_OP
 | P4A00-AC04 | Six-service source layout, tests/API implementation state, FE/OIDC templates | **PASS_SOURCE** E05-E07 |
 | P4A00-AC05 | Local primary clone state/dirty changes, no destructive synchronization | **PARTIAL_OPERATOR** E09, fresh local status PENDING |
 | P4A00-AC06 | Fresh timestamped VPS CPU/RAM/swap/disk/inode/capacity and version output | **PASS_OPERATOR_READ_ONLY** E13; single timestamped snapshot, not load test or six-service capacity certification |
-| P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E14: 5 systemd units active, Nginx CLI 1.24.0, bind addresses observed; ss process field empty; MainPID/Nginx mapping/FPM pool/private routing NOT VERIFIED |
+| P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E15: Nginx MainPID 289723/worker 289725, PHP-FPM MainPID 450174/workers 450192 and 450193; socket-to-PID, pool configuration, private routing and six LMS runtime deployments NOT VERIFIED |
 | P4A00-AC08 | Keycloak effective issuer/JWKS/client/audience and HRM nonregression baseline | **PENDING_RUNTIME** |
 | P4A00-AC09 | Four PostgreSQL DB/role/grant existence vs intended owned state | **PENDING_RUNTIME** |
 | P4A00-AC10 | Redis topology, memory/keyspace/replay posture with no secret exposure | **PARTIAL_OPERATOR** E13-E14: redis-server unit active, binary 8.2.10, loopback 6379, Redis process RSS 14,716 KiB; actual server version/ACL/keyspace/eviction/replay NOT VERIFIED |
 | P4A00-AC11 | Cloudflare Pages real Production/main skipped state at eb01a4d2 + active deployment SHA | **PENDING_RUNTIME** (old Preview only E10) |
 | P4A00-AC12 | External vantage-point DNS/TLS for exact approved hostnames | **TOOL_UNAVAILABLE** E11, operator read-only pending |
 | P4A00-AC13 | Hosting asset origin, immutable URL/capacity and CDN status | **PENDING_RUNTIME** |
-| P4A00-AC14 | HRM coexistence capacity + backup/monitoring/recovery metadata | **PARTIAL_OPERATOR** E13-E14: host resources and top RSS processes sampled; Java PID 5032 679,808 KiB, PHP-FPM 3 shown, PHP CLI, PostgreSQL/Redis processes; HRM/Keycloak attribution, shared memory, sustained/peak budgets and backup/recovery still PENDING |
+| P4A00-AC14 | HRM coexistence capacity + backup/monitoring/recovery metadata | **PARTIAL_OPERATOR** E13-E15: Java PID 5032 is direct child of Keycloak MainPID 4934 (~663.9 MiB RSS); PHP-FPM master/workers identified and PostgreSQL 450182/Redis 305395 observed; HRM-specific attribution, peak budgets, shared-memory accounting, backups/recovery still PENDING |
 | P4A00-AC15 | Redacted security/secret custody/process permission inventory (metadata only) | **PENDING_RUNTIME** |
 | P4A00-AC16 | Per-gap owner, criticality, concrete negative tests, blast radius, rollback, cost and forward gates | **PARTIAL_DESIGN** section 6; requires runtime facts |
 | P4A00-AC17 | No mutation, no secrets, no unauthorized application merge, reviewed evidence | **PASS_SCOPE_SO_FAR**; repeat at exit |
@@ -236,3 +236,36 @@ ps -eo pid,ppid,comm,rss,%cpu --sort=-rss | head -n 22
 Systemd MainPID may be 0 for forking/oneshot wrapper units; if no stable PID can be attributed, report PARTIAL instead of guessing. Do not paste process command arguments, printenv, full unit definitions, service Environment or private config. Avoid sudo escalation and port scans; do not modify or reload any service.
 
 **Hard STOP:** No claim of production-ready six-service capacity on the 1-vCPU host, no automatic OS updates/reboot, Redis write/fault testing, database changes, Keycloak/HRM mutations, Nginx edits, Cloudflare releases or Phase 4B permission. Phase 4A-00 remains open.
+
+## 10. Process ancestry observation E15 - owner SSH read-only receipt (2026-10-10)
+
+**Evidence class:** OWNER_SUPPLIED_OPERATOR_READ_ONLY. Timestamp **2026-10-10T09:36:56Z = 2026-10-10 16:36:56 WIB**. Observed from `systemctl show ... --property=MainPID,ActiveState,SubState`, `ps -p 5032 -o pid,ppid,comm,rss,%cpu`, and `ps -eo pid,ppid,comm,rss,%cpu --sort=-rss | head -n 22`. No secrets, service environment or command lines were inspected.
+
+| systemd unit / process | Observed identity | Narrow conclusion / residual evidence |
+|---|---|---|
+| nginx | systemd MainPID **289723**, active/running; `nginx` worker PID **289725**, PPID 289723, RSS 10,592 KiB | Nginx master/worker related; public-port listener PID and virtual-host/upstream mapping remain unverified |
+| php8.4-fpm | systemd MainPID **450174**, active/running; workers **450192** and **450193** have PPID 450174, RSS 42,544 and 39,988 KiB; master RSS 32,240 KiB | Actual PHP-FPM worker ancestry now observed; pool-to-HRM/LMS assignment, limit/queue policy and private service sockets not yet observed |
+| postgresql | systemd MainPID **0**, ActiveState active, SubState exited; `postgres` PID **450182** PPID 1, RSS 34,760 KiB; other PostgreSQL processes descendants | `active/exited` for umbrella unit must NOT be interpreted as database outage. Live cluster identity/version/service readiness, database owners and grants remain unverified |
+| redis-server | systemd MainPID **305395**, active/running, matches `redis-server` PID 305395, RSS **14,712 KiB** | Runtime process identity confirmed; no ACL, eviction, keyspace, replay or failure recovery verification |
+| keycloak | systemd MainPID **4934**, active/running; `java` PID **5032** with PPID 4934, RSS **679,808 KiB (~663.9 MiB)** / 0.2% CPU | **Process-family attribution to Keycloak confirmed at snapshot**; process memory is not full Keycloak container/cgroup footprint, and issuer/JWKS/clients/audience/HRM regression remain NOT VERIFIED |
+| other process | `php8.4` PID **474600** with PPID 1, RSS **53,424 KiB** | Cannot assign standalone PHP CLI process to HRM, cron or LMS without additional evidence; do not kill or restart |
+
+**Gate delta:** AC07 and AC14 **remain PARTIAL_OPERATOR**, now with direct service PID/PPID lineage; AC08 remains **PENDING_RUNTIME** because Keycloak process state != OIDC client/realm/auth verification. AC09 remains PENDING despite observed postgres children; AC10 remains PARTIAL despite confirmed Redis PID. AC06 timestamped host-capacity snapshot already passed under its exact read-only scope. No Phase 4A-00 final exit, Phase 4B or production release authorization.
+
+**Next least-invasive read-only inventory:**
+
+~~~sh
+date -u '+%Y-%m-%dT%H:%M:%SZ'
+echo '=== POSTGRESQL CLUSTERS (METADATA ONLY) ==='
+pg_lsclusters 2>/dev/null || true
+echo '=== PHP-FPM POOL CONFIG FILENAMES ONLY ==='
+find /etc/php/8.4/fpm/pool.d -maxdepth 1 -type f -name '*.conf' -printf '%f\n' 2>/dev/null
+echo '=== NGINX ENABLED SITE FILENAMES ONLY ==='
+find /etc/nginx/sites-enabled -maxdepth 1 \( -type f -o -type l \) -printf '%f\n' 2>/dev/null
+echo '=== PHP-FPM/NGINX SERVICE AND PROCESS SNAPSHOT ==='
+systemctl is-active nginx php8.4-fpm postgresql redis-server keycloak
+~~~
+
+This reads metadata/names only and must not copy configuration contents. It does NOT establish actual routed FPM pools, nor all private/public exposure gates. No sudo default, no `nginx -T`, `php-fpm -tt`, `printenv`, `cat /etc/...conf`, database credentials, `systemctl cat`, reload, migration or service update. Sanitize hostname/tenant-related filenames if needed before public archival.
+
+**Security/architecture constraint:** Existing Keycloak/HRM and the 1-vCPU host are incumbents. Six independently deployable Laravel source services do not imply six runtime deployments. Revalidate budget and least-privilege boundaries before any future separately authorized implementation. This E15 changes only evidentiary classification.
