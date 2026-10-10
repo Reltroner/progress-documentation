@@ -1,5 +1,8 @@
 # Reltroner LMS — Canonical AI Entry & Engineering State
 
+> **BINDING COMMUNICATION POLICY FOR EVERY RELTRONER LMS AI/ENGINEER CHAT:** Explain all engineering topics with deterministic clarity, accessible to a complete beginner while retaining professional software-engineering accuracy. Always use the mandatory explanatory order in [§7](#7-binding-ai-communication-and-execution-clarity-policy-owner-instruction-2026-10-10). This policy applies to every current and future LMS AI handoff that reads this README, until the owner explicitly changes it. It is a presentation/execution protocol, **not** permission to change frozen architecture, security or production.
+> **Latest discovery overlay (2026-10-10, docs PR pending):** [Phase 4A-00 Work Order §§21–25](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md) + [Engineering Ledger §§41–42](./engineering-end-to-end-progress-ledger.md) include E27/E27R/E28/E29 and E30 gap discovery G01–G13. **All 13 gap dispositions are documented; implementation gaps stay OPEN**. AC18 remains **PENDING_OWNER_FINAL**; documentation PR merge and 4B permission are separate owner decisions. Earlier dated 'pending E26' sentences below remain historical and must not override this newer scoped overlay.
+
 > **READ THIS FILE FIRST in every new AI/agent conversation about Reltroner LMS.**  
 > **Document role:** authoritative *navigation/current-state overlay*, **NOT a replacement or modification of FROZEN architecture**.  
 > **Project owner:** decisions and release authority remain with the human owner.  
@@ -156,3 +159,48 @@ Before writing code or issuing commands: state **phase, work-order ID, authorize
 For Windows `C:\Projects` test worktrees: verify `git worktree list --porcelain`, `git status --porcelain -uall`, current HEAD and untracked/ignored artifacts **before** removal. Primary clones and unmerged/dirty trees are retained. Only explicitly identified, clean, owner-run disposable verification worktrees may be removed with `git worktree remove` **without `--force`**, and never as a side effect of an AI reasoning step. The screenshot alone cannot prove any folder is disposable.
 
 **Documentation cleanup policy:** prefer one concise living README + append-only ledger + frozen canonical contracts; do not create one status file per thought. Old dated docs/JSON are immutable audit lineage. Reorganization/moving historical files requires a separate complete incoming-link audit because changing paths can break old Markdown, JSON and externally pinned GitHub URLs; do not delete history to make the directory look smaller.
+
+## 7. Binding AI communication and execution clarity policy (owner instruction, 2026-10-10)
+
+> **PERSISTENT MANDATE — for every Reltroner LMS ChatGPT/AI/agent response, handoff, work order, PR review, and technical explanation.** The project owner explicitly requires `clarity-first`, determinism, and explanations understandable by **an absolute beginner while maintaining professional software-engineering precision**. A new AI must read and apply this section on every related conversation. Do not silently drop it after chat migration. This is a documentation-based handoff rule, not a guarantee of another AI's compliance outside the project context.
+
+### 7.1 Mandatory eight-part reasoning/explanation structure
+
+For each meaningful engineering topic, explain in **plain Indonesian first**, with English software terminology defined on first occurrence. Preserve technical identifiers, actual command flags, contracts and SHA exactly. Always identify:
+
+1. **Tujuan / why:** What user/business result we are trying to achieve; give a one-sentence beginner analogy when useful.
+2. **Kondisi faktual / evidence:** Exactly what source/file/GUI/CLI shows, including the environment, date, SHA, evidence ID and confidence. Distinguish GitHub source, local laptop, preview, active production and design documents.
+3. **Gap / problem:** Precisely what is missing and classify as `NOT_IMPLEMENTED`, `NOT_PROVISIONED`, `NOT_TESTED`, `ACCESS_BLOCKED_BY_SECURITY`, `FAILED_OBSERVED`, `HISTORICAL_DRIFT`, `OWNER_DECISION_PENDING`, or `PROVEN_SCOPED`. These categories are **not interchangeable**.
+4. **Alasan penting / consequence:** What could go wrong, affected boundary and blast radius, and why the observation matters. Avoid hypotheticals presented as incidents.
+5. **Cara menyelesaikan / solution:** Smallest contract-compliant, deterministic action or bounded decision, prerequisites, dependencies and cheaper/no-cost alternative.
+6. **Siapa & tools / ownership:** Human owner approval vs ChatGPT reasoning/GitHub documentation vs Windows PowerShell vs SSH terminal vs Hostinger/Cloudflare/Keycloak GUI vs IDE coding agent. Do not ask beginners to run a code-editing agent for security decisions.
+7. **Kapan boleh / authorization:** Phase/subphase, exact work-order ID, what is allowed NOW and NOT AUTHORIZED, frozen boundaries, expected SHA, safety/stop/rollback constraints, and whether the step is read-only, nonproduction or production.
+8. **Bukti selesai / verification:** Exact acceptance gate, command or GUI evidence expected, how PASS/PARTIAL/BLOCKED/FAIL should be interpreted, negative tests in safe environments and the **next decision required**. Never call a test PASS from a command that errored part-way through.
+
+For tiny straightforward questions, these eight concepts may be compressed into cohesive paragraphs, but do not omit evidence-vs-inference, authorization or result status when they matter. For complicated workflows, provide an explicit numbered execution plan **before** asking for commands.
+
+### 7.2 Deterministic operator interaction
+
+- **No guessing:** Never invent test results, source SHA, service deployment, identity scope, API availability, budget, DNS/TLS state, RTO/RPO, access, or the owner's decision. If tooling cannot inspect something, label `UNVERIFIED` or `ACCESS_BLOCKED` and state the smallest safe observation that could change it.
+- **Beginner-friendly and professionally correct:** Explain `API` (communication interface), `OIDC` (login protocol), `RBAC/capability` (permission boundary), `RPO` (maximum tolerable lost time of data), `RTO` (restoration time objective), `PR` (reviewable code proposal), `CI` (automated checks) and `SHA` (immutable Git object ID) when first used; avoid unexplained acronyms and intimidating walls of commands.
+- **One batch when useful:** When the owner requests copy/paste-ready discovery, provide a single safe, idempotent, bounded command block per environment, with exact location of execution, prerequisites, expected summary, redaction rules and failure path. Never say `SSH_EXIT=0` proves all subcommands passed if a pipeline failed. Avoid unnecessary re-probes already denied by HBA/Redis auth.
+- **Clear approval boundaries:** Distinguish `DISCOVERY_COMPLETE` from `IMPLEMENTATION_COMPLETE` and `PRODUCTION_CERTIFIED`. A documented risk does not mean it has been remediated. PR creation does not mean merge. Green CI does not mean production release. Never treat the owner's documentation request as automatic approval to provision, purchase, deploy, relax authentication, restore backups or alter frozen contracts.
+- **Human-driven GUI:** Specify the exact navigation path and visual fields to capture for Hostinger, Cloudflare and Keycloak; redact account identifiers, URLs containing tokens, credentials and private evidence. Do not require repeated screenshots of previously accepted frozen HRM evidence.
+- **Always report progress:** Current phase/subphase, gate outcomes, exact evidence scope and next actionable blocker in each substantial LMS engineering response. Use concise structured tables only when they materially improve clarity.
+- **No destructive shortcuts:** No `git reset --hard`, `git clean -fd`, forced pushes, database writes, Redis authentication bypass or production changes merely to produce a green checklist. Preserve the known three dirty FE entries until separately reviewed.
+
+### 7.3 Canonical example of the required distinction
+
+**G01 — API belum diimplementasikan:** Six Laravel `services/*/routes/api.php` files contain only a PHP opening tag at accepted BE `main` SHA `a2672d...`; Gateway does have separate health endpoints. The **API contract is written**, but **business routes are not implemented in these files**. Phase4A read-only discovery can classify this precisely and create an owner-review implementation package, but cannot silently deploy handlers. Runtime acceptance later requires positive and negative authenticated HTTP tests against the correct service boundaries.
+
+**G04/G05 — DB/cache inspection denied:** PostgreSQL's HBA and Redis's NOAUTH rejected unauthorized catalog/INFO reads. This means **the specific unauthenticated attempts were denied**, not that the database/cache are down, not that access controls are fully secure, and not that four LMS databases exist. Document `ACCESS_BLOCKED_BY_SECURITY` rather than `FAILED_OBSERVED`.
+
+**G13 — admin UI versus independent admin application:** FE `src/app/admin/page.tsx` exists and explicitly warns it is only a frontend UX role gate; operator did not find an independently deployed `lms-admin.reltroner.com` Pages application and DNS cannot resolve it. A source UI route **does not satisfy** separate-admin-host/identity/API capability boundaries. No Keycloak/admin deployment changes under Phase 4A.
+
+## 8. Current gap-discovery navigation / decision status (E30, 2026-10-10)
+
+The full **G01–G13 evidence-to-future-work mapping** is [Work Order §25 E30](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md), with portable dated summary at [Ledger §42](./engineering-end-to-end-progress-ledger.md). It was produced using actual GitHub read-only evidence and owner-provided E01–E28 operator receipts, **without claiming 13 engineering gaps were fixed**.
+
+**Precise checkpoint:** `PHASE0C+1_FROZEN -> PHASE3B_NONPROD_ACCEPTED -> PHASE4A_E29_AUDITED -> E30_ALL_13_GAPS_DISCOVERY_CLASSIFIED -> AC18_OWNER_FINAL_PENDING -> PHASE4B_IMPLEMENTATION_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
+
+**Read-only discovery exit decision is separate:** Owner may explicitly accept Phase4A closeout **with open implementation/verification gaps** (that does **not** make AC05/07–10/12–16 PASS), or authorize a narrow further discovery. Owner must separately authorize any Phase4B source implementation, Keycloak clients, PostgreSQL/Redis permissions or data inspection, Cloudflare/DNS/hosting changes, new cost or production operation. The documentation-only GitHub PR must be reviewed/merged under manual governance before its new instructions appear on default-branch README.
