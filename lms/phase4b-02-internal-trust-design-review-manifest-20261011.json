@@ -389,13 +389,45 @@
     "artifact": "LMS-P4B02-E46-F0R-OFFLINE-CONTEXT-REVIEW-PS51.ps1",
     "artifact_sha256": "A94D79BA341452B3715CA99013221CB62BE0CC4E4838C8CDD874F53AFBCB0131",
     "file_utf8_bom_crlf_lines": 159,
-    "operator_windows_execution": "PENDING",
+    "operator_windows_execution": "OWNER_REPORTED_PASS_READONLY_CLASSIFICATION_ONLY_20261011T034123_PLUS0700",
     "classifies_endpoint_protocol_only": true,
     "never_displays_context_name_or_endpoint_or_secret": true,
     "no_docker_wsl_pg_redis_network_invocation": true,
     "even_candidate_local_context_allows_runtime": false,
     "owner_permission_to_start_containers": false,
     "design_ratification": "HOLD",
-    "production_authorized": false
+    "production_authorized": false,
+    "owner_reported": {
+      "current_context_exact_match_count": 1,
+      "saved_context_metadata_files": 1,
+      "current_endpoint_class": "LOCAL_WINDOWS_NPIPE_CANDIDATE_UNVERIFIED",
+      "docker_desktop_service": "STOPPED_NOT_CHANGED",
+      "ram_free_gib": 3.56,
+      "isolation_flag_count": 1,
+      "isolation_flag": "HOST_RAM_UNDER_4GIB_NO_START",
+      "runtime_authorization": "NO_GO_OWNER_APPROVAL_AND_REAL_ENV_REQUIRED",
+      "actual_docker_daemon_contacted": false,
+      "actual_pg18_redis8_tested": false
+    }
+  },
+  "e46_f0s_capacity": {
+    "status": "DIRECT_INLINE_PS51_WORK_ORDER_PREPARED_NOT_RUN",
+    "receipt": "phase4b-02-e46-f0r-windows-acceptance-and-f0s-resource-capacity-readonly-workorder-20261011.md",
+    "capabilities": [
+      "THREE_READONLY_WIN32_OPERATING_SYSTEM_MEMORY_SAMPLES",
+      "SYSTEM_DRIVE_FREE_SPACE",
+      "DOCKER_DESKTOP_WINDOWS_SERVICE_STATUS_READ_ONLY",
+      "AGGREGATE_REDACTED_PROCESS_WORKING_SET_CATEGORIES"
+    ],
+    "reported_threshold_gib": 4,
+    "threshold_is_project_conservative_screen_not_vendor_guarantee": true,
+    "may_start_docker_or_wsl_or_services": false,
+    "may_kill_processes": false,
+    "memory_passing_grants_runtime_authorization": false,
+    "actual_pg18_redis8_tested": false,
+    "owner_local_authorization": "NO_GO",
+    "design_ratification": "HOLD",
+    "production_authorized": false,
+    "possible_ci_alternative": "RESEARCH_ONLY_NOT_AUTHORIZED_NO_RUNNER_STARTED_NO_COST_INCURRED"
   }
 }
