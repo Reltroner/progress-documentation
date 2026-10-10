@@ -243,5 +243,22 @@
     "assistant_linux_sqlite_rerun": "8_OF_8_PASS_UNCHANGED_SOURCE",
     "windows_e43r_rerun": "PENDING",
     "production_authorized": false
+  },
+  "e43s_windows_remediation": {
+    "observed": "OUTER_POWERSHELL_NATIVE_COMMAND_ERROR_DUE_TO_CHILD_STDERR_REDIRECTION_AND_STOP_PREFERENCE",
+    "inner_e43r_stop_reason": "UNKNOWN_UNTIL_OPERATOR_REPORT_READ",
+    "E41_windows_sqlite": "NOT_VERIFIED",
+    "E44_windows": "NOT_RUN",
+    "new_file": "LMS-P4B02-E43S-WINDOWS-E41-SQL-VERIFY-PS51.ps1",
+    "sha256": "232FBCC99257921176C4DC46B77068ADEA0529B2A572D2930C8A91C7E3A71416",
+    "fixes": [
+      "NO_EXPAND_ARCHIVE",
+      "EXACT_ROOT_ZIP_MEMBER_BYTES_AND_SHA",
+      "CAPTURE_PYTHON_STDOUT_STDERR_VIA_PROCESSSTARTINFO",
+      "NONZERO_EXIT_WITH_SAVED_STOP_REASON"
+    ],
+    "assistant_original_SQL_python_rerun": "8_OF_8_PASS_LINUX_NOT_WINDOWS",
+    "operator_e43s_execution": "PENDING",
+    "production_authorized": false
   }
 }
