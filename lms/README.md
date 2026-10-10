@@ -243,3 +243,11 @@ The full **G01–G13 evidence-to-future-work mapping** is [Work Order §25 E30](
 The first G03 source coding issue is **not merely two stale JSON statuses**: Phase3B `validate-identity.php` and `validate-trust-crypto.php` contain tests specifically asserting the old pending statuses. See [4B-01 work order](./phase4b-01-g03-adr-status-source-alignment-work-order-20261011.md) for exact **four-file allowlist**, dual control under frozen ADR, initial local worktree location, test + CI gates, and STOP rules. Never authorize changes outside the four files silently. FE main remains older/dirty with three entries; do not touch it.
 
 **Checkpoint:** `PHASE4A_CLOSED -> 4B00_E32_ENTRY_PASS -> PHASE4B01_LOCAL_ISOLATION_NEXT -> G03_CODING_CONDITIONAL -> SOURCE_MAIN_MERGE_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
+
+## 13. Phase 4B-01 E33 — isolated local G03 candidate GREEN; remote patch and CI still pending (2026-10-11)
+
+**Latest owner evidence:** Windows ISO01–ISO04 all PASS at 2026-10-11 00:32 WIB. New isolated BE worktree on `phase4b/01-g03-adr-status-20261011`, original BE base SHA `a2672d0085fe84b55520f8f52f41a8c7fc8568a0`; original FE main still 3 dirty changes **preserved**. Gemini IDE reports exactly four unstaged G03 allowlist files changed; PHP lint and six synthetic contract harnesses **287 PASS / 0 FAIL**, but **no commit/push/PR, no independent diff review and no GitHub Actions run**. Its design-only ADR metadata does not prove real HTTP verifier, Redis replay, production key custody or Keycloak token enforcement.
+
+**Next operator action:** [4B-01 Work Order §6 E33](./phase4b-01-g03-adr-status-source-alignment-work-order-20261011.md): guard-driven local audit, commit only approved four paths to the isolated branch, push non-force and read back exact remote commit SHA, then independent GitHub patch review, PR to `main` and **seven exact-SHA CI jobs**. Existing workflow triggers on PR to `main`; **feature-branch push alone is not a CI PASS**. **No BE source-main merge, FE mutation, VPS/Cloudflare/Keycloak/PG/Redis change or production authorization.**
+
+**Checkpoint:** `4B00_E32_PASS -> 4B01_ISO_PASS -> G03_LOCAL_GREEN_OWNER_REPORTED -> AUDIT_COMMIT_PUSH_NEXT -> PR_CI_PENDING -> MERGE_AND_PRODUCTION_HOLD`.
