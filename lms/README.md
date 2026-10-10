@@ -49,7 +49,9 @@ If these pins become stale, **STOP, re-read GitHub live** `main` HEADs/CI and ap
 
 Before writing code or issuing commands: state **phase, work-order ID, authorized scope, immutable base and expected head SHA, file allowlist, negative tests, CI, Cloudflare deployment policy, owner approvals, stop/rollback condition**. IDE agent writes code only on isolated branch/worktree; ChatGPT governs source evidence. **Never clean folders or rewrite Git history merely because names appear duplicated.**
 
-**Current work order:** [Phase 4A-00 Read-Only Runtime & Infrastructure Discovery](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md). Owner permission applies only to observation, evidence, and scoped planning; no Phase 4B/production action.\n\n**Historical Phase 3 handoff checkpoint (superseded for CURRENT phase status only):** `PHASE0C/1_FROZEN → PHASE2D_ACCEPTED → PHASE3A_FROZEN → PHASE3B_28_OF_28_OWNER_ACCEPTED → BE_MAIN=a2672d... → FE_MAIN=eb01a4d... → FE_PR4_PR5_MERGED + PUSH_MAIN_CI_GREEN → CLOUDFLARE_PRODUCTION_NEW_SHA_UNVERIFIED → PHASE4_NOT_AUTHORIZED`.
+**Current work order:** [Phase 4A-00 Read-Only Runtime & Infrastructure Discovery](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md). Owner permission applies only to observation, evidence, and scoped planning; no Phase 4B/production action.
+
+**Historical Phase 3 handoff checkpoint (superseded for CURRENT phase status only):** `PHASE0C/1_FROZEN → PHASE2D_ACCEPTED → PHASE3A_FROZEN → PHASE3B_28_OF_28_OWNER_ACCEPTED → BE_MAIN=a2672d... → FE_MAIN=eb01a4d... → FE_PR4_PR5_MERGED + PUSH_MAIN_CI_GREEN → CLOUDFLARE_PRODUCTION_NEW_SHA_UNVERIFIED → PHASE4_NOT_AUTHORIZED`.
 
 ## 5. Complete document inventory: canonical authority vs dated history
 
