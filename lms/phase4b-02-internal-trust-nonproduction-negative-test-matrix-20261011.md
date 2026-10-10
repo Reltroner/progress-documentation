@@ -137,3 +137,15 @@ All cases below are **PENDING EXECUTION**. Reuse these identifiers in future uni
 `TEST_MATRIX_CREATED=86`, `TEST_MATRIX_EXECUTED=0`, `HTTP_DUAL_ASSERTION_VERIFIED=NO`, `REDIS_LOSS_DETECTION_VERIFIED=NO`, `OIDC_REAL_ALG_VERIFIED=NO`, `PRODUCTION_AUTHORIZED=NO`.
 
 **Next:** owner design review of D02-01/D02-02/D02-03/D02-04/D02-05, then a new separately scoped implementation work order; do not ask Gemini to implement all 86 scenarios and six microservices in one unreviewed commit.
+
+## 6. E38 — mandatory test-interpretation errata after Gemini independent review (2026-10-11)
+
+**The original T02-001..T02-086 test rows remain unchanged as historical proposed acceptance.** The owner-supplied Gemini review independently counted 86 table rows; this review reverified exactly 86 unique sequential IDs. **0 actual nonproduction HTTP, Redis fault-injection or Keycloak runtime tests executed.** Detailed source errors in [E38 review](./phase4b-02-gemini-independent-design-review-e38-20261011.md).
+
+- **T02-006:** `alg EdDSA incorrectly substituted from internal workload ADR` means reject **algorithm trust inferred from the unrelated internal service Ed25519 ADR**. Do **NOT** claim all EdDSA OIDC tokens are categorically forbidden regardless of effective Keycloak/JWKS and an independently ratified strict OIDC algorithm policy. `D02-05` remains `BLOCKED`.
+- **T02-047:** the replay race uses two genuinely concurrent workers. Exactly one eligible authorized request may win and the other must be denied; do not fake the test with a sequential in-memory array.
+- **T02-062/T02-063:** 65 seconds is a **minimum quarantine after independently verified Redis recovery**, not sufficient without loss detection, safe monotonic timer/clock controls, intact trusted state, and all signature/policy checks. `D02-02` remains blocked.
+- **No-unauthorized-effects rule:** before authorization, zero controller invocation, business writes, outbox messages and unauthorized data access. In a late ownership-denial, a **bounded permitted database read may occur to evaluate ownership**, so assert no unauthorized cross-owner information exposure/reads and no forbidden side effects rather than universally demanding zero DB reads on every denial.
+- **Gemini-only candidate additions `T02-087..T02-090` are NOT accepted into the matrix** until an explicit versioned owner decision; core 86 count stays constant.
+
+**Test execution checkpoint:** `T02_86_ROWS_UNIQUE_VERIFIED`, `T02_0_RUNTIME_EXECUTED`, `T02_RATIFICATION_PENDING`, `PRODUCTION_NOT_AUTHORIZED`.
