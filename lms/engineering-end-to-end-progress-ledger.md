@@ -1442,3 +1442,35 @@ Owner SSH read-only attempt at **2026-10-10T10:57:53Z (17:57:53 WIB)**: local Un
 **GitHub documentation governance:** This receipt and Work Order §§21–24 are intended as a **two-file append-only, docs-only PR** with exact base/head review. Preparing/merging documentation does **not** count as owner AC18 sign-off. No Phase4B provisioning/source implementation or production release is authorized by this text.
 
 **Checkpoint:** `PHASE0C+1_FROZEN -> PHASE2D_ACCEPTED -> PHASE3A_FROZEN -> PHASE3B_28/28_SCOPED_ACCEPTED -> PHASE4A_E01-E28_COLLECTED -> E29_FINAL_AUDIT_CANDIDATE -> AC18_OWNER_DECISION_PENDING -> PHASE4B_PRODUCTION_NOT_AUTHORIZED`.
+
+## 42. E30 — G01–G13 deterministic read-only discovery reconciliation and permanent clarity-first README rule (2026-10-10)
+
+**Owner request:** Update `lms/README.md` with a durable mandatory communication rule for every LMS engineering chat: explain beginner-to-professional, deterministically, with **tujuan → fakta dan bukti → gap → risiko → solusi → penanggung jawab/tools → otorisasi → kriteria berhasil**, plus exact phase, pass/partial/blocked distinctions, copy/paste-ready operator instructions when needed. Then **finish read-only discovery for all G01–G13**, not independently authorized implementation, production provisioning or phase closure. The [README §7](./README.md#7-binding-ai-communication-and-execution-clarity-policy-owner-instruction-2026-10-10) is a documentation-based AI handoff requirement; no promise a future AI outside this project automatically reads it.
+
+**E30 GitHub source verification:** `LMS-BE/main=a2672d0085fe84b55520f8f52f41a8c7fc8568a0`, `LMS-FE/main=eb01a4d2c924299b929aebf0f4826b94cf341fc6`, docs main pre-PR `5ce584e2858b8f23170d2a63c9eb66048b8a4f6d`. Source-only inspections found: six BE `services/*/routes/api.php` files only `<?php` (business routes NOT implemented), separate gateway health endpoints and error handling; FE `.env.example` legacy OIDC authority/client, code-flow `oidc-client-ts` + `sessionStorage`; frontend `src/app/admin/page.tsx` exists but explicitly marks its `RoleGate` as **UX only**, not separate administrator hostname or server-side capability. BE `contracts/identity/trust-contract.json` and `crypto-profile-proposal.json` retain stale pre-ratification status markers, but ADR-LMS-TRUST-001 later ratified the nonproduction **design**; BE persistence contract explicitly documents schema-only owner DBs/outbox, **no real DB migration/users/grants**. Two old FE SSO docs describe legacy identity strategy and are historical, not authority to override frozen Phase0C/1. **No local/runtime scripts executed by E30.**
+
+**Evidence crosswalk / status per gap:**
+
+| ID | Discovery conclusion | Remaining engineering/risk classification |
+|---|---|---|
+| G01 | Six API skeletons + 26 operation source contracts proven | `NOT_IMPLEMENTED_BUSINESS_ROUTES`; future handlers/API E2E |
+| G02 | FE example env legacy; FE OIDC code-flow foundation reviewed | `SOURCE_TEMPLATE_DRIFT`; actual deployed Cloudflare env unverified |
+| G03 | BE trust-status metadata stale relative to owner ADR | `HISTORICAL_SOURCE_METADATA_DRIFT`; live signature/replay not certified |
+| G04 | PostgreSQL online/loopback; unprivileged catalog access denied (E25) | `ACCESS_BLOCKED_BY_SECURITY`; four LMS owners/grants unknown |
+| G05 | Redis loopback, unauthenticated `INFO` denied (E25) | `ACCESS_BLOCKED_BY_SECURITY`; ACL/persistence/jti fail-closed unknown |
+| G06 | 1-vCPU + HRM/Keycloak shared host and 7-day charts known | `CAPACITY_BASELINE_OBSERVED`; six-service peak/isolated worker budget unknown |
+| G07 | Pages main production skip proven; active old release/preview history | `RELEASE_POLICY_PARTIAL`; automatic deployments/preview policy needs later proof |
+| G08 | 3 present HTTPS hosts, 3 intended hostnames nonresolving; mode Full | `FUTURE_HOSTS_NOT_PROVISIONED`; origin strict TLS not validated |
+| G09 | Keycloak issuer/JWKS and client inventory; lms-user/admin absent | `IDENTITY_PROVISIONING_GAP`; aud/PKCE/capability/regression not proven |
+| G10 | PG backup job exit success + weekly off-host VPS provider entries | `RECOVERY_NOT_CERTIFIED`; no actual restore/RPO/RTO/outbox test |
+| G11 | Local FE old SHA, 3 uninspected dirty entries, BE clean | `PRESERVE_LOCAL_WORK`; future owner-only change inventory |
+| G12 | Historical README/FE SSO docs contain stale timing/identity claims | `DOC_CHRONOLOGY_EXPLAINED`; README policy and latest overlay in docs PR |
+| G13 | Frontend `/admin` UX page exists, no independent admin Pages/DNS/Keycloak client | `ADMIN_UX_ONLY + INDEPENDENT_APP_NOT_PROVISIONED` |
+
+**Detailed per-gap novice/professional explanation, source paths, planned acceptance/negative tests, safe tools/owners and explicit change boundaries:** [Work Order §25 — E30](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md#25-e30--complete-g01g13-read-only-source--operator-evidence-reconciliation-2026-10-10). This crosswalk must travel with the AI migration handoff. Every observation relies on specified GitHub source or owner E01–E28 evidence; absence of accessible privileged data is **not** a production failure and was **not bypassed**.
+
+**Strict outcome:** `13/13 GAP_IDS_DISCOVERY_TRIAGED`; `0/13 IMPLEMENTATION_REMEDIATIONS_EXECUTED`; `0 new runtime invariants certified`. E29 AC01–AC18 tally remains **7 scoped PASS / 10 partial+gap+blocked / 1 owner final pending**. `AC18=PENDING_OWNER_FINAL`: the instruction to document and finish gap *discovery* did **not** accept residual risk, merge PR, close Phase4A, authorize Phase4B, release production or accept a paid upgrade. G01/G03/G04/G05/G06/G08/G09/G10/G13 and related frontend/release work require **independent scoped implementation authority**.
+
+**Change scope:** append-only README communication overlay/§7–8, Work Order §25 and this Ledger §42 **only**, all on documentation PR #39 if preflight remains pinned. Both frozen architecture contracts, ADR, E01–E29 history, BE/FE source trees, dirty local FE checkout and live HRM/Keycloak/DB/Redis/Cloudflare/Hostinger unchanged.
+
+**Checkpoint:** `PHASE4A_E29_AUDIT_CANDIDATE -> E30_G01-G13_DISCOVERY_TRIAGED=13/13 -> CLARITY_FIRST_PROTOCOL_DOCUMENTED -> AC18_OWNER_PENDING -> PHASE4B_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
