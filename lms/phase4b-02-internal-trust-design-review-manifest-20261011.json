@@ -195,5 +195,37 @@
     "experimental_tests_outside_canonical_t02": 38,
     "canonical_http_t02_executed": 0,
     "design_ratification": "HOLD"
+  },
+  "e43_windows_owner_proof": {
+    "status": "OWNER_OPERATOR_REPORTED_WINDOWS_PHP_MODEL_PASS",
+    "D01_PHP_Ed25519_cases": 17,
+    "D02_PHP_redis_replay_model_cases": 13,
+    "passed": 30,
+    "failed": 0,
+    "source": "owner-pasted-terminal-lines-in-current-conversation",
+    "security_finding": "REDIS_ONLY_SILENT_NONCE_LOSS_UNSAFE_DEMONSTRATED_NOT_A_REDIS_SAFETY_PASS",
+    "reported_redis_server_used": false,
+    "reported_postgres_server_used": false,
+    "reported_keycloak_used": false,
+    "reported_production_access": false,
+    "windows_E41_SQLite": "NOT_YET_OBSERVED",
+    "windows_E44_local_capability": "NOT_YET_OBSERVED",
+    "canonical_T02_real_HTTP_cases_executed": 0,
+    "real_Postgres18_Redis8_test_executed": false,
+    "operator_scripts": [
+      {
+        "name": "LMS-P4B02-E43-WINDOWS-E41-SQL-VERIFY-PS51.ps1",
+        "sha256": "C5BE343FECA5DAD26A5BEE13AEC08DEA6CCDB20FE4D476015E4D18744B0F047A",
+        "purpose": "Exact SHA guarded local eight-case SQLite run"
+      },
+      {
+        "name": "LMS-P4B02-E44-LOCAL-PG18-REDIS8-READONLY-PREFLIGHT-PS51.ps1",
+        "sha256": "53734B5345D5C44E2B3B1803A4F5867BA58E70756E7D71CFB844A8B5A22559B2",
+        "purpose": "Read-only offline local toolchain and capacity inventory"
+      }
+    ],
+    "owner_approval_to_start_Docker_or_real_databases": false,
+    "architecture_ratification": "HOLD",
+    "production_authorized": false
   }
 }
