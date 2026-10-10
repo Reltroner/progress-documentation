@@ -633,5 +633,64 @@
     "canonical_http_t02_executed": 0,
     "design_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e46_f3b_r1_owner_sha_save_and_oci_manifest": {
+    "receipt": "phase4b-02-e46-f3b-owner-actions-zero-budget-security-review-and-oci-preflight-20261011.md",
+    "observed_date": "2026-10-11",
+    "sandbox": "Reltroner/lms-trust-sandbox",
+    "owner_gui_toast": "Actions policy updated.",
+    "action_sha_pin_checkbox_current_visible": true,
+    "action_sha_pin_save_observed": true,
+    "action_sha_pin_verified_after_page_refresh": false,
+    "allowed_actions_radio_current_visible": "ALLOW_ALL_ACTIONS_AND_REUSABLE_WORKFLOWS",
+    "allow_reltroner_only_enabled": false,
+    "action_policy_hardening": "PARTIAL_SHA_PINNING_ON_ACTION_ORIGIN_ALLOW_ALL",
+    "retention_days_observed": 90,
+    "windows_operator_powershell_preflight": "PASS_DIGEST_BYTES_AND_AMD64_DESCRIPTOR",
+    "provenance": "OWNER_PASTED_EXECUTION_OUTPUT_NOT_INDEPENDENTLY_LIVE_FETCHED",
+    "index_manifests": [
+      {
+        "role": "postgres",
+        "discovery_tag": "postgres:18",
+        "index": "docker.io/library/postgres@sha256:74935e72241653ca55e0414067e6d8763aceb8a810eb51b452253ec3dcfc4336",
+        "linux_amd64_child_digest": "sha256:885953109528ad3dfc90362b1a6f50a78620b5315be19f187753d267e484dc5b",
+        "index_manifest_raw_sha256_verified_by_owner_script": true,
+        "child_manifest_raw_sha256_verified_by_owner_script": true,
+        "actual_software_runtime_version_verified": false,
+        "oci_signature_verified": false
+      },
+      {
+        "role": "redis",
+        "discovery_tag": "redis:8",
+        "index": "docker.io/library/redis@sha256:2c2dff791878316e3b083188be0d578423b24813cdda5de0e80ea4f7b3e6bfd6",
+        "linux_amd64_child_digest": "sha256:6e9101032a2126aeeb4b1e862ac77d2fcf26b831ae37e5ff2e69169f82ddd411",
+        "index_manifest_raw_sha256_verified_by_owner_script": true,
+        "child_manifest_raw_sha256_verified_by_owner_script": true,
+        "actual_software_runtime_version_verified": false,
+        "oci_signature_verified": false
+      },
+      {
+        "role": "ubuntu",
+        "discovery_tag": "ubuntu:24.04",
+        "index": "docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55",
+        "linux_amd64_child_digest": "sha256:f610ab94648195aa356059f5b41d6085c9d4d903c072430cdd1af7bdb646106b",
+        "index_manifest_raw_sha256_verified_by_owner_script": true,
+        "child_manifest_raw_sha256_verified_by_owner_script": true,
+        "actual_software_runtime_version_verified": false,
+        "oci_signature_verified": false
+      }
+    ],
+    "real_image_layers_pulled": false,
+    "job_container_clients_verified": false,
+    "sandbox_branches": 0,
+    "sandbox_actions_runs": 0,
+    "existing_actions_budget_stop_usage": "ZERO_USD_STOP_YES_OBSERVED_PREVIOUS_OWNER_SCREENSHOT",
+    "repository_action_policy_restriction_pending_owner_gui": true,
+    "owner_initial_commit_permission": false,
+    "owner_first_run_permission": false,
+    "real_pg_r01_to_r10_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
