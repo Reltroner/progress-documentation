@@ -634,3 +634,129 @@ Operator's prior zone DNS screenshot/text displayed **16/16 records** in reltron
 **Remaining one-batch read-only operator evidence:** Hostinger hPanel Premium Web Hosting backup status/last timestamp/retention, Premium subdomain/document-root listing for \`assets.reltroner.com\` (if none, mark NOT FOUND), VPS Backups/Snapshots status/retention/last timestamp, and VPS Monitoring/Usage chart (if available). Optionally, an unprivileged \`systemctl show reltroner-postgres-backup.service --property=Result,ExecMainStatus,ExecMainCode,ActiveState,SubState,ExecMainStartTimestamp,ExecMainExitTimestamp --no-pager\` can narrow service-result evidence, but is not a restore test. Do not open/archive backup contents or list user files.
 
 **Stop:** No creation of missing DNS entries/Pages projects, no Full(strict) toggle, certificate replacement, privileged DB/Redis auth, package update, filesystem mutation, backup trigger/restore, deploy or Phase 4B/production authorization. Phase 4A-00 remains **IN PROGRESS**, pending owner hPanel evidence and AC18 sign-off.
+
+## 21. E27 — batched local Git, VPS backup-job status, runtime security and capacity discovery (2026-10-10)
+
+**Evidence class:** OWNER_SUPPLIED_POWERSHELL_AND_UNPRIVILEGED_SSH_READ_ONLY. Windows operator collection **2026-10-10T18:26:42+07:00**; VPS timestamp **2026-10-10T11:26:45Z**. Source: operator-provided E27 terminal record; public documentation contains sanitized evidence only, **not** local user paths, VPS IP, SSH identities, raw logs, environment/config contents, tokens or backup data. Commands enumerated local Git metadata and bounded VPS service, process, permission and resource metadata. No sudo/privileged read, application merge, service operation, backup trigger or restore reported.
+
+| E27 sub-evidence | Observed | Correct boundary |
+|---|---|---|
+| Windows backend checkout | main at `a2672d0085fe84b55520f8f52f41a8c7fc8568a0`, dirty entry count **0** | Local pinned BE source matches accepted GitHub main E01; no fetch/reset |
+| Windows frontend checkout | main at **`f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`**, dirty entry count **3** | Older than GitHub FE main `eb01a4d2c924299b929aebf0f4826b94cf341fc6`; **preserve all three modifications/untracked entries**; their content was not inspected |
+| PostgreSQL backup service | `reltroner-postgres-backup.service`: `Result=success`, `ExecMainCode=1` (systemd 'exited'), **`ExecMainStatus=0`**, began 03:20:14Z and exited 03:20:15Z on 10 Oct | **SUCCESSFUL_SERVICE_EXECUTION_OBSERVED**, not validated SQL dump, backup integrity, storage destination, offsite copy or restore. Do not misread `ExecMainCode=1` as a process exit failure |
+| Additional one-shot services | `dpkg-db-backup.service` and `certbot.service` each reported `Result=success`, `ExecMainStatus=0` | Service run only; no restore or certificate-renewal end-to-end certification |
+| HRM background execution | `reltroner-hrm-queue.service` active/running, `reltroner-hrm-scheduler.timer` listed at minute cadence | Existing incumbent CPU/RAM/IO workloads belong in LMS placement budget |
+| Security services | `ufw.service` active/exited; `fail2ban` inactive | Firewall **rules**, effective external reachability and alternate abuse defenses **not inspected**; inactive fail2ban alone is not vulnerability proof |
+| Systemd unit metadata | Redis unit `User=redis`, `PrivateTmp=yes`, `ProtectSystem=yes`, `ProtectHome=yes`, `NoNewPrivileges=yes`; Keycloak `User=keycloak`, `ProtectSystem=full`, `ProtectHome=yes`, `NoNewPrivileges=yes`; Nginx/PHP-FPM/PG/cron attributes also collected | Selected sandboxing **settings**, not full service security certification; default/explicit `no` values elsewhere are not independently verified exploits |
+| Selected paths | /etc/nginx/sites-enabled, /etc/php/8.4/fpm/pool.d, /etc/letsencrypt, /var/backups: `755 root:root`; enabled Nginx names auth/default/hrm and single `www.conf` PHP-FPM pool name | Directory and filename inventory only; no config contents/permission checks on secrets or route mapping |
+| Backup directory | 39 visible files within selected depth, mtimes aggregated | Cannot attribute file contents to PostgreSQL backup or prove integrity |
+| VPS brief repeat | 1 vCPU; RAM ~3.8 GiB total, ~2.6 GiB available; swap 2 GiB; disk 48 GB total / 42 GB free; ~4% inode use; low brief load/vmstat | One instant, not safe headroom for six production microservices |
+| TCP classification | `awk` multiline syntax error | **E27 SOCKET_AUDIT_INVALID**; corrected in E27R below |
+| Collection exit | `SSH_EXIT_CODE=0` despite the above pipeline syntax failure | Wrapper exit 0 does **not** establish all subchecks passed; maintain the explicit defect |
+
+**Gate change E27:** P4A00-AC05 remains **PARTIAL_OPERATOR** (BE fresh-clean, FE dirty old HEAD, work preserved); AC14 is **PARTIAL_OPERATOR_IMPROVED** (positive PG systemd backup success and incumbent worker/scheduler); AC15 moves **PENDING_RUNTIME -> PARTIAL_OPERATOR_METADATA_ONLY**; AC07 stays PARTIAL with invalid E27 socket subcheck; AC06 prior scoped PASS corroborated. E25 AC09/10 remain **ACCESS_BLOCKED**, not reattempted.
+
+## 22. E27R — socket classification and HRM background revalidation (2026-10-10)
+
+**Evidence class:** OWNER_SUPPLIED_CORRECTIVE_UNPRIVILEGED_SSH_READ_ONLY. Windows **2026-10-10T23:11:47+07:00**; VPS **2026-10-10T16:11:51Z**. Read-only corrective Bash command successfully emitted all expected classification and HRM unit/timer metadata. The script printed `CORE_FAILURES=0` and `E27R_CORRECTIVE_GATE=PASS`, **but returned SSH exit code 2** because the terminal reported `bash: line 78: exit: 0 ... numeric argument required`. A CRLF/carriage-return artifact is a plausible explanation **but not independently proven**. Therefore **SCRIPT_EXIT_SIGNAL_INVALID**; classify each completed subcheck on its evidence and do **not** upgrade the whole script to clean exit PASS. No need to repeat existing output merely to suppress this known formatting defect.
+
+| Port group | Observed listening bind class | Interpretation |
+|---|---|---|
+| TCP 22, 80, 443 | ALL_INTERFACES | Listener exposure class, **not** verified firewall allowance or real internet reachability |
+| TCP 5432, 6379 | LOOPBACK | PostgreSQL/Redis socket bind isolation **observed**, not credential/grant/ACL or service-to-service isolation proof |
+| TCP 8080, 9000, 7800, 37371, 57800, 65529 | LOOPBACK | Internal listeners observed; attribution to a specific process/service and Nginx upstream routes unverified |
+| TCP 53 | OTHER_BIND | **Indeterminate from classifier**; cannot assume publicly exposed DNS or specific resolver without interface details |
+
+**HRM repeat:** `reltroner-hrm-queue.service` active/running, OS user deploy, main PID observed, start **2026-10-10T15:28:22Z**. One-shot `reltroner-hrm-scheduler.service` execution at **16:11:00Z** ended `Result=success`, `ExecMainStatus=0`; unit idle/dead afterward is normal for completed one-shot execution, while `reltroner-hrm-scheduler.timer` was active/waiting with next 16:12Z trigger. PG backup timer remained next scheduled **2026-10-11T03:24:01Z**.
+
+**Gate:** AC07 still **PARTIAL_OPERATOR / PORT_BIND_CLASSES_OBSERVED** because process identity, effective Nginx public-vs-private route and negative public exposure testing remain absent. AC14 still **PARTIAL_OPERATOR** with more precise HRM coexistence workload metadata; AC15 **PARTIAL_OPERATOR_METADATA_ONLY**. Unsuccessful final SSH numeric exit does **not** mean application failure and must remain in audit provenance.
+
+## 23. E28 — Hostinger seven-day resource charts, provider backups, asset-origin operator attestation (2026-10-10)
+
+**Evidence class:** OWNER_SUPPLIED_HOSTINGER_HPanel_UI_SCREENSHOT_AND_TEXT plus OWNER_ASSET_NONPROVISIONING_ATTESTATION, observed/reported on 10 October 2026 (exact provider screenshot/backup-UI capture clock and displayed backup timezone **not independently verified**). Do not archive raw screenshots with browser tabs/accounts, provider account identifiers or private dashboard URLs in public GitHub. This is provider UI evidence, not provider API attestation or tested restore.
+
+| Area | Read-only observation | Limit |
+|---|---|---|
+| hPanel VPS Server Usage, selected **Last week** | CPU plotted approximately **2% baseline** with occasional small spikes; RAM chart near **1.2 GiB** and nearly level; disk chart around **5.9 GB**, essentially flat | Visual chart estimates, not machine-precise percentiles, process-specific usage, peak load testing or a resource reservation |
+| Network charts | Intermittent inbound and outbound peaks on chart | Per-point time aggregation and units-of-rate not established; **no Mbps/second claim** |
+| VPS automated backup cadence | **Weekly** displayed | Frequency known; recovery-point objectives not guaranteed |
+| Two visible Hostinger VPS backup entries | **2026-10-05 05:49**, **5.83 GB**, Lithuania, Ubuntu 24.04 LTS; **2026-09-28 00:13**, **5.34 GB**, Lithuania, Ubuntu 24.04 LTS | Existing provider-listed backup records; timestamps as displayed, timezone unverified; cannot assert integrity or restore success |
+| Provider storage/restore UI | Provider states backups stored separately from main VPS; **30m estimated restore** displayed; older backups replaced automatically | Distinct provider backup surface observed; **30m is an estimate, NOT measured RTO**; exact retention guarantee, cryptographic integrity, DR exercise and recovery consistency UNKNOWN |
+| Paid upgrade offer | Optional daily-backup add-on shown at **Rp52.900/month** | **NO_PURCHASE / NO_UPGRADE**; not a required Phase4A discovery spend; backup risk to be approved separately |
+| Asset origin | Owner explicitly states `assets.reltroner.com` never provisioned in Cloudflare, Vercel or Hostinger; E26 independently observed DNS nonresolution from Windows+VPS and no record in the shown Cloudflare zone list | **OWNER_ATTESTED_NOT_PROVISIONED + DNS_UNRESOLVED**, not an independent complete vendor-account API audit or proof of lack of other stored files |
+| Premium Web Hosting backups | **NOT PROVIDED / NOT INSPECTED** | Must not label PASS or pretend Provider backups cover any separate Premium Hosting account |
+
+**Risk model:** Weekly VPS recovery could lose several days of data if this were the only usable recovery point; separate PG backup **job-success metadata** E27 reduces ambiguity but does not prove a successfully restorable recent database or offsite copy. A 30-minute restore estimate is not a measured end-to-end RTO for HRM, Keycloak, PostgreSQL and Redis. The observed low CPU baseline on 1 vCPU cannot certify simultaneous six-service request, queue, replay, event durability and failure-state requirements.
+
+**Gate deltas:** AC06 remains **PASS_OPERATOR_READ_ONLY (scoped capacity discovery)** with provider historical chart support; AC13 advances **PARTIAL_OPERATOR -> GAP_OBSERVED / OWNER_ATTESTED_NOT_PROVISIONED** (not overall acceptance PASS); AC14 remains **PARTIAL_OPERATOR_IMPROVED** with two independently listed weekly off-host VPS backups, but untested restore, retention, RPO/RTO and Premium backups unknown. Other gate statuses unchanged.
+
+## 24. Phase 4A-00 final evidence audit and owner-review closure candidate (E29; 2026-10-10)
+
+> **Status: FINAL AUDIT PREPARED / DISCOVERY-ONLY CLOSURE CANDIDATE — NOT OWNER-SIGNED; NOT ALL 18 GATES PASS.** This is an assessment of existing evidence **E01–E28 including E27R**, not new runtime testing. The term *final audit* does not mean production readiness, complete test coverage or authority to start Phase 4B.
+
+### 24.1 Normative authority and provenance
+
+Normative hierarchy unchanged: [Phase 0C frozen physical placement](./master-infrastructure-placement-contract.md) (20 physical invariants) -> [Phase 1 frozen logical/API boundaries](./logical-service-boundary-api-contract.md) (24 logical invariants) -> owner-adopted [FZ-11 freeze](./reltroner-lms-phase3a-fz11-final-design-freeze-acceptance-20261009.md) and [ADR-LMS-TRUST-001](./adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md) -> current [README](./README.md) + append-only [engineering ledger](./engineering-end-to-end-progress-ledger.md). Phase3 **28/28 owner-accepted in scoped nonproduction**, **44/44 invariant trace entries**, **0 newly live-certified** by Phase3; do **not** upgrade 44 to runtime PASS. Accepted source pins previously verified: BE main `a2672d0085fe84b55520f8f52f41a8c7fc8568a0`, FE main `eb01a4d2c924299b929aebf0f4826b94cf341fc6`; 7/7 and 2/2 corresponding earlier successful push-main CI, **not** live six-service proof. Local FE remains older/dirty and must not be overwritten. No source repo update in this work order.
+
+### 24.2 Definitive 18-gate discovery ledger (evidence-scoped, as of E28)
+
+| Gate | Final audit classification | Evidence establishing it; exact residual gap |
+|---|---|---|
+| **AC01** Scope/owner | **PASS_OWNER_READ_ONLY_SCOPE** | Owner authorized discovery only; no broader sign-off implied |
+| **AC02** Source SHA/CI | **PASS_SOURCE_SCOPED** | E01–E03 BE/FE/docs GitHub pins and historical CI; new current remote CI/drift not re-polled in E27/E28 |
+| **AC03** Architecture authority | **PASS_DOCUMENT_TRACE** | E04 frozen Phase0C/Phase1, FZ-11/ADR hierarchy and 44 trace rows; no live certifications |
+| **AC04** Source topology/templates | **PASS_SOURCE_SCOPED** | E05–E07 six independent Laravel source services, API skeletons, FE OIDC template drift |
+| **AC05** Local checkout safety | **PARTIAL_OPERATOR / FE_DIRTY_OLD_HEAD** | E09/E27 BE main clean; FE local `f2d40417...`, 3 dirty entries, versus newer remote main; no clean FE baseline, preserve work |
+| **AC06** VPS capacity | **PASS_OPERATOR_READ_ONLY_SCOPED** | E13/E26/E27 1 vCPU, ~3.8GiB, ~42GB root available; E28 7-day usage charts. **Not** placement/load-test authorization |
+| **AC07** Runtime isolation/routing | **PARTIAL_OPERATOR / BIND_ONLY** | E13–E17/E27R units, three enabled sites, single www FPM pool, 5432/6379 loopback, 22/80/443 all-interface, other loopback; no effective route/firewall/client-to-origin negative tests; E27R final SSH exit defective |
+| **AC08** Identity/HRM | **PARTIAL_OPERATOR / LMS_CLIENTS_ABSENT** | E18–E22 issuer/JWKS/realm GUI, 8 client list excludes lms-user/lms-admin; no real aud=lms-api, PKCE, LMS JWT/capability denial or fresh HRM live regression |
+| **AC09** PostgreSQL ownership | **PARTIAL_OPERATOR / ACCESS_BLOCKED** | E16/E17 cluster 18/main online/ready; E25 local SQL catalog read rejected by HBA; four owner databases/GRANTs not proven; do not circumvent |
+| **AC10** Redis security/replay | **PARTIAL_OPERATOR / ACCESS_BLOCKED** | E13/E27R loopback, process/service, E25 NOAUTH to INFO; no ACL/memory/persistence/replay-loss fail closed proof |
+| **AC11** Pages Production/main | **PASS_OPERATOR_CLOUDFLARE_UI_SCOPED** | E23–E24 production skip for FE eb01a4d and active old f2d4041, learner domain active/SSL; no content/preview policy/full release governance |
+| **AC12** DNS/TLS | **PARTIAL_OPERATOR_EXTERNAL_VANTAGE / THREE_TARGET_HOSTS_UNRESOLVED** | E26 Windows+VPS DNS, Windows HTTPS 200/302/302 with exit 0/TLS verification for lms/auth/hrm; admin/API/assets fail DNS/exit6. Cloudflare zone Full not strict; origin TLS not established |
+| **AC13** Assets | **GAP_OBSERVED / NOT_PROVISIONED_OWNER_ATTESTED** | E26 unresolved assets hostname, E28 owner says no Hostinger/Vercel/Cloudflare origin; storage/versioned CDN/immutable cache policy untested |
+| **AC14** Backup/HRM coexistence | **PARTIAL_OPERATOR_IMPROVED / RECOVERY_UNTESTED** | E27 PG backup job `Result=success` exit0, HRM queue/scheduler; E28 two weekly Hostinger Lithuania backup entries + 30m provider estimate, 7d usage; no restore test/RPO/RTO/retention validation or Premium backup |
+| **AC15** Security/secret custody | **PARTIAL_OPERATOR_METADATA_ONLY** | E27 unit sandboxing, service owners, directory modes, UFW active and fail2ban inactive; rules, complete permissions, secret custody and effective Nginx/PKI policy unverified |
+| **AC16** Gap/risks/rollback/cost | **PARTIAL_DESIGN / OWNER_REVIEW_READY** | G01–G13 and §24.3 decisions/risks plus §24.4 future negative-test/rollback package proposals; design is not performed testing nor adopted sign-off |
+| **AC17** Scope integrity | **PASS_SCOPE_SO_FAR / OBSERVED** | No reported provisioning/restart/write/merge in E01–E28 operator discovery. Does not independently prove host change history; E27R exit defect preserved, no false clean-script success |
+| **AC18** Final portable handoff/sign-off | **PENDING_OWNER_FINAL_ACCEPTANCE** | E29 final candidate drafted in both append-only docs; **no user instruction explicitly accepting residuals and closing 4A-00 yet** |
+
+**Tally (discovery, not runtime): 7 PASS of explicitly limited scope (AC01–04, 06, 11, 17); 10 PARTIAL/GAP/PENDING_OWNER_REVIEW (AC05, 07–10, 12–16); 1 PENDING FINAL OWNER DECISION (AC18).** Each scoped PASS remains narrowly qualified; **18/18 PASS is false**. Gate and architecture runtime certification counts remain separate.
+
+### 24.3 Residual gap register and decision owner
+
+| Gap | Priority | Designated decision owner | Needed next evidence / disposition |
+|---|---|---|---|
+| **G01** BE public API 26 contract routes not implemented | HIGH | LMS architecture/product owner | Separately authorize bounded gateway/provider implementation, source CI then negative API tests |
+| **G02** FE `.env.example` legacy issuer/client | HIGH | FE/identity owner | Verify effective current config vs frozen issuer, select independent user/admin credentials and release pins |
+| **G03** BE trust-status metadata drift vs ratified ADR | HIGH | Security/BE owner | Reconcile metadata in separate authorized code PR; Ed25519 signer/replay tests remain future |
+| **G04** PostgreSQL four DB ownership/grants unknown, HBA denies inspection | HIGH | DB operator + project owner | Explicit approved catalog-only viewer or ACCEPT_ACCESS_BLOCKED; later service-DB negative write tests |
+| **G05** Redis auth/persistence/replay metadata unknown, anonymous INFO denied | HIGH | Runtime/security owner | Approved monitoring viewer or ACCEPT_ACCESS_BLOCKED; atomic jti/replay-loss quarantine tests later |
+| **G06** 1-vCPU service isolation/peak resource budget unknown | HIGH | VPS capacity/release owner | Budget incumbent Keycloak/HRM worker+cron+PG+Redis and six LMS units before placement |
+| **G07** Pages skip proven but automatic deployments/preview policy | MEDIUM-HIGH | Frontend release owner | Deployment SHA and artifact privacy/preview guard design; no live content assumption |
+| **G08** API/admin/assets missing DNS and origin Full not strict | HIGH | DNS/TLS/platform owner | Individually authorize future provisioning/strict-TLS origin audit, preserve existing HRM/auth |
+| **G09** lms-user/lms-admin absent, lms-api audience unproven | HIGH | Identity/security owner | Separately authorize new clients/mappers, PKCE and denial tests without altering HRM gates |
+| **G10** Backup/restore, outbox and observability not certified | HIGH | DR/operations owner | Approve recovery objectives, integrity/checksum and isolated restore drill plan; verify event durability |
+| **G11** Local FE old/dirty checkout | MEDIUM | Local source owner | Preserve 3 modifications, reconcile only with separate exact-SHA authorization; no reset |
+| **G12** Dated doc headers potentially stale | LOW-MEDIUM | Documentation owner | Use README + newest ledger overlay; frozen historical sections remain unchanged |
+| **G13** Admin Pages missing | HIGH | Frontend/identity release owner | Independently deployable admin client/project plan; never grant admin capability through learner client |
+
+**Classification guards:** Existing protective authentication denials are **ACCESS_BLOCKED**, not evidence of broken DB/cache. Missing never-provisioned LMS targets are **GAP_OBSERVED**, not outages of a prior live LMS runtime. Keycloak RS256 public OIDC JWKS **must not** be conflated with Ed25519 **internal service** ADR. Weekly provider backups do **not** resolve transactional recovery or eliminate the need for a restore drill. Premium Web Hosting backup evidence was not collected; explicitly UNKNOWN.
+
+### 24.4 Future work-package dependencies, acceptance negatives, rollback and spending (PROPOSED ONLY)
+
+1. **P4B-00 authority/capacity gate:** Owner decision on residual AC05/07–10/12–16 and AC18; exact BE/FE/docs SHA reconfirmation; no-cost first placement study on 1-vCPU VPS, persistent resource monitoring and HRM/Keycloak safeguards; STOP if concurrent worker/DB/identity budgets cannot be met.
+2. **P4B-identity/trust nonproduction:** Provision separate learner/admin PKCE S256 browser contexts and lms-api audience only after explicit authorization; prove wrong issuer/aud, absent capability, expired/replayed tokens, principal mixups and HRM demo/production cross-environment denial. Internal Ed25519/JWS 60s/5s/180s/jti + >=65s recovery quarantine per approved ADR; never simulate Redis failure on current shared production host without dedicated work order.
+3. **P4B-private data/services:** Four isolated domain DB ownership/grant paths, private five business services, sole public Gateway, event outbox/delivery durability, wrong-DB write denial and public port exposure negative tests. No ad hoc `sudo -u postgres`, HBA relaxation or anonymous Redis unlock for discovery.
+4. **P4B-static delivery/asset/release:** Independently deployable learner/admin Pages clients; separately authorized DNS `lms-admin`, `lms-api`, `assets`; versioned immutable origin/cache rules; confirm release SHA, draft/archived privacy and Preview policy; Cloudflare Full-to-Full(strict) only after per-host origin certificate + existing auth/hrm regression and a change window. Existing learner production remains on prior active release until explicit cutover.
+5. **P4B-DR & operations:** Define acceptable RPO/RTO, confirm actual PG backup artifact success, encryption/access/retention and offsite consistency, perform isolated restore and integrity validation with rollback design, baseline HRM queue/scheduler and expiry/monitoring; neither 30m provider UI estimate nor successful systemd run substitutes tested recovery.
+
+**Proposed rollback boundary:** Git/GitHub preserve approved immutable commit trees, Cloudflare preserve existing active Pages production, VPS retain incumbent Nginx/Keycloak/HRM/PG/Redis configs and service availability, DB migration/identity rollback only under explicit migration plan and integrity precondition; never promise untested automatic reversal of data/identity writes. **Cost:** no package purchases or VPS upgrade in 4A-00; optional Hostinger daily backups offer **Rp52.900/mo** observed but not selected/approved. Capacity inadequacy may force a later explicit budget decision; no invented cost forecast or implicit spending authority.
+
+### 24.5 Final audit disposition and exact owner decision still needed
+
+**Outcome:** `P4A-00_E29_FINAL_EVIDENCE_AUDIT_PREPARED`; read-only discovery inputs are **sufficient to request owner review/closure with explicit open risks**. **Phase 4A-00 formally remains IN PROGRESS / AC18 PENDING_OWNER_FINAL** until the owner explicitly either (A) accepts this scoped discovery handoff **with each residual PENDING/ACCESS_BLOCKED/GAP and no runtime PASS implied**, or (B) directs a narrowly bounded additional read-only follow-up. The present request to **audit and append records** is documentation authorization, **not** a standalone sign-off that all gates passed, nor authorization for Phase 4B or production.
+
+**No mutation / governance:** Append-only evidence amendment under a documentation-only PR; do not edit frozen contracts, overwrite prior E01–E26 observations, touch LMS-BE/LMS-FE, modify local dirty FE, change Cloudflare/Hostinger/VPS/Keycloak/PostgreSQL/Redis, test restore or deploy. Any future source merge, client/DB provisioning, trust keys, DNS setup, feature implementation, release or paid plan requires separate exact-scope owner approval.
+
+**Handoff checkpoint:** `PHASE0C+1_FROZEN -> PHASE2D_ACCEPTED -> PHASE3A_DESIGN_FROZEN -> PHASE3B_NONPROD_28/28_ACCEPTED -> PHASE4A_E01-E28_OBSERVED -> E29_FINAL_AUDIT_CANDIDATE -> AC18_PENDING_OWNER -> PHASE4B/PRODUCTION_NOT_AUTHORIZED`.
