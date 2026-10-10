@@ -122,7 +122,7 @@ PASS_SOURCE = verified from current GitHub/documented owner decision; PARTIAL_OP
 | P4A00-AC05 | Local primary clone state/dirty changes, no destructive synchronization | **PARTIAL_OPERATOR** E09, fresh local status PENDING |
 | P4A00-AC06 | Fresh timestamped VPS CPU/RAM/swap/disk/inode/capacity and version output | **PASS_OPERATOR_READ_ONLY** E13; single timestamped snapshot, not load test or six-service capacity certification |
 | P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E17: active units/PIDs; three enabled Nginx symlinks verified to matching sites-available targets; only pool file `www.conf` (22,133 bytes); effective upstream/listener routes, FPM pool content, LMS six-service private exposure NOT VERIFIED |
-| P4A00-AC08 | Keycloak effective issuer/JWKS/client/audience and HRM nonregression baseline | **PARTIAL_OPERATOR** E18-E19: canonical issuer and public JWKS retrieval observed; 2 advertised RSA keys (sig/RS256 with kid; enc/RSA-OAEP with kid). JWT cryptographic verification, effective `lms-user`/`lms-admin` client registrations, `lms-api` audience, scopes, redirect policies, rotation and HRM nonregression NOT VERIFIED |
+| P4A00-AC08 | Keycloak effective issuer/JWKS/client/audience and HRM nonregression baseline | **PARTIAL_OPERATOR / PROVISIONING GAP OBSERVED** E18-E20: canonical issuer and JWKS observed; operator Admin Console in realm `reltroner` lists 8/8 clients with NO `lms-user`, NO `lms-admin`, NO legacy `lms-reltroner`. `hrm-web` and `hrm-demo-web` IDs listed (not proof HRM login). `aud=lms-api` remains unverified: audience is not necessarily a Clients-list entry. Do not create clients in Phase 4A-00. |
 | P4A00-AC09 | Four PostgreSQL DB/role/grant existence vs intended owned state | **PARTIAL_OPERATOR** E13-E17: PostgreSQL `18/main` online and pg_isready confirms 127.0.0.1:5432 accepting connections; no authenticated SQL, LMS DB existence/ownership, service-role GRANT, or cross-write isolation proof |
 | P4A00-AC10 | Redis topology, memory/keyspace/replay posture with no secret exposure | **PARTIAL_OPERATOR** E13-E14: redis-server unit active, binary 8.2.10, loopback 6379, Redis process RSS 14,716 KiB; actual server version/ACL/keyspace/eviction/replay NOT VERIFIED |
 | P4A00-AC11 | Cloudflare Pages real Production/main skipped state at eb01a4d2 + active deployment SHA | **PENDING_RUNTIME** (old Preview only E10) |
@@ -148,7 +148,7 @@ PASS_SOURCE = verified from current GitHub/documented owner decision; PARTIAL_OP
 | P4A-G06 | VPS service isolation/capacity unknown (PENDING_RUNTIME) | Shared Keycloak/HRM resource contention on historical small VPS | Measured memory/CPU/disk/worker/socket budget and no extra infrastructure purchase by assumption |
 | P4A-G07 | Cloudflare Production/main new merge skip unverified (PENDING_RUNTIME) | Unintended build/release confusion, potential live pages mismatch | Read-only UI receipt; production Pages changes require independent release approval |
 | P4A-G08 | External DNS/TLS/Pages/admin and asset origin unverified (TOOL_UNAVAILABLE) | Ingress/public/private separation and origin certificate checks pending | Explicit topology and user-accepted HTTP negative/positive test plan after evidence |
-| P4A-G09 | Source OIDC/API capability/auth contract not runtime-integrated (DEFERRED_PHASE4+) | Keycloak/HRM regressions and privilege escalation must be prevented | Per-client admin/user token tests in isolated later sandbox; do not fetch live tokens in Phase 4A-00 |
+| P4A-G09 | **Keycloak LMS browser-client absence observed in live realm list** E20 (PROVEN_OPERATOR_GUI); API audience/capability runtime still unverified | `lms-user` and `lms-admin` not displayed among the complete 8-client realm `reltroner` list, while FE legacy `.env.example` references absent `lms-reltroner`. `aud=lms-api` may use a mapper/scope, so cannot classify missing audience from the Clients list. Existing HRM clients must remain intact | Read-only scope/mapper inventory and HRM baseline first; future distinct owner-authorized, nonproduction reviewed provisioning plan and positive/negative token tests before any creation/cutover; never issue live tokens or alter realm in Phase 4A-00 |
 | P4A-G10 | Backup/restore, outbox correctness and observability uncertified (PENDING_RUNTIME) | Cannot guarantee durability or deploy rollback | Metadata inventory now; destructive recovery/restore drills only with isolated environment and new authorization |
 | P4A-G11 | Local primary FE old HEAD/3 changes (OPERATOR_OBSERVED) | Risk of wiping unfinished work on forced reset/pull | Owner inventory and preservation before a separately authorized local fast-forward, stash or worktree change |
 | P4A-G12 | Docs/contract chronologically stale source headers (HISTORICAL) | AI confusion if using old dated text as current authority | Always canonical README -> newest ledger -> frozen contract; do not retroactively rewrite frozen snapshots |
@@ -355,3 +355,40 @@ Observe only readiness and metadata. `pg_isready` does not validate four applica
 **Next approved read-only operator GUI collection:** In an **already authorized** Keycloak Admin Console session, select realm `reltroner` and inspect Clients by exact client ID `lms-user`, `lms-admin` and `lms-api` **if present**. Record only whether each exact ID exists, public/confidential client type, allowed redirect origin hostnames and intended audience mapper/scope names; redact any client secrets, user accounts, access tokens, realm signing-key material and unnecessary private URL parameters. Observe only; **do not save or edit**, assign permissions, generate/test tokens, change HRM client or attempt production authentication. If an exact client is absent, record NOT_FOUND rather than creating it. A Keycloak GUI screenshot alone does not prove JWT behavior; negative/positive token tests belong to a future separately approved isolated work order.
 
 **Hard boundary:** No software/configuration changes, test token issuance, production deployment or Phase 4B authorization. Phase 4A-00 remains **IN PROGRESS**.
+
+## 15. Keycloak reltroner client-list GUI evidence E20 (2026-10-10)
+
+**Evidence class:** OWNER_SUPPLIED_KEYCLOAK_ADMIN_GUI_READ_ONLY, in-browser screenshot received 2026-10-10. The captured UI shows Keycloak **current realm `reltroner`**, Manage > Clients > Clients list, with list count/pagination **1-8 of 8** and no visible search text/filter. The screenshot filename is not a trusted UTC/WIB clock source; **exact collection timestamp is not independently determined**. This public ledger stores the **sanitized evidence findings only**, not the screenshot, browser address bar, session context or admin account identifier.
+
+### Exact observed Client IDs
+
+| UI client ID | Shown in realm list | Scope of conclusion |
+|---|---|---|
+| `account` | YES | Built-in named client shown |
+| `account-console` | YES | Built-in named client shown |
+| `admin-cli` | YES | Built-in named client shown |
+| `broker` | YES | Built-in named client shown |
+| `hrm-demo-web` | YES | Existing HRM-related client ID shown; **no functional HRM login or authorization test performed** |
+| `hrm-web` | YES | Existing HRM-related client ID shown; preserve unchanged |
+| `realm-management` | YES | Built-in/realm-management named client shown |
+| `security-admin-console` | YES | Security admin-console named client shown |
+| **`lms-user`** | **NOT LISTED** | Frozen learner browser client is missing from the eight listed entries; **runtime provisioning gap observed in this GUI snapshot** |
+| **`lms-admin`** | **NOT LISTED** | Frozen independent admin browser client missing from the eight listed entries; **runtime provisioning gap observed in this GUI snapshot** |
+| **`lms-reltroner` (legacy FE example)** | **NOT LISTED** | Template legacy ID not found in this observed realm; no assertion about other realms or effective deployed FE env |
+| **`lms-api`** | **NOT LISTED AS CLIENT** | **NOT sufficient to prove missing audience**. Frozen contract specifies `aud=lms-api`; the effective audience may be configured through client scope/audience mapper rather than a dedicated Clients-list record. Inspect separately |
+
+The GUI displays the type column as **OpenID Connect** for all eight observed entries. It does **not** show access type/public/confidential posture, individual client attributes, Valid Redirect URIs, Web Origins, token audience/mapper settings, secret custody or runtime token behavior.
+
+**Frozen source contract reference:** [Phase 1 Logical Service Boundary & API, section 15](./logical-service-boundary-api-contract.md) specifies `lms-user` for `lms.reltroner.com`, `lms-admin` for `lms-admin.reltroner.com` (separate public browser clients using Authorization Code + PKCE), and API access tokens with `aud=lms-api`. Owner accepted Phase 3 contracts/CI and E18/E19 issuer/JWKS proof do **not** demonstrate that these runtime registrations existed before this GUI observation.
+
+### Gate and gap disposition
+
+- `P4A00-AC08 = PARTIAL_OPERATOR / PROVISIONING GAP OBSERVED`, **NOT PASS** and no automatic remediation. Keycloak issuer and JWKS public metadata previously PASS scoped subchecks; **two required LMS browser-client IDs visibly absent** from the complete current-realm list.
+- `P4A-G09` updated with observed absence of `lms-user`/`lms-admin`, linked to FE legacy template drift. This gap is a **future provisioning dependency**, not permission to create missing clients now.
+- `P4A00-AC11` Cloudflare Pages Production/main state, `AC12` comprehensive external DNS/TLS, and `AC14` HRM coexistence/regression remain unresolved. Existing HRM-related client IDs visible are **presence only**, not behavioral or permissions certification.
+- Do not infer that absent `lms-reltroner` in this realm proves the frontend is failing, since effective environment/realm in active deployments has not been inspected.
+- Do not infer that absence of `lms-api` on this Clients page disproves `aud=lms-api`: client scopes, protocol mappers and effective token issuance remain to be inventoried.
+
+**Next least-invasive GUI action:** Without saving or editing, open **Client scopes** in current realm and record **only** scope names and whether any LMS/audience mapper naming exists; scope/mappers may require per-client viewing when the browser clients are eventually provisioned in a separately approved phase. Alternatively inspect the existing **`hrm-web` > Settings** only for non-secret high-level fields, avoiding exposing redirect query values or sensitive account information. **Do not** click Create client, Import client, Save, Credentials, Roles assignment, or issue tokens. No Keycloak admin API mutation, changes to HRM, realm, client scope, DNS, Cloudflare, or production configuration are authorized.
+
+**Overall status:** Phase 4A-00 READ-ONLY DISCOVERY IN PROGRESS. Required LMS client creation/SSO cutover and real JWT/audience denial testing belong to a separate future owner-authorized implementation work order; Phase 4B / production NOT AUTHORIZED.
