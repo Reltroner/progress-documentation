@@ -227,5 +227,21 @@
     "owner_approval_to_start_Docker_or_real_databases": false,
     "architecture_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e43r_windows_remediation": {
+    "incident": "ZIP_SHA_PASS_BUT_EXTRACTED_FIVE_ALLOWLIST_FILES_HAVE_F4_PREFIX",
+    "original_e43_windows": "STOP_PRECHECK_BEFORE_SQL_EXECUTION",
+    "E41_windows_sqlite": "NOT_RUN",
+    "E44_windows_local_inventory": "NOT_RUN_BATCH_STOP",
+    "new_script": "LMS-P4B02-E43R-WINDOWS-E41-SQL-VERIFY-PS51.ps1",
+    "script_sha256": "F48B91A88F98FBF1438D52A5D3D1C2F0F1D6FB12EB6C6669E5161CFC047E9754",
+    "accepted_exact_layouts": [
+      "ROOT_FIVE_FILES_NO_DIRS",
+      "F4_FIVE_FILES_ONE_DIR"
+    ],
+    "zip_and_proof_content_modified": false,
+    "assistant_linux_sqlite_rerun": "8_OF_8_PASS_UNCHANGED_SOURCE",
+    "windows_e43r_rerun": "PENDING",
+    "production_authorized": false
   }
 }
