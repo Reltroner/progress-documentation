@@ -277,5 +277,26 @@
     "canonical_http_t02_executed": 0,
     "postgres18_redis8_actual_executed": false,
     "production_authorized": false
+  },
+  "e44c_checksum_remediation": {
+    "operator_e44b_report": "SHA256_MISMATCH_BLOCKED_BEFORE_E44B_EXECUTION",
+    "windows_e44b_actual_sha": "UNKNOWN_NOT_PROVIDED",
+    "original_container_e44b": {
+      "sha256": "15246790967ced14634c8e9b25a400f1921a0a7f87449b3b062482b352d9982b",
+      "bytes": 4766,
+      "text_encoding": "UTF8_NO_BOM_LF",
+      "lines": 95
+    },
+    "previous_artifact_format_claim": "UTF8_BOM_CRLF_INCORRECT",
+    "strategy": "DIRECT_IN_CHAT_PS51_WITHOUT_E44B_DOWNLOAD_SHA_GUARD_OR_OPTIONAL_CORRECTED_BOM_CRLF_E44C",
+    "optional_e44c_file": "LMS-P4B02-E44C-OFFLINE-SQLITE-DISCOVERY-PS51.ps1",
+    "optional_e44c_sha256": "4290E24E2CF626F61DC73369B421928DC40B86D613C28877D8FB2E7A350081E5",
+    "original_e44_sha256_required": "53734B5345D5C44E2B3B1803A4F5867BA58E70756E7D71CFB844A8B5A22559B2",
+    "local_php_sqlite_discovery": "PENDING_USER_WINDOWS_RUN",
+    "offline_e44_discovery": "PENDING_USER_WINDOWS_RUN",
+    "real_pg18_redis8_tested": false,
+    "canonical_T02_http_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
