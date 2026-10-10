@@ -1094,5 +1094,59 @@
     "canonical_t02_real_executed": 0,
     "owner_d02_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e46_f3c_r5b_sql_only_and_redis_local_uds_acl_review": {
+    "receipt": "phase4b-02-e46-f3c-r5b-sql-only-static-review-and-redis-uds-acl-zero-flush-security-contract-20261011.md",
+    "owner_request": "AUDIT_R5B_SQL_ONLY_AND_IMPROVE_REDIS_ENDPOINT_SECURITY_BEFORE_KEYSPACE_LOSS",
+    "verified_prior_r5a": {
+      "run_id": 38092783946,
+      "conclusion": "success",
+      "sandbox_main_sha": "3f8f923bf444f18b7ed5eed8ab738345f9b1a728",
+      "repository_runs": 1
+    },
+    "sql_only": {
+      "archive": "LMS-E46-F3C-R5B-SQL-only-Redis-security-review-20261011.zip",
+      "archive_sha256": "f87f189a00dea4ec46cdf7b1166a44ca0e87fce5236de816c12a2796ca979f94",
+      "size_bytes": 9317,
+      "sql_source_sha256": "a6a61eae93c9efd718ccbc34ff1b07433834cc71f410ff62a7a66a2e42284396",
+      "workflow_specimen_sha256": "5e5b9c17c949b1510139f19681e61b7ebd9a48f92fe45347a08cfbc50574df4b",
+      "job_services": [
+        "postgres"
+      ],
+      "redis_services": 0,
+      "sql_r01_r02_real_tests": 0,
+      "expected_sqlstate": "23505",
+      "sql_bash_syntax": "PASS",
+      "yaml_parse": "PASS",
+      "source_inline_exact": true,
+      "early_fail_lock_exercised": "PASS_EXIT_1_BEFORE_IO",
+      "initial_commit_authorized": false,
+      "first_run_authorized": false
+    },
+    "redis_security": {
+      "archive": "LMS-E46-F3C-R5B-Redis-UDS-ACL-security-review-20261011.zip",
+      "archive_sha256": "0d73b7f27fe45b05c040f2c21db91ade8173a3559ab550897db0f9e0e10a5cf8",
+      "size_bytes": 5115,
+      "source_sha256": "6c1bd7b58fa2ad974f9366f7a83196c98bd692c968eae81bc77c31b35d88b48d",
+      "security_workorder_sha256": "54135383e1d6bbc698246a9a103c528bfc3cd07a72f0e3615b5a9383b0a23b44",
+      "design": "SINGLE_REDIS_JOB_CONTAINER_NO_SERVICES_LOCAL_UNIX_SOCKET_ONLY_PORT_0_PRESTART_DEFAULT_OFF_ACL",
+      "server_authenticates_before_listening": "CANDIDATE_DESIGN_NOT_RUNTIME_VERIFIED",
+      "run_unique_random_acl_credentials": true,
+      "real_flushdb_commands_executed": 0,
+      "acl_dryrun_support": "OFFICIAL_REDIS_DOCS_SUPPORTED_RUNTIME_NOT_TESTED",
+      "source_bash_syntax": "PASS",
+      "early_fail_lock_exercised": "PASS_EXIT_1_BEFORE_IO",
+      "initial_commit_authorized": false,
+      "first_run_authorized": false,
+      "security_runtime_gate": "HOLD_NOT_RUN",
+      "combined_postgres_redis_pg_r03_topology": "NOT_APPROVED_OR_VERIFIED"
+    },
+    "code_committed_to_sandbox": false,
+    "github_actions_run_dispatched": false,
+    "additional_paid_resources_authorized": false,
+    "pg_r01_to_r10_executed": 0,
+    "canonical_t02_http_executed": 0,
+    "d02_owner_ratification": "HOLD",
+    "production_authorized": false
   }
 }

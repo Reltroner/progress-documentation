@@ -77,3 +77,8 @@ Further safety notes:
 **Absolute STOP:** No auto-rerun, no R5-B workflow commit, no SQL/Redis write, no modifications to LMS-BE/LMS-FE/VPS/production, no spending-cap change, no contract ratification, and no increment to replay/HTTP counters until their own exact evidence and explicit owner decisions exist.
 
 **Current:** `R5A_1_OF_1=SUCCESS_PASS` | `ACTIONS_RUN_COUNT=1` | `OWNER_R5A_DISPATCH_PERMISSION=CONSUMED` | `R5B=HOLD` | `PG_R=0/10` | `T02=0/86` | `D02=HOLD` | `PRODUCTION=UNTOUCHED`.
+
+
+## 5. E46-F3C R5B follow-up: SQL-only audit, standalone Redis UDS/ACL hardened-source review (2026-10-11)
+
+User requested independent R5B PostgreSQL fault-test review and resolving Redis target security *before* keyspace loss consideration. Separate **inert** SQL-only candidate has no Redis service and preserves SQLSTATE 23505/rollback assertions; separate **inert** Redis8 security-only candidate designs local Unix socket port 0, pre-start default-off ACL, ephemeral observer/auditor credentials and non-destructive ACL DRYRUN of FLUSHDB. Bash -n and unconditional early STOP tested for both; no actual SQL or Redis ACL job executed. [Full two-domain gate/readiness receipt](./phase4b-02-e46-f3c-r5b-sql-only-static-review-and-redis-uds-acl-zero-flush-security-contract-20261011.md). **R5B target security still HOLD_RUNTIME**, not claimed completely solved; no new workflow commit or run, no FLUSHDB, PG-R=0/10, T02=0/86, D02/production HOLD.
