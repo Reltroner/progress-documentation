@@ -1329,3 +1329,10 @@ Owner-supplied SSH read-only observation at **2026-10-10T09:42:49Z (16:42:49 WIB
 **Evidence boundary:** Cluster online is NOT proof that four service-owned LMS databases or role grants exist. One visible `.conf` file is NOT proof of full effective pool isolation. No LMS-named Nginx enabled site in this directory is NOT proof that no LMS routing can exist elsewhere. No config contents, SQL rows, keys/secrets, DNS/Cloudflare deployment or live JWT flows were examined.
 
 **Gate change:** `P4A00-AC07` remains PARTIAL_OPERATOR; `P4A00-AC09` upgrades PENDING_RUNTIME to **PARTIAL_OPERATOR for the cluster-online sub-evidence only**, not a passed four-database ownership criterion. This is [E16 in the existing Phase 4A-00 work order](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md) section 11. Phase 4A-00 exit OPEN, Phase 4B/production changes NOT AUTHORIZED.
+
+
+### 40.4 E17 - PostgreSQL TCP readiness and Nginx symlink/FPM file metadata (2026-10-10)
+
+Owner SSH read-only evidence timestamp **2026-10-10T09:48:14Z (16:48:14 WIB)**. `pg_isready -h 127.0.0.1 -p 5432` returned **accepting connections**, confirming PostgreSQL was ready to accept local TCP connection attempts but **not** proving successful authentication, LMS database existence, object ownership or least-privilege GRANTs. `find` confirmed three Nginx enabled names each symlinked to their matching sites-available path (auth.reltroner.com, default, hrm.reltroner.com.conf); the PHP 8.4-FPM pool configuration filename `www.conf` had size **22,133 bytes**. These are metadata-only facts; no Nginx effective config, upstreams, FPM pool contents or live LMS service routing were inspected.
+
+**Gate classification:** `P4A00-AC07=PARTIAL_OPERATOR`; `AC09=PARTIAL_OPERATOR`; neither acceptance gate passes on these narrow facts. Keycloak OIDC clients, PostgreSQL four LMS DB/roles/GRANTs, Redis replay/ACL, Cloudflare Production/main and HRM live/nonregression remain OPEN. The source of truth is [Phase 4A-00 work order §12 E17](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md). **No mutation, production release or Phase 4B authority**.

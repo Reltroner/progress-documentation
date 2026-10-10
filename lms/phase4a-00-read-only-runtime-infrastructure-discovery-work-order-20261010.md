@@ -121,9 +121,9 @@ PASS_SOURCE = verified from current GitHub/documented owner decision; PARTIAL_OP
 | P4A00-AC04 | Six-service source layout, tests/API implementation state, FE/OIDC templates | **PASS_SOURCE** E05-E07 |
 | P4A00-AC05 | Local primary clone state/dirty changes, no destructive synchronization | **PARTIAL_OPERATOR** E09, fresh local status PENDING |
 | P4A00-AC06 | Fresh timestamped VPS CPU/RAM/swap/disk/inode/capacity and version output | **PASS_OPERATOR_READ_ONLY** E13; single timestamped snapshot, not load test or six-service capacity certification |
-| P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E16: active units and PID ancestry, one PHP-FPM pool configuration filename `www.conf`, three Nginx enabled site filenames `auth.reltroner.com`, `default`, `hrm.reltroner.com.conf`; actual configuration/upstreams/routes, LMS pools and private service isolation NOT VERIFIED |
+| P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E17: active units/PIDs; three enabled Nginx symlinks verified to matching sites-available targets; only pool file `www.conf` (22,133 bytes); effective upstream/listener routes, FPM pool content, LMS six-service private exposure NOT VERIFIED |
 | P4A00-AC08 | Keycloak effective issuer/JWKS/client/audience and HRM nonregression baseline | **PENDING_RUNTIME** |
-| P4A00-AC09 | Four PostgreSQL DB/role/grant existence vs intended owned state | **PARTIAL_OPERATOR** E13-E16: PostgreSQL `18/main` cluster online on 5432 from pg_lsclusters; names/ownership of four LMS databases, role grants and cross-service restrictions NOT VERIFIED |
+| P4A00-AC09 | Four PostgreSQL DB/role/grant existence vs intended owned state | **PARTIAL_OPERATOR** E13-E17: PostgreSQL `18/main` online and pg_isready confirms 127.0.0.1:5432 accepting connections; no authenticated SQL, LMS DB existence/ownership, service-role GRANT, or cross-write isolation proof |
 | P4A00-AC10 | Redis topology, memory/keyspace/replay posture with no secret exposure | **PARTIAL_OPERATOR** E13-E14: redis-server unit active, binary 8.2.10, loopback 6379, Redis process RSS 14,716 KiB; actual server version/ACL/keyspace/eviction/replay NOT VERIFIED |
 | P4A00-AC11 | Cloudflare Pages real Production/main skipped state at eb01a4d2 + active deployment SHA | **PENDING_RUNTIME** (old Preview only E10) |
 | P4A00-AC12 | External vantage-point DNS/TLS for exact approved hostnames | **TOOL_UNAVAILABLE** E11, operator read-only pending |
@@ -300,3 +300,21 @@ find /etc/php/8.4/fpm/pool.d -maxdepth 1 -type f -name '*.conf' -printf '%f %s b
 Observe only readiness and metadata. `pg_isready` does not validate four application databases or database grants; successful client connection is not claimed. Do not run SQL with privilege escalation or print configurations/credentials without a separately reviewed evidence plan. No `sudo`, package installation, reload, restart, migrations, database writes, Cloudflare actions or Phase 4B authorization.
 
 **Status:** Phase 4A-00 remains **IN PROGRESS** with E13/E14/E15/E16 operator receipts archived; no production implementation authority.
+
+## 12. PostgreSQL connection-readiness and filesystem-link metadata E17 (2026-10-10)
+
+**Evidence class:** OWNER_SUPPLIED_OPERATOR_READ_ONLY, captured at **2026-10-10T09:48:14Z = 2026-10-10 16:48:14 WIB**. Commands: `pg_isready -h 127.0.0.1 -p 5432` and `find` metadata-only listings for Nginx enabled sites and PHP 8.4-FPM pool files. No sudo, database SQL, secret, application config content, service reload or modification was supplied.
+
+| Area | Observation | Specific limitation |
+|---|---|---|
+| PostgreSQL connection readiness | `127.0.0.1:5432 - accepting connections` | PostgreSQL responds as ready for connection attempts on loopback. **No successful authenticated connection, user or database query, application schema, privilege or cross-write denial is evidenced**. This narrows the cluster-online subproof of AC09 but **does not PASS AC09** |
+| Nginx enabled symlink: identity | `auth.reltroner.com -> /etc/nginx/sites-available/auth.reltroner.com` | File-target mapping only; does not prove listener/vhost routing, TLS or effective included config |
+| Nginx enabled symlink: default | `default -> /etc/nginx/sites-available/default` | File-target mapping only; no conclusion on default-host exposure |
+| Nginx enabled symlink: HRM | `hrm.reltroner.com.conf -> /etc/nginx/sites-available/hrm.reltroner.com.conf` | File-target mapping only; no HRM nonregression behavioral certification |
+| PHP-FPM pool metadata | `www.conf 22133 bytes` (under /etc/php/8.4/fpm/pool.d) | One observed pool configuration filename/size. **Contents, effective pool count, FPM socket mapping and allocation to HRM or LMS remain unknown** |
+
+**Gate delta:** `P4A00-AC07` stays **PARTIAL_OPERATOR** (symlink targets and pool size added). `P4A00-AC09` stays **PARTIAL_OPERATOR** (readiness positive, but all LMS service-owned DB/role/GRANT and auth proofs missing). `P4A00-AC08` remains PENDING, `AC10` PARTIAL, `AC11` PENDING and no other gate is upgraded. This evidence does not justify assuming LMS hostnames are deployed on this Nginx instance or that all six Laravel services can run safely on the shared 1-vCPU VPS.
+
+**Recommended next high-value read-only observation (no privileged DB session):** Inspect the canonical public OIDC discovery metadata on `auth.reltroner.com/realms/reltroner/.well-known/openid-configuration`, collecting only issuer, JWKS URI and public metadata presence, not user/admin tokens or secrets. A public OIDC discovery response does NOT establish `lms-user`/`lms-admin` client registrations, `lms-api` audience, or HRM login correctness. Perform DB catalog/role/GRANT metadata inspection only with an already authorized database read-only account and an agreed redaction plan; do not use `sudo -u postgres` by default.
+
+**Status:** Phase 4A-00 remains IN PROGRESS. No application, infrastructure, identity, DB, Redis or Cloudflare changes; Phase 4B/production NOT AUTHORIZED.
