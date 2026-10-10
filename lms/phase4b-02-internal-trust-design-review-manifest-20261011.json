@@ -298,5 +298,50 @@
     "canonical_T02_http_executed": 0,
     "design_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e45_php_sqlite_windows_proof": {
+    "owner_discovery": {
+      "php_cli": "FOUND",
+      "php_sqlite3": "PRESENT",
+      "php_pdo_sqlite": "PRESENT",
+      "windows_native_sqlite_dll": "PRESENT_NOT_INVOKED",
+      "e44_readonly": "PASS",
+      "docker_desktop_service": "STOPPED_READONLY_OBSERVATION",
+      "psql": "NOT_FOUND_ON_PATH",
+      "redis_server_cli": "FOUND_NOT_RUNTIME_VERIFIED",
+      "ram_total_gib": 15.33,
+      "ram_free_gib": 2.84,
+      "local_c_free_gib": 45.86,
+      "real_pg18_redis8_tested": false
+    },
+    "proposed_operator_files": [
+      {
+        "name": "LMS-P4B02-E45-PDO-SQLITE-PROOF.php",
+        "sha256": "4DBBD24D495587788FACF9D4B60D73625B5A1B8C04E5325CAA14DAA922928A35"
+      },
+      {
+        "name": "LMS-P4B02-E45-RUN-WINDOWS-PS51.ps1",
+        "sha256": "7EE19ED7FF1083572F9B53F7A09655B4411F6F1C5555744A9954DDABB40A89DE"
+      }
+    ],
+    "eight_scenarios": [
+      "SQL-001",
+      "SQL-002",
+      "SQL-003",
+      "SQL-004",
+      "SQL-005",
+      "SQL-006",
+      "SQL-007",
+      "SQL-008"
+    ],
+    "php_source_syntax_validation": "PASS_PHP_8_4_24_LINT_ONLY",
+    "assistant_runtime_limit": "PHP_CONTAINER_HAS_NO_PDO_SQLITE_EXTENSION",
+    "windows_executed": 0,
+    "windows_passed": 0,
+    "operator_execution": "PENDING",
+    "canonical_t02_http_executed": 0,
+    "source_implementation_authorized": false,
+    "owner_design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
