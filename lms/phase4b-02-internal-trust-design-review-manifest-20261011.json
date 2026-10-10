@@ -173,5 +173,27 @@
     "owner_design_ratification": "HOLD",
     "source_implementation_authorized": false,
     "production_authorized": false
+  },
+  "e41_sql_engine": {
+    "record": "phase4b-02-e41-sqlite-transactional-durability-supplement-20261011.md",
+    "engine": "ACTUAL_SQLITE3_TRANSACTION_ENGINE_NOT_POSTGRESQL18",
+    "executor": "assistant isolated container Python3.13 standard-library sqlite3",
+    "tests": {
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "real_process_concurrency": true,
+      "child_precommit_crash_rollback": true,
+      "simulated_redis_flush_did_not_erase_sql_ledger": true
+    },
+    "source_sha256": "A6BEAA88238F7C31D49268FA049BAD6928162444B31AC51A667440241F872859",
+    "proof_zip_sha256": "7C06EBE907102C6B01CD939FEE3124363620581444CB24D3D9C5601BE5DFABE3",
+    "proof_zip_in_docs_git": false,
+    "real_redis8_run": false,
+    "real_postgres18_run": false,
+    "pg18_wal_and_replica_failover_tested": false,
+    "experimental_tests_outside_canonical_t02": 38,
+    "canonical_http_t02_executed": 0,
+    "design_ratification": "HOLD"
   }
 }
