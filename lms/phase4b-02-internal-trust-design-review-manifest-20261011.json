@@ -336,12 +336,34 @@
     ],
     "php_source_syntax_validation": "PASS_PHP_8_4_24_LINT_ONLY",
     "assistant_runtime_limit": "PHP_CONTAINER_HAS_NO_PDO_SQLITE_EXTENSION",
-    "windows_executed": 0,
-    "windows_passed": 0,
-    "operator_execution": "PENDING",
+    "windows_executed": 8,
+    "windows_passed": 8,
+    "operator_execution": "OWNER_REPORTED_ALL_EIGHT_PASS_20261011T032250_PLUS0700",
     "canonical_t02_http_executed": 0,
     "source_implementation_authorized": false,
     "owner_design_ratification": "HOLD",
-    "production_authorized": false
+    "production_authorized": false,
+    "acceptance": "PROVEN_SCOPED_WINDOWS_PDO_SQLITE_ONLY",
+    "operator_markers": [
+      "E45_GATE01_PHP_SOURCE_SHA256=PASS",
+      "E45_GATE02_LOCAL_PDO_SQLITE=PASS",
+      "E45_GATE03_PHP_SYNTAX=PASS",
+      "SQL_SUMMARY total=8 passed=8 failed=0",
+      "E45_GATE04_PHP_PROCESS_EXIT=PASS_0",
+      "E45_GATE05_SQLITE_SCENARIOS=PASS_8_OF_8",
+      "E45_FINAL_RESULT=PASS_LOCAL_PDO_SQLITE_8_OF_8"
+    ]
+  },
+  "e46_f0_isolation": {
+    "record": "phase4b-02-e46-e45-windows-sql-proof-acceptance-and-isolated-pg18-redis8-gate-20261011.md",
+    "script": "LMS-P4B02-E46-F0-OFFLINE-ISOLATION-PREFLIGHT-PS51.ps1",
+    "sha256": "560038D47ADB98FCA547C74D9CF089A527EC798707461D68731BB236920C389B",
+    "script_utf8_bom_crlf_lines": 144,
+    "runtime": "WINDOWS_POWERSHELL_5_1_NOT_RUN_OPERATOR",
+    "safety": "METADATA_READ_ONLY_NO_DOCKER_DAEMON_NO_NETWORK_NO_SERVICE_START",
+    "real_pg18_redis8_executed": false,
+    "postgres_tests_planned": 10,
+    "owner_approval_to_start_containers": false,
+    "design_ratification": "HOLD"
   }
 }
