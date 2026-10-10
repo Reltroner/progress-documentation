@@ -982,10 +982,10 @@
     "host_service_port_mappings": 0,
     "diagnostic_mutating_pg_commands": 0,
     "diagnostic_mutating_redis_commands": 0,
-    "github_action_runs_after_commit": 0,
+    "github_action_runs_after_commit": 1,
     "first_workflow_commit_gate": "PASS_VERIFIED",
     "first_manual_job_authorized": true,
-    "first_manual_job_review": "OWNER_APPROVED_ONCE_DISPATCH_NOT_EXECUTED",
+    "first_manual_job_review": "ONE_OWNER_RUN_CONSUMED_ACTUAL_PASS_20261011",
     "budget": "ACTIONS_ZERO_USD_STOP_USAGE_YES_OWNER_GUI_SNAPSHOT",
     "runner_upgrade_authorized": false,
     "secret_addition_authorized": false,
@@ -999,8 +999,8 @@
     "receipt": "phase4b-02-e46-f3c-r5a-owner-first-run-approval-and-dispatch-operator-handoff-20261011.md",
     "requested_scope": "ONE_R5A_WORKFLOW_DISPATCH_EXACT_MAIN_SHA",
     "owner_approved": true,
-    "authorized_once_not_consumed": true,
-    "first_run_executed": false,
+    "authorized_once_not_consumed": false,
+    "first_run_executed": true,
     "dispatch_tool_available_in_connected_github": false,
     "reason_not_dispatched": "NO_DISPATCH_NEW_WORKFLOW_ACTION_AND_BUDGET_PRIVATE_NOT_FRESHLY_RECHECKABLE",
     "expected_repo": "Reltroner/lms-trust-sandbox",
@@ -1024,6 +1024,75 @@
     "changes_to_production_allowed": false,
     "pg_r01_to_r10_executed": 0,
     "canonical_http_t02_executed": 0,
-    "d02_ratification": "HOLD"
+    "d02_ratification": "HOLD",
+    "actual_run_id": 38092783946,
+    "consumption": "OWNER_GUI_DISPATCH_CONSUMED_ATTEMPT_1"
+  },
+  "e46_f3c_r5a_actual_runtime_acceptance": {
+    "receipt": "phase4b-02-e46-f3c-r5a-actual-github-actions-pg18-redis8-runtime-acceptance-20261011.md",
+    "run_url": "https://github.com/Reltroner/lms-trust-sandbox/actions/runs/38092783946",
+    "run_id": 38092783946,
+    "workflow_id": 380865984,
+    "job_id": 114332472709,
+    "repo": "Reltroner/lms-trust-sandbox",
+    "workflow_path": ".github/workflows/e46-f3b-r5a-diagnostic.yml",
+    "head_sha": "3f8f923bf444f18b7ed5eed8ab738345f9b1a728",
+    "event": "workflow_dispatch",
+    "branch": "main",
+    "run_attempt": 1,
+    "run_number": 1,
+    "run_created_at_utc": "2026-10-10T22:48:26Z",
+    "run_updated_at_utc": "2026-10-10T22:48:48Z",
+    "status": "completed",
+    "conclusion": "success",
+    "job_count": 1,
+    "job_conclusion": "success",
+    "all_job_steps_success": true,
+    "runner_image": "ubuntu-24.04",
+    "wall_elapsed_seconds_estimate": 22,
+    "github_repo_actions_run_count": 1,
+    "artifacts_uploaded": 0,
+    "confirmed_actual_runtime": {
+      "job_and_service_container_network": "PASS_SCOPED_SAME_NETWORK_DISTINCT_IDS",
+      "postgres_server_version_num": 180006,
+      "postgres_server_version": "18.6",
+      "postgres_default_and_current_transaction_readonly": "PASS",
+      "redis_server_version": "8.10.2",
+      "redis_ping_info_dbsize": "PASS",
+      "redis_initial_db_empty": true,
+      "bash_psql_pg_isready_gnu_timeout": "PASS_BY_WORKFLOW_COMPLETED",
+      "container_cleanup": "SUCCESS"
+    },
+    "warnings": [
+      {
+        "severity": "P1_BLOCKS_FUTURE_DESTRUCTIVE_REDIS",
+        "issue": "REDIS8_NO_AUTH_OR_NETWORK_RESTRICTIONS_LOG_WARNING",
+        "mitigation": "Require independently reviewed disposable authenticated/isolated target design and new owner authorization before FLUSHDB"
+      },
+      {
+        "severity": "NOTICE",
+        "issue": "POSTGRES_INITDB_LOCAL_TRUST_AUTH_WARNING",
+        "mitigation": "No production policy inference; 4 DB owner grants separate"
+      },
+      {
+        "severity": "NOTICE",
+        "issue": "SYNTHETIC_PASSWORD_IN_SETUP_LOG_OUTPUT",
+        "mitigation": "No raw log publication, never reuse on production"
+      },
+      {
+        "severity": "NOTICE",
+        "issue": "POST_RUN_BILLABLE_COST_NOT_INDEPENDENTLY_RECHECKED",
+        "mitigation": "No claim of proven zero invoiced cost"
+      }
+    ],
+    "budget_owner_gui_pre_run": "ACTIONS_SPENT_0_BUDGET_0_STOP_USAGE_YES",
+    "budget_post_run": "NOT_RECHECKED",
+    "first_run_owner_consent": "CONSUMED_ONE_ATTEMPT",
+    "rerun_authorized": false,
+    "destructive_r5b_authorized": false,
+    "pg_r01_to_r10_real_executed": 0,
+    "canonical_t02_real_executed": 0,
+    "owner_d02_ratification": "HOLD",
+    "production_authorized": false
   }
 }
