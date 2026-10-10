@@ -122,7 +122,7 @@ PASS_SOURCE = verified from current GitHub/documented owner decision; PARTIAL_OP
 | P4A00-AC05 | Local primary clone state/dirty changes, no destructive synchronization | **PARTIAL_OPERATOR** E09, fresh local status PENDING |
 | P4A00-AC06 | Fresh timestamped VPS CPU/RAM/swap/disk/inode/capacity and version output | **PASS_OPERATOR_READ_ONLY** E13; single timestamped snapshot, not load test or six-service capacity certification |
 | P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E17: active units/PIDs; three enabled Nginx symlinks verified to matching sites-available targets; only pool file `www.conf` (22,133 bytes); effective upstream/listener routes, FPM pool content, LMS six-service private exposure NOT VERIFIED |
-| P4A00-AC08 | Keycloak effective issuer/JWKS/client/audience and HRM nonregression baseline | **PARTIAL_OPERATOR / PROVISIONING GAP OBSERVED** E18-E20: canonical issuer and JWKS observed; operator Admin Console in realm `reltroner` lists 8/8 clients with NO `lms-user`, NO `lms-admin`, NO legacy `lms-reltroner`. `hrm-web` and `hrm-demo-web` IDs listed (not proof HRM login). `aud=lms-api` remains unverified: audience is not necessarily a Clients-list entry. Do not create clients in Phase 4A-00. |
+| P4A00-AC08 | Keycloak effective issuer/JWKS/client/audience and HRM nonregression baseline | **PARTIAL_OPERATOR / LMS CLIENT PROVISIONING GAP OBSERVED** E18-E22: issuer/JWKS verified; 8 listed clients lack `lms-user`/`lms-admin`, 17 listed scopes have no LMS-named scope, 6 realm roles and 11 auth flows observed; current token/session/login/brute-force policies recorded. HRM Phase 6 frozen identity/client/flow details are historical accepted baseline, not fresh live behavior. Dedicated OIDC `roles` mapper and `aud=lms-api` claim, client overrides, LMS PKCE/JWT, HRM live nonregression remain UNVERIFIED. No mutations. |
 | P4A00-AC09 | Four PostgreSQL DB/role/grant existence vs intended owned state | **PARTIAL_OPERATOR** E13-E17: PostgreSQL `18/main` online and pg_isready confirms 127.0.0.1:5432 accepting connections; no authenticated SQL, LMS DB existence/ownership, service-role GRANT, or cross-write isolation proof |
 | P4A00-AC10 | Redis topology, memory/keyspace/replay posture with no secret exposure | **PARTIAL_OPERATOR** E13-E14: redis-server unit active, binary 8.2.10, loopback 6379, Redis process RSS 14,716 KiB; actual server version/ACL/keyspace/eviction/replay NOT VERIFIED |
 | P4A00-AC11 | Cloudflare Pages real Production/main skipped state at eb01a4d2 + active deployment SHA | **PENDING_RUNTIME** (old Preview only E10) |
@@ -148,7 +148,7 @@ PASS_SOURCE = verified from current GitHub/documented owner decision; PARTIAL_OP
 | P4A-G06 | VPS service isolation/capacity unknown (PENDING_RUNTIME) | Shared Keycloak/HRM resource contention on historical small VPS | Measured memory/CPU/disk/worker/socket budget and no extra infrastructure purchase by assumption |
 | P4A-G07 | Cloudflare Production/main new merge skip unverified (PENDING_RUNTIME) | Unintended build/release confusion, potential live pages mismatch | Read-only UI receipt; production Pages changes require independent release approval |
 | P4A-G08 | External DNS/TLS/Pages/admin and asset origin unverified (TOOL_UNAVAILABLE) | Ingress/public/private separation and origin certificate checks pending | Explicit topology and user-accepted HTTP negative/positive test plan after evidence |
-| P4A-G09 | **Keycloak LMS browser-client absence observed in live realm list** E20 (PROVEN_OPERATOR_GUI); API audience/capability runtime still unverified | `lms-user` and `lms-admin` not displayed among the complete 8-client realm `reltroner` list, while FE legacy `.env.example` references absent `lms-reltroner`. `aud=lms-api` may use a mapper/scope, so cannot classify missing audience from the Clients list. Existing HRM clients must remain intact | Read-only scope/mapper inventory and HRM baseline first; future distinct owner-authorized, nonproduction reviewed provisioning plan and positive/negative token tests before any creation/cutover; never issue live tokens or alter realm in Phase 4A-00 |
+| P4A-G09 | **LMS browser clients absent and no LMS-named scope shown** E20-E22 (OPERATOR_GUI); API audience/capability runtime still unverified | Complete visible 8-client realm list lacks `lms-user` and `lms-admin`; 17-client-scope inventory lacks LMS-named scope. Generic OIDC `roles` mapper was NOT inspected (provided screenshot is SAML `role_list`). `aud=lms-api` could use a protocol mapper/dedicated client scope; no effective-token proof. Historical frozen HRM identity gates and present production/demo scopes must stay untouched | Future independently authorized nonproduction client provisioning/audience mapper design with exact redirection, Authorization Code + PKCE S256, capability denial, HRM nonregression; no client creation, mapper edits or live token generation in 4A-00 |
 | P4A-G10 | Backup/restore, outbox correctness and observability uncertified (PENDING_RUNTIME) | Cannot guarantee durability or deploy rollback | Metadata inventory now; destructive recovery/restore drills only with isolated environment and new authorization |
 | P4A-G11 | Local primary FE old HEAD/3 changes (OPERATOR_OBSERVED) | Risk of wiping unfinished work on forced reset/pull | Owner inventory and preservation before a separately authorized local fast-forward, stash or worktree change |
 | P4A-G12 | Docs/contract chronologically stale source headers (HISTORICAL) | AI confusion if using old dated text as current authority | Always canonical README -> newest ledger -> frozen contract; do not retroactively rewrite frozen snapshots |
@@ -392,3 +392,131 @@ The GUI displays the type column as **OpenID Connect** for all eight observed en
 **Next least-invasive GUI action:** Without saving or editing, open **Client scopes** in current realm and record **only** scope names and whether any LMS/audience mapper naming exists; scope/mappers may require per-client viewing when the browser clients are eventually provisioned in a separately approved phase. Alternatively inspect the existing **`hrm-web` > Settings** only for non-secret high-level fields, avoiding exposing redirect query values or sensitive account information. **Do not** click Create client, Import client, Save, Credentials, Roles assignment, or issue tokens. No Keycloak admin API mutation, changes to HRM, realm, client scope, DNS, Cloudflare, or production configuration are authorized.
 
 **Overall status:** Phase 4A-00 READ-ONLY DISCOVERY IN PROGRESS. Required LMS client creation/SSO cutover and real JWT/audience denial testing belong to a separate future owner-authorized implementation work order; Phase 4B / production NOT AUTHORIZED.
+
+## 16. Batch Keycloak scope, realm-role, session, token and authentication-policy GUI evidence E21-E22 (2026-10-10)
+
+**Evidence collection:** Owner-provided read-only screenshot of realm `reltroner` Client scopes (E21), two screenshots of a mapper details page and Realm roles (E22), and operator-supplied GUI text exports/pastes for Realm settings > Sessions/Tokens/Security defenses/Login and Authentication > Flows (E22). These were received during 2026-10-10 in the chat; **exact independently attested screenshot capture times are unavailable**. The evidence below is a sanitized summary; no Admin Console account name, browser session URL, client secret, token, user identity or entire screenshot is committed. Screen/text evidence is not a production behavioral test and no Keycloak state mutation was requested.
+
+### E21 - complete visible client scopes list: 17/17
+
+| Scope name | Assignment type shown | Protocol shown |
+|---|---|---|
+| acr | Default | OpenID Connect |
+| address | Optional | OpenID Connect |
+| AuthnContextClassRef | Default | SAML |
+| basic | Default | OpenID Connect |
+| email | Default | OpenID Connect |
+| hrm-demo-identity | None | OpenID Connect |
+| hrm-production-identity | None | OpenID Connect |
+| microprofile-jwt | Optional | OpenID Connect |
+| offline_access | Optional | OpenID Connect |
+| organization | Optional | OpenID Connect |
+| phone | Optional | OpenID Connect |
+| profile | Default | OpenID Connect |
+| role_list | Default | SAML |
+| roles | Default | OpenID Connect |
+| saml_organization | Default | SAML |
+| service_account | None | OpenID Connect |
+| web-origins | Default | OpenID Connect |
+
+**Conclusion:** No explicitly LMS-named client scope appears in this observed 17-entry realm list. Absence of LMS-named scope is not conclusive absence of a resource audience protocol mapper. **Assignment type `None` for the two HRM scopes is a realm-level assigned-type field, NOT proof the scope is unassigned from the corresponding HRM clients.** HRM frozen Phase 6 §6 records scope-to-client association historically. `offline_access` is available as an *optional scope*; this **does not prove any active HRM/LMS access token includes it**.
+
+### E22 - inspected mapper is SAML `role_list`, not OIDC `roles`
+
+The submitted Mapper details screenshot shows **Mapper type `Role list`**, mapper name `role list`, **Role attribute name `Role`**, SAML Attribute NameFormat `Basic`, Single Role Attribute OFF, and a blank Friendly Name. This is a **SAML role-list mapper**, not the OIDC `roles` client-scope protocol mapper. **No generic OIDC role/audience mapper was inspected and `aud=lms-api` remains unverified.** Viewing an editable mapper form is not evidence that Save was used; no mutation reported.
+
+### E22 - Realm roles: visible 6/6
+
+| Role name | Composite (GUI) | Notes |
+|---|---|---|
+| default-roles-reltroner | True | Composite default realm role |
+| demo_user | False | Historical Phase 6 demo identity classification |
+| offline_access | False | Built-in role; presence does not prove use |
+| production_user | False | Historical Phase 6 production identity classification |
+| service_account | False | Historical Phase 6 nonhuman/service classification |
+| uma_authorization | False | Built-in authorization role |
+
+These observed identity roles match the HRM historical identity-class taxonomy, but **do not prove effective account assignments or live HRM environment isolation**.
+
+### E22 - Realm settings > Sessions (operator-visible fields)
+
+| Setting | Observed |
+|---|---|
+| SSO Session Idle | 30 minutes |
+| SSO Session Max | 10 hours |
+| Client Session Idle | 0 minutes |
+| Client Session Max | 0 minutes |
+| Offline Session Idle | 30 days |
+| Client Offline Session Idle | 0 minutes |
+| Offline Session Max Limited | Disabled |
+| Login timeout | 5 minutes |
+| Login action timeout | 5 minutes |
+
+**Interpretation guard:** zero client-session override values may denote inherit/default behavior in Keycloak; do **not** claim unlimited client sessions. Offline session configuration availability does not establish `offline_access` has been requested/granted by a client.
+
+### E22 - Realm settings > Tokens
+
+| Setting | Observed |
+|---|---|
+| Default Signature Algorithm | RS256 |
+| Revoke Refresh Token | Disabled |
+| Access Token Lifespan | 5 minutes |
+| Access Token Lifespan For Implicit Flow | 15 minutes |
+| OAuth 2.0 Device Code Lifespan | 10 minutes |
+| OAuth 2.0 Device Polling Interval | 5 (unit not reliably captured in submitted text) |
+| Lifetime of Request URI for Pushed Authorization Request | 1 minute |
+| Client Login Timeout | 1 minute |
+| User-Initiated Action Lifespan | 5 minutes |
+| Default Admin-Initiated Action Lifespan | 12 hours |
+
+**Interpretation guard:** an Implicit Flow *lifespan setting* is **not proof that the implicit grant is enabled** on any client; HRM Phase 6 baseline specifically says client Implicit Flow OFF. Revoke Refresh Token Disabled is a real policy setting to include in future LMS session/revocation risk review, not permission to toggle or remediate this realm now. Current RS256 setting is consistent with E19's advertised Keycloak signing-key metadata; runtime JWT validation is still UNVERIFIED.
+
+### E22 - Realm settings > Security defenses, brute-force fields
+
+| Setting | Observed |
+|---|---|
+| Brute Force Mode | Lockout temporarily |
+| Max login failures | 10 |
+| Maximum Secondary Authentication Failures | 0 |
+| Strategy to increase wait time | Multiple |
+| Wait increment | 1 minute |
+| Max wait | 15 minutes |
+| Failure reset time | 12 hours |
+| Quick login check milliseconds | 1000 |
+| Minimum quick login wait | 1 minute |
+
+These are visible policy fields, not a stress/lockout test or confirmation of every effective Keycloak security header.
+
+### E22 - Authentication > Flows (visible 11/11)
+
+`browser` (built-in), `clients` (built-in), `direct grant` (built-in), `docker auth` (built-in), `first broker login` (built-in), `registration` (built-in), `reset credentials` (built-in), **`browser-hrm-demo-v2`**, **`browser-hrm-production-v2`**, `browser-hrm-demo` (Not in use), `browser-hrm-production` (Not in use).
+
+The `v2` flows are present as expected from HRM Phase 6 frozen contract §5. The supplied list does **not** prove which specific HRM client currently has the matching browser-flow override, nor re-execute cross-environment auth denial. Both `v2` entries have a description referring to production HRM; this could be a cosmetic description mismatch on the demo flow, not an observed security failure. Built-in `direct grant` flow **existing** does NOT imply Direct Access Grants are enabled for HRM clients.
+
+### E22 - Realm settings > Login (operator-visible fields)
+
+| Field | Observed |
+|---|---|
+| User registration | Off |
+| Forgot password | Off |
+| Remember me | Off |
+| Enable Passkeys | Off |
+| Email as username | Off |
+| Login with email | On |
+| Duplicate emails | Off |
+| Verify email | Off |
+| Edit username | Off |
+
+These settings are realm-wide; they do not establish a complete client-local authentication-policy acceptance or business-authorization behavior.
+
+### Frozen HRM evidence reuse - no duplicate GUI probes required
+
+Owner directed reuse of **[HRM Phase 6 Keycloak-side frozen receipt](https://github.com/Reltroner/reltroner-hr-app/blob/main/docs/engineering/PHASE-6-KEYCLOAK-SIDE-COMPLETE-FROZEN.md)** (freeze 2026-09-22) plus **[HRM master architecture](https://github.com/Reltroner/reltroner-hr-app/blob/main/docs/engineering/ARCHITECTURE-CONTRACT.md)**. HRM Phase 6 provides historical acceptance of confidential `hrm-web`/`hrm-demo-web`, distinct secrets, exact production/demo callbacks and postlogout URIs, PKCE S256 and disabled grant surfaces, Full Scope Allowed OFF, identity scope mapper `reltroner_identity_class` and two `browser-hrm-*-v2` gates; negative classification, cross-environment SSO-cookie denial and persistence were historically tested. User explicitly reports no Keycloak GUI changes since documenting these contracts. Treat this as **FROZEN_HISTORICAL + OWNER_NONMUTATION_ATTESTATION**, not as an independently re-executed current HRM auth test. Do not change HRM or demand screenshot re-proving every frozen Phase 6 assertion.
+
+### Phase 4A-00 Keycloak discovery exit disposition vs implementation gates
+
+**SCREENSHOT/GUIONLY DISCOVERY INPUT: SUFFICIENT FOR PLANNING**, with **P4A00-AC08 still PARTIAL / LMS PROVISIONING GAP OBSERVED**. Existing `lms-user` and `lms-admin` missing (E20), no LMS scope name in 17/17 scope list (E21), `aud=lms-api` effective mapper/token still UNVERIFIED (SAML mapper screenshot cannot support it). JWT cryptographic negative testing, registration of new clients/scopes, PKCE redirect acceptance, HRM live regression and Keycloak client-specific actual override checks remain **later separately authorized scoped implementation/test** unless owner explicitly asks for more read-only evidence. **Do not claim Phase 4A-00 or 18 overall gates closed**, because Cloudflare, DNS/TLS, database owner grants, Redis security, backups and operator sign-off are still pending.
+
+**Batch acceptance:** No additional Keycloak GUI screenshot is mandatory for a Phase 4A-00 *discovery-only handoff*, assuming owner accepts historical HRM evidence reuse and explicit unresolved LMS runtime identity gaps. An optional, nonblocking one-screen check of OIDC `Client scopes -> roles -> Mappers` (not SAML `role_list`) could narrow generic mapper unknowns, but it cannot establish `aud=lms-api` in a token before the LMS browser clients and their audience policies exist. It must NOT trigger extra clients, Save, Evaluate, Credentials or token issuance.
+
+**Next phase-4A work area:** Return to read-only PostgreSQL database/owner/GRANT inventory, Redis effective runtime configuration metadata, and Cloudflare Production/main evidence; protect existing HRM and Keycloak. **NO runtime or production mutation / Phase 4B authorization.**
