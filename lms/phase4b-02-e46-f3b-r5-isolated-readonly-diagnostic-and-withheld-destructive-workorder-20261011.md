@@ -68,3 +68,8 @@ Intended, not executed: PG-R01 two SQL clients contest unique nonce (one persist
 **Only after R5-A real PASS** begin R5-B final risk/source review. Require explicit new owner commit and execution approvals before any CREATE/INSERT/ROLLBACK/FLUSHDB commands. Do not let approval of R5-A imply approval of R5-B.
 
 No LMS-BE/LMS-FE, Keycloak, VPS, public production databases, Cloudflare, HRM or production settings were changed by R5.
+
+
+## 6. R5-A first default-branch bootstrap actually executed and verified (2026-10-11)
+
+**Superseding current state:** user requested first commit limited to exact reviewed R5-A diagnostic only, WITHOUT job run. The assistant performed final static source review, improved PostgreSQL SELECT to verify active `transaction_read_only=on` as well as default, anchored Redis8 version regex, then committed **one** `.github/workflows/e46-f3b-r5a-diagnostic.yml` to previously empty `Reltroner/lms-trust-sandbox/main`. Actual root commit `3f8f923bf444f18b7ed5eed8ab738345f9b1a728` parent count 0; GitHub returned YAML blob `d2f616c72e7c225431b54b2fa51d0e5b7b4139b8`. **Post-commit GitHub content SHA256 equals locally audited final YAML `1e318115f31d15fc5feb7d0af0cb18c704a62c1e8d94f030809dbb1b2e4e10a4`**. One tree leaf file, branch main only and Actions runs **0**. R5-B still absent/uncommitted/locked. Initial commit approval consumed; NO approval to dispatch. [Exact source, immutable SHA, and separate F3-C first-run GO/NO-GO matrix](./phase4b-02-e46-f3b-r5a-first-diagnostic-bootstrap-commit-and-first-run-decision-20261011.md). 4/4 fake RESP tests incl malformed version, no real PG/Redis runtime; first-run proposal CONDITIONAL_GO_ONLY_IF_OWNER_SEPARATELY_APPROVES. PG-R 0/10, T02 0/86; D02/production HOLD.
