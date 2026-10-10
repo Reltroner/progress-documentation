@@ -692,5 +692,48 @@
     "canonical_http_t02_executed": 0,
     "design_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e46_f3b_r2_allowlist_visible_and_static_candidate": {
+    "record": "phase4b-02-e46-f3b-r2-origin-allowlist-evidence-and-static-first-workflow-review-20261011.md",
+    "owner_screenshot": "SANDBOX_ACTIONS_GENERAL_20261011",
+    "visible_allowed_actions": "ALLOW_RELTRONER_ACTIONS_AND_REUSABLE_WORKFLOWS_SELECTED",
+    "full_length_commit_sha_checked": true,
+    "success_toast_visible": "Default workflow permissions settings saved.",
+    "success_toast_is_actions_policy_confirmation": false,
+    "policy_persisted_after_refresh": "UNVERIFIED_REQUEST_OWNER_CTRL_R_SCREENSHOT",
+    "retention_days_observed": 90,
+    "manual_workflow_yaml_candidate": {
+      "name": "candidate.yml",
+      "lines": 136,
+      "sha256": "88516d1925c4b03286c27d90dfd124268dcc237395cf0a6bc958b963e55dd5e2",
+      "yaml_base_loader_parse": "OFFLINE_PASS",
+      "static_invariants": "OFFLINE_PASS",
+      "runnable_source_in_github": false
+    },
+    "bash_sql_redis_client_candidate": {
+      "name": "initial-lab.sh",
+      "lines": 93,
+      "sha256": "79992c8dc5c06e8a4c93c805fb80d257d48156cd3696627c8ad5e9a27e88ba3f",
+      "bash_n_syntax": "OFFLINE_PASS",
+      "runtime_tested": false,
+      "runnable_source_in_github": false
+    },
+    "workflow_explicit_triggers": [
+      "workflow_dispatch"
+    ],
+    "external_actions_uses": 0,
+    "job_count": 1,
+    "timeout_minutes": 10,
+    "service_names": [
+      "postgres",
+      "redis"
+    ],
+    "host_published_ports": 0,
+    "real_database_test_cases_executed": 0,
+    "canonical_http_tests_executed": 0,
+    "approval_first_sandbox_default_branch_commit": false,
+    "approval_first_manual_run": false,
+    "owner_design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
