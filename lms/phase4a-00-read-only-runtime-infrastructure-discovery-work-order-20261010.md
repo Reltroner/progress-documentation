@@ -817,3 +817,51 @@ Dependencies can be designed in parallel; **none** is implicitly authorized by a
 **No-mutation and security stop:** Do not create routes, identities, databases, Redis keys, new hostnames, admin projects, DNS/TLS policies, buy daily backups, execute backup/restore, change HRM/Keycloak, merge source apps, update local dirty FE, or change frozen architecture under Phase4A. This E30 only adds reviewable documentation and read-only source facts.
 
 **E30 checkpoint:** `PHASE4A_E29_FINAL_AUDIT_CANDIDATE -> G01-G13_13/13_DISCOVERY_TRIAGED -> GAPS_REMAIN_IMPLEMENTATION_OPEN -> AC18_OWNER_PENDING -> PHASE4B_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
+
+## 26. E31 — Phase 4A-00 owner-conditional final discovery acceptance / CLOSED WITH RESIDUALS (2026-10-10)
+
+> **CURRENT AUTHORITY OVERLAY (later than historical §§1–25):** **PHASE 4A-00 = CLOSED / OWNER-CONDITIONALLY ACCEPTED / READ-ONLY DISCOVERY ONLY**. `P4A00-AC18 = PASS_OWNER_DISCOVERY_CLOSEOUT_WITH_EXPLICIT_RESIDUALS`. **This DOES NOT mean 18/18 gates PASS, G01–G13 remediated, six LMS services deployed, or Phase 4B/production authorized.** Previous statements in this file that say `AC18 PENDING` are dated historical evidence from before this closure.
+
+### 26.1 Owner decision, actual rationale and GitHub integration
+
+**Owner's exact conditional instruction in conversation (2026-10-10 Asia/Jakarta):** “kalau kamu yakin semua gaps telah di indentifikasi bila PR #39 di merge, maka kita bisa langsung merge dan close PHASE 4A-00. sekarang kamu yang pikirkan dan reasoning”. This is **conditional delegated approval**, not an unconditional blanket waiver of unresolved requirements. The reviewing assistant assessed **all 13 KNOWN registered gaps G01–G13** as fully **triaged** (each carries source/operator evidence, provenance, missing acceptance, risk and a bounded next owner decision), judged the read-only discovery handoff sufficient, and exercised the owner's stated condition. “All gaps” here means **all gaps currently enumerated in the frozen-scope discovery register**; **it is impossible to guarantee no unknown gaps will be discovered during implementation or later testing**. No missing evidence has been invented to justify closeout.
+
+**PR #39:** [Phase 4A E27–E30 final audit, G01–G13 and clarity policy](https://github.com/Reltroner/progress-documentation/pull/39) **MERGED** through exact-head guarded GitHub action, squash commit **`9689575a2f2edc6a24e0dd45dffe75265a1ccf3e`**. Premerge: docs main base `5ce584e2858b8f23170d2a63c9eb66048b8a4f6d`, PR head `0c389aa886c60e1fc9679186c2688b4195875691`, exactly three approved files, **313 additions / 0 deletions**, GitGuardian check success, no frozen contract/app source change. Postmerge GitHub main SHA and README §§7–8, Work Order §25 and Ledger §42 presence confirmed. This merge was **documentation-only**; it did not trigger or authorize source deployment.
+
+### 26.2 Formal exit gate disposition and non-waiver
+
+| Classification | Gate IDs | Count | What the owner accepts / does NOT accept |
+|---|---|---:|---|
+| **PASS — scoped discovery/evidence** | AC01, AC02, AC03, AC04, AC06, AC11, AC17 | 7 | Prior bounded owner scope, source/architecture, observed capacity, deployment-skip UI and observed no-mutation discipline; **not** production certification |
+| **PARTIAL / ACCESS_BLOCKED / GAP_OBSERVED / REVIEW_READY** | AC05, AC07, AC08, AC09, AC10, AC12, AC13, AC14, AC15, AC16 | 10 | Explicitly retained as **NOT PASS**. See §§24–25 and G01–G13; no auth bypass, remediation, runtime negative tests or DR test inferred |
+| **PASS — owner final scoped DISCOVERY closeout** | **AC18** | **1** | Owner's conditional closeout instruction fulfilled by merge + E29/E30 evidence triage + this E31 owner-decision receipt, **accepting incomplete implementation/verification for Phase4A discovery ONLY** |
+| **Total** | AC01–AC18 | 18 | **8 SCOPED PASS / 10 STILL OPEN FOR FUTURE ENGINEERING**; NOT 18/18 PASS and NOT six-service runtime readiness |
+
+**No waiver of normatives:** Phase 0C physical **20** and Phase 1 logical **24** frozen requirements remain binding; Phase 3B **28/28 nonproduction** and **44/44 traceable invariants** remain historical scoped evidence. No additional 44-invariant production/live certification or end-to-end deployed business API is claimed.
+
+### 26.3 Exact residual risk accepted *for discovery closure only*
+
+- **G01** six business API route skeletons; **G02** FE OIDC template/effective-config drift; **G03** crypto source status versus ratified design.
+- **G04** PostgreSQL four domain DB existence, owner/grants and cross-write proof UNKNOWN because HBA denied unprivileged catalog; **G05** Redis ACL/memory/persistence and fail-closed replay UNKNOWN because NOAUTH denied INFO.
+- **G06** 1-vCPU host peak/six-service resource and HRM/Keycloak coexistence UNPROVEN; **G07** automatic Pages deployment/Preview governance unresolved.
+- **G08** three missing DNS/hosts plus Full (not strict) origin-cert proof; **G09** absent browser clients `lms-user`/`lms-admin`, `aud=lms-api` and JWT/PKCE/capability behavior UNVERIFIED.
+- **G10** backup job/provider weekly backups observed but restore/RPO/RTO/event durability/alerts UNVERIFIED; **G11** locally dirty/old FE HEAD (3 entries) preserved; **G12** historical doc chronology and OIDC descriptions; **G13** frontend `/admin` UI exists but independent admin Pages/Keycloak/API capability boundaries absent.
+- E27R socket/HRM sub-evidence retained; **SSH exit code 2 remains a script-level defect** and is **not** silently changed into clean transport PASS. Hostinger Premium Hosting backup status also remains UNKNOWN. Additional unknown risks may appear later; this closure is no guarantee of completeness beyond current named 13.
+
+**Risk acceptance is narrowly scoped:** Owner accepts that these remaining gaps **need not be fixed in Phase4A because that phase was read-only observation**, **NOT** that those risks are acceptable for production or may bypass later implementation/release gates. The next phase must revalidate these gaps against up-to-date source/runtime evidence.
+
+### 26.4 Next work order proposal — no implementation authorization
+
+**Next planned work order ID:** `LMS-P4B-00-ENTRY-CANDIDATE` (**PROPOSED, NOT AUTHORIZED**). Before activation the owner must separately ratify exact scope, approved environment, GitHub BE/FE/docs base and expected HEAD SHA, allowed files/services, HRM nonregression conditions, resource budget on 1 vCPU, test matrix, negative-test sandbox, preview/DNS/identity release boundaries, backup/restore plan, rollback/recovery limits, risk owner and spending ceiling. Work-package sequencing remains **design-only** in §24.4; do not infer permission to provision LMS clients/DB/Redis keys, create DNS/Pages, run migrations, edit FE, deploy source, restore backups, or buy Hostinger upgrades.
+
+**Operational STOP:** Phase4A closure is a governance/documentation transition only. Existing Keycloak/HRM, nginx, PHP-FPM, PostgreSQL 18, Redis 8, Cloudflare learner production and locally dirty FE worktree must remain unchanged. No service restart, privileged shell, token issuance, Redis/DB authentication bypass, or cloud mutation. No source BE/FE merge or frozen contract change under this receipt.
+
+### 26.5 Deterministic handoff
+
+- `PHASE4A-00 = CLOSED_WITH_ACCEPTED_DISCOVERY_RESIDUALS`;
+- `P4A00-AC18 = PASS_OWNER_DISCOVERY_CLOSEOUT_WITH_EXPLICIT_RESIDUALS`, `AC05/07/08/09/10/12/13/14/15/16 = NOT_PASS`;
+- `G01-G13 = 13/13_DISCOVERY_TRIAGED, 0/13_NEW_IMPLEMENTATION_REMEDIATED`;
+- `PHASE4B-00 = CANDIDATE_UNAUTHORIZED`, `PRODUCTION_RELEASE = NOT_AUTHORIZED`.
+- For every future AI, read [README §7 clarity contract](./README.md#7-binding-ai-communication-and-execution-clarity-policy-owner-instruction-2026-10-10), E29/E30 evidence and this E31 after frozen parent contracts, then recheck latest GitHub/owner runtime evidence. If later discovery exposes G14+, append it; never retroactively claim this assessment was exhaustive of unknown future problems.
+
+**Archival change control:** This E31 is a **separate docs-only closure PR** after merged #39; the formal `main` current-state overlay should only be considered GitHub archived after this E31 PR is merged. This paragraph records an owner decision; PR creation alone is not proof the receipt is already on main.
