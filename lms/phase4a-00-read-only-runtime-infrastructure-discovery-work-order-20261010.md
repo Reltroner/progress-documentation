@@ -121,9 +121,9 @@ PASS_SOURCE = verified from current GitHub/documented owner decision; PARTIAL_OP
 | P4A00-AC04 | Six-service source layout, tests/API implementation state, FE/OIDC templates | **PASS_SOURCE** E05-E07 |
 | P4A00-AC05 | Local primary clone state/dirty changes, no destructive synchronization | **PARTIAL_OPERATOR** E09, fresh local status PENDING |
 | P4A00-AC06 | Fresh timestamped VPS CPU/RAM/swap/disk/inode/capacity and version output | **PASS_OPERATOR_READ_ONLY** E13; single timestamped snapshot, not load test or six-service capacity certification |
-| P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E15: Nginx MainPID 289723/worker 289725, PHP-FPM MainPID 450174/workers 450192 and 450193; socket-to-PID, pool configuration, private routing and six LMS runtime deployments NOT VERIFIED |
+| P4A00-AC07 | Nginx/PHP-FPM/service unit and ports/socket/public/private routing matrix | **PARTIAL_OPERATOR** E13-E16: active units and PID ancestry, one PHP-FPM pool configuration filename `www.conf`, three Nginx enabled site filenames `auth.reltroner.com`, `default`, `hrm.reltroner.com.conf`; actual configuration/upstreams/routes, LMS pools and private service isolation NOT VERIFIED |
 | P4A00-AC08 | Keycloak effective issuer/JWKS/client/audience and HRM nonregression baseline | **PENDING_RUNTIME** |
-| P4A00-AC09 | Four PostgreSQL DB/role/grant existence vs intended owned state | **PENDING_RUNTIME** |
+| P4A00-AC09 | Four PostgreSQL DB/role/grant existence vs intended owned state | **PARTIAL_OPERATOR** E13-E16: PostgreSQL `18/main` cluster online on 5432 from pg_lsclusters; names/ownership of four LMS databases, role grants and cross-service restrictions NOT VERIFIED |
 | P4A00-AC10 | Redis topology, memory/keyspace/replay posture with no secret exposure | **PARTIAL_OPERATOR** E13-E14: redis-server unit active, binary 8.2.10, loopback 6379, Redis process RSS 14,716 KiB; actual server version/ACL/keyspace/eviction/replay NOT VERIFIED |
 | P4A00-AC11 | Cloudflare Pages real Production/main skipped state at eb01a4d2 + active deployment SHA | **PENDING_RUNTIME** (old Preview only E10) |
 | P4A00-AC12 | External vantage-point DNS/TLS for exact approved hostnames | **TOOL_UNAVAILABLE** E11, operator read-only pending |
@@ -269,3 +269,34 @@ systemctl is-active nginx php8.4-fpm postgresql redis-server keycloak
 This reads metadata/names only and must not copy configuration contents. It does NOT establish actual routed FPM pools, nor all private/public exposure gates. No sudo default, no `nginx -T`, `php-fpm -tt`, `printenv`, `cat /etc/...conf`, database credentials, `systemctl cat`, reload, migration or service update. Sanitize hostname/tenant-related filenames if needed before public archival.
 
 **Security/architecture constraint:** Existing Keycloak/HRM and the 1-vCPU host are incumbents. Six independently deployable Laravel source services do not imply six runtime deployments. Revalidate budget and least-privilege boundaries before any future separately authorized implementation. This E15 changes only evidentiary classification.
+
+## 11. PostgreSQL cluster and web runtime filenames E16 - owner SSH read-only receipt (2026-10-10)
+
+**Evidence class:** OWNER_SUPPLIED_OPERATOR_READ_ONLY; timestamp **2026-10-10T09:42:49Z = 2026-10-10 16:42:49 WIB**. Command output included `pg_lsclusters`, `find` of PHP-FPM pool filenames and Nginx sites-enabled entries (no file contents), and `systemctl is-active`. The pasted terminal echo includes duplicate/malformed-looking fragments, but the returned observation sections are readable; this receipt does not claim the echoed input is an exact command replay. No source or service mutation is evidenced.
+
+| Scope | Actual result | Interpretation and limits |
+|---|---|---|
+| PostgreSQL cluster | `18 main 5432 online postgres`; data directory `/var/lib/postgresql/18/main`, log path `/var/log/postgresql/postgresql-18-main.log` | **Live PostgreSQL 18/main cluster online** at query time, consistent with earlier loopback socket and postgres process evidence. This does not prove that `lms_learning_db`, `lms_mentorship_db`, `lms_knowledge_db`, `lms_audit_db` exist, nor validate per-service ownership, login roles or GRANTs. Do not inspect data rows |
+| PHP-FPM pool filenames | Only `www.conf` listed under `/etc/php/8.4/fpm/pool.d` | Exactly one visible `.conf` pool file in the inspected directory. Does **NOT** prove only one effective runtime pool across all versions/paths or the absence of additional socket/service integration; no six LMS-specific pool names are observed |
+| Nginx sites-enabled | `auth.reltroner.com`, `default`, `hrm.reltroner.com.conf` | Three enabled entry names shown. No LMS-named site observed **in this location**, but other includes/paths or proxy mapping were not inspected. No claim that LMS hosts are absent or unreachable in reality |
+| Service states | nginx, php8.4-fpm, postgresql, redis-server, keycloak all `active` | Reconfirms E14's service-unit status, **not** application-level health, HTTP routing, JWT acceptance or DB permission readiness |
+
+**Gate delta:** `P4A00-AC07` remains **PARTIAL_OPERATOR** (file inventory narrows unknown runtime placement; no upstream/pool content). `P4A00-AC09` becomes **PARTIAL_OPERATOR** strictly because the cluster itself is online; **four LMS databases, ownership and grants remain UNVERIFIED**, so the mandatory AC09 acceptance is not passed. No change to AC08 OIDC, AC10 Redis security, AC11 Cloudflare release, AC12 DNS/TLS, AC14 HRM capacity/backup, or AC15 process/secret posture. These observations do not authorize creating six pools or new Nginx sites.
+
+**Risk/capacity:** On the observed 1-vCPU/3.8-GiB host, independent Laravel microservice process/pool/worker sizing and protection of existing Keycloak/HRM need later reviewed allocation. Current source architecture consists of six services, but there is **no evidence that six distinct services have been deployed**.
+
+**Next read-only commands (unprivileged, metadata only, no configuration contents):**
+
+~~~sh
+date -u '+%Y-%m-%dT%H:%M:%SZ'
+echo '=== POSTGRESQL NONINVASIVE READINESS ==='
+pg_isready -h 127.0.0.1 -p 5432
+echo '=== NGINX ENABLED SITE TARGET PATHS ==='
+find /etc/nginx/sites-enabled -maxdepth 1 \( -type f -o -type l \) -printf '%f -> %l\n' 2>/dev/null
+echo '=== PHP-FPM POOL FILE ATTRIBUTES ==='
+find /etc/php/8.4/fpm/pool.d -maxdepth 1 -type f -name '*.conf' -printf '%f %s bytes\n' 2>/dev/null
+~~~
+
+Observe only readiness and metadata. `pg_isready` does not validate four application databases or database grants; successful client connection is not claimed. Do not run SQL with privilege escalation or print configurations/credentials without a separately reviewed evidence plan. No `sudo`, package installation, reload, restart, migrations, database writes, Cloudflare actions or Phase 4B authorization.
+
+**Status:** Phase 4A-00 remains **IN PROGRESS** with E13/E14/E15/E16 operator receipts archived; no production implementation authority.

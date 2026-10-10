@@ -1322,3 +1322,10 @@ This is **source-main integration only**; the observed Cloudflare skip prefix is
 
 **Gate delta:** AC07, AC14 stay **PARTIAL_OPERATOR** with better process identity; AC08 stays PENDING_RUNTIME; AC09 stays PENDING_RUNTIME; AC10 stays PARTIAL_OPERATOR. No 4A-00 final acceptance, live LMS service-deployment assertion or six-service resource sufficiency certification. [Work order evidence E15](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md) section 10 provides a low-impact pool/site/cluster filename inventory protocol. **No infrastructure or app mutation.**
 
+### 40.3 E16 - PostgreSQL cluster and Nginx/PHP-FPM filename inventory (2026-10-10)
+
+Owner-supplied SSH read-only observation at **2026-10-10T09:42:49Z (16:42:49 WIB)**. `pg_lsclusters` returned **PostgreSQL 18/main port 5432 online**. The inspected PHP 8.4-FPM pool directory listed only **`www.conf`**; Nginx sites-enabled listed **`auth.reltroner.com`**, **`default`**, **`hrm.reltroner.com.conf`**. All five checked systemd services were active. The echoed paste contained minor duplicated shell fragments, but output sections were interpretable.
+
+**Evidence boundary:** Cluster online is NOT proof that four service-owned LMS databases or role grants exist. One visible `.conf` file is NOT proof of full effective pool isolation. No LMS-named Nginx enabled site in this directory is NOT proof that no LMS routing can exist elsewhere. No config contents, SQL rows, keys/secrets, DNS/Cloudflare deployment or live JWT flows were examined.
+
+**Gate change:** `P4A00-AC07` remains PARTIAL_OPERATOR; `P4A00-AC09` upgrades PENDING_RUNTIME to **PARTIAL_OPERATOR for the cluster-online sub-evidence only**, not a passed four-database ownership criterion. This is [E16 in the existing Phase 4A-00 work order](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md) section 11. Phase 4A-00 exit OPEN, Phase 4B/production changes NOT AUTHORIZED.
