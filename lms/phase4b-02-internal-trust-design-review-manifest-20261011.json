@@ -260,5 +260,22 @@
     "assistant_original_SQL_python_rerun": "8_OF_8_PASS_LINUX_NOT_WINDOWS",
     "operator_e43s_execution": "PENDING",
     "production_authorized": false
+  },
+  "e44b_python_missing_offline_discovery": {
+    "observed_e43s": "FIVE_ZIP_SOURCE_AND_LAUNCHER_SHA_GATES_PASS_PYTHON3_8_CLI_UNAVAILABLE",
+    "windows_sqlite_actual": "NOT_RUN_PRECHECK_BLOCKED",
+    "windows_e44": "NOT_RUN_OUTER_BATCH_STOP",
+    "candidate_alternatives": [
+      "PHP_SQLITE3_IF_ALREADY_ENABLED",
+      "PHP_PDO_SQLITE_IF_ALREADY_ENABLED",
+      "WINDOWS_WINSQlITE3_DLL_IF_PRESENT_AND_LATER_VERIFIED"
+    ],
+    "new_script_filename": "LMS-P4B02-E44B-OFFLINE-SQLITE-RUNTIME-DISCOVERY-PS51.ps1",
+    "new_script_sha256": "15246790967ced14634c8e9b25a400f1921a0a7f87449b3b062482b352d9982b",
+    "execution_status": "PENDING_OWNER_WINDOWS",
+    "script_does_not_install_or_start_services": true,
+    "canonical_http_t02_executed": 0,
+    "postgres18_redis8_actual_executed": false,
+    "production_authorized": false
   }
 }
