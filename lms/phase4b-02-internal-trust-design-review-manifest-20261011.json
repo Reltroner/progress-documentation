@@ -114,5 +114,27 @@
     "real production private keys or access tokens",
     "new paid hosting",
     "rewrite FROZEN parent contracts"
-  ]
+  ],
+  "e39_assurance": {
+    "review_receipt": "phase4b-02-gemini-independent-design-review-e38-20261011.md",
+    "risk_register": "phase4b-02-e39-pre-ratification-assurance-risk-register-20261011.md",
+    "risk_items_classified": 16,
+    "test_verdict_override": "phase4b-02-internal-trust-nonproduction-negative-test-matrix-20261011.md#7-e39--test-verdict-disambiguation-and-conditional-pass-semantics-before-design-ratification-2026-10-11",
+    "historical_test_matrix_cases": 86,
+    "real_http_cases_executed": 0,
+    "suggested_new_tests_not_approved": 18,
+    "proposed_future_total_if_all_adopted": 104,
+    "unresolved_critical": [
+      "cryptographic binding of actual HTTP request method/path/query/body",
+      "two-proof role separation and cross-token binding",
+      "silent redis nonce loss and cross-worker recovery quarantine",
+      "unverified effective Keycloak OIDC algorithm and capability mapping",
+      "genuine isolated HTTP/Redis acceptance not run"
+    ],
+    "owner_risk_free_condition_satisfied": false,
+    "absolute_zero_risk_guarantee_possible": false,
+    "design_ratification": "HOLD_PENDING_EXPLICIT_OWNER_DECISION_AND_PROOF",
+    "source_code_authorized": false,
+    "production_authorized": false
+  }
 }
