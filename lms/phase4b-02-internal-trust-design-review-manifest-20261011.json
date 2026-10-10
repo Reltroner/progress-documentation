@@ -469,6 +469,56 @@
     "real_pg18_redis8_cases_run": 0,
     "canonical_http_cases_run": 0,
     "design_ratification": "HOLD",
-    "production_authorization": false
+    "production_authorization": false,
+    "actions_policy_owner_gui_verified": true,
+    "billing_owner_gui_verified": "OVERVIEW_SNAPSHOT_ONLY_PRODUCT_AND_BUDGET_STILL_PENDING"
+  },
+  "e46_f2_owner_actions_gui_security_and_billing": {
+    "receipt": "phase4b-02-e46-f2-owner-github-actions-policy-billing-evidence-and-manual-pg18-redis8-sandbox-contract-20261011.md",
+    "owner_source": "THREE_GUI_SCREENSHOTS_AND_PERSONAL_BILLING_OVERVIEW_TEXT",
+    "repo": "Reltroner/LMS-BE",
+    "actions_enabled": true,
+    "allowed_actions_setting": "ALL_ACTIONS_AND_REUSABLE_WORKFLOWS",
+    "require_full_length_action_sha": false,
+    "existing_BE_workflow_uses_tagged_actions": [
+      "actions/checkout@v4",
+      "shivammathur/setup-php@v2"
+    ],
+    "sha_requirement_change_without_workflow_migration": "BLOCKED_MAY_BREAK_EXISTING_CI",
+    "workflow_permission_default": "READ_REPOSITORY_CONTENTS_AND_PACKAGES",
+    "allow_actions_create_approve_pr": false,
+    "fork_pr_approval": "FIRST_TIME_CONTRIBUTORS",
+    "artifact_log_retention_days": 90,
+    "github_plan": "GitHub Free",
+    "billing_snapshot": {
+      "gross_metered_usd": 1.82,
+      "included_discount_usd": 1.82,
+      "gross_less_discount_usd": 0,
+      "top_repos_gross_usd": {
+        "LMS-BE": 1.22,
+        "LMS-FE": 0.47,
+        "reltroner-hr-app": 0.13
+      },
+      "actions_specific_usage": "UNKNOWN_NOT_PROVIDED",
+      "budget_limit": "UNKNOWN_NOT_PROVIDED",
+      "future_zero_spend_guaranteed": false
+    },
+    "standard_public_runner_free_per_github_docs": true,
+    "larger_runners_billable": true,
+    "next_sandbox_design": "SEPARATE_PUBLIC_SYNTHETIC_ONLY_WORKFLOW_DISPATCH_SINGLE_STANDARD_UBUNTU_24_04_RUNNER",
+    "operator_owner_permissions": {
+      "create_lab_repo": false,
+      "add_workflow": false,
+      "execute_real_services": false,
+      "alter_existing_actions_settings": false
+    },
+    "new_repo_created": false,
+    "new_workflow_created": false,
+    "new_workflow_executed": false,
+    "verified_container_image_digests": 0,
+    "real_pg18_redis8_cases_executed": 0,
+    "canonical_http_t02_cases_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
