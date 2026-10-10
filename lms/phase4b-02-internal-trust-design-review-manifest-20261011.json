@@ -735,5 +735,65 @@
     "approval_first_manual_run": false,
     "owner_design_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e46_f3b_r3_postrefresh_policy_and_remediated_source": {
+    "record": "phase4b-02-e46-f3b-r3-postrefresh-policy-and-remediated-workflow-source-audit-20261011.md",
+    "policy_owner_reported_browser_refresh": true,
+    "policy_post_refresh_screenshot": "ALLOW_RELTRONER_ONLY_SELECTED_AND_FULL_LENGTH_SHA_CHECKED",
+    "origin_restriction": "PASS_OWNER_GUI_POST_REFRESH",
+    "full_sha_requirement": "PASS_OWNER_GUI_POST_REFRESH",
+    "admin_api_post_refresh_validation": "NOT_AVAILABLE",
+    "retention_days": 90,
+    "existing_be_actions_setting_changed": false,
+    "synthetic_public_sandbox": {
+      "repository": "Reltroner/lms-trust-sandbox",
+      "visibility": "public",
+      "branch_count": 0,
+      "workflow_runs_count": 0
+    },
+    "prior_r2_archive_sha_verification": "SHA256SUMS_ALL_3_MATCH",
+    "prior_r2_bash_n": "PASS",
+    "prior_r2_yaml_inline_vs_shell": "PASS",
+    "r2_static_audit_gaps": [
+      "R02_MISSING_EXPECTED_SQLSTATE_ASSERTION",
+      "R03_MISSING_REDIS_DB_EMPTY_AND_NX_PX_TTL_PRECONDITIONS",
+      "R01_PARALLEL_LAUNCH_OVERSTATES_OVERLAP",
+      "IF_NOT_EXISTS_COULD_REUSE_OLD_FIXTURE"
+    ],
+    "revised_r3_review_zip": {
+      "name": "LMS-E46-F3B-R3-remediated-review-only.zip",
+      "size_bytes": 6964,
+      "sha256": "07e230b0764798734975d76ebb6d0f6364d2633ecdb8595ba0aad637d95cafc0",
+      "committed_in_github": false
+    },
+    "revised_r3_yaml": {
+      "name": "candidate.yml",
+      "line_count": 144,
+      "sha256": "0e133699da2740eef7fffcff0adbe9ddf1705343853373a9db0b9595759bdb98",
+      "yaml_base_loader_parse": "PASS",
+      "manual_only_structure": "PASS",
+      "external_uses_count": 0,
+      "host_published_ports_count": 0
+    },
+    "revised_r3_shell": {
+      "name": "initial-lab.sh",
+      "line_count": 101,
+      "sha256": "404287a0f1b3202b49e687ec1c68f8396ee32e9bc832b965527e48bdefd0ee61",
+      "bash_n": "PASS",
+      "inline_yaml_identical": true,
+      "sqlstate_23505_check_in_source": true,
+      "redis_dbsize_nx_px_ttl_check_in_source": true,
+      "runtime_tested": false
+    },
+    "actionlint": "NOT_AVAILABLE_NOT_RUN",
+    "shellcheck": "NOT_AVAILABLE_NOT_RUN",
+    "redis_service_target_identity": "NOT_RUNTIME_VERIFIED",
+    "job_image_command_runtime": "NOT_VERIFIED",
+    "first_sandbox_default_branch_commit_authorized": false,
+    "first_ci_workflow_dispatch_authorized": false,
+    "real_pg18_redis8_acceptance_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "owner_design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
