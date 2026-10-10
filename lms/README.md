@@ -4,7 +4,7 @@
 > **Document role:** authoritative *navigation/current-state overlay*, **NOT a replacement or modification of FROZEN architecture**.  
 > **Project owner:** decisions and release authority remain with the human owner.  
 > **Reporting date:** 2026-10-10 Asia/Jakarta; source authority comes from actual immutable GitHub commits/checks, not assumed calendar freshness.  
-> **Next phase:** **Phase 4 NOT AUTHORIZED**. Do not run live probing/mutations or introduce infrastructure until an independently approved scoped work order.
+> **Next phase:** **Phase 4A-00 READ-ONLY DISCOVERY OWNER-AUTHORIZED (2026-10-10)**; [read the exact scoped work order](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md). **Phase 4 implementation / provisioning / production NOT AUTHORIZED**. Do not infer runtime certification from Phase 3.
 
 ## 1. Operational snapshot — exact verified GitHub states
 
@@ -21,7 +21,7 @@
 | PR #5 operator Windows evidence | Owner-supplied PowerShell 5.1 isolated worktree at PR `5f2ac1f4383dfd2fe8a09ce4a33294d73cd71083`: 19/19 PASS, build 25/25, clean CLI, negative missing-staging test exit **1**. Windows main merge SHA itself has not been independently run on the user's laptop |
 | Cloudflare | Merge `eb01a4d2...` title **starts `[CF-Pages-Skip]`**. **Production-main deployment exclusion at this new SHA NOT YET independently verified in Cloudflare account**; prior owner UI evidenced a `skipped` **Preview** entry, not a production-main receipt. **No release or DNS/Cloudflare mutation is authorized** |
 | Governance | Both app `main` branch APIs report `protected:false`. [GOV-WVR-001](./gov-wvr-001-phase3b-branch-protection-owner-exception-20261010.md) is a Phase-3 technical-branch-rule waiver, **not** proof of enforcement; [BRANCH-GOV-001](./branch-gov-001-main-branch-contractual-protection-20261010.md) manual discipline still binds every later source change |
-| Next | **Source maintenance complete; Phase 3 frozen.** Phase 4 read-only planning/approval must be distinct; runtime integration, Keycloak secrets, database roles, Redis replay fault tests, VPN/SSH, deployment and final-product DoD have **NOT** been accepted by Phase 3 |
+| Next | **Phase 4A-00 read-only discovery AUTHORIZED / IN PROGRESS**, with GitHub source preflight PASS; live VPS/Keycloak/PostgreSQL/Redis/Cloudflare evidence pending. Phase 4 implementation, release and final-product DoD remain **NOT AUTHORIZED** |
 
 If these pins become stale, **STOP, re-read GitHub live** `main` HEADs/CI and append a dated update. Do not silently change frozen contracts or overwrite historical acceptance counts.
 
@@ -49,13 +49,17 @@ If these pins become stale, **STOP, re-read GitHub live** `main` HEADs/CI and ap
 
 Before writing code or issuing commands: state **phase, work-order ID, authorized scope, immutable base and expected head SHA, file allowlist, negative tests, CI, Cloudflare deployment policy, owner approvals, stop/rollback condition**. IDE agent writes code only on isolated branch/worktree; ChatGPT governs source evidence. **Never clean folders or rewrite Git history merely because names appear duplicated.**
 
-**Present checkpoint:** `PHASE0C/1_FROZEN → PHASE2D_ACCEPTED → PHASE3A_FROZEN → PHASE3B_28_OF_28_OWNER_ACCEPTED → BE_MAIN=a2672d... → FE_MAIN=eb01a4d... → FE_PR4_PR5_MERGED + PUSH_MAIN_CI_GREEN → CLOUDFLARE_PRODUCTION_NEW_SHA_UNVERIFIED → PHASE4_NOT_AUTHORIZED`.
+**Current work order:** [Phase 4A-00 Read-Only Runtime & Infrastructure Discovery](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md). Owner permission applies only to observation, evidence, and scoped planning; no Phase 4B/production action.
+
+**Historical Phase 3 handoff checkpoint (superseded for CURRENT phase status only):** `PHASE0C/1_FROZEN → PHASE2D_ACCEPTED → PHASE3A_FROZEN → PHASE3B_28_OF_28_OWNER_ACCEPTED → BE_MAIN=a2672d... → FE_MAIN=eb01a4d... → FE_PR4_PR5_MERGED + PUSH_MAIN_CI_GREEN → CLOUDFLARE_PRODUCTION_NEW_SHA_UNVERIFIED → PHASE4_NOT_AUTHORIZED`.
 
 ## 5. Complete document inventory: canonical authority vs dated history
 
 **Exactly 57 preexisting lms/ root records indexed here as of docs main `8e2bc1819a5e063dae742940249ebd55312a8510`: 30 Markdown + 27 JSON.** For link stability and preserved Git blobs, none are deleted or moved by this consolidation. Older files are **archival evidence**, not competing current master documents.
 
 ### Canonical binding and gate sources (read selectively)
+
+- [**ACTIVE Phase 4A-00 discovery work order**](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md) - source-pinned read-only evidence, gaps, acceptance matrix and operator handoff
 
 - [`master-infrastructure-placement-contract.md`](./master-infrastructure-placement-contract.md)
 - [`logical-service-boundary-api-contract.md`](./logical-service-boundary-api-contract.md)
