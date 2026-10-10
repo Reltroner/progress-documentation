@@ -1300,3 +1300,12 @@ This is **source-main integration only**; the observed Cloudflare skip prefix is
 
 **Outcome:** P4A00 authorization and GitHub source preflight **PASS**, complete Phase 4A-00 **NOT YET ACCEPTED** pending time-stamped operator runtime/Cloudflare evidence and owner final exit sign-off. Phase 4B implementation / runtime config changes / production release **NOT AUTHORIZED**. Source commits and frozen 20+24 invariants remain unchanged.
 
+---
+
+## 40. Phase 4A-00 VPS baseline and socket observations (2026-10-10)
+
+**Owner SSH observation P4A00-E13** at **2026-10-10T08:49:24Z (15:49:24 WIB)**: Ubuntu 24.04.5, kernel 6.8.0-139, uptime 18 days; **1 vCPU**, load 0.00/0.00/0.00 at a single instant; memory **3.8 GiB total / 1.2 GiB used / 2.6 GiB available**, swap **2 GiB (256 KiB used)**; root **48 GB / 5.9 GB used / 42 GB available / 13%**, root inodes **4% used**. PHP CLI **8.4.25**, psql client **18.6**, redis-server binary **8.2.10**. PostgreSQL TCP **5432** and Redis TCP **6379** listen on IPv4/IPv6 loopback only in supplied socket snapshot; TCP 22/80/443 bind all interfaces; several other local sockets await process/PID attribution. SSH maintenance banner displayed **16 available updates** and **restart required**; no maintenance actions are authorized or recorded.
+
+**Classification change:** AC06 = PASS_OPERATOR_READ_ONLY; AC07, AC10, AC14 = PARTIAL_OPERATOR. Existing Phase 4A-00 source baseline/owner authorization stand; only these evidence gates change. No active Keycloak/LMS client, PG role/grant, Redis keyspace/replay, full Nginx/private routing, HRM coexistence, Cloudflare Production/main or DNS/TLS certification is inferred. The detailed read-only evidence and gate delta are in [Phase 4A-00 work order](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md) section 8.
+
+**Security/evidence note:** The operator ran sudo -v before read-only inventory; this only validated/cached privileged authentication, not a service change. The archived receipt contains no public host IP or credentials. **Phase 4A-00 OPEN; Phase 4B/production NOT AUTHORIZED**. Do not restart/patch the 1-vCPU shared VPS without a separately reviewed maintenance plan.
