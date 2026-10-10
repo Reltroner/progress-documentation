@@ -1,0 +1,54 @@
+# Reltroner LMS — Phase 4B-01 G03: isolated backend worktree and cryptographic ADR status alignment
+
+> **ID:** `LMS-P4B-01-G03-20261011`  
+> **Status:** OWNER-REQUESTED NEXT EXECUTION; ISOLATED **LOCAL NONPRODUCTION ONLY**; NO MAIN MERGE OR PRODUCTION AUTHORIZATION  
+> **Approved initial operation:** guard-driven local worktree inventory and, only if preconditions pass, creation of one new isolated BE worktree + branch. The operator must run the explicitly labeled script; simply reading the work order does not execute it.  
+> **Conditional coding package:** one Gemini IDE coding pass limited to **four source files**, after the new worktree reports `ISOLATION_GATE=PASS` and operator chooses to run the prompt. No runtime services, secret issuance, live Keycloak/PG/Redis, source `main` merge or deployment.  
+> **Normative references:** [README clarity policy](./README.md), [Phase 0C physical FROZEN](./master-infrastructure-placement-contract.md), [Phase 1 logical/API FROZEN](./logical-service-boundary-api-contract.md), [ADR-LMS-TRUST-001 (owner-ratified, nonprod design)](./adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md), [Phase4A G03 discovery](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md), [4B00 E32](./phase4b-00-entry-preflight-isolation-work-order-20261011.md).
+
+## 1. Reason: why G03 before broad coding?
+
+BE `main=a2672d0085fe84b55520f8f52f41a8c7fc8568a0` contains **two test-only JSON metadata contracts** whose `PENDING_SECURITY_ADR` / `CANDIDATE_NOT_OWNER_RATIFIED_SECURITY_ADR` markers predate the later approved ADR-LMS-TRUST-001. Crucially, **both Phase3B test harnesses expressly assert those stale markers**:
+
+- `contracts/tests/validate-identity.php`: expects `internal_workload.cryptographic_parameters.algorithm === 'PENDING_SECURITY_ADR'`;
+- `contracts/tests/validate-trust-crypto.php`: expects `profile.status === 'CANDIDATE_NOT_OWNER_RATIFIED_SECURITY_ADR'` AND `requires_owner_approval_before_runtime === true`.
+
+Therefore *blindly editing JSON without tests would regress CI*. The correct first narrow G03 implementation aligns the **nonproduction design-status metadata AND its sentinel assertions** while preserving independent OIDC/Keycloak algorithm policy and the truth that **no real internal trust middleware, keys, jti store or production runtime have been certified**. This is a source documentation/test alignment only, not cryptography deployment. Starting with it exercises the isolated worktree, scoped coding, local test and PR governance before higher-blast-radius API/identity/DB implementation.
+
+## 2. Exact authority, pins, and no-debt operating rules
+
+- **GitHub BE remote main exact pin:** `a2672d0085fe84b55520f8f52f41a8c7fc8568a0`. GitHub FE remote main `eb01a4d2c924299b929aebf0f4826b94cf341fc6` is read-only context; **FE local main remains old `f2d40417...` with THREE dirty entries**. Do not touch its checkout or other FE worktrees.
+- **Existing operator report E32:** BE local main `a2672d...` clean, two registered BE worktrees; FE two registered worktrees (one dirty main). The next single guarded PowerShell 5.1 batch MUST inventory **all existing registered worktrees** for branch/path/collision, verify BE local and remote pin, and refuse to create an isolated worktree if any target branch/directory already exists. No fetch/pull/reset/clean/checkout on existing paths. The batch can create exactly **one** additional BE worktree and its local branch, with a human-visible report. No other filesystem changes beyond report and intentionally isolated worktree.
+- **Worktree/branch names:** New BE branch `phase4b/01-g03-adr-status-20261011`. New path `C:\Projects\_lms-worktrees\LMS-BE-4B01-G03-20261011`. These are **proposed new isolated names**, not assumed to exist. Never reuse a nonempty path, never delete an existing directory or prune old worktrees automatically.
+- **Owner-specified zero unapproved spending**, and no VPS, Cloudflare, Hostinger, Keycloak, HRM, PostgreSQL/Redis, frontend, production DNS, source merge, or frozen contracts modifications. All backend changes must remain confined to the new branch.
+- The **PowerShell report** shall show local/remote SHA, all worktree branch/HEAD/dirty-count evidence, collision gates, whether the new worktree was created, and exactly whether `ISOLATION_GATE=PASS`. On partial creation failure, STOP; do not auto-remove or reset any path.
+
+## 3. Conditional coding allowlist for Gemini IDE (no other file changes)
+
+| Exact BE path | Allowed change | Safeguard |
+|---|---|---|
+| `contracts/identity/trust-contract.json` | Align **internal workload** cryptographic parameter status/values and `not_approved_until` with owner-ratified Ed25519 JWS, max 60s, skew 5s, rotation overlap 180s, pinned per-service public keys, atomic one-use replay jti and fail-closed >=65s recovery quarantine; metadata ONLY | **Do not modify OIDC `allowed_signing_algorithms` sentinel** based on internal ADR; RS256 OIDC is a separate decision. Do not imply real key issuance/runtime certification |
+| `contracts/identity/crypto-profile-proposal.json` | Update `status` to accurately mean `OWNER_RATIFIED_NONPRODUCTION_DESIGN_RUNTIME_NOT_AUTHORIZED` or equally unambiguous string; do not rename historical filename; retain `requires_owner_approval_before_runtime=true` | No private seed/key or actual Redis credentials; do not claim synthetic test is deployed |
+| `contracts/tests/validate-identity.php` | Replace stale `PENDING_SECURITY_ADR` test with assertions on the specific ratified design parameters, plus fail-closed runtime-not-approved boundary | Preserve existing simulated 401/403 cases, add test checks, never relax deny expectations |
+| `contracts/tests/validate-trust-crypto.php` | Change historical status sentinel to new ratified-design-only state and keep/strengthen explicit runtime prohibition assertion | Preserve all cryptographic negative fixture tests, no new real production keys |
+
+**No changes permitted** in `services/**`, `.github/workflows/**`, `contracts/openapi/**`, `contracts/authz/**`, `contracts/persistence/**`, `LMS-FE/**`, frozen docs, `composer.*`, `vendor`, `.env*`, Docker or production config. If any implementation requires a fifth file, STOP, report why, and request explicit scope amendment. No append of guessed `OIDC` production algorithm policy into trust config.
+
+## 4. Exact steps and acceptance gates
+
+1. **P4B01-ISO01** BE `main` remote `ls-remote` SHA exactly pinned and local checked-out BE `main` clean, correct origin. FE local state evidence sampled without changing content or exposing dirty filenames.
+2. **P4B01-ISO02** Registered BE/FE worktrees inventoried; all reachable worktree paths and branch refs parsed. Existing dirty entries are recorded **count-only**, never rewritten; no git prune/reset/clean.
+3. **P4B01-ISO03** New path absent; local branch name absent; remote main pin exists in local objects (`git cat-file -e <sha>^{commit}`); no unexpected target collisions.
+4. **P4B01-ISO04** One `git worktree add -b phase4b/01-g03-adr-status-20261011 <newpath> <pin>` succeeds; new worktree HEAD pinned, branch exact, dirty count 0; old BE main SHA and status unchanged, old FE status unchanged. If not all verifiable, classify PARTIAL/FAILED; no automatic cleanup.
+5. **P4B01-G03-TEST01** Gemini source branch changes only the four allowlist paths; JSON parses, no broader diff.
+6. **P4B01-G03-TEST02** `php -l contracts/tests/validate-identity.php` and `php -l contracts/tests/validate-trust-crypto.php` PASS; `php contracts/tests/validate-identity.php` and `php contracts/tests/validate-trust-crypto.php` PASS; all other pure contract harnesses in [CI job](https://github.com/Reltroner/LMS-BE/blob/main/.github/workflows/phase3b-contract-ci.yml) PASS locally.
+7. **P4B01-G03-TEST03** Positive: ratified design metadata accepted; negatives: forbidden OIDC algorithm status changes, non-approved runtime false, missing replay controls rejected; no production key material or direct source main modification.
+8. **P4B01-G03-TEST04** GitHub feature PR to BE `main` (base pinned and inspected), GitHub Actions `php-contracts` and six service jobs successful on **exact head SHA**. **No merge until owner reviews and explicitly authorizes exact PR and HEAD SHA**; no Cloudflare/production action.
+
+**Expected result if all tests pass:** `G03_SOURCE_STATUS_ALIGNMENT_CANDIDATE_READY_FOR_OWNER_PR_REVIEW`. Do not declare `G03_RUNTIME_FIXED` or `PHASE4B_COMPLETE`.
+
+## 5. Stop and rollback
+
+If remote BE SHA drift, BE main dirty, target name/path already exists, worktree metadata inconsistent, Git command exit nonzero, test failure, or source diff exceeds allowlist: **STOP** and report observed values; do not bypass. Before worktree creation, the only writes are the PowerShell report; after creation, the only additional writes are a new distinct local branch/worktree. Do not auto-delete partial creation; owner review first. No incident response or production rollback required because this package never touches production. Future application rollback requires tested commit-level revert and application migration-specific design, not a generic claim of risk-free changes.
+
+**Checkpoint:** `4A_CLOSED -> 4B00_E32_PASS -> 4B01_ISO_OPERATOR_BATCH_NEXT -> G03_METADATA_CODING_CONDITIONAL_ON_ISOLATION_PASS -> BE_FEATURE_PR_OWNER_REVIEW -> NO_SOURCE_MAIN_MERGE -> PRODUCTION_NOT_AUTHORIZED`.

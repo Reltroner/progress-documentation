@@ -235,3 +235,11 @@ The full **G01–G13 evidence-to-future-work mapping** is [Work Order §25 E30](
 **What PASS means:** READY TO **REVIEW 4B-01 ISOLATION**, not direct Gemini code editing, API completion, CI verification, production deployment, DB/Redis/Keycloak login or unverified rollback. The next read-only operator batch should classify preexisting BE/FE worktree paths/branches/status without modifying them. See [4B-00 Work Order §6 E32](./phase4b-00-entry-preflight-isolation-work-order-20261011.md) and [Ledger §45](./engineering-end-to-end-progress-ledger.md). Separate bounded authorization required to create/edit an isolated BE worktree for 4B-01.
 
 **Current state:** `PHASE4A_CLOSED -> PHASE4B00_ENTRY_PRE01-07_PASS_OPERATOR_SCOPED -> 4B01_EXISTING_WORKTREE_INVENTORY_PENDING -> 4B01_IMPLEMENTATION_NOT_YET_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
+
+## 12. Phase 4B-01 isolated backend workspace & G03 test-aware source remediation proposal (2026-10-11)
+
+**Latest execution handoff:** Phase 4B-00 **PRE01–PRE07 PASS_OPERATOR_SCOPED**; next **`LMS-P4B-01-G03-20261011`** has a bounded work order for (1) a guarded PowerShell 5.1 inventory of **two existing BE and two existing FE worktrees** and creation of **one new isolated BE worktree only after hard checks**, then (2) conditional Gemini IDE source/test-only G03 ADR status reconciliation. No automatic source commit/PR merge, no direct `main` edits, no production operation.
+
+The first G03 source coding issue is **not merely two stale JSON statuses**: Phase3B `validate-identity.php` and `validate-trust-crypto.php` contain tests specifically asserting the old pending statuses. See [4B-01 work order](./phase4b-01-g03-adr-status-source-alignment-work-order-20261011.md) for exact **four-file allowlist**, dual control under frozen ADR, initial local worktree location, test + CI gates, and STOP rules. Never authorize changes outside the four files silently. FE main remains older/dirty with three entries; do not touch it.
+
+**Checkpoint:** `PHASE4A_CLOSED -> 4B00_E32_ENTRY_PASS -> PHASE4B01_LOCAL_ISOLATION_NEXT -> G03_CODING_CONDITIONAL -> SOURCE_MAIN_MERGE_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
