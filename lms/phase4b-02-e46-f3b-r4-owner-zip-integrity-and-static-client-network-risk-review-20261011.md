@@ -71,3 +71,8 @@ A new separate ZIP was authored from R3 **without using GitHub sandbox or produc
 **F3-C-FIRST-MANUAL-RUN:** remains `NOT AUTHORIZED`, must be separately approved after deployment into sandbox default branch and before any `workflow_dispatch`. Failed budget stop at $0 cannot authorize increasing budget; if blocked STOP.
 
 **Current invariant accounting:** E40 Windows 30/30 and E45 local PDO_SQLite 8/8 exploratory PASS; real PG18/Redis8 PG-R01..10 `0/10`, HTTP T02 `0/86`; D02 owner trust design ratification HOLD; BE/FE source and production remain untouched.
+
+
+## 6. Successor E46-F3B-R5 staged non-destructive and withheld destructive probes (2026-10-11)
+
+Owner-directed R5 produces one review-only archive with distinct R5-A no-user-write diagnostic YAML/Bash, and an explicitly **interlocked** R5-B destructive SQL/FLUSH reference (no runnable R5-B workflow). See [R5 full SHA, staged acceptance, mock proof and authorizations](./phase4b-02-e46-f3b-r5-isolated-readonly-diagnostic-and-withheld-destructive-workorder-20261011.md). R4 INFO RESP dollar expansion bug found/repaired; R5-A additional INFO bulk trailing CRLF bug found by localhost fake RESP server then corrected; 3/3 mock tests PASS but no real PostgreSQL18/Redis8 run. First default-branch workflow commit and manual runner launch remain separately NOT AUTHORIZED; sandbox empty, PG-R 0/10, canonical T02 0/86, production HOLD.

@@ -873,5 +873,83 @@
     "canonical_http_t02_executed": 0,
     "design_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e46_f3b_r5_split_diagnostic_and_destructive": {
+    "record": "phase4b-02-e46-f3b-r5-isolated-readonly-diagnostic-and-withheld-destructive-workorder-20261011.md",
+    "request": "PREPARE_R5A_READONLY_AND_WITHHOLD_R5B_DESTRUCTIVE",
+    "archive": {
+      "filename": "LMS-E46-F3B-R5-split-candidates-REVIEW-ONLY.zip",
+      "sha256": "91b8cd9bd7750a81ab1489362741c3e27ec6aca0ee0fb5e37e0d303909818125",
+      "bytes": 10864,
+      "committed_to_sandbox": false,
+      "files": [
+        {
+          "name": "R5A-DIAGNOSTIC-CANDIDATE.yml",
+          "sha": "3d61fb43f5b9f4c3f6c1b759ccdbb682b731459568b711c653e4327adcd7a25e",
+          "lines": 131
+        },
+        {
+          "name": "R5A-diagnostic.sh",
+          "sha": "450a8837db293cae4d3a94a81027eda1a21325bee648a486d7f8c4c6d9564605",
+          "lines": 78
+        },
+        {
+          "name": "R5B-WITHHELD-fault-harness.sh.txt",
+          "sha": "256789de8a399d7d70cd871f0bb3309abc5c09df486c7c914551d2b174648b5c",
+          "lines": 112
+        },
+        {
+          "name": "R5B-DESTRUCTIVE-GATE-CONTRACT.md",
+          "sha": "5f96f64825896d55f3c32d6c7b77edf0ce1d281c65cb7e8a658b62eda69d7414",
+          "lines": 45
+        },
+        {
+          "name": "README-REVIEW-ONLY.md",
+          "sha": "607573038c68d0ebcc3052745f3df3963a14120bb5e7c81d33cc013be5a3b87c",
+          "lines": 41
+        }
+      ]
+    },
+    "r5a": {
+      "yaml_parse": "PASS_OFFLINE",
+      "bash_n": "PASS_OFFLINE",
+      "inline_matches_standalone": true,
+      "manual_only": true,
+      "runner": "ubuntu-24.04",
+      "timeout_minutes": 10,
+      "permissions": "NONE",
+      "external_uses": 0,
+      "host_published_ports": 0,
+      "postgres_writes_in_diagnostic": 0,
+      "redis_write_commands": 0,
+      "postgres_readonly_session": true,
+      "commands": [
+        "pg_isready",
+        "PostgreSQL SELECT",
+        "Redis PING",
+        "Redis INFO server",
+        "Redis DBSIZE"
+      ],
+      "synthetic_local_resp_mock": "PASS_3_OF_3",
+      "real_pg18_redis8_execution": "NOT_RUN",
+      "shellcheck": "NOT_RUN",
+      "actionlint": "NOT_RUN"
+    },
+    "r5b": {
+      "separate_workflow_yaml_created": false,
+      "unconditional_pre_network_fail_interlock": true,
+      "real_fault_injection": "NOT_RUN",
+      "owner_commit_approval": false,
+      "owner_execution_approval": false
+    },
+    "sandbox_public": true,
+    "sandbox_branch_count": 0,
+    "sandbox_actions_run_count": 0,
+    "first_r5a_workflow_commit_approved": false,
+    "first_r5a_manual_run_approved": false,
+    "pg_r01_to_r10_executed": 0,
+    "canonical_t02_http_executed": 0,
+    "owner_ratification": "HOLD",
+    "production_authorized": false
   }
 }
