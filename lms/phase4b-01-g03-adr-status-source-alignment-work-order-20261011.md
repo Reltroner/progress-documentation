@@ -87,3 +87,37 @@ If remote BE SHA drift, BE main dirty, target name/path already exists, worktree
 **Acceptance:** `G03_DIFF_ALLOWLIST=PASS`, `G03_OWNER_ADR_SCOPED_ALIGNMENT=PASS_SOURCE_REVIEW`, `G03_CI_SEVEN=PASS_EXACT_SHA`, `G03_GITGUARDIAN=PASS`, `G03_SOURCE_PR12=REVIEW_READY_NOT_MERGED`. **Not equal to production security certification:** source metadata/synthetic assertions do not exercise live Keycloak OIDC/JWKS verification, real dual workload/delegation assertions, Redis replay-store outage/recovery, independent production signing-key custody, or cross-service real HTTP deny paths.
 
 **Required next owner decision:** Explicitly approve or reject **`Reltroner/LMS-BE PR #12` at exact `head=598440f50114ce851521e664c62239cbf0658234`** for a code merge into `main`. If approval is given, recheck PR head/base and CI immediately before merge, then merge with exact expected head SHA and verify updated BE `main`; append separately dated source merge receipt. If not approved, keep PR open; no source merge, runtime provisioning, FE checkout edit, secret management, or production activity. The current work order's `source-main merge requires independent approval` guard is **not waived** by CI success.
+
+## 9. E36 — Owner-authorized G03 source merge and independent postmerge CI (2026-10-11)
+
+> **LATEST PHASE 4B-01 G03 STATUS — SOURCE ALIGNMENT MERGED / RUNTIME IMPLEMENTATION OPEN.** This section is the current, later-dated status overlay; older §§1–8 describe their historical premerge state and are not retrospectively rewritten.
+
+### 9.1 Authority and premerge acceptance
+
+**Owner's explicit narrow instruction:** “Saya menyetujui merge Reltroner/LMS-BE PR #12 dengan exact HEAD SHA `598440f50114ce851521e664c62239cbf0658234` ke main. Lakukan final premerge verification, merge dengan SHA guard, verifikasi postmerge, kemudian arsipkan receipt secara append-only. Persetujuan ini tidak mengotorisasi deployment, perubahan production, Keycloak, Redis, PostgreSQL, Cloudflare, atau frontend.”
+
+**Independent final premerge GitHub check:** [LMS-BE PR #12](https://github.com/Reltroner/LMS-BE/pull/12) was `OPEN`, `mergeable=true`, `draft=false`, HEAD `598440f50114ce851521e664c62239cbf0658234`, base `a2672d0085fe84b55520f8f52f41a8c7fc8568a0` (verified BE `main`); one direct child, ahead 1/behind 0, exactly the four allowlist modifications:
+1. `contracts/identity/crypto-profile-proposal.json`
+2. `contracts/identity/trust-contract.json`
+3. `contracts/tests/validate-identity.php`
+4. `contracts/tests/validate-trust-crypto.php`
+
+**CI before merge:** [PR workflow run 38073894387](https://github.com/Reltroner/LMS-BE/actions/runs/38073894387) had `status=completed`, `conclusion=success`, `event=pull_request`, exact `head_sha=598440f...`; 7/7 required jobs each individually `completed/success`: `Pure PHP frozen contract tests` and the independent `gateway`, `learning`, `mentorship`, `knowledge`, `assistant`, `audit` Laravel-service jobs. GitGuardian separately `completed/success`. No check inferred solely from the workflow umbrella status.
+
+### 9.2 Actual merge and postmerge readback
+
+**Merge action:** exact-head guarded GitHub `squash` merge targeting LMS-BE `main`, `expected_head_sha=598440f50114ce851521e664c62239cbf0658234`, returned `merged=true`, produced **`617dadc0d0d627071d713ceb729df6658202b43e`**. [Source PR #12](https://github.com/Reltroner/LMS-BE/pull/12) then read back `CLOSED`, `merged=true`, `merge_commit_sha=617dadc...`; BE remote `main` was **exactly `617dadc0d0d627071d713ceb729df6658202b43e`**. The new squash commit has a **single direct parent `a2672d0085fe84b55520f8f52f41a8c7fc8568a0`** and **exactly four** changed allowlist paths; no fifth file or frozen/production configuration changed.
+
+**Independent content identity:** For each of the four allowlist paths, the Git blob SHA at BE `main` after merge **exactly equals** the blob SHA at original candidate `598440f...` (4/4 identical). This proves the new merge commit contains the reviewed candidate's exact content, despite a distinct squash commit ID. It is stronger evidence than merely trusting a PR “Merged” status.
+
+**CI after merge:** [main push workflow run 38074231181](https://github.com/Reltroner/LMS-BE/actions/runs/38074231181) was independently queried: `event=push`, `head_sha=617dadc0d0d627071d713ceb729df6658202b43e`, `status=completed`, `conclusion=success`; **all seven** required jobs on the postmerge `main` commit individually `completed/success`. GitGuardian on that merge commit was not separately asserted as observed unless separately verified; its prior PR check did succeed.
+
+### 9.3 Scope-limited closure, retained risks and explicit STOP
+
+**G03 source metadata remediation:** `G03_NONPRODUCTION_SOURCE_STATUS_ALIGNMENT=MERGED_AND_CI_VERIFIED`. Design-only Ed25519 / EdDSA metadata now matches owner-ratified ADR-LMS-TRUST-001 in BE `main`, maintains `runtime_authorized=false`, separate Keycloak OIDC algorithm decision and explicit owner approval before live runtime. PHP tests exercise metadata and synthetic negative fixtures; no real signing keys were deployed.
+
+**Still OPEN:** actual HTTP verification for dual workload/delegation assertions; production signing-key custody and pinned public-key registry; Redis atomic jti anti-replay and store-loss detection/quarantine in runtime; independent Keycloak OIDC JWT algorithm/audience enforcement; cross-service capability/tenant-denial HTTP tests; full six-service production readiness. The inherited G01/G02/G04–G13 and 10 Phase4A partial/gap observations have **not** become runtime PASS because of this merge.
+
+**Explicit authority limit:** Owner approved **this exact BE source PR merge only**. No source FE changes (3 dirty local FE entries protected), no VPS/HRM/Keycloak/PostgreSQL/Redis/Cloudflare/DNS/hosting changes, no production deployment or cost acceptance. No claimed production rollback. Next engineering implementation needs its own scoped work order and runtime/nonproduction acceptance; do not unilaterally provision services or keys.
+
+**Current checkpoint:** `P4A00_CLOSED -> P4B00_E32_PRE01-07_PASS -> P4B01_ISO01-04_PASS -> G03_CANDIDATE_598440F_CI7_PASS -> BE_PR12_SQUASH_MERGED_617DADC -> BE_MAIN_POSTMERGE_CI7_PASS -> G03_SOURCE_ALIGNMENT_CLOSED -> G03_RUNTIME_DEPENDENCIES_OPEN -> PRODUCTION_NOT_AUTHORIZED`.
