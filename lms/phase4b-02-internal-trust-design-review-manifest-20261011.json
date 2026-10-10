@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "document_id": "LMS-P4B-02-DESIGN-20261011",
+  "phase": "4B-02",
+  "status": "DESIGN_CANDIDATE_OWNER_REVIEW_PENDING",
+  "authority": {
+    "parent_physical_contract": "master-infrastructure-placement-contract.md",
+    "parent_logical_contract": "logical-service-boundary-api-contract.md",
+    "ratified_nonproduction_design_adr": "adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md",
+    "runtime_approval": false,
+    "production_approval": false
+  },
+  "pins": {
+    "lms_be_main": "617dadc0d0d627071d713ceb729df6658202b43e",
+    "lms_fe_main": "eb01a4d2c924299b929aebf0f4826b94cf341fc6",
+    "progress_docs_main_at_draft": "183372371b3a40a0349ac390848911273ccd2361"
+  },
+  "paths": {
+    "workorder": "phase4b-02-internal-trust-runtime-design-and-nonproduction-acceptance-contract-20261011.md",
+    "test_matrix": "phase4b-02-internal-trust-nonproduction-negative-test-matrix-20261011.md"
+  },
+  "source_inventory": {
+    "services": [
+      "gateway",
+      "learning",
+      "mentorship",
+      "knowledge",
+      "assistant",
+      "audit"
+    ],
+    "request_id_middleware_observed_in_all_six": true,
+    "trust_middleware_observed_in_app_middleware_directories": false,
+    "business_route_definitions_observed_in_service_api_php": 0,
+    "health_ready_dependency_check_observed": false,
+    "internal_services_handlecors_removed_in_bootstrap": true,
+    "public_gateway_handlecors_removed_in_bootstrap": false,
+    "notes": "GitHub source-only observation, not runtime enumeration or route:list proof"
+  },
+  "frozen_contract": {
+    "public_operations": 26,
+    "capabilities": 19,
+    "postgres_domain_databases": 4,
+    "gateway_only_public_ingress": true,
+    "internal_nonpublic_service_count": 5
+  },
+  "design_profile": {
+    "algorithm": "EdDSA",
+    "curve": "Ed25519",
+    "max_assertion_ttl_seconds": 60,
+    "max_skew_seconds": 5,
+    "rotation_overlap_max_seconds": 180,
+    "jti_entropy_min_bits": 128,
+    "replay_atomic_single_use_required": true,
+    "recovery_quarantine_min_seconds": 65,
+    "redis_independent_keyspace_loss_detector_required": true,
+    "runtime_authorized": false,
+    "oidc_algorithm_approved_from_effective_keycloak_data": false,
+    "dual_assertion_wire_format_finalized": false
+  },
+  "test_matrix": {
+    "total_cases": 86,
+    "executed_cases": 0,
+    "categories": {
+      "gateway_oidc": 16,
+      "workload_identity": 14,
+      "delegated_principal": 14,
+      "redis_failure_replay": 22,
+      "private_routing_error_hygiene": 10,
+      "key_rotation_operational_regression": 10
+    },
+    "all_security_denials_require_zero_unauthorized_side_effects": true,
+    "http_404_from_unimplemented_route_never_counts_as_auth_denial": true
+  },
+  "decision_register": [
+    {
+      "id": "D02-01",
+      "title": "Two independently verifiable JWS types, transport and binding",
+      "status": "PENDING_OWNER_DESIGN_RATIFICATION"
+    },
+    {
+      "id": "D02-02",
+      "title": "Independently trustworthy Redis replay keyspace loss detection",
+      "status": "BLOCKS_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "D02-03",
+      "title": "Error response mapping and compatibility (503 proposal)",
+      "status": "PENDING_OWNER_CONTRACT_REVIEW"
+    },
+    {
+      "id": "D02-04",
+      "title": "Isolated nonproduction keys and test runtime",
+      "status": "PENDING_OWNER_ENV_APPROVAL"
+    },
+    {
+      "id": "D02-05",
+      "title": "Observed Keycloak OIDC alg/JWKS/azp and policy approval",
+      "status": "BLOCKS_OIDC_RUNTIME"
+    }
+  ],
+  "phase_gate": {
+    "source_review": "SOURCE_DISCOVERY_COMPLETE",
+    "work_order": "DOCUMENTATION_CANDIDATE",
+    "owner_design_signoff": "PENDING",
+    "nonproduction_runtime": "NOT_STARTED",
+    "ci_for_4b02": "NOT_STARTED",
+    "production": "NOT_AUTHORIZED"
+  },
+  "forbidden_without_separate_approval": [
+    "LMS-BE or LMS-FE source coding",
+    "new GitHub source PR merge",
+    "VPS/HRM/Keycloak/Redis/PostgreSQL modifications",
+    "Cloudflare/DNS deployment",
+    "real production private keys or access tokens",
+    "new paid hosting",
+    "rewrite FROZEN parent contracts"
+  ]
+}
