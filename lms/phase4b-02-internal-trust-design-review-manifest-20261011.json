@@ -359,11 +359,43 @@
     "script": "LMS-P4B02-E46-F0-OFFLINE-ISOLATION-PREFLIGHT-PS51.ps1",
     "sha256": "560038D47ADB98FCA547C74D9CF089A527EC798707461D68731BB236920C389B",
     "script_utf8_bom_crlf_lines": 144,
-    "runtime": "WINDOWS_POWERSHELL_5_1_NOT_RUN_OPERATOR",
+    "runtime": "OWNER_WINDOWS_E46_F0_PASS_READONLY_FACT_COLLECTION_ONLY",
     "safety": "METADATA_READ_ONLY_NO_DOCKER_DAEMON_NO_NETWORK_NO_SERVICE_START",
     "real_pg18_redis8_executed": false,
     "postgres_tests_planned": 10,
     "owner_approval_to_start_containers": false,
-    "design_ratification": "HOLD"
+    "design_ratification": "HOLD",
+    "observed": {
+      "docker_env_overrides_all_unset": true,
+      "docker_desktop_service": "STOPPED",
+      "saved_docker_context_metadata_file_count": 1,
+      "current_docker_context": "DEFINED_VALUE_REDACTED_NOT_CLASSIFIED",
+      "ram_total_gib": 15.33,
+      "ram_free_gib": 2.78,
+      "system_disk_free_gib": 45.85,
+      "four_reported_flags": [
+        "DOCKER_DESKTOP_NOT_RUNNING_NO_AUTOSTART",
+        "CURRENT_DOCKER_CONTEXT_REQUIRES_HUMAN_REVIEW",
+        "SAVED_DOCKER_CONTEXTS_REQUIRE_OFFLINE_REVIEW",
+        "FREE_RAM_UNDER_4GIB_REVIEW_CAPACITY_NO_START"
+      ],
+      "isolation_eligibility": "BLOCKED_PENDING_OWNER_ENVIRONMENT_REVIEW",
+      "docker_daemon_contacted": false,
+      "real_pg18_redis8_tested": false
+    }
+  },
+  "e46_f0r_offline_context_review": {
+    "receipt": "phase4b-02-e46-f0-owner-windows-evidence-and-f0r-offline-context-classification-20261011.md",
+    "artifact": "LMS-P4B02-E46-F0R-OFFLINE-CONTEXT-REVIEW-PS51.ps1",
+    "artifact_sha256": "436A722AC06A253885B538DA2E5588C64F7B0A55236EF5975715647E5EB49805",
+    "file_utf8_bom_crlf_lines": 159,
+    "operator_windows_execution": "PENDING",
+    "classifies_endpoint_protocol_only": true,
+    "never_displays_context_name_or_endpoint_or_secret": true,
+    "no_docker_wsl_pg_redis_network_invocation": true,
+    "even_candidate_local_context_allows_runtime": false,
+    "owner_permission_to_start_containers": false,
+    "design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
