@@ -1474,3 +1474,30 @@ Owner SSH read-only attempt at **2026-10-10T10:57:53Z (17:57:53 WIB)**: local Un
 **Change scope:** append-only README communication overlay/§7–8, Work Order §25 and this Ledger §42 **only**, all on documentation PR #39 if preflight remains pinned. Both frozen architecture contracts, ADR, E01–E29 history, BE/FE source trees, dirty local FE checkout and live HRM/Keycloak/DB/Redis/Cloudflare/Hostinger unchanged.
 
 **Checkpoint:** `PHASE4A_E29_AUDIT_CANDIDATE -> E30_G01-G13_DISCOVERY_TRIAGED=13/13 -> CLARITY_FIRST_PROTOCOL_DOCUMENTED -> AC18_OWNER_PENDING -> PHASE4B_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
+
+## 43. E31 — Phase 4A-00 final owner-conditional discovery closeout receipt (2026-10-10)
+
+**CURRENT PHASE TRANSITION:** `LMS-P4A-00-20261010 = CLOSED / OWNER-CONDITIONALLY ACCEPTED / DISCOVERY WITH RESIDUALS`. This dated overlay supersedes **only** older *current status* strings `PHASE4A IN PROGRESS` and `AC18 PENDING` in historical entries; it does not rewrite or remove their observations or modify frozen Phase0C/1 norms.
+
+**Owner authorization and condition:** User stated (2026-10-10 Asia/Jakarta) “kalau kamu yakin semua gaps telah di indentifikasi bila PR #39 di merge, maka kita bisa langsung merge dan close PHASE 4A-00. sekarang kamu yang pikirkan dan reasoning”. The reviewing assistant determined **all thirteen KNOWN named G01–G13 gaps are individually triaged sufficiently for a read-only discovery handoff**. This **does not prove no undiscovered future gaps exist**. The owner’s conditional delegation is interpreted narrowly as approval to merge **documentation PR #39** and formally accept Phase4A's read-only closure **with listed residual engineering work open**, not as authorization to modify infrastructure or waive production safety checks.
+
+**Exact GitHub event:** [PR #39](https://github.com/Reltroner/progress-documentation/pull/39) **MERGED** by a guarded exact-head squash into `progress-documentation/main`; resulting commit **`9689575a2f2edc6a24e0dd45dffe75265a1ccf3e`**. Prior comparison had `base=5ce584e2858b8f23170d2a63c9eb66048b8a4f6d`, `head=0c389aa886c60e1fc9679186c2688b4195875691`, 3 docs files, +313 lines, 0 removed, GitGuardian success. Merge result and three merged docs validated in GitHub. No BE/FE source, frozen contract, Keycloak/HRM/VPS/Cloudflare/PG/Redis or paid service mutation.
+
+**Definitive final status matrix (discovery-scope, not product completion):**
+
+| Gate class | IDs | Count |
+|---|---|---:|
+| `PASS_SCOPED_DISCOVERY` | AC01/02/03/04/06/11/17 | **7** |
+| `PASS_OWNER_DISCOVERY_CLOSEOUT_WITH_RESIDUALS` | **AC18** | **1** |
+| `PARTIAL_OR_BLOCKED_OR_GAP_NOT_PASS` | AC05/07/08/09/10/12/13/14/15/16 | **10** |
+| Total accounted | AC01..18 | **18** |
+
+**Interpretation:** **8 scoped PASS, 10 retained NOT PASS** is a truthful closed-*discovery* record; **18/18 passed is false**. The 13/13 gap-discovery triage concludes each **known** gap is mapped, not that 13 engineering implementations were fixed. `0/13` new remediations by E30/E31. Phase3 **28/28 nonproduction accepted**, 44/44 invariant traceability and **zero newly certified deployed runtime invariants** retained without scope inflation. DB/Redis privileged access remains blocked; missing LMS DNS/Pages/Keycloak clients and business APIs remain real implementation dependencies. Weekly backup and PostgreSQL service success do not prove disaster recovery. E27R SSH exit2 defect remains historical; no retroactive clean transport PASS.
+
+**Formal owner acceptance:** Accept uncertainty and documented scope-limited omissions **for Phase4A discovery closure only**, carry G01–G13 (plus explicit unverified proofs) to a later separately ratified work order. Do **not** treat unresolved implementation/security gap as security exception for live users; do **not** infer deployment readiness, resource sufficiency, or acceptance of possible future newly discovered risks.
+
+**Next `LMS-P4B-00-ENTRY-CANDIDATE` (proposed, inactive):** scope/acceptance/negative tests/HRM coexistence, key custody/identity and four DBs, Redis replay, six-service capacity/isolated FPM, learner/admin Pages, asset origin, Cloudflare DNS/TLS, release SHA, event durability, backup restore and explicit zero-unapproved-spend policy. Requires **separate human authorization** for even nonproduction implementation and another for production release. Do not modify local FE dirty checkout.
+
+**Location of exact owner receipt and migration instructions:** [Phase4A Work Order §26 E31](./phase4a-00-read-only-runtime-infrastructure-discovery-work-order-20261010.md), [README §9 status overlay](./README.md#9-current-phase-4a-00-owner-conditional-closure-overlay-e31-2026-10-10), and [README §7 mandatory beginner-to-professional clarity policy](./README.md#7-binding-ai-communication-and-execution-clarity-policy-owner-instruction-2026-10-10). As in all governance changes, recording an owner decision and merging an actual GitHub receipt are separate observable actions; this E31 becomes canonical after its **docs-only PR** merges.
+
+**Checkpoint:** `PHASE0C/1_FROZEN -> PHASE3B_28/28_SCOPED_ACCEPTED -> PR39_MERGED_9689575A -> G01_G13_13_OF_13_DISCOVERY_TRIAGED -> PHASE4A_AC18_OWNER_CONDITION_SATISFIED -> PHASE4A_CLOSED_DISCOVERY_WITH_10_OPEN_GATES -> PHASE4B_CANDIDATE_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
