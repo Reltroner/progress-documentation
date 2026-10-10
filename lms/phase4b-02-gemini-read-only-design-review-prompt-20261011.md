@@ -53,3 +53,11 @@ J. `DIFF_ASSERTION`: run read-only git status/diff --name-only where safe; do no
 An ordinary 7/7 CI PASS from the former G03 merge is **not a Phase4B-02 runtime PASS**. If any canonical doc is inaccessible, name it and report uncertainty, rather than substituting generic best practices.
 
 ## END PROMPT FOR GEMINI
+
+## E39 — mandatory reviewer override if prompt is reused (2026-10-11)
+
+**Read this after the original prompt and BEFORE any future review; it is higher-priority than older descriptions of completeness.** The first Gemini report at local G03 `598440f...` was corrected under [E38](./phase4b-02-gemini-independent-design-review-e38-20261011.md). Its frozen public hostname and DB errors, OIDC EdDSA categorical ban and absolute no-file-write statement cannot be repeated. The current `main` source pin remains `617dadc...` until GitHub rechecked.
+
+Read the new [E39 16-finding assurance register](./phase4b-02-e39-pre-ratification-assurance-risk-register-20261011.md) and [matrix E39 §7](./phase4b-02-internal-trust-nonproduction-negative-test-matrix-20261011.md) before any other recommendations. Investigate signed binding of the **actual** request method/path/query/body, unsigned/client-controlled request ID, cross-assertion substitution, redis silent/partial loss with no connection failure, shared quarantine across workers, JWT policy evidence, true end-to-end status/test outcome, and provider owner mapping. Make any proposed new JWS header `typ`/key role/Redis epoch implementation explicitly **unratified**. For `T02-047`, assert healthy concurrency **exactly one allowed, one denied**; component `ALLOW` does not mean whole HTTP accepted.
+
+**Output only:** a clear read-only evidence and residual-risk report listing each E39 R01..R16 status and source-specific proof plus D02-01..05 technical/owner blockers. Do not claim absolute zero risk, do not update code/doc/CI, and do not mark 86 HTTP tests executed. Any download to IDE scratch must be disclosed as scratch I/O, not "zero files created anywhere". Worktree safety: never repair or reset old detached/dirty branches. Continue to STOP before coding until a separately explicitly authorized source work order and owner decision exist.
