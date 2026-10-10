@@ -57,6 +57,7 @@ The following optional Windows PowerShell 5.1 **copy-paste candidate** performs 
 The source below is DESIGN-PREPARED and **NOT YET EXECUTED on owner PowerShell 5.1**. It is NOT sufficient to ratify the final workflow: actual job image command/client support and server binary versions must be checked separately. A correct digest is NOT an assertion an image is benign.
 
 ```powershell
+& {
 $ErrorActionPreference = "Stop"
 $oldProtocol = [Net.ServicePointManager]::SecurityProtocol
 try {
@@ -84,7 +85,7 @@ try {
         try { $actual = ([BitConverter]::ToString($sha.ComputeHash($raw))).Replace("-","").ToLowerInvariant() }
         finally { $sha.Dispose() }
         if ($reported.ToLowerInvariant() -ne ("sha256:" + $actual)) { throw "STOP: digest mismatch for $Name" }
-        $payload = [Text.Encoding]::UTF8.GetString($raw) | ConvertFrom-Json
+        $payload = ([System.Text.Encoding]::UTF8).GetString($raw) | ConvertFrom-Json
         return [pscustomobject]@{ Digest=("sha256:" + $actual); Body=$payload }
     }
     foreach ($item in @(
@@ -98,9 +99,9 @@ try {
         if ([string]::IsNullOrWhiteSpace([string]$auth.token)) { throw "STOP: registry token unavailable" }
         $index = Read-PublicRegistryManifest -Name $item.Name -Reference $item.Tag -Token $auth.token
         if ($null -eq $index.Body.manifests) { throw "STOP: no multiarch manifest index for $($item.Name)" }
-        $matches = @($index.Body.manifests | Where-Object { $_.platform.os -eq "linux" -and $_.platform.architecture -eq "amd64" })
-        if ($matches.Count -ne 1) { throw "STOP: expected one linux/amd64 manifest for $($item.Name), got $($matches.Count)" }
-        $childReference = [string]$matches[0].digest
+        $platformMatches = @($index.Body.manifests | Where-Object { $_.platform.os -eq "linux" -and $_.platform.architecture -eq "amd64" })
+        if ($platformMatches.Count -ne 1) { throw "STOP: expected one linux/amd64 manifest for $($item.Name), got $($platformMatches.Count)" }
+        $childReference = [string]$platformMatches[0].digest
         if ($childReference -notmatch "^sha256:[0-9a-fA-F]{64}$") { throw "STOP: invalid child digest" }
         $child = Read-PublicRegistryManifest -Name $item.Name -Reference $childReference -Token $auth.token
         if ($child.Digest -ne $childReference.ToLowerInvariant()) { throw "STOP: linux/amd64 child digest mismatch" }
@@ -116,6 +117,7 @@ try {
     throw
 } finally {
     [Net.ServicePointManager]::SecurityProtocol = $oldProtocol
+}
 }
 ```
 
