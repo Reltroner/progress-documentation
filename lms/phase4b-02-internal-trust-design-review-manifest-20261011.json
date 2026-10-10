@@ -501,7 +501,17 @@
       },
       "actions_specific_usage": "UNKNOWN_NOT_PROVIDED",
       "budget_limit": "UNKNOWN_NOT_PROVIDED",
-      "future_zero_spend_guaranteed": false
+      "future_zero_spend_guaranteed": false,
+      "actions_product_screenshot": {
+        "billable_usage_usd": 0,
+        "consumed_usage_usd": 1.82,
+        "discounts_usd": 1.82,
+        "included_minutes_used": 0,
+        "included_minutes_total": 2000,
+        "included_storage_gb_used": 0,
+        "included_storage_gb_total": 0.5,
+        "actions_budget_hard_stop_verified": false
+      }
     },
     "standard_public_runner_free_per_github_docs": true,
     "larger_runners_billable": true,
@@ -518,6 +528,39 @@
     "verified_container_image_digests": 0,
     "real_pg18_redis8_cases_executed": 0,
     "canonical_http_t02_cases_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3_owner_approved_public_empty_lab": {
+    "receipt": "phase4b-02-e46-f3-owner-conditional-approval-zero-additional-cost-public-sandbox-provisioning-20261011.md",
+    "owner_permission": "CREATE_ONE_EMPTY_PUBLIC_LMS_TRUST_SANDBOX_ONLY_CONDITIONAL_ON_PRODUCTIVITY_AND_NO_EXTRA_COST",
+    "desired_repo": "Reltroner/lms-trust-sandbox",
+    "github_lookup_before_creation": "NOT_FOUND_NOT_A_GLOBAL_NAME_RESERVATION",
+    "github_connector_create_repository_supported": false,
+    "create_repo_execution": "PENDING_OWNER_GUI",
+    "visibility_required": "public",
+    "initial_readme": false,
+    "initial_gitignore": false,
+    "initial_license": false,
+    "template": false,
+    "initial_workflow_created": false,
+    "runner_started": false,
+    "postgres18_redis8_started": false,
+    "new_repo_may_hold_prod_secrets": false,
+    "approved_to_add_workflow": false,
+    "approved_to_run_workflow": false,
+    "selected_runner_when_later_approved": "ubuntu-24.04_STANDARD_PUBLIC",
+    "official_runner_specs": {
+      "vcpu": 4,
+      "memory_gib": 16,
+      "ssd_gb": 14
+    },
+    "expected_runner_incremental_cost_usd": 0,
+    "account_budget_cap_verified": false,
+    "local_docker_no_go": true,
+    "existing_reltroner_proof_repo_rejected_as_unrelated_authorship_repo": true,
+    "PG_R01_to_10_executed": 0,
+    "canonical_T02_HTTP_executed": 0,
     "design_ratification": "HOLD",
     "production_authorized": false
   }
