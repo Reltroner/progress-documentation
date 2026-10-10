@@ -47,3 +47,29 @@ These are **proposed partition labels**, not frozen new phases or authorization.
 This initial command batch makes **no changes to source or production**, so no production rollback should be needed. The local TEMP evidence file may be retained or deleted by the operator later; do not automatically delete it. Source feature PR rollback must use reviewed revert/isolated branch disposal after verifying clean status, never destructive alteration of a dirty user checkout. Production rollback is **unproven** until explicitly designed and validated. **Zero errors / zero technical debt cannot be promised**; stop conditions, exact pinning, negative tests, fail-closed design, and audit receipts reduce risk.
 
 **Present checkpoint:** `4A-00_CLOSED -> 4B-00_ENTRY_OPERATOR_PREFLIGHT_AUTHORIZED -> LOCAL_EVIDENCE_AWAITED -> 4B-01_SOURCE_IMPLEMENTATION_NOT_YET_APPROVED -> PRODUCTION_NOT_AUTHORIZED`.
+
+## 6. E32 — Owner Windows PowerShell 5.1 preflight receipt (2026-10-11 00:14 Asia/Jakarta)
+
+**Operator evidence:** Output pasted directly in the current owner conversation, local timestamp **2026-10-11T00:14:32.7639516+07:00**, corresponding to **2026-10-10T17:14:32.7669501Z**. The first run was blocked by an earlier script error: Windows PowerShell 5.1 `Tee-Object` lacks `-Encoding` and did not produce a valid report. The owner then reran the existing `$ReportBlock` via `Tee-Object -FilePath $Report` in the same PowerShell session, with existence/nonzero-size checks. **Final evidence is the corrected second execution only**; the first failed invocation is not counted as PASS.
+
+| Gate | E32 observed output | Scoped disposition |
+|---|---|---|
+| PRE01 | git 2.41.0.windows.1; `git ls-remote` exit=0 and exact main pins BE `a2672d0085fe84b55520f8f52f41a8c7fc8568a0`, FE `eb01a4d2c924299b929aebf0f4826b94cf341fc6`, Docs `c9f3498965cd46c452006cc2d02ac0831db4ea26` at **operator collection time** | `PASS_REMOTE_PINS`; docs pin becomes **historical** upon merging this documentation PR; fresh docs SHA required next |
+| PRE02 | BE/FE local origins verified in C:\Projects search; Docs local clone not found in searched directory | `PASS_BE_FE_FOUND`; docs local checkout **optional**, not auto-cloned |
+| PRE03 | BE local `main`, `HEAD=a2672d...`, dirty count **0**, `status exit=0`, **2 worktrees** | `PASS_BE_BASELINE_SAFE`; other BE worktree path/branch/dirty state not yet inventoried |
+| PRE04 | FE local `main`, `HEAD=f2d40417d0eea71e2c3e329ec6e32933b3e6cbd7`, dirty count **3**, `status exit=0`, **2 worktrees** | `PASS_FE_OBSERVED_AND_UNTOUCHED`; **not clean, not pinned, do not reset or change this checkout** |
+| PRE05 | PHP 8.4.4 CLI ZTS; Node v22.23.1; npm and Composer detected | `PASS_TOOLCHAIN_PRESENT`; version compatibility for exact application/test matrix still requires execution |
+| PRE06 | `API_{gateway,learning,mentorship,knowledge,assistant,audit}_PLACEHOLDER=True`, total **6/6** | `PASS_EXPECTED_SOURCE_DISCOVERY`; **not** a business API implementation PASS |
+| PRE07 | Script reports no SSH, deployment, Git reset/fetch/pull/clean/checkout, or source edits; report exists, nonzero size **5,318 bytes** | `PASS_SCRIPT_SCOPED_READ_ONLY`; shell output is not independent whole-system mutation forensics |
+
+**Exact E32 terminal classification:** `P4B00_ENTRY_CLASSIFICATION=READY_FOR_REVIEW_OF_ISOLATED_4B01_WORK_ORDER`. **All PRE01–PRE07 PASS within their defined entry scope.** `PHASE4B_01_CODING_AUTHORIZATION=NOT_GRANTED_BY_THIS_REPORT` and `PRODUCTION_AUTHORIZATION=NOT_GRANTED`. No backend/FE source compilation or runtime tests were performed in E32.
+
+### 6.1 What is allowed next?
+
+**Proceed to `4B-01` scoped engineering environment design and a separate guard-driven BE worktree inventory.** Before creating any new worktree, the operator must inspect the existing **two BE worktrees and two FE worktrees** for path/branch collision, hidden dirty work, unsafe location, and stale branches without resetting anything. The existing FE main checkout with three dirty entries is off-limits.
+
+The first proposed code implementation is a **bounded nonproduction trust-contract status reconciliation (G03)** in isolated BE worktree, **NOT** six-service full implementation. Exact allowlist/negative tests/review and owner authorization belong in the *subsequent* Phase4B-01 work order; this preflight result alone does not authorize editing BE source. A new isolated worktree must originate from freshly verified remote BE `main` SHA and a clean/pinned local source; avoid `git fetch` or updating original main without separately approved instructions.
+
+**No-cost/no-runtime-change priority:** review/inventory → approve per-file source scope → isolated worktree → Gemini IDE agent only for coding → PHP static/fixture tests + GitHub CI → owner PR review. Existing HRM/Keycloak/PostgreSQL/Redis, VPS hosting and Pages/DNS remain untouched. No guarantee of zero errors, but each gate has explicit observable stop conditions.
+
+**E32 checkpoint:** `PHASE4A_CLOSED -> PHASE4B-00_PRE01..07_PASS_SCOPED -> PR41_E32_ARCHIVE_PENDING_MERGE -> PHASE4B-01_WORKTREE_INVENTORY_NEXT -> 4B-01_CODING_NOT_AUTHORIZED -> PRODUCTION_NOT_AUTHORIZED`.
