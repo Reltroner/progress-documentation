@@ -411,7 +411,7 @@
     }
   },
   "e46_f0s_capacity": {
-    "status": "DIRECT_INLINE_PS51_WORK_ORDER_PREPARED_NOT_RUN",
+    "status": "OWNER_WINDOWS_PASS_READONLY_CAPACITY_FACTS_ONLY",
     "receipt": "phase4b-02-e46-f0r-windows-acceptance-and-f0s-resource-capacity-readonly-workorder-20261011.md",
     "capabilities": [
       "THREE_READONLY_WIN32_OPERATING_SYSTEM_MEMORY_SAMPLES",
@@ -428,6 +428,47 @@
     "owner_local_authorization": "NO_GO",
     "design_ratification": "HOLD",
     "production_authorized": false,
-    "possible_ci_alternative": "RESEARCH_ONLY_NOT_AUTHORIZED_NO_RUNNER_STARTED_NO_COST_INCURRED"
+    "possible_ci_alternative": "RESEARCH_ONLY_NOT_AUTHORIZED_NO_RUNNER_STARTED_NO_COST_INCURRED",
+    "observed": {
+      "ram_samples_gib": [
+        2.73,
+        2.74,
+        2.74
+      ],
+      "minimum_free_ram_gib": 2.73,
+      "total_ram_gib": 15.33,
+      "system_drive_free_gib": 45.84,
+      "docker_desktop": "STOPPED",
+      "working_set_gib": {
+        "browser": 6.15,
+        "ide": 1.37,
+        "virtualization": 0.01,
+        "database": 0.14,
+        "other": 8.15
+      },
+      "working_sets_not_guaranteed_reclaimable": true,
+      "capacity_screen": "UNDER_4GIB_REVIEW",
+      "runtime_authorization": "NO_GO_OWNER_APPROVAL_REQUIRED"
+    }
+  },
+  "e46_f1_github_ci_feasibility": {
+    "record": "phase4b-02-e46-f0s-windows-capacity-acceptance-and-f1-github-actions-isolation-feasibility-20261011.md",
+    "status": "PARTIAL_READ_ONLY_NO_EXECUTION",
+    "source_repo": "Reltroner/LMS-BE",
+    "source_repo_public": true,
+    "existing_workflow": ".github/workflows/phase3b-contract-ci.yml",
+    "existing_workflow_sha": "78c507dc57910eadc9de31819dac7fb6a3d845f1",
+    "standard_ubuntu_24_04_existing_runs_success": true,
+    "github_documentation_public_standard_runner_free": true,
+    "github_larger_runner_billed": true,
+    "account_actions_policy_review": "PENDING_OWNER_GUI",
+    "account_billing_review": "PENDING_OWNER_GUI",
+    "separate_lab_created": false,
+    "new_workflow_created": false,
+    "new_workflow_executed": false,
+    "real_pg18_redis8_cases_run": 0,
+    "canonical_http_cases_run": 0,
+    "design_ratification": "HOLD",
+    "production_authorization": false
   }
 }
