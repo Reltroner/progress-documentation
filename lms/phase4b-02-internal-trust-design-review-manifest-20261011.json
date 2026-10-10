@@ -795,5 +795,83 @@
     "canonical_http_t02_executed": 0,
     "owner_design_ratification": "HOLD",
     "production_authorized": false
+  },
+  "e46_f3b_r4_owner_r3_zip_integrity_and_static_network_review": {
+    "receipt": "phase4b-02-e46-f3b-r4-owner-zip-integrity-and-static-client-network-risk-review-20261011.md",
+    "owner_windows_r3_zip_integrity": "PASS_EXACT_SHA256_MATCH_REPORTED",
+    "original_r3_zip_sha256": "07e230b0764798734975d76ebb6d0f6364d2633ecdb8595ba0aad637d95cafc0",
+    "original_r3_archive_independently_verified": true,
+    "original_r3_source_member_sha256_all_3_verified": true,
+    "original_r3_bash_n": "PASS_STATIC",
+    "original_r3_yaml_parse": "PASS_STATIC",
+    "source_review_findings": [
+      {
+        "id": "R4-01",
+        "severity": "P1",
+        "finding": "REDIS_TCP_CONNECT_NOT_INDEPENDENTLY_TIME_BOUND",
+        "disposition": "R4_CANDIDATE_GNU_TIMEOUT_WRAPPER_NOT_RUNTIME_PROVEN"
+      },
+      {
+        "id": "R4-02",
+        "severity": "P1",
+        "finding": "REDIS_DBSIZE_ZERO_NOT_DISPOSABLE_ENDPOINT_AUTHENTICATION_BEFORE_FLUSHDB",
+        "disposition": "R4_CANDIDATE_JOB_SERVICE_CONTAINER_IDS_NETWORK_MATCH_GUARDS_NOT_CRYPTOGRAPHIC_IDENTITY"
+      },
+      {
+        "id": "R4-03",
+        "severity": "P2",
+        "finding": "IMAGE_RUNTIME_BASH_PSQL_TIMEOUT_NOT_VERIFIED"
+      },
+      {
+        "id": "R4-04",
+        "severity": "P2",
+        "finding": "CUSTOM_RESP_PARSER_NOT_FULLY_VALIDATED"
+      },
+      {
+        "id": "R4-05",
+        "severity": "P2",
+        "finding": "THREE_SCOPED_TESTS_NOT_CANONICAL_HTTP"
+      }
+    ],
+    "reviewed_github_docs": [
+      "https://docs.github.com/en/actions/tutorials/use-containerized-services/use-docker-service-containers",
+      "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts",
+      "https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/run-jobs-in-a-container"
+    ],
+    "r4_review_only_archive": {
+      "name": "LMS-E46-F3B-R4-static-review-only.zip",
+      "sha256": "32af6170d2609fe137d7cf18eb184b763e9fe6bac9932e5995240716a48ad393",
+      "bytes": 7435,
+      "committed_to_github": false
+    },
+    "r4_candidate_yml": {
+      "name": "candidate.yml",
+      "sha256": "3b737d2181c6bd15c710edce7071dcaee036ae4d90a83d57ecdd435a5786a02e",
+      "lines": 159,
+      "parse": "PASS_STATIC",
+      "manual_only": true,
+      "uses_count": 0
+    },
+    "r4_candidate_bash": {
+      "name": "initial-lab.sh",
+      "sha256": "49aabab25ed8129ab1e5970517b4ead9083917f130207343933b038131eb2a2d",
+      "lines": 109,
+      "bash_n": "PASS_STATIC",
+      "gnu_timeout_wrapped_redis_connect": true,
+      "github_job_service_network_guard": true,
+      "runtime_tested": false
+    },
+    "timeout_binary_in_job_image_verified": false,
+    "redis_endpoint_cryptographically_authenticated": false,
+    "shellcheck_or_actionlint_run": false,
+    "first_default_branch_commit_authorized": false,
+    "first_manual_run_authorized": false,
+    "sandbox_repo_visibility": "public",
+    "sandbox_branch_count": 0,
+    "sandbox_actions_runs": 0,
+    "real_pg_r01_through_r10_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
   }
 }
