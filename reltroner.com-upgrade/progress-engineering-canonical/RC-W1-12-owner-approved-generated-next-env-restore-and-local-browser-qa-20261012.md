@@ -6,6 +6,12 @@
 > **Execution status:** This GitHub receipt is a decision/documentation commit, NOT a source checkout write. The owner has not yet provided the next PowerShell/browser results. No PR/push/preview/deploy.
 > **Repository:** `Reltroner/reltroner-studio`; frozen base SHA `18b295f96ccb521b228a1855e79448158c09db15`; isolated `C:\Projects\reltroner-studio-w1-ia` branch `phase1/w1-creator-reader-ia-20261012`. Primary `C:\Projects\reltroner-studio` and 14 untracked author Markdown MUST remain protected.
 
+## Operator companion artifact (not a repository mutation)
+
+The author supplied a self-contained **PowerShell 5.1** operator script external to both Studio worktrees: `RC-W1-12-G2-QA-one-path-restore-20261012.ps1` (159 lines, SHA-256 `c659c69cec5795e3594147ad7873e5f7c8e78730038d7ec572c1179a072d762d`). It has been statically reviewed but **NOT executed on Windows** by the reviewer. Owner should save it to Downloads (outside both worktrees), inspect it in Notepad, then paste its contents into a PowerShell 5.1 session. No Execution Policy modification required when pasting. It must not be rerun automatically after a STOP.
+
+The script checks in-memory content and hash snapshots, validates exact four-path status, uses Node read-only `git show HEAD:next-env.d.ts` comparison for the one-line delta, performs **one owner-approved targeted restore**, then verifies only three TSX modifications and unchanged primary/refs. It does not install, rebuild, clean or deploy.
+
 ## 1. Scope of explicit exception
 
 **NOW PERMITTED, after STOP-first preflight:** Use `git restore --source=HEAD --worktree -- next-env.d.ts` targeted **only to** generated tracked `next-env.d.ts` in the isolated W1 worktree, **only if** all these checks still pass:
