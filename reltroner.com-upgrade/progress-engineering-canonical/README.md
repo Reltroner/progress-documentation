@@ -63,6 +63,8 @@
 
 | [RC-W1-16 — Independent browser QA review, scoped acceptance and residuals](./RC-W1-16-independent-browser-qa-acceptance-review-and-residuals-20261012.md) | Agent-reported actual Chrome viewport/keyboard/zoom/route QA; W1-IA01–12 reviewed, mobile first fold nuance, historical broken anchors, missing unpublished negative fixture and inaccessible screenshot bytes; no W1 patch regression demonstrated | **BROWSER PASS_SCOPED / W1 PARTIAL_RESIDUALS / G3 HOLD** |
 
+| [RC-W1-17 — Direct screenshot ZIP audit: desktop visual scoped pass, viewport mismatch, WebP recorder failure](./RC-W1-17-direct-png-evidence-review-viewport-capture-mismatch-and-invalid-webp-20261012.md) | Four PNG hashes/integrity verified; 320/375 screenshots both 628px wide, tablet screenshot visually one-column contrary to agent's reported 2 columns; optional WebP static 'Error generating recording'; targeted CDP viewport recapture proposed | **DESKTOP VISUAL PASS_SCOPED / MOBILE-TABLET EVIDENCE PARTIAL / G3 HOLD** |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
