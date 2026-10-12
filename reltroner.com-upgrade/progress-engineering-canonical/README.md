@@ -1,7 +1,7 @@
 # Reltroner.com — Canonical Engineering Progress Archive
 
 > Directory: `reltroner.com-upgrade/progress-engineering-canonical/` (note: **canonical**, not the former typo `canocical`).
-> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / ISOLATED WORKTREE READY (OWNER-REPORTED), G2-QA INSTALL/TYPECHECK/CONTENT/BUILD PASS (OWNER-REPORTED); POSTBUILD INTEGRITY STOP ON TRACKED GENERATED next-env.d.ts, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
+> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / ISOLATED WORKTREE READY (OWNER-REPORTED), G2-QA INSTALL/TYPECHECK/CONTENT/BUILD PASS (OWNER-REPORTED); POSTBUILD NEXT-ENV ONE-LINE DELTA CONFIRMED / OWNER APPROVED ONE-PATH RESTORE PENDING EXECUTION, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
 > Parent authority: [Architecture Contract](../00-ratified-frontend-architecture-contract-20261012.md) → [W0 Work Order](../02-w0-00-read-only-discovery-work-order-20261012.md) → [Release Governance](../05-source-workspace-and-release-governance.md) → [Acceptance Traceability](../03-phase1-acceptance-and-invariant-traceability.md).
 > [Live engineering progress ledger](../01-engineering-progress-ledger.md) is the summary index; dated receipts here preserve evidence and residual risks.
 
@@ -52,6 +52,8 @@
 | [RC-W1-10 — G2-QA install/typecheck/content/build PASS; generated next-env integrity STOP](./RC-W1-10-g2-qa-build-pass-next-env-generated-file-integrity-stop-20261012.md) | Owner npm ci 263 packages, TypeScript exit 0, content validator 0 errors/371 warnings, Next 440/440 build exit 0; Next-generated tracked next-env.d.ts modified after build, so strict integrity gate stopped; read-only exact diff required | **BUILD PASS / POSTBUILD SOURCE INTEGRITY HOLD / BROWSER HOLD / G3 HOLD** |
 
 | [RC-W1-11 — Verified next-env one-line generated diff and pending one-path exception](./RC-W1-11-generated-next-env-one-line-diff-confirmed-and-one-file-exception-proposal-20261012.md) | Exact production-build generated import switch confirmed against GitHub source; browser hold, single-file restore requires owner permission | **ROOT CAUSE CONFIRMED / PENDING OWNER** |
+
+| [RC-W1-12 — Owner-approved exact one-path generated Next env restoration and local browser QA](./RC-W1-12-owner-approved-generated-next-env-restore-and-local-browser-qa-20261012.md) | Owner explicitly approves only next-env.d.ts baseline restoration after full one-line/4-file/hash preflight, then already-built localhost QA; PowerShell companion checksum documented; no npm/build repeat, no PR/preview/deployment | **G2-QA OWNER APPROVED / RESTORE EXECUTION PENDING / G3–G8 HOLD** |
 
 ## Publication policy
 
