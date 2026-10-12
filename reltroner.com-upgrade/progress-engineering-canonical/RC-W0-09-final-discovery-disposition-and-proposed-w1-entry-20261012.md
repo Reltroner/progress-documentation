@@ -1,5 +1,7 @@
 # RC-W0-09 — Final Discovery Disposition & **Proposed** G1/W1 Entry
 
+> **2026-10-12 G1 DECISION UPDATE (addendum, historical proposal preserved):** The owner subsequently **approved G1 W0 discovery closure with residual risks retained**; this proposal's original `G1=PENDING_OWNER` language is now **historical pre-decision state**, not the current status. See [RC-W0-10 owner G1 ratification](./RC-W0-10-owner-g1-ratification-and-discovery-closure-20261012.md). `G2=NOT_AUTHORIZED`; see the separate [RC-W1-01 proposed G2 work order](./RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md). No WEB-AC was waived.
+
 > **Document class:** OWNER-REVIEW PROPOSAL, **NOT OWNER-RATIFIED G1** and **NOT W1 implementation authorization**.
 > As-of: 2026-10-12 Asia/Jakarta, after [RC-W0-08](./RC-W0-08-authoritative-dns-timeouts-and-cloudflare-zone-absence-20261012.md).
 > **Document evidence:** summarized reviewed receipts RC-W0-00…08 and the [W0 acceptance work order](../02-w0-00-read-only-discovery-work-order-20261012.md).
