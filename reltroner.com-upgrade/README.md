@@ -1,6 +1,6 @@
 # reltroner.com — Phase 1 Frontend Production Readiness
 
-> Status: OWNER-RATIFIED REQUIREMENTS / W0 READ-ONLY DISCOVERY AUTHORIZED / IMPLEMENTATION NOT YET ACCEPTED.
+> Status: OWNER-RATIFIED REQUIREMENTS / G1 W0 DISCOVERY CLOSED WITH RESIDUALS / G2 W1 NOT YET AUTHORIZED.
 > Ratification date: 2026-10-12 Asia/Jakarta (owner in conversation).
 > Product: https://www.reltroner.com/ ; code: https://github.com/Reltroner/reltroner-studio
 > Documentation repository: https://github.com/Reltroner/progress-documentation
@@ -14,7 +14,7 @@
 2. [Ratified website intention 11](../all-in-reltroner-master-source-of-truth/11-reltroner-com-landing-and-ux-journeys.md): outcome and audience journey.
 3. [00 — Frontend architecture contract](./00-ratified-frontend-architecture-contract-20261012.md): binding website scope/invariants, not LMS authority.
 4. [01 — Live engineering ledger](./01-engineering-progress-ledger.md): evidence, known gaps, current gate.
-5. [02 — W0 discovery work order](./02-w0-00-read-only-discovery-work-order-20261012.md): **FIRST executable engineering workstream**, read-only.
+5. [02 — W0 discovery work order](./02-w0-00-read-only-discovery-work-order-20261012.md): historical authorized read-only evidence protocol; **G1 formally closed** in [RC-W0-10](./progress-engineering-canonical/RC-W0-10-owner-g1-ratification-and-discovery-closure-20261012.md).
 6. [03 — Traceability / acceptance](./03-phase1-acceptance-and-invariant-traceability.md): proposed measurable acceptance, gate-by-gate.
 7. [04 — Cost, privacy and provider boundaries](./04-zero-incremental-spend-and-provider-boundaries.md).
 8. [05 — Git workspace / release governance](./05-source-workspace-and-release-governance.md).
@@ -40,8 +40,8 @@ Re-read refs before writing; frozen snapshot strings must never be mistaken for 
 | Gate | Status | What it means |
 |---|---|---|
 | Owner scope ratification | RATIFIED | Design outcomes and no-spend boundary approved; this documentation records that decision |
-| W0-00 read-only discovery | AUTHORIZED / EVIDENCE PENDING | First engineering action; no code, local checkout, provider or production changes |
-| W1+ scoped implementation | NOT YET AUTHORIZED AS MUTATION | Requires W0 receipts, path allowlist, exact SHA/branch, acceptance plan |
+| W0-00 discovery (G1) | **CLOSED_WITH_ACCEPTED_RESIDUALS / OWNER_APPROVED** | W0-AC12 owner signoff recorded in RC-W0-10; other ACs retain original PARTIAL/BLOCKED statuses |
+| W1 G2 work order | **PREPARED / NOT YET AUTHORIZED** | [RC-W1-01](./progress-engineering-canonical/RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md): three TSX files and safe read-only preflight, separately approved G2 required |
 | Integrated preview | NOT EXECUTED | Cannot report PASS |
 | Production readiness | NOT CERTIFIED | User has not accepted final release |
 | Global Phase 1 exit | NOT ACCEPTED | Requires independent LMS final DoD and operations gates |
@@ -62,9 +62,15 @@ Re-read refs before writing; frozen snapshot strings must never be mistaken for 
 
 ## 5. Scope guardrail
 
-The first workstream is W0 **OBSERVE → EVIDENCE → GAP → DECISION**, not W1 implementation. No new provider purchase, DNS change, paid plan, Vercel purge, live API activation, source merge, direct main edit in Studio, Keycloak/Redis/PostgreSQL mutation or VPS LLM inference. The owner-approved **documentation commit** is not an application release.
+W0 was executed as **OBSERVE → EVIDENCE → GAP → DECISION** and G1 is now owner-approved, with residuals deferred as mandatory later work. The next activity is **W1 G2 decision preparation**, not implementation until separate owner authorization. No new provider purchase, DNS change, paid plan, Vercel purge, live API activation, source merge, direct main edit in Studio, Keycloak/Redis/PostgreSQL mutation or VPS LLM inference. The owner-approved **documentation commit** is not an application release.
 
 For any new AI: TUJUAN → FAKTA → GAP → RISIKO → SOLUSI → TOOLS/OWNER → OTORISASI → BUKTI. Every claimed PASS must name the test or exact observation. Use the next-step/stop conditions from [W0](./02-w0-00-read-only-discovery-work-order-20261012.md).
+
+## 5.1 Owner G1 closure (2026-10-12)
+
+Owner explicitly approved RC-W0-09 closure with every residual blocker and **all 27 WEB-AC still mandatory**. See [RC-W0-10 G1 signed decision](./progress-engineering-canonical/RC-W0-10-owner-g1-ratification-and-discovery-closure-20261012.md). This is **not** G2 implementation approval and does not permit source edits, creating worktree, DNS/provider activation, preview, push/merge or production release.
+
+Current planned G2 candidate: [RC-W1-01 first-contact Creator/Reader IA slice](./progress-engineering-canonical/RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md), proposed three files `app/page.tsx`, `components/ecosystem/EcosystemHero.tsx`, `components/ecosystem/UseCasePathways.tsx`, exact Studio main SHA only after independent read-only source preflight. Previously reported primary checkout is locally behind GitHub main with 14 protected untracked Markdown; no primary `git pull/reset/clean`. Existing W3 image 404, W4 GA consent gap, W5 Workers AI entitlement and W6 Resend failed DNS remain mandatory before website Phase 1 DoD.
 
 ## 6. Canonical progress publication
 
