@@ -1,5 +1,8 @@
 # RC-WEB-DESIGN-001 — Frontend Component, Public Index, AI and Media Design
 
+> **2026-10-13 W1 owner correction — [RC-WEB-ADR-008](./08-owner-execution-authority-and-dedicated-creator-reader-tsx-adr-20261013.md):** The landing design's two strategic Creator/Reader CTA actions now link directly to first-class TSX routes `app/start/creators/page.tsx` and `app/start/readers/page.tsx`; Markdown articles remain deeper source material, not the direct primary CTA destination. Do not mistake this small user-journey implementation for completed W2 archive/index/AI architecture; no new content source is established. Owner can directly order scoped work across workstreams without sequence theater while all functional/security/cost DoD remains binding.
+
+
 > Status: TARGET COMPONENT DESIGN RATIFIED AT OUTCOME LEVEL / IMPLEMENTATION NOT STARTED.
 > Target stack: current Next.js 16 / React 19, TypeScript-first .ts/.tsx, static and frontend-first. Actual source versions must be reverified before PR.
 > This design is subordinate to [WEB architecture](./00-ratified-frontend-architecture-contract-20261012.md) and [financial/privacy contract](./04-zero-incremental-spend-and-provider-boundaries.md).
