@@ -1,5 +1,8 @@
 # Reltroner.com — Current Execution Status, Critical Path, Decision Gates (2026-10-12)
 
+> **LATEST SCREENSHOT UX ADDENDUM RC-UX-05R2 — 2026-10-13:** [ADR-012](./12-owner-navigator-reading-path-fullwidth-article-and-media-debugging-20261013.md) now also requires removing the **desktop-left “Reltroner Studio” header brand text** crossed out on `/philosophies` while retaining real desktop menu/search/Apps/identity and rebalancing the header with no reserved blank column; center **all Knowledge Base collection breadcrumbs** above their page headings using a shared component, with correct mobile wrap and links. Does not supersede prior mobile header-to-Compass requirement. `SOURCE_FIX=NOT_EXECUTED_BY_CHATGPT`; `OWNER_VISUAL_QA=PENDING`.
+
+
 > **LATEST 2026-10-13 MOBILE UX OWNER ADDENDUM — [RC-WEB-ADR-012](./12-owner-navigator-reading-path-fullwidth-article-and-media-debugging-20261013.md):** Mobile Creator screenshot at 320×480 circles the entire old `Reltroner / Knowledge Ecosystem / search / hamburger` header, directing **all brand/home, global menu, shared-index search, context-only Reading Path** functions into the existing compass Navigator, **then delete the mobile header block** and its empty space. Desktop header unaffected. This supersedes mobile hamburger preservation language in earlier ADR-011/012; Navigator content must remain functional independent of AI providers. Pending Antigravity local implementation, no source/QA PASS evidenced. Keep owner dirty worktree and drafts protected.
 
 
