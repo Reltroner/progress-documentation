@@ -31,6 +31,8 @@
 | [RC-W0-10 — Owner G1 ratification, W0 discovery closure](./RC-W0-10-owner-g1-ratification-and-discovery-closure-20261012.md) | Exact owner G1 approval, W0-AC01–12 with scoped/non-PASS status retained, all 27 WEB-AC mandatory, no G2/provider/deploy authorization | **G1 APPROVED**, **W0 CLOSED WITH RESIDUALS**, G2 PENDING |
 | [RC-W1-01 — Proposed exact-scope G2 IA work order](./RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md) | SHA-locked three TSX files, Creator/Reader/collaborator destination candidates, PowerShell 5.1 no-write preflight, eventual bounded IDE prompt, W1 negative QA, stop/preview/cost gates | **G2 NOT AUTHORIZED / W1 NOT EXECUTED** |
 
+| [RC-W1-00 — Owner G2 read-only workspace preflight PASS](./RC-W1-00-owner-read-only-g2-preflight-pass-20261012.md) | PowerShell 2026-10-12 18:12:27 WIB: 14 protected Markdown intact, zero tracked changes, remote SHA 18b295f matches, no branch/worktree collisions; local commit object availability still UNKNOWN | **PREFLIGHT PASS_SCOPED**, G2 NOT APPROVED, W1 source NOT EXECUTED |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
