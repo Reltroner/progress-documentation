@@ -1,7 +1,7 @@
 # Reltroner.com — Canonical Engineering Progress Archive
 
 > Directory: `reltroner.com-upgrade/progress-engineering-canonical/` (note: **canonical**, not the former typo `canocical`).
-> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / ISOLATED WORKTREE READY (OWNER-REPORTED), GEMINI PATCH REVIEWED; G2-QA INSTALL AND TESTS OWNER APPROVED (EXECUTION PENDING), W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
+> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / ISOLATED WORKTREE READY (OWNER-REPORTED), G2-QA INSTALL/TYPECHECK/CONTENT/BUILD PASS (OWNER-REPORTED); POSTBUILD INTEGRITY STOP ON TRACKED GENERATED next-env.d.ts, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
 > Parent authority: [Architecture Contract](../00-ratified-frontend-architecture-contract-20261012.md) → [W0 Work Order](../02-w0-00-read-only-discovery-work-order-20261012.md) → [Release Governance](../05-source-workspace-and-release-governance.md) → [Acceptance Traceability](../03-phase1-acceptance-and-invariant-traceability.md).
 > [Live engineering progress ledger](../01-engineering-progress-ledger.md) is the summary index; dated receipts here preserve evidence and residual risks.
 
@@ -48,6 +48,8 @@
 | [RC-W1-08 — Proposed isolated npm G2-QA amendment](./RC-W1-08-proposed-g2-qa-isolated-npm-dependency-and-runtime-tests-20261012.md) | Proposal only: single npm lockfile-driven `npm ci --ignore-scripts` attempt after approval, then typecheck/content/build/localhost QA with strict STOP gates | **PENDING_OWNER**, no install, G3 HOLD |
 
 | [RC-W1-09 — Owner-approved G2-QA isolated npm and local validation gate](./RC-W1-09-owner-g2-qa-approval-isolated-npm-ci-and-tests-20261012.md) | Explicit approval for one scoped npm ci with ignore-scripts/no-audit/no-fund/no-save, gated typecheck/content/build, localhost QA, primary/refs/hashes STOP checks, and separate operator PowerShell artifact checksum | **G2-QA APPROVED / EXECUTION PENDING**, G3–G8 HOLD |
+
+| [RC-W1-10 — G2-QA install/typecheck/content/build PASS; generated next-env integrity STOP](./RC-W1-10-g2-qa-build-pass-next-env-generated-file-integrity-stop-20261012.md) | Owner npm ci 263 packages, TypeScript exit 0, content validator 0 errors/371 warnings, Next 440/440 build exit 0; Next-generated tracked next-env.d.ts modified after build, so strict integrity gate stopped; read-only exact diff required | **BUILD PASS / POSTBUILD SOURCE INTEGRITY HOLD / BROWSER HOLD / G3 HOLD** |
 
 ## Publication policy
 
