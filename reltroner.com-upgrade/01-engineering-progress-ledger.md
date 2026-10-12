@@ -192,3 +192,15 @@ Two new canonical records are published:
 - W3 background image 404, W4 GA consent P1, W5 model entitlement, W6 Resend/Web3Forms, and W7 final 27 WEB-AC remain required despite G1 signoff.
 
 **Current phase:** `W0=G1_CLOSED_WITH_RESIDUALS`; `W1=G2_PREFLIGHT_PASS_SCOPED/NOT_AUTHORIZED`; `W2–W7=HOLD`; `G3–G8=NOT_AUTHORIZED`; `PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`.
+
+## 17. G2 exact local base object missing: owner-confirmed read-only result (2026-10-12)
+
+Owner executed `git -C C:\Projects\reltroner-studio rev-parse --verify --quiet "18b295f96ccb521b228a1855e79448158c09db15^{commit}"` and received **`G2_REMOTE_COMMIT_OBJECT=NOT_AVAILABLE_LOCALLY`**. This was read-only; no object transfer, branch, worktree, source edit or deploy occurred. **This does not invalidate the earlier RC-W1-00 PASS_SCOPED primary-workspace preflight**: it identifies a distinct prerequisite for G2 worktree creation.
+
+The GitHub `reltroner-studio/main` reviewed exact SHA is still `18b295f96ccb521b228a1855e79448158c09db15`. Source local primary remains historical `d6969dd`, 11 commits behind, with 14 protected untracked Markdown and zero tracked changes at the previous observed snapshot (no new file-hash audit done by the latest probe). Since `git ls-remote` does not download Git objects, a worktree at the remote exact SHA cannot be assumed constructible without an explicitly approved narrow object fetch.
+
+**Canonical next work order:** [RC-W1-02 — Missing local commit and proposed bounded fetch permission](./progress-engineering-canonical/RC-W1-02-local-commit-missing-and-proposed-fetch-gate-20261012.md). It proposes a later separately owner-authorized `git fetch --no-tags --no-write-fetch-head --refmap= ... origin refs/heads/main`, with live-HEAD/primary-content prechecks, no primary `git pull`, zero intended remote-tracking-ref update, postfetch exact SHA and 14 protected file validations. Fetch still mutates internal Git object storage and consumes local disk/network; **NOT AUTHORIZED at current gate**. No automatic retry/fallback or branch/worktree change.
+
+Owner can later choose (A) only narrow fetch and verification, or (B) one **explicit combined G2 authorization** covering narrow fetch, isolated worktree, and 3-TSX-file implementation/tests under RC-W1-01. Neither choice is currently approved; no W1 coding agent, push/PR, Vercel preview, merge, production or provider access follows without its own gate.
+
+**CURRENT:** `G1 APPROVED`, `RC-W1-00 READ_ONLY PASS_SCOPED`, `RC-W1-02 LOCAL_OBJECT MISSING`, `G2 NOT_AUTHORIZED`, `W1 NOT_EXECUTED`, `W2–W7 HOLD`, `PHASE1 NOT_ACCEPTED`, `PHASE2 NOT_ACTIVE`.
