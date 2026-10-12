@@ -1,5 +1,8 @@
 # Reltroner.com — Canonical Engineering Progress Archive
 
+> **OWNER EXECUTED RC-W1-19 SOURCE PASS — 2026-10-13:** [RC-W1-20 actual receipt and one-shot validation work order](./RC-W1-20-owner-local-five-path-source-pass-and-fresh-build-validation-work-order-20261013.md). `/start/creators` and `/start/readers` TSX pages have been **created locally**, and Hero CTAs changed; current five-path isolated source state = 3 modified tracked TSX + 2 untracked new pages, primary owner drafts unharmed during mutation. Typecheck/content/build/localhost QA **not yet executed for this new source**. External `RC-W1-20-isolated-five-file-local-validation-20261013.ps1` validated statically, SHA256 `51eff97e5dc177e45cc8e5de3a3d74cbbdd41445c40858bd8022128020965399`. The historical three-path work order/old browser proof below does not certify the new routes. No commit/PR/preview/deployment was performed.
+
+
 > **LATEST OWNER INSTRUCTION (2026-10-13):** [RC-WEB-ADR-008 ratified route/gate amendment](../08-owner-execution-authority-and-dedicated-creator-reader-tsx-adr-20261013.md). Two homepage W1 blue CTAs now **must** open independent `/start/creators` and `/start/readers` Next.js TSX pages, with `.md` articles retained as optional subsequent reading. Five-file local candidate; prepared guarded Node patch, Windows execution and new typecheck/build/browser QA pending. Owner can directly order nonproduction work across W0–W9 without repeated ceremonial approvals; original engineering invariants/27 AC/cost/privacy remain required. RC-W1-18 correlated-viewport result currently agent-reported without its new ZIP attached for independent checking. Historical three-path and W1-ready status below is superseded where inconsistent.
 
 
