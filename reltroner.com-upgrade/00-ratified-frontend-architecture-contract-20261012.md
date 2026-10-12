@@ -1,5 +1,8 @@
 # RC-WEB-ARCH-001 — Reltroner.com Phase 1 Frontend Architecture & Production-Readiness Contract
 
+> **OWNER-SIGNED ADDENDUM 2026-10-13 — [RC-WEB-ADR-008](./08-owner-execution-authority-and-dedicated-creator-reader-tsx-adr-20261013.md):** Human owner may expressly direct/reorder any W0–W9/G0–G8 task, and a specific present instruction to implement bounded no-cost isolated source work constitutes its owner authorization without redundant ceremonial gate questions. **Order flexibility does not waive WEB-I01–18, 27 WEB-AC, Rp0, draft protection, factual test proof or distinct authorization for unrelated expensive/irreversible side effects.** W1 two homepage Creator/Reader primary CTAs must now open newly authored `/start/creators` and `/start/readers` **Next.js TSX onboarding pages**, never the old Markdown article directly. Existing `.md` remains content authority for deeper reading. This later ADR supersedes W1 direct-article decision in prior G2 work orders. Local patch provided but **not yet operator-executed/tested**.
+
+
 > Version: 1.0.0; decision: OWNER RATIFIED 2026-10-12 Asia/Jakarta.
 > Normative status: RATIFIED WEBSITE SCOPE; detailed vendor/provider placement remains conditional until discovery/acceptance.
 > Implementation status: NOT IMPLEMENTED / NOT PRODUCTION CERTIFIED by this contract.
