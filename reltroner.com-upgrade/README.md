@@ -1,6 +1,6 @@
 # reltroner.com — Phase 1 Frontend Production Readiness
 
-> Status: OWNER-RATIFIED REQUIREMENTS / G1 W0 DISCOVERY CLOSED WITH RESIDUALS / G2 W1 NOT YET AUTHORIZED.
+> Status: OWNER-RATIFIED REQUIREMENTS / G1 W0 DISCOVERY CLOSED WITH RESIDUALS / G2 W1 OWNER APPROVED / PROVISIONING PENDING.
 > Ratification date: 2026-10-12 Asia/Jakarta (owner in conversation).
 > Product: https://www.reltroner.com/ ; code: https://github.com/Reltroner/reltroner-studio
 > Documentation repository: https://github.com/Reltroner/progress-documentation
@@ -41,7 +41,7 @@ Re-read refs before writing; frozen snapshot strings must never be mistaken for 
 |---|---|---|
 | Owner scope ratification | RATIFIED | Design outcomes and no-spend boundary approved; this documentation records that decision |
 | W0-00 discovery (G1) | **CLOSED_WITH_ACCEPTED_RESIDUALS / OWNER_APPROVED** | W0-AC12 owner signoff recorded in RC-W0-10; other ACs retain original PARTIAL/BLOCKED statuses |
-| W1 G2 work order | **PREPARED / NOT YET AUTHORIZED** | [RC-W1-01](./progress-engineering-canonical/RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md): three TSX files and safe read-only preflight, separately approved G2 required |
+| W1 G2 work order | **OWNER APPROVED / NOT YET EXECUTION-VERIFIED** | [RC-W1-01](./progress-engineering-canonical/RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md): three TSX files and safe read-only preflight, separately approved G2 required |
 | Integrated preview | NOT EXECUTED | Cannot report PASS |
 | Production readiness | NOT CERTIFIED | User has not accepted final release |
 | Global Phase 1 exit | NOT ACCEPTED | Requires independent LMS final DoD and operations gates |
@@ -75,3 +75,7 @@ Current planned G2 candidate: [RC-W1-01 first-contact Creator/Reader IA slice](.
 ## 6. Canonical progress publication
 
 Read [`progress-engineering-canonical/`](./progress-engineering-canonical/README.md) for dated, sanitized engineering progress receipts (W0, subsequent tests/CI and handoff evidence), while [`01-engineering-progress-ledger.md`](./01-engineering-progress-ledger.md) remains the phase-wide summary. When explicitly authorized, merge evidence documentation directly into this canonical GitHub path with exact SHA checks; **documentation publication never authorizes source changes, provider activation, deployments, or Phase 1/2 transitions**.
+
+## 5.2 Explicit G2 owner approval (2026-10-12)
+
+The owner approved **combined RC-W1-01 + RC-W1-02** under the previously published exact scope: one narrow Git object fetch if necessary; one isolated worktree and branch; three allowlisted TSX files for Creator/Reader IA; and bounded tests without dependency installation. This ratification is archived in [RC-W1-03](./progress-engineering-canonical/RC-W1-03-owner-g2-ratification-and-isolated-execution-20261012.md); the implementation/QA agent prompt is [RC-W1-04](./progress-engineering-canonical/RC-W1-04-gemini-ide-authorized-bounded-implementation-and-qa-prompt-20261012.md). Primary `main` and 14 untracked owner Markdown remain protected. **No worktree/fetch/coding execution is verified until owner Windows output is supplied.** No push/PR/Preview/main merge/production or DNS/provider authorization is granted.
