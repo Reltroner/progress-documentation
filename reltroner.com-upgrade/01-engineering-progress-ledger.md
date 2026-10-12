@@ -1,6 +1,6 @@
 # Reltroner.com — Living End-to-End Engineering Progress & Risk Ledger
 
-> As-of: 2026-10-12 Asia/Jakarta. Documented status is not a production certificate.
+> As-of: 2026-10-12 Asia/Jakarta. **LATEST GATE: W0 G1 OWNER-APPROVED CLOSED WITH RESIDUALS; G2 W1 NOT AUTHORIZED.** Earlier dated sections preserve historical pre-approval states. Documented status is not a production certificate.
 > Source authority: [README](./README.md) → [WEB ARCH contract](./00-ratified-frontend-architecture-contract-20261012.md) → [acceptance](./03-phase1-acceptance-and-invariant-traceability.md).
 > Update this after every observed source/CI/preview/vendor/production change; retain dated history and mark evidence type.
 
@@ -30,8 +30,8 @@ GIT-VERIFIED = GitHub source/ref/commit, not local runtime; OWNER-REPORTED = quo
 | Stage | State | Blockers/next evidence |
 |---|---|---|
 | Ratify website expanded Phase 1 | OWNER RATIFIED | Document commit verification required |
-| W0-00 discovery | IN PROGRESS (READ-ONLY); multiple scoped receipts | Complete provider entitlements, privacy/UX, cost/release checks and owner disposition |
-| W1-IA | HOLD | W0 content/map/route evidence |
+| W0-00 discovery (G1) | **CLOSED_WITH_ACCEPTED_RESIDUALS / OWNER_APPROVED** | RC-W0-10 explicit owner G1 acceptance; AC12 signed, AC01–11 partial/blockers retained; source/provider implementation not authorized |
+| W1-IA (G2) | **WORK ORDER PREPARED / NOT AUTHORIZED** | RC-W1-01 three-file TSX scope; needs separate owner G2 source/worktree authorization and fresh read-only preflight |
 | W2-Search/rails | HOLD | W0 shared index contract and responsive tests |
 | W3-CDN | HOLD | W0 network/headers and existing no-cost deploy trigger |
 | W4-Privacy/security | HOLD | W0 actual scripts/embeds provider map |
@@ -156,3 +156,25 @@ Two new canonical records are published:
 **Proposed G2 work order only:** `RC-W1-01` first-contact Creator/Reader IA, no source modifications yet, smallest proposed allowlist `app/page.tsx`, `components/ecosystem/EcosystemHero.tsx`, `components/ecosystem/UseCasePathways.tsx`. GitHub Studio source `main` reverified at `18b295f96ccb521b228a1855e79448158c09db15`; resource at `6c6fb38f8ff3376c0789c15bcfe4d0cafc4d057e` when written. Before any G2 worktree creation or `npm run dev`, owner must **first approve G1**, then distinctly approve G2 exact SHA, branch/worktree scope and allowed tests. The 14 protected owner untracked Markdown files must remain untouched. Vercel automatically deploys on certain branch/merge events, so review trigger/cost and retain separate G4/G5/G6 approvals.
 
 **STATUS LOCK:** `G1=PENDING_OWNER`, `G2=NOT_AUTHORIZED`, `W0=DISCOVERY REVIEW PROPOSED, NOT CLOSED`, `W1–W7=HOLD`, `Phase 1=NOT ACCEPTED`, `Phase 2=NOT ACTIVE`. These three documentation-only commits do not authorize or perform changes to Studio source, DNS, Resend, Google Analytics, Cloudflare, Vercel or production.
+
+## 15. Owner G1 ratification and exact-scope W1 G2 proposal (2026-10-12)
+
+**G1 AUTHORITATIVE RESULT:** Owner explicitly approved RC-W0-09 W0 discovery closure, **with all residual blockers retained and all 27 WEB-AC mandatory**, and explicitly denied any inference of G2 source permission, DNS edit, provider activation, preview, merge or deployment. Definitive owner-signoff record is [RC-W0-10 — G1 owner ratification](./progress-engineering-canonical/RC-W0-10-owner-g1-ratification-and-discovery-closure-20261012.md). This section **supersedes historical `G1=PENDING_OWNER` in sections 1–14 and RC-W0-09**, without altering the historical dates/evidence.
+
+**W0-AC final discovery classification after owner approval:**
+- AC01 PASS_SCOPED (GitHub snapshot); AC02 PASS_SCOPED_OWNER_REPORTED (primary checkout; refresh before coding);
+- AC03 PARTIAL, AC04 PARTIAL, AC05 PARTIAL;
+- AC06 Workers Free PASS_SCOPED account / Workers AI Free-model inference UNKNOWN;
+- AC07 BLOCKED_SENDER with owner-confirmed Cloudflare zone records absent and failed Resend verification; direct nameserver queries were **TIMEOUT**, not authoritative NXDOMAIN;
+- AC08 PARTIAL_NOT_CONFIGURED, AC09 PARTIAL + P1 privacy risk (fresh-session GA without visible consent), AC10 PARTIAL, AC11 PARTIAL;
+- **AC12 PASS_OWNER_SIGNOFF: G1 discovery completed with scoped downstream blockers, not acceptance of production functionality.**
+
+**Next exact G2 proposal, NOT EXECUTED:** [RC-W1-01 — First-contact Creator/Reader IA G2 work order](./progress-engineering-canonical/RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md). GitHub snapshot refreshed: Studio main `18b295f96ccb521b228a1855e79448158c09db15`; Studio resource main `6c6fb38f8ff3376c0789c15bcfe4d0cafc4d057e`. Three-file TSX allowlist: `app/page.tsx`, `components/ecosystem/EcosystemHero.tsx`, `components/ecosystem/UseCasePathways.tsx`. Candidate published routes: Creator `/blog/no-copypaste-worldbuilding` or `/blog/creative-lore-bible`; Reader `/blog/asthortera-glossary` pending spoiler-safety review; secondary collaborator `/blog/for-recruiters`. `published: true` frontmatter checked at source snapshot; no subsequent live-route or future-code test PASS is claimed.
+
+**Future operator preflight:** RC-W1-01 §4 PowerShell 5.1 copy-paste is **READ ONLY** (no Git fetch, branch/worktree creation or package commands), intended to revalidate owner-primary 14 protected Markdown, origin, live `main` SHA, branch/path collisions. Agent implementation prompt exists only as an inert work-order appendix. If HEAD changes, STOP for new reviewed SHA and updated owner G2 scope. Repository `main` last observed local `d6969dd` was behind GitHub `18b295f`; never pull/clean/reset primary. No Vercel preview branch push/PR or merge is authorized; Vercel Git integration may trigger build/production on Git operations and costs are not certified.
+
+**Release/workstream handoffs unchanged:** W1 hero/IA, W2 taxonomy/rails, W3 `background.webp` 404 & immutable resource/CDN, W4 Google Analytics privacy consent and Markdown security, W5 Workers AI model entitlement and grounded assistant, W6 Resend DKIM/SPF/MX verification plus Web3Forms contact, W7 end-to-end 27 WEB-AC, performance/accessibility/privacy/cost/rollback. Neither G1 nor this documentation advances WEB-AC27 website production owner signoff, global LMS Phase 1 exit or Phase 2 community activation.
+
+**Current locks:** `G1=APPROVED`; `W0=DISCOVERY_CLOSED_WITH_RESIDUALS`; `G2=NOT_AUTHORIZED`; `W1=PLANNED_NOT_EXECUTED`; `W2–W7=HOLD`; `G3–G8=NOT_AUTHORIZED`; `WEBSITE_PHASE1=NOT_ACCEPTED`; `GLOBAL_PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`.
+
+**Mutation declaration:** Documentation-only updates in `Reltroner/progress-documentation`; no changes to `reltroner-studio`, resource repo, local owner files, Vercel, Cloudflare, Resend, DNS, AI provider inference, secrets, email or production. Monetary incremental scope of publication: no new activated services or billable usage intentionally triggered.
