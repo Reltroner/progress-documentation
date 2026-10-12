@@ -119,3 +119,15 @@ Canonical: [RC-W0-05 — Resend three-record verification failure; 12h Vercel Ob
 - **AC11 PARTIAL:** No extra provider activation or billing proof of a universal hard-spend stop. Preserve invariant Rp0 additional.
 
 **AC12 PENDING; W0 IN PROGRESS; W1–W7 HOLD**. Documentation publication only; no change to Studio source, domains, integrations, provider toggles, deployments or user-local protected files.
+
+## 12. Cloudflare Free and privacy-network evidence (2026-10-12)
+
+Canonical: [RC-W0-06 — Cloudflare Workers Free, Google Analytics, cookies and contact reCAPTCHA](./progress-engineering-canonical/RC-W0-06-cloudflare-free-and-browser-privacy-evidence-20261012.md).
+
+- **AC06 Workers plan PASS_SCOPED:** Cloudflare account `Billing → Subscriptions` owner screenshot shows **Workers Free Active** and `reltroner.com` **Free Plan Active**. Billing panel reports no payment method on file; Invoices view displays no invoices. These close Workers account-plan identification. Owner reports `WORKERS_AI_USAGE_UI_NOT_EXPOSED`; account-specific Neuron meter/model Free availability and actual inference remain **UNKNOWN/PARTIAL**. Do not equate model catalogue with free-model entitlement.
+- **AC09 PARTIAL/TRACKING_CONFIRMED:** Production Chrome Network shows Google tag JavaScript GET **200**, Google Analytics collection POST **204** (at least two events) and Application Cookies `_ga`, `_ga_*` scoped to the reltroner.com session. This proves analytics activity in the observed browser, not when consent was given nor whether consent is compliant. Google-account cookies shown on contact page are not suitable for public raw screenshots; only sanitized names/categories belong in GitHub.
+- **AC09/AC10 PARTIAL:** The `/contact` screenshot confirms an active Google reCAPTCHA iframe and disabled-before-solve submit UI (expected under source gate). The iPhone 4 320px screenshot visually indicates captcha widget **clipping beyond narrow form/card edge**; responsive hit-target and keyboard behavior still untested. Additional iframe tokens or cookie values must not be exported.
+- **AC04/W3:** Chrome Console repeats `GET /images/background.webp 404` confirmed earlier; no cache purge or unauthorized source fix.
+- **AC11 PARTIAL:** No additional Cloudflare subscription/payment proof of costs, but no universal guaranteed Rp0 across providers. Implement deny-by-default models, quotas and graceful failure only after W5/G2 authorization.
+
+No further Cloudflare UI hunting or repeat Chrome capture is required to document this W0 snapshot. High-value remaining blockers are read-only authoritative DNS comparison for Resend's three failed records and privacy/source truth for GA; any remaining cross-workstream acceptance gaps need explicit owner classification in W0-AC12. W1–W7 HOLD, Phase 1 NOT ACCEPTED, Phase 2 NOT ACTIVE. This documentation-only commit does not change Studio source or provider state.
