@@ -15,6 +15,8 @@
 | [RC-W0-02 — Provider entitlements, Resend Failed domain & Vercel Usage](./RC-W0-02-provider-entitlement-domain-blocker-and-vercel-usage-20261012.md) | Web3Forms Personal Free 250 submissions/month; Resend $0 transactional/marketing quotas but sender domain Failed; Cloudflare 243-model catalog is not proof of Free inference; Vercel 34 builds and 8 user-error invocations shown in period | W0-AC05–08 PARTIAL, Resend sending BLOCKED |
 | [RC-W0-AC10 — Gemini IDE read-only browser QA protocol](./RC-W0-AC10-gemini-ide-browser-qa-protocol-20261012.md) | Full agent prompt; production browser QA now; local `npm run dev` only in later authorized isolated exact-SHA worktree or explicit W0 exception | W0-AC10 QA proposed, NOT_EXECUTED |
 
+| [RC-W0-03 — Gemini IDE QA independent review](./RC-W0-03-gemini-ide-browser-qa-review-20261012.md) | Normalized Gemini read-only production browser report; corroborated contact-disabled / hero-path / image-404 source observations, flagged iframe-vs-native 320px coverage and corrected workstream + acceptance mappings | **W0-AC10 PARTIAL**; discovery defects archived, no code authorization |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
