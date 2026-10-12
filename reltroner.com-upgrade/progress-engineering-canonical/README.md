@@ -57,6 +57,8 @@
 
 | [RC-W1-13 — QA Agent STOP: restore approved but still unexecuted; HTTP smoke only](./RC-W1-13-qa-agent-preflight-blocked-restore-not-executed-and-http-smoke-evidence-20261012.md) | Antigravity QA reports four modified paths with next-env generated change, no restore receipt; HTTP HEAD 200 for homepage/3 routes and 404 unknown, no Chrome viewport execution; run previously ratified one-path RC-W1-12 operator script before browser QA | **RESTORE PENDING_EXECUTION / BROWSER BLOCKED / G3 HOLD** |
 
+| [RC-W1-14 — PowerShell 5.1 Node -e quoting guard STOP; safe PowerShell-only one-file precondition fix](./RC-W1-14-ps51-native-node-e-quoting-stop-and-one-path-restore-script-fix-20261012.md) | Owner restore attempt stopped before Git mutation; possible WinPS 5.1 native quote loss; RC-W1-12R exact full-line comparison preserves all SHA/hash/ref/status guards and narrow restoration scope | **RESTORE PENDING / PS5 FIX DELIVERED / BROWSER HOLD / G3 HOLD** |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
