@@ -1,5 +1,8 @@
 # Reltroner.com — Living End-to-End Engineering Progress & Risk Ledger
 
+> **LATEST UX CHANGE — 2026-10-13 [RC-WEB-ADR-011](./11-mobile-reading-path-in-hamburger-and-editorial-shell-refinement-20261013.md):** User screenshot-based post-agent visual audit identifies unresolved desktop competing rail UX and mobile duplicate pills even though Antigravity RC-UX-01 pasted report claimed 72/72 checks PASS, typecheck/contents/build PASS. **Do not promote that test report to owner UX acceptance**. Newly ratified correction: mobile actual Reading Path heading navigation must move into existing top-right hamburger menu; delete inline `Reading path` and `Explore archive` pills, preserve archive via header search/Ctrl+K; desktop prefer one contextual left Reading Path rail and dominant prose without persistent right Archive Explorer rail. Local source still requires inspection and rework; no application code changed through this documentation update.
+
+
 > As-of: 2026-10-12 Asia/Jakarta. **LATEST GATE: W0 G1 APPROVED; G2 OWNER-APPROVED AND ISOLATED WORKTREE READY (OWNER-REPORTED); GEMINI FIRST STOP WITHOUT SOURCE EDITS; OFFLINE HANDOFF PENDING; G3–G8 NOT AUTHORIZED.** Earlier dated sections preserve historical pre-approval states. Documented status is not a production certificate.
 > Source authority: [README](./README.md) → [WEB ARCH contract](./00-ratified-frontend-architecture-contract-20261012.md) → [acceptance](./03-phase1-acceptance-and-invariant-traceability.md).
 > Update this after every observed source/CI/preview/vendor/production change; retain dated history and mark evidence type.
