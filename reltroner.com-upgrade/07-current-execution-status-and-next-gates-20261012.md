@@ -1,5 +1,8 @@
 # Reltroner.com — Current Execution Status, Critical Path, Decision Gates (2026-10-12)
 
+> **LATEST 2026-10-13 MOBILE UX OWNER ADDENDUM — [RC-WEB-ADR-012](./12-owner-navigator-reading-path-fullwidth-article-and-media-debugging-20261013.md):** Mobile Creator screenshot at 320×480 circles the entire old `Reltroner / Knowledge Ecosystem / search / hamburger` header, directing **all brand/home, global menu, shared-index search, context-only Reading Path** functions into the existing compass Navigator, **then delete the mobile header block** and its empty space. Desktop header unaffected. This supersedes mobile hamburger preservation language in earlier ADR-011/012; Navigator content must remain functional independent of AI providers. Pending Antigravity local implementation, no source/QA PASS evidenced. Keep owner dirty worktree and drafts protected.
+
+
 > **LATEST OWNER-DIRECTED UX CORRECTION — 2026-10-13 [ADR-012](./12-owner-navigator-reading-path-fullwidth-article-and-media-debugging-20261013.md):** All article left-side Reading Path panels are now redundant, their real heading-navigation functionality must be accessible through the existing bottom-right compass **Reltroner Navigator**. This supersedes prior hamburger TOC and desktop single-left-rail decisions (ADR-011) and restores hamburger to global nav. Expand and horizontally center main article with bounded legible prose and wider safe media. Native HTML5 0:00 + fallback on a faction article and YouTube Error 153 in `/music/hargenbor-paradise-by-the-waves` are current screenshot defects; media runtime/Referer/codec diagnosis and fix **not yet executed**. Preserve G2 local dirty prototype and 14 author drafts; no W1–W7 global/production DoD claim.
 
 
