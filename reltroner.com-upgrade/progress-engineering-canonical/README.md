@@ -25,6 +25,9 @@
 
 | [RC-W0-07 — Resend dual-recursive DNS missing + fresh-session GA consent observation](./RC-W0-07-resend-dns-nxdomain-and-incognito-ga-consent-20261012.md) | Reltroner.com NS delegated to Cloudflare; 3 expected Resend records not found at 1.1.1.1/8.8.8.8; new private-session GA collect/_ga with no visible consent UI; source-traced analytics startup | AC07 BLOCKED, AC09 PARTIAL/P1 consent risk; authoritative DNS verification remaining |
 
+| [RC-W0-08 — Direct authoritative DNS timeout and Cloudflare Resend record absence](./RC-W0-08-authoritative-dns-timeouts-and-cloudflare-zone-absence-20261012.md) | 10 direct nameserver queries including SOA timed out; **not** authoritative NXDOMAIN. Owner Cloudflare DNS GUI reports required Resend records absent; two prior public resolvers also did not find them. | AC07 sender BLOCKED; W6 handoff; W0 DNS discovery documented |
+| [RC-W0-09 — Final discovery matrix & proposed W1 G1/G2 entry](./RC-W0-09-final-discovery-disposition-and-proposed-w1-entry-20261012.md) | All 12 W0 acceptance dispositions, unresolved W2–W7 blockers, smallest three-file TSX W1 IA proposal, exact separate G1 and G2 owner approvals | **G1 PENDING_OWNER**, G2 NOT_AUTHORIZED, W1 HOLD |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
