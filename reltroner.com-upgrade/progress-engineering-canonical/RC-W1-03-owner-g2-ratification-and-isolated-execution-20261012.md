@@ -1,5 +1,7 @@
 # RC-W1-03 — Explicit Owner G2 Ratification & Scoped Isolated W1 Execution
 
+> **2026-10-12 18:39 WIB EXECUTION ADDENDUM:** The owner subsequently executed the approved provisioning. Successful verified markers: `FETCH_VERIFIED`, `G2_ISOLATED_WORKTREE=READY`, `G2_BASE_SHA=18b295f...`, `G2_PRIMARY_HEAD=UNCHANGED`, `G2_PROTECTED_14=HASHES_UNCHANGED`. Gemini's first attempt STOPPED without edits because it was missing that receipt and its GitHub access failed. Current status/provenance and offline recovery are in [RC-W1-05](./RC-W1-05-provisioning-success-gemini-gate-stop-offline-recovery-20261012.md). Earlier statements below that provisioning is pending are **historical**.
+
 > **Decision:** `G1=APPROVED`; **`G2=APPROVED_BY_OWNER`**; `W1=AUTHORIZED_NOT_YET_EXECUTED`; `G3..G8=NOT_AUTHORIZED`.
 > **Decision date:** 2026-10-12 Asia/Jakarta (owner conversation message). This is a documentation-only GitHub receipt, not a claim that the owner's PC was modified.
 > **Authority:** [RC-W0-10 G1 closure](./RC-W0-10-owner-g1-ratification-and-discovery-closure-20261012.md), [RC-W1-01 exact three-file work order](./RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md), [RC-W1-02 narrow Git object-fetch plan](./RC-W1-02-local-commit-missing-and-proposed-fetch-gate-20261012.md), [source/release governance](../05-source-workspace-and-release-governance.md), [WEB AC01–27](../03-phase1-acceptance-and-invariant-traceability.md).
