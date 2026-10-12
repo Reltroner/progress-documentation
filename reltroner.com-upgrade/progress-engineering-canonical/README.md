@@ -21,6 +21,8 @@
 
 | [RC-W0-05 — Resend DNS, Vercel Observability, Cloudflare billing & privacy GUI](./RC-W0-05-resend-dns-vercel-observability-cloudflare-billing-20261012.md) | All 3 Resend sender DNS records Failed; project-specific Vercel 12h traffic/ISR; Cloudflare billable usage vs Workers AI meter distinction; precise Chrome DevTools privacy inspection procedure | AC05/06/09 PARTIAL; AC07 BLOCKED; W0 read-only |
 
+| [RC-W0-06 — Cloudflare Workers Free and Chrome privacy evidence](./RC-W0-06-cloudflare-free-and-browser-privacy-evidence-20261012.md) | Cloudflare Workers Free and domain Free active; AI meter not exposed; Google Analytics POST 204 and _ga cookies; reCAPTCHA iframe with 320px clipping candidate; screenshots sanitized | AC06 Workers subscription PASS_SCOPED, AI/AC09/AC10/AC11 PARTIAL |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
