@@ -33,6 +33,8 @@
 
 | [RC-W1-00 — Owner G2 read-only workspace preflight PASS](./RC-W1-00-owner-read-only-g2-preflight-pass-20261012.md) | PowerShell 2026-10-12 18:12:27 WIB: 14 protected Markdown intact, zero tracked changes, remote SHA 18b295f matches, no branch/worktree collisions; local commit object availability still UNKNOWN | **PREFLIGHT PASS_SCOPED**, G2 NOT APPROVED, W1 source NOT EXECUTED |
 
+| [RC-W1-02 — Local Git commit missing; narrowly scoped fetch and G2 approval proposal](./RC-W1-02-local-commit-missing-and-proposed-fetch-gate-20261012.md) | Owner confirmed exact remote commit not available in local object store; read-only preflight remains valid; proposed `--no-write-fetch-head --refmap=` fetch is NOT authorized without separate approval | **G2 BLOCKED_MISSING_OBJECT**, NO FETCH/WORKTREE/SOURCE AUTHORIZED |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
