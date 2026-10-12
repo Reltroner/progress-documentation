@@ -1,6 +1,6 @@
 # Reltroner.com — Living End-to-End Engineering Progress & Risk Ledger
 
-> As-of: 2026-10-12 Asia/Jakarta. **LATEST GATE: W0 G1 OWNER-APPROVED CLOSED WITH RESIDUALS; G2 W1 NOT AUTHORIZED.** Earlier dated sections preserve historical pre-approval states. Documented status is not a production certificate.
+> As-of: 2026-10-12 Asia/Jakarta. **LATEST GATE: W0 G1 OWNER-APPROVED; W1 G2 OWNER-APPROVED FOR BOUNDED LOCAL ENGINEERING, PROVISIONING NOT YET EXECUTION-VERIFIED. G3–G8 NOT AUTHORIZED.** Earlier dated sections preserve historical pre-approval states. Documented status is not a production certificate.
 > Source authority: [README](./README.md) → [WEB ARCH contract](./00-ratified-frontend-architecture-contract-20261012.md) → [acceptance](./03-phase1-acceptance-and-invariant-traceability.md).
 > Update this after every observed source/CI/preview/vendor/production change; retain dated history and mark evidence type.
 
@@ -31,7 +31,7 @@ GIT-VERIFIED = GitHub source/ref/commit, not local runtime; OWNER-REPORTED = quo
 |---|---|---|
 | Ratify website expanded Phase 1 | OWNER RATIFIED | Document commit verification required |
 | W0-00 discovery (G1) | **CLOSED_WITH_ACCEPTED_RESIDUALS / OWNER_APPROVED** | RC-W0-10 explicit owner G1 acceptance; AC12 signed, AC01–11 partial/blockers retained; source/provider implementation not authorized |
-| W1-IA (G2) | **WORK ORDER PREPARED / NOT AUTHORIZED** | RC-W1-01 three-file TSX scope; needs separate owner G2 source/worktree authorization and fresh read-only preflight |
+| W1-IA (G2) | **OWNER APPROVED / PROVISIONING PENDING EVIDENCE** | RC-W1-01 three-file TSX scope; needs separate owner G2 source/worktree authorization and fresh read-only preflight |
 | W2-Search/rails | HOLD | W0 shared index contract and responsive tests |
 | W3-CDN | HOLD | W0 network/headers and existing no-cost deploy trigger |
 | W4-Privacy/security | HOLD | W0 actual scripts/embeds provider map |
@@ -204,3 +204,14 @@ The GitHub `reltroner-studio/main` reviewed exact SHA is still `18b295f96ccb521b
 Owner can later choose (A) only narrow fetch and verification, or (B) one **explicit combined G2 authorization** covering narrow fetch, isolated worktree, and 3-TSX-file implementation/tests under RC-W1-01. Neither choice is currently approved; no W1 coding agent, push/PR, Vercel preview, merge, production or provider access follows without its own gate.
 
 **CURRENT:** `G1 APPROVED`, `RC-W1-00 READ_ONLY PASS_SCOPED`, `RC-W1-02 LOCAL_OBJECT MISSING`, `G2 NOT_AUTHORIZED`, `W1 NOT_EXECUTED`, `W2–W7 HOLD`, `PHASE1 NOT_ACCEPTED`, `PHASE2 NOT_ACTIVE`.
+
+## 18. Explicit combined G2 owner ratification — conditional local execution approved (2026-10-12)
+
+**Authoritative current status:** The owner explicitly approved **combined RC-W1-01 + RC-W1-02** after receiving the exact conditional G2 scope. Canonical ratification [RC-W1-03](./progress-engineering-canonical/RC-W1-03-owner-g2-ratification-and-isolated-execution-20261012.md) records decision evidence, restrictions and the full staged process; [RC-W1-04](./progress-engineering-canonical/RC-W1-04-gemini-ide-authorized-bounded-implementation-and-qa-prompt-20261012.md) is the IDE coding+QA contract.
+
+- **Now conditionally authorized:** revalidate protected primary and live SHA, transfer missing Git object only by bounded no-refmap/no-FETCH_HEAD/no-tags fetch; ensure all Git refs and 14 protected files unchanged; create exactly one worktree `C:\Projects\reltroner-studio-w1-ia` at approved Studio base `18b295f96ccb521b228a1855e79448158c09db15` with branch `phase1/w1-creator-reader-ia-20261012`; Gemini may change only `app/page.tsx`, `components/ecosystem/EcosystemHero.tsx`, `components/ecosystem/UseCasePathways.tsx`; G2 local QA without dependency installs.
+- **Still NOT AUTHORIZED:** Git push/PR/preview, merge/main production release, paid features, provider, DNS, API inference/email, source edits outside allowlist, primary working-tree mutation, 14-file cleanup, dependency install.
+- **Safety:** Git fetch changes object database (not literally read-only), Git worktree changes shared metadata. Verify exact SHA and preserved content; no auto cleanup or fallback on failure. No local Windows execution has been observed yet; this publication is ratification only.
+- **Known remaining mandatory debt:** W3 CDN/background image, W4 Google Analytics consent, W5 AI model entitlement, W6 Resend missing DNS/Web3Forms, W7 final 27 WEB-AC and accessibility/privacy release gates.
+
+**CURRENT GATES:** `G1=APPROVED`; `G2=APPROVED_CONDITIONAL`; `W1=AUTHORIZED_NOT_YET_EXECUTED`; `G3..G8=HOLD`; `PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`. Older G2_PENDING statements in prior numbered sections are historical snapshot states, superseded by this decision.
