@@ -227,3 +227,16 @@ Owner can later choose (A) only narrow fetch and verification, or (B) one **expl
 - **Security/production:** known W3 image 404, W4 GA pre-consent tracking, W5 AI free entitlement, W6 sender DNS failure/Web3Forms and all 27 WEB-AC remain mandatory. Source has not been committed/pushed or deployed; G3–G8 continue HOLD.
 
 **Current state:** `G1=APPROVED`; `G2=APPROVED_PROVISIONED`; `W1=SOURCE_NOT_YET_EDITED/GEMINI_OFFLINE_RETRY`; `G3..G8=NOT_AUTHORIZED`; `Phase1=NOT_ACCEPTED`; `Phase2=NOT_ACTIVE`.
+
+## 20. W1 implementation local patch independently reviewed; local QA blocked (2026-10-12 19:06 WIB)
+
+[RC-W1-06 — Independent three-file G2 source patch review](./progress-engineering-canonical/RC-W1-06-independent-source-review-g2-implementation-and-qa-blockers-20261012.md) is the newest engineering receipt. It reviews an owner-supplied Gemini report and unified patch at approved baseline `18b295f96ccb521b228a1855e79448158c09db15`, on isolated local branch `phase1/w1-creator-reader-ia-20261012`.
+
+- **Source edits reported:** exactly three G2-allowlisted TSX files: `app/page.tsx` (+7/-7), `components/ecosystem/EcosystemHero.tsx` (+37/-7), `components/ecosystem/UseCasePathways.tsx` (+7/-5); total +51/-19. Owner Gemini reports `git diff --check` exit 0, excluded-path diff exit 0 and zero untracked files. These observations are reported from local, not uploaded to GitHub Studio.
+- **PASS_SCOPED source review:** Creator/Reader equally prominent entries, spoiler-aware fictional Asthortera glossary route, creator worldbuilding revision article, secondary public collaborator route, retained existing LMS/HRM/anchor hrefs. `focus-visible:rs-focus-ring` uses an actual `@utility rs-focus-ring` defined in Tailwind v4 source, not obviously invalid from syntax. Runtime CSS and keyboard behavior untested.
+- **Open baseline defects:** `/#roadmap` and `/#knowledge` target mismatch to W2/W7; W3 `background.webp` remains **already confirmed HTTP 404 from W0**, despite latest IDE caveat about source asset absence.
+- **QA hard blocker:** new worktree has no `node_modules`; `npm run typecheck`, `npm run content:validate`, `npm run build`, viewport browser QA (320/375/768/1440) and HTTP negative cases **NOT EXECUTED/BLOCKED_DEPENDENCIES**. Do not mark W1-IA01–12 or WEB-AC01–04 full PASS and do not advance G3.
+- **Next decision requested:** owner may separately authorize a tightly scoped **G2 QA dependency/toolchain amendment** after read-only Node/npm/lockfile/cache/disk preflight; dependency install, `npm ci`, symlinks/copy remain NOT AUTHORIZED at present. A no-install static QA can continue as already approved.
+- **Restrictions unchanged:** no Git source commit/push/PR, Vercel Preview, merge, deployment, paid providers or DNS/GA edits. 14 primary protected Markdown unchanged at provisioning receipt; no fresh post-IDE hashes reported.
+
+**Current gates:** `G1=APPROVED`; `G2=APPROVED_LOCAL_SOURCE_PATCH_REPORTED`; `G2_SOURCE_REVIEW=PASS_SCOPED`; `W1=PARTIAL_QA_BLOCKED`; `G3..G8=HOLD`; `WEB_PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`.
