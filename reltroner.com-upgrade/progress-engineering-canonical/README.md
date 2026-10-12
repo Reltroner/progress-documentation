@@ -51,6 +51,8 @@
 
 | [RC-W1-10 — G2-QA install/typecheck/content/build PASS; generated next-env integrity STOP](./RC-W1-10-g2-qa-build-pass-next-env-generated-file-integrity-stop-20261012.md) | Owner npm ci 263 packages, TypeScript exit 0, content validator 0 errors/371 warnings, Next 440/440 build exit 0; Next-generated tracked next-env.d.ts modified after build, so strict integrity gate stopped; read-only exact diff required | **BUILD PASS / POSTBUILD SOURCE INTEGRITY HOLD / BROWSER HOLD / G3 HOLD** |
 
+| [RC-W1-11 — Verified next-env one-line generated diff and pending one-path exception](./RC-W1-11-generated-next-env-one-line-diff-confirmed-and-one-file-exception-proposal-20261012.md) | Exact production-build generated import switch confirmed against GitHub source; browser hold, single-file restore requires owner permission | **ROOT CAUSE CONFIRMED / PENDING OWNER** |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
