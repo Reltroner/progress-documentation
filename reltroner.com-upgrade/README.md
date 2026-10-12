@@ -1,5 +1,8 @@
 # reltroner.com — Phase 1 Frontend Production Readiness
 
+> **CURRENT EXECUTION BULLETIN — 2026-10-12 (supersedes the historical status header below):** G1 W0 owner-approved CLOSED_WITH_RESIDUALS; G2 W1 source/local build PASS_SCOPED (three isolated TSX patches; `next-env.d.ts` restored); browser QA agent PASS_SCOPED **but direct PNG review RC-W1-17 found 320/375/768 screenshot-viewport evidence conflicts and invalid WebP recording**. W1-IA07 PARTIAL pending [RC-W1-18 targeted one-shot recapture](./progress-engineering-canonical/RC-W1-18-targeted-viewport-correlation-and-evidence-closure-work-order-20261012.md). [RC-G3-00 separate PR decision packet](./progress-engineering-canonical/RC-G3-00-separate-w1-source-pr-decision-packet-pending-owner-20261012.md) is prepared, **NOT OWNER-APPROVED**. W2 index/search, W3 CDN, W4 privacy, W5 AI, W6 email/contact, W7 integration have detailed proposed contracts/research but **NOT source-implemented**. W3 broken image, W4 GA preconsent, W5 Workers AI entitlement, W6 Resend DNS remain unresolved. **G3–G8 HOLD; 27 WEB-AC mandatory; website/global Phase 1 NOT ACCEPTED; Phase 2 NOT ACTIVE.** Read the [current operational status index](./07-current-execution-status-and-next-gates-20261012.md) rather than treating earlier prose or historic receipts as live permission.
+
+
 > Status: OWNER-RATIFIED REQUIREMENTS / G1 W0 DISCOVERY CLOSED WITH RESIDUALS / G2 W1 OWNER APPROVED / PROVISIONING PENDING.
 > Ratification date: 2026-10-12 Asia/Jakarta (owner in conversation).
 > Product: https://www.reltroner.com/ ; code: https://github.com/Reltroner/reltroner-studio
