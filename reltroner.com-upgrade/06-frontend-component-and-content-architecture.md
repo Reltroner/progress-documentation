@@ -1,5 +1,8 @@
 # RC-WEB-DESIGN-001 — Frontend Component, Public Index, AI and Media Design
 
+> **2026-10-13 OWNER SCREENSHOT UX FIX — [RC-WEB-ADR-010](./10-owner-screenshot-led-ui-ux-debugging-layout-rails-and-section-order-20261013.md):** Skill-Wanderer screenshot is the owner's **UI/UX pattern reference**, not a request to copy branding or claims. **DOM order** on Reltroner homepage must be Newsletter (`Notes from the Studio`) **before** the existing final `Ready to explore?` CTA and then footer. Article Reading Path/Archive Explorer desktop sticky rails must be **bounded by the editorial article region**, stop before related-content/newsletter/footer, avoid two cramped independent scroll traps and preserve 65–76ch center prose. Mid-screen collapse Explorer to accessible drawer; mobile drawers and keyboard/focus handling. Navigator must not cover rails, footer or newsletter. Local `localhost:3000` screenshot prototype not present on GitHub `main`; agent must inspect actual isolated worktree before editing. No local code fix has been executed by ChatGPT.
+
+
 > **2026-10-13 W1 owner correction — [RC-WEB-ADR-008](./08-owner-execution-authority-and-dedicated-creator-reader-tsx-adr-20261013.md):** The landing design's two strategic Creator/Reader CTA actions now link directly to first-class TSX routes `app/start/creators/page.tsx` and `app/start/readers/page.tsx`; Markdown articles remain deeper source material, not the direct primary CTA destination. Do not mistake this small user-journey implementation for completed W2 archive/index/AI architecture; no new content source is established. Owner can directly order scoped work across workstreams without sequence theater while all functional/security/cost DoD remains binding.
 
 
