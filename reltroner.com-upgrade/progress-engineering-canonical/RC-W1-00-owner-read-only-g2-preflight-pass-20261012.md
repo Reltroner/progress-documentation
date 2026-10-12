@@ -46,8 +46,8 @@ Owner may execute the following **only to confirm local commit object availabili
   $ErrorActionPreference = 'Stop'
   $Repo = 'C:\Projects\reltroner-studio'
   $SHA = '18b295f96ccb521b228a1855e79448158c09db15'
-  $Found = & git -C $Repo cat-file -t $SHA 2>$null
-  if ($LASTEXITCODE -eq 0 -and ($Found | Out-String).Trim() -eq 'commit') {
+  $Object = @(git -C $Repo rev-parse --verify --quiet "$SHA^{commit}")
+  if ($LASTEXITCODE -eq 0 -and $Object.Count -eq 1 -and $Object[0].Trim() -eq $SHA) {
     Write-Host 'G2_REMOTE_COMMIT_OBJECT=AVAILABLE_LOCALLY'
   } else {
     Write-Host 'G2_REMOTE_COMMIT_OBJECT=NOT_AVAILABLE_LOCALLY'
@@ -56,7 +56,7 @@ Owner may execute the following **only to confirm local commit object availabili
 }
 ```
 
-This command checks only existence/type of the Git commit object. It does **not** run a content integrity test, check the working tree or prove the proposed routes render. Report actual output only; never assume AVAILABLE.
+This PowerShell 5.1-safe `git rev-parse --verify --quiet` check avoids native-command stderr errors when the object is missing; it checks only existence/type of the Git commit object. It does **not** run a content integrity test, check the working tree or prove the proposed routes render. Report actual output only; never assume AVAILABLE.
 
 ## 4. Gate conclusion
 
