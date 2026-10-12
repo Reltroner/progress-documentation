@@ -19,6 +19,8 @@
 
 | [RC-W0-04 — Gemini R1 targeted QA independent review](./RC-W0-04-gemini-qa-targeted-revalidation-review-20261012.md) | Supersedes original presumed contact-form outage: reCAPTCHA iframe active, submit disabled before verification as designed; 502px anchor non-overlap and keyboard focus positives; true mobile/zoom unexecuted | **W0-AC10 PARTIAL**, historical W0QA-01 P1 withdrawn pending delivery evidence |
 
+| [RC-W0-05 — Resend DNS, Vercel Observability, Cloudflare billing & privacy GUI](./RC-W0-05-resend-dns-vercel-observability-cloudflare-billing-20261012.md) | All 3 Resend sender DNS records Failed; project-specific Vercel 12h traffic/ISR; Cloudflare billable usage vs Workers AI meter distinction; precise Chrome DevTools privacy inspection procedure | AC05/06/09 PARTIAL; AC07 BLOCKED; W0 read-only |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
