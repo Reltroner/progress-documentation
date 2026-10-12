@@ -1,5 +1,7 @@
 # RC-W1-11 — Verified One-Line Next.js Generated File Delta; Proposed One-Path G2-QA Restore Exception
 
+> **2026-10-12 OWNER DECISION ADDENDUM:** The owner subsequently **APPROVED the exact one-path generated-file restoration and localhost browser QA**. See [RC-W1-12 owner ratification and execution envelope](./RC-W1-12-owner-approved-generated-next-env-restore-and-local-browser-qa-20261012.md). All `NOT AUTHORIZED` statements below concerning *only that specific future one-path restore* describe historical pre-approval status. **Operator restore and browser tests have not yet been observed.** G3–G8 remain HOLD.
+
 > **Owner read-only evidence:** 2026-10-12T20:05:46.7875333+07:00, Windows PowerShell output `RC_W1_10_DIFF_PROBE=COMPLETE_READ_ONLY`.
 > **Status:** `G1=APPROVED`; `G2=APPROVED`; `G2_QA_INSTALL=PASS`; `TYPECHECK=PASS`; `CONTENT_VALIDATION=PASS_WITH_WARNINGS`; `BUILD_EXIT_0=PASS`; **`POSTBUILD_INTEGRITY=HOLD_EXPECTED_GENERATED_DELTA`**; `BROWSER_QA=HOLD`; `G3..G8=NOT_AUTHORIZED`.
 > **Provenance:** Owner read-only Git status, exact diff, HEAD baseline, working file and generated types existence. Reviewer independently fetched the frozen GitHub `next-env.d.ts` at `18b295f96ccb521b228a1855e79448158c09db15`, matching the owner baseline. No direct reviewer access to owner's local Windows checkout.
