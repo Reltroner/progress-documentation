@@ -23,6 +23,8 @@
 
 | [RC-W0-06 — Cloudflare Workers Free and Chrome privacy evidence](./RC-W0-06-cloudflare-free-and-browser-privacy-evidence-20261012.md) | Cloudflare Workers Free and domain Free active; AI meter not exposed; Google Analytics POST 204 and _ga cookies; reCAPTCHA iframe with 320px clipping candidate; screenshots sanitized | AC06 Workers subscription PASS_SCOPED, AI/AC09/AC10/AC11 PARTIAL |
 
+| [RC-W0-07 — Resend dual-recursive DNS missing + fresh-session GA consent observation](./RC-W0-07-resend-dns-nxdomain-and-incognito-ga-consent-20261012.md) | Reltroner.com NS delegated to Cloudflare; 3 expected Resend records not found at 1.1.1.1/8.8.8.8; new private-session GA collect/_ga with no visible consent UI; source-traced analytics startup | AC07 BLOCKED, AC09 PARTIAL/P1 consent risk; authoritative DNS verification remaining |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
