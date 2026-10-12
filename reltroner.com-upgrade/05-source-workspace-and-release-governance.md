@@ -1,5 +1,8 @@
 # RC-WEB-GOV-001 — Workspace Isolation, TypeScript Engineering and Release Governance
 
+> **2026-10-13 owner process override — [RC-WEB-ADR-008](./08-owner-execution-authority-and-dedicated-creator-reader-tsx-adr-20261013.md):** The human owner can choose/reorder/skip formal W0–W9/G0–G8 sequencing and direct the assistant to implement a specific scoped task without repeated gate-form rituals. Such a direct instruction is sufficient **for the named, reversible, no-cost source task and necessary bounded file scope**. Do not interpret old `G3 HOLD` text as forbidding a newly owner-ordered **different** W1 source correction. However, authorization does not silently extend to unrelated PR/CI auto-preview, main merge/production, DNS changes, paid billing, public emails, destructive cleanup or private providers; execute these only where the owner actually commands their scope, after effect-aware checks. All documented objective safety, integrity, immutable evidence and DoD constraints still apply. Two new `app/start/{creators,readers}/page.tsx` files are explicitly included in the currently requested isolated source amendment.
+
+
 > Status: OWNER RATIFIED PROCESS; GitHub ruleset enforcement NOT VERIFIED.
 > Target source: https://github.com/Reltroner/reltroner-studio .
 > Documentation-only ratification does not authorize application PR merge or production deployment.
