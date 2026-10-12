@@ -55,6 +55,8 @@
 
 | [RC-W1-12 — Owner-approved exact one-path generated Next env restoration and local browser QA](./RC-W1-12-owner-approved-generated-next-env-restore-and-local-browser-qa-20261012.md) | Owner explicitly approves only next-env.d.ts baseline restoration after full one-line/4-file/hash preflight, then already-built localhost QA; PowerShell companion checksum documented; no npm/build repeat, no PR/preview/deployment | **G2-QA OWNER APPROVED / RESTORE EXECUTION PENDING / G3–G8 HOLD** |
 
+| [RC-W1-13 — QA Agent STOP: restore approved but still unexecuted; HTTP smoke only](./RC-W1-13-qa-agent-preflight-blocked-restore-not-executed-and-http-smoke-evidence-20261012.md) | Antigravity QA reports four modified paths with next-env generated change, no restore receipt; HTTP HEAD 200 for homepage/3 routes and 404 unknown, no Chrome viewport execution; run previously ratified one-path RC-W1-12 operator script before browser QA | **RESTORE PENDING_EXECUTION / BROWSER BLOCKED / G3 HOLD** |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
