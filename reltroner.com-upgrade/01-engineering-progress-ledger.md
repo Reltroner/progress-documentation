@@ -261,3 +261,20 @@ Canonical [RC-W1-07R successful corrected Node-based lockfile preflight](./progr
 - **Gate:** `RC-W1-07R=PASS_SCOPED_READ_ONLY`; `RC-W1-08=PROPOSED_PENDING_OWNER`; `W1_IA=PARTIAL_QA_BLOCKED`; `G3..G8=HOLD`; Phase 1 NOT ACCEPTED; Phase 2 NOT ACTIVE. All 27 WEB-AC remain mandatory, including W3 asset 404, W4 GA pre-consent tracking, W5 AI free entitlement and W6 Resend/Web3Forms.
 
 **NEXT USER ACTION:** explicitly approve or decline RC-W1-08. Until decision, do **not** run `npm ci`, build or dev; keep the three-file local patch intact.
+
+## 23. Owner-approved G2-QA: one isolated npm installation and gated local tests (2026-10-12)
+
+**Authoritative decision receipt:** [RC-W1-09 — G2-QA owner approval](./progress-engineering-canonical/RC-W1-09-owner-g2-qa-approval-isolated-npm-ci-and-tests-20261012.md). This supersedes the previous **`RC-W1-08=PENDING_OWNER`** status while retaining earlier evidence as dated historical records.
+
+The owner explicitly approved the separate amendment **RC-W1-08** for exactly **one** bounded npm lockfile-based install in `C:\Projects\reltroner-studio-w1-ia`, followed by local tests only when every prior check passes. Current source baseline `18b295f96ccb521b228a1855e79448158c09db15`, branch `phase1/w1-creator-reader-ia-20261012`, with exactly three previously authorized TSX modifications and 14 protected original author Markdown in separate primary checkout. A fresh read-only ref/path/branch/status/hash/npm-registry/lock preflight and no preexisting `node_modules` are mandatory.
+
+**Now conditionally authorized**:
+1. `npm ci --ignore-scripts --no-audit --no-fund --no-save` once using the existing npm 10, official public npm registry and existing npm lockfile. Downloads/npm user-cache changes are acknowledged side effects. The unusual `learn-nextjs: file:` self-link has not been install-tested; any install error is STOP, not a reason to rewrite lockfile or retry with extra flags.
+2. If installer exits 0 and all source/primary/ref/hash invariants remain unchanged, `npm run typecheck`, then `npm run content:validate`, then **one** `npm run build` including `next-sitemap` postbuild. Check status and hashes after every step; stop on any failure, unexpected tracked/untracked path, or forbidden side effect without cleanup or retry. Fonts may contact public Google assets; no paid/provider API operations allowed.
+3. On full success, perform bounded localhost browser QA including 320/375/768/1440, 200% zoom, keyboard, first-fold CTA and broken/draft anchors, with actual emulation vs physical-device type labeled, then report acceptance W1-IA01..12 for independent review.
+
+A download-ready operator script **`RC-W1-08-G2-QA-approved-isolated-validation-20261012.ps1`**, SHA-256 `ba70e3f758ba97a28541dbd89d6938de9154ffbc67f6c37757fef244e07fca2b`, was created in this conversation and is referenced in RC-W1-09; it is **not** a modification of Studio source. Operator execution has **not yet been observed**. The script was statically inspected, not run against Windows PowerShell 5.1 in this environment.
+
+**Still prohibited**: `npm install` alternative, Bun, `npx`, script/lock/config changes, cache cleanup, primary checkout writes, `git reset/clean/pull`, extra source edits, Git commit/push/PR, Vercel Preview, main merge/production deploy, DNS/provider/billing/AI calls. All 27 WEB-AC and W3/W4/W5/W6/W7 blockers remain mandatory.
+
+**CURRENT GATES**: `G1=APPROVED`; `G2=APPROVED_SOURCE`; `G2-QA=OWNER_APPROVED_NOT_EXECUTED`; `W1=SOURCE_PATCH_REVIEW_PASS_SCOPED/QA_PENDING`; `G3–G8=HOLD`; `Phase1=NOT_ACCEPTED`; `Phase2=NOT_ACTIVE`.
