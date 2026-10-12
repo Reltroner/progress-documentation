@@ -83,3 +83,7 @@ Only after local QA and independent diff verification should owner consider a **
 - No code in Studio GitHub branch was pushed; independent reviewer cannot fetch Gemini's exact local working tree, therefore verification is based on supplied patch plus GitHub baseline inspection.
 - **No production application release, provider change, DNS fix, image fix, privacy consent remedy or dependency install** was performed by reviewer or inferred from patch.
 - The documentation GitHub commit containing this review does **not** constitute a Studio source commit or any PR authorization.
+
+## 6. Additional independent package-manager baseline (read-only GitHub)
+
+GitHub Studio source tree at approved SHA contains **both `package-lock.json` (lockfileVersion 3) and `bun.lock`**. The inspected `package.json` and `package-lock.json` root package entries include `"learn-nextjs": "file:"`, which is unusual and must be reviewed for local filesystem/self-reference resolution before approving any package-manager install. This is **a dependency-install caution, not a proven failure**. Do not run both `npm ci` and Bun installation or infer that an install would be reproducible merely from lock presence. The next owner read-only QA preflight should report actual Node/npm/Bun tool availability and these exact lockfile statuses; only an explicitly authorized toolchain procedure may modify isolated `node_modules`.
