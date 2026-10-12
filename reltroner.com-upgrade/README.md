@@ -19,6 +19,7 @@
 7. [04 — Cost, privacy and provider boundaries](./04-zero-incremental-spend-and-provider-boundaries.md).
 8. [05 — Git workspace / release governance](./05-source-workspace-and-release-governance.md).
 9. [06 — TS/TSX content and component design](./06-frontend-component-and-content-architecture.md).
+10. [Canonical engineering progress archive](./progress-engineering-canonical/README.md): W0 dated evidence and future workstream receipts (documentation-only).
 
 External authoritative sources: [Studio Master](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-master-source-of-truth.md), [LMS README](../lms/README.md), [LMS frozen placement](../lms/master-infrastructure-placement-contract.md) and [LMS frozen API](../lms/logical-service-boundary-api-contract.md). LMS governance methodology is reused; **its service topology is not transplanted into the website**.
 
@@ -64,3 +65,7 @@ Re-read refs before writing; frozen snapshot strings must never be mistaken for 
 The first workstream is W0 **OBSERVE → EVIDENCE → GAP → DECISION**, not W1 implementation. No new provider purchase, DNS change, paid plan, Vercel purge, live API activation, source merge, direct main edit in Studio, Keycloak/Redis/PostgreSQL mutation or VPS LLM inference. The owner-approved **documentation commit** is not an application release.
 
 For any new AI: TUJUAN → FAKTA → GAP → RISIKO → SOLUSI → TOOLS/OWNER → OTORISASI → BUKTI. Every claimed PASS must name the test or exact observation. Use the next-step/stop conditions from [W0](./02-w0-00-read-only-discovery-work-order-20261012.md).
+
+## 6. Canonical progress publication
+
+Read [`progress-engineering-canonical/`](./progress-engineering-canonical/README.md) for dated, sanitized engineering progress receipts (W0, subsequent tests/CI and handoff evidence), while [`01-engineering-progress-ledger.md`](./01-engineering-progress-ledger.md) remains the phase-wide summary. When explicitly authorized, merge evidence documentation directly into this canonical GitHub path with exact SHA checks; **documentation publication never authorizes source changes, provider activation, deployments, or Phase 1/2 transitions**.
