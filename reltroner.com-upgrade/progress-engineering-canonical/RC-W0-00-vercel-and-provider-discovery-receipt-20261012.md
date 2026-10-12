@@ -1,6 +1,6 @@
 # RC-W0-00 — Interim Evidence Receipt (2026-10-12)
 
-**Status:** READ-ONLY W0 IN PROGRESS. This is an off-repository working receipt, not a published GitHub ledger change or authorization to implement.
+**Status:** READ-ONLY W0 IN PROGRESS. This receipt has been published to the canonical GitHub documentation archive. Its publication is documentation-only and does not authorize application implementation, provider configuration or deployment.
 
 ## Authority / immutable source snapshots
 - Ratification repository: `Reltroner/progress-documentation`, `main` = `f60c0d5dfbc356f5f5250769457040d383a0fbe5` (GitHub verified during this review).
@@ -59,4 +59,8 @@ No source edits, isolated branch/worktree creation, Git stage/commit/push/merge,
 6. Capture UX snapshots on mobile and desktop for home, archive, entry, contact, and subscribe existence (or absence); note if data is unpublished and refrain from uploading private content.
 
 ## Owner gate
-W0 is not complete. The next source implementation (W1) remains NOT AUTHORIZED. A final W0 acceptance and a separately scoped G2 PR/preview authorization are needed. The off-repository receipt can be incorporated into the public ledger **only after owner approval and sanitization**.
+W0 is not complete. The next source implementation (W1) remains NOT AUTHORIZED. A final W0 acceptance and a separately scoped G2 PR/preview authorization are needed. This receipt is published to the canonical documentation archive; see [subsequent provider and UX evidence](./RC-W0-01-provider-and-mobile-ux-evidence-20261012.md). The W0 gate is still open and future source changes require separate owner approval.
+
+## Dated correction — 2026-10-12 local-only background asset
+
+The initial statement that the production asset was missing from the remote Git tree remains accurate, but later PowerShell read-only evidence confirmed `public/images/background.webp` **exists locally**. The Studio repository `.gitignore` excludes `public/images/`. Therefore the likely deployment issue is an ignored local-only file, not proof that the owner never had the image, and not evidence of a jsDelivr cache bug. No application source was changed. Extended details and additional provider evidence are in [RC-W0-01](./RC-W0-01-provider-and-mobile-ux-evidence-20261012.md).
