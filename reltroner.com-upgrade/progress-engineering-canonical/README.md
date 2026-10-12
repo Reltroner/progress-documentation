@@ -1,7 +1,7 @@
 # Reltroner.com — Canonical Engineering Progress Archive
 
 > Directory: `reltroner.com-upgrade/progress-engineering-canonical/` (note: **canonical**, not the former typo `canocical`).
-> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / ISOLATED WORKTREE READY (OWNER-REPORTED), G2-QA INSTALL/TYPECHECK/CONTENT/BUILD PASS (OWNER-REPORTED); POSTBUILD NEXT-ENV ONE-LINE DELTA CONFIRMED / OWNER APPROVED ONE-PATH RESTORE PENDING EXECUTION, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
+> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / ISOLATED WORKTREE READY (OWNER-REPORTED), G2-QA INSTALL/TYPECHECK/CONTENT/BUILD PASS (OWNER-REPORTED); NEXT-ENV ONE-PATH RESTORE PASS (OWNER-REPORTED), BROWSER QA READY, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
 > Parent authority: [Architecture Contract](../00-ratified-frontend-architecture-contract-20261012.md) → [W0 Work Order](../02-w0-00-read-only-discovery-work-order-20261012.md) → [Release Governance](../05-source-workspace-and-release-governance.md) → [Acceptance Traceability](../03-phase1-acceptance-and-invariant-traceability.md).
 > [Live engineering progress ledger](../01-engineering-progress-ledger.md) is the summary index; dated receipts here preserve evidence and residual risks.
 
@@ -58,6 +58,8 @@
 | [RC-W1-13 — QA Agent STOP: restore approved but still unexecuted; HTTP smoke only](./RC-W1-13-qa-agent-preflight-blocked-restore-not-executed-and-http-smoke-evidence-20261012.md) | Antigravity QA reports four modified paths with next-env generated change, no restore receipt; HTTP HEAD 200 for homepage/3 routes and 404 unknown, no Chrome viewport execution; run previously ratified one-path RC-W1-12 operator script before browser QA | **RESTORE PENDING_EXECUTION / BROWSER BLOCKED / G3 HOLD** |
 
 | [RC-W1-14 — PowerShell 5.1 Node -e quoting guard STOP; safe PowerShell-only one-file precondition fix](./RC-W1-14-ps51-native-node-e-quoting-stop-and-one-path-restore-script-fix-20261012.md) | Owner restore attempt stopped before Git mutation; possible WinPS 5.1 native quote loss; RC-W1-12R exact full-line comparison preserves all SHA/hash/ref/status guards and narrow restoration scope | **RESTORE PENDING / PS5 FIX DELIVERED / BROWSER HOLD / G3 HOLD** |
+
+| [RC-W1-15 — Owner executed exact one-path restoration, source integrity PASS, browser QA ready](./RC-W1-15-one-file-restore-pass-browser-qa-ready-20261012.md) | Windows RC-W1-12R actual console proves one-line guard and targeted next-env restore PASS, remaining exactly three TSX, primary 14 hashes unchanged in-session; Chrome viewport/keyboard/browser QA pending | **RESTORE PASS / BROWSER QA READY / G3 HOLD** |
 
 ## Publication policy
 
