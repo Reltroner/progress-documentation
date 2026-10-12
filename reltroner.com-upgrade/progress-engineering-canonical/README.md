@@ -12,6 +12,9 @@
 | [RC-W0-00 — Vercel, baseline, browser and source discovery](./RC-W0-00-vercel-and-provider-discovery-receipt-20261012.md) | Git SHAs, local protection, Vercel production/build, CDN 404/freshness and privacy baseline | W0 PARTIAL, with scoped PASS for Git/source inventory |
 | [RC-W0-01 — Provider, Vercel usage and 320px responsive UX](./RC-W0-01-provider-and-mobile-ux-evidence-20261012.md) | Cloudflare Workers account, Web3Forms onboarding, Resend profile, Vercel aggregate usage, desktop/mobile UX and outstanding acceptance checks | W0 PARTIAL; no provider activation |
 
+| [RC-W0-02 — Provider entitlements, Resend Failed domain & Vercel Usage](./RC-W0-02-provider-entitlement-domain-blocker-and-vercel-usage-20261012.md) | Web3Forms Personal Free 250 submissions/month; Resend $0 transactional/marketing quotas but sender domain Failed; Cloudflare 243-model catalog is not proof of Free inference; Vercel 34 builds and 8 user-error invocations shown in period | W0-AC05–08 PARTIAL, Resend sending BLOCKED |
+| [RC-W0-AC10 — Gemini IDE read-only browser QA protocol](./RC-W0-AC10-gemini-ide-browser-qa-protocol-20261012.md) | Full agent prompt; production browser QA now; local `npm run dev` only in later authorized isolated exact-SHA worktree or explicit W0 exception | W0-AC10 QA proposed, NOT_EXECUTED |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
