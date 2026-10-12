@@ -1,6 +1,6 @@
 # Reltroner.com — Living End-to-End Engineering Progress & Risk Ledger
 
-> As-of: 2026-10-12 Asia/Jakarta. **LATEST GATE: W0 G1 OWNER-APPROVED; W1 G2 OWNER-APPROVED FOR BOUNDED LOCAL ENGINEERING, PROVISIONING NOT YET EXECUTION-VERIFIED. G3–G8 NOT AUTHORIZED.** Earlier dated sections preserve historical pre-approval states. Documented status is not a production certificate.
+> As-of: 2026-10-12 Asia/Jakarta. **LATEST GATE: W0 G1 APPROVED; G2 OWNER-APPROVED AND ISOLATED WORKTREE READY (OWNER-REPORTED); GEMINI FIRST STOP WITHOUT SOURCE EDITS; OFFLINE HANDOFF PENDING; G3–G8 NOT AUTHORIZED.** Earlier dated sections preserve historical pre-approval states. Documented status is not a production certificate.
 > Source authority: [README](./README.md) → [WEB ARCH contract](./00-ratified-frontend-architecture-contract-20261012.md) → [acceptance](./03-phase1-acceptance-and-invariant-traceability.md).
 > Update this after every observed source/CI/preview/vendor/production change; retain dated history and mark evidence type.
 
@@ -215,3 +215,15 @@ Owner can later choose (A) only narrow fetch and verification, or (B) one **expl
 - **Known remaining mandatory debt:** W3 CDN/background image, W4 Google Analytics consent, W5 AI model entitlement, W6 Resend missing DNS/Web3Forms, W7 final 27 WEB-AC and accessibility/privacy release gates.
 
 **CURRENT GATES:** `G1=APPROVED`; `G2=APPROVED_CONDITIONAL`; `W1=AUTHORIZED_NOT_YET_EXECUTED`; `G3..G8=HOLD`; `PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`. Older G2_PENDING statements in prior numbered sections are historical snapshot states, superseded by this decision.
+
+## 19. G2 provisioning succeeded; Gemini stopped on unavailable work order and missing contextual receipt (2026-10-12)
+
+**Canonical receipt:** [RC-W1-05 — Owner provisioning PASS; Gemini first attempt STOP; offline retry protocol](./progress-engineering-canonical/RC-W1-05-provisioning-success-gemini-gate-stop-offline-recovery-20261012.md).
+
+- **Owner-provisioned 18:39:17 WIB, PASS_SCOPED:** Git for Windows 2.41 narrow fetch retrieved exact `18b295f96ccb521b228a1855e79448158c09db15`; all Git refs and primary tracked HEAD preserved; SHA-256 checks show **14 protected untracked Markdown unchanged**; created one isolated `C:\Projects\reltroner-studio-w1-ia` on `phase1/w1-creator-reader-ia-20261012` at the approved base. Successful script markers included `G2_ISOLATED_WORKTREE=READY`, `G2_PROTECTED_14=HASHES_UNCHANGED`, `G2_PRIMARY_HEAD=UNCHANGED`, `G2_TRACKED_SOURCE_EDITS=0`. **Do NOT repeat fetch/worktree creation.**
+- **Gemini first IDE attempt STOP (correct under its missing-context premise):** agent inspected worktree/branch/HEAD, found source clean, used temporary `-c safe.directory` not global Git changes. It had **not been supplied** the owner's receipt markers and could not read canonical GitHub URLs (reported 404/network restrictions). GitHub connector has since independently verified canonical RC-W1-01/03/04 and acceptance docs exist; no repository deletion inferred. Gemini changed **zero files** and W1-IA01..12 remain **NOT_EXECUTED**.
+- **Toolchain:** `node_modules` absent in newly isolated worktree. npm tests, build, localhost browser QA **BLOCKED_DEPENDENCIES** unless separately authorized; source-only TSX implementation/diff inspection remains within existing G2. No `npm install`, `npm ci`, `npx`, symlink/copy node_modules, package edits or tool upgrades are authorized.
+- **Recovery:** give Gemini human receipt plus self-contained `RC-W1-05-Gemini-offline-handoff-20261012.md` artifact **outside source worktree** or paste full context in conversation. Work only in existing isolated worktree and exactly 3 approved TSX files. No new G2 decision needed simply to supply evidence; no new provisioning. If spoiler-safe Reader destination is not supported by source, STOP for route/content scope amendment, do not invent a new page.
+- **Security/production:** known W3 image 404, W4 GA pre-consent tracking, W5 AI free entitlement, W6 sender DNS failure/Web3Forms and all 27 WEB-AC remain mandatory. Source has not been committed/pushed or deployed; G3–G8 continue HOLD.
+
+**Current state:** `G1=APPROVED`; `G2=APPROVED_PROVISIONED`; `W1=SOURCE_NOT_YET_EDITED/GEMINI_OFFLINE_RETRY`; `G3..G8=NOT_AUTHORIZED`; `Phase1=NOT_ACCEPTED`; `Phase2=NOT_ACTIVE`.
