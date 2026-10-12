@@ -178,3 +178,17 @@ Two new canonical records are published:
 **Current locks:** `G1=APPROVED`; `W0=DISCOVERY_CLOSED_WITH_RESIDUALS`; `G2=NOT_AUTHORIZED`; `W1=PLANNED_NOT_EXECUTED`; `W2–W7=HOLD`; `G3–G8=NOT_AUTHORIZED`; `WEBSITE_PHASE1=NOT_ACCEPTED`; `GLOBAL_PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`.
 
 **Mutation declaration:** Documentation-only updates in `Reltroner/progress-documentation`; no changes to `reltroner-studio`, resource repo, local owner files, Vercel, Cloudflare, Resend, DNS, AI provider inference, secrets, email or production. Monetary incremental scope of publication: no new activated services or billable usage intentionally triggered.
+
+## 16. G2 W1 preflight: primary protected, reviewed GitHub SHA matches (2026-10-12)
+
+**Receipt:** [RC-W1-00 — Owner G2 read-only PowerShell preflight PASS_SCOPED](./progress-engineering-canonical/RC-W1-00-owner-read-only-g2-preflight-pass-20261012.md). Owner executed `2026-10-12T18:12:27.8216400+07:00`; this was read-only operator output, not a mutation authorization.
+
+- Primary checkout origin `https://github.com/Reltroner/reltroner-studio.git` matched; branch `main`; local HEAD `d6969ddfbc5e7d98d49b1523259785125159e722`. **Do not update local main just to catch up.**
+- `git status --porcelain=v1 --untracked-files=all`: exactly **14 untracked Markdown files**, 12 under `content/music/`, two under `content/places/`, and no tracked modifications; existence of all protected files checked by the owner script. No per-file byte checksums were recorded.
+- Only one worktree existed (`C:/Projects/reltroner-studio`); proposed isolated `C:\Projects\reltroner-studio-w1-ia` absent and proposed `phase1/w1-creator-reader-ia-20261012` branch absent both locally and remotely.
+- Owner `git ls-remote origin refs/heads/main` reported exact remote SHA `18b295f96ccb521b228a1855e79448158c09db15`, independently corroborated with GitHub connector on this receipt day. Source and resource remain unmodified.
+- **Remaining technical precondition:** local object availability of the exact remote commit is **UNKNOWN** until a separate `git cat-file -t` read-only probe. `ls-remote` does not download objects; if not found, do not assume `git worktree add` can work or silently fetch/pull.
+- **Authorization separation:** `RC-W1-00=PASS_SCOPED_OWNER_REPORTED` and `RC-W1-01=G2_READY_FOR_OWNER_REVIEW` do not imply `G2=APPROVED`. G2 would scope only exact source SHA, 3 TSX files, isolated branch/worktree, and approved local tests. No IDE writing, worktree add, fetch, package install, Git push, PR, Vercel preview, merge or deployment before separately granted authority.
+- W3 background image 404, W4 GA consent P1, W5 model entitlement, W6 Resend/Web3Forms, and W7 final 27 WEB-AC remain required despite G1 signoff.
+
+**Current phase:** `W0=G1_CLOSED_WITH_RESIDUALS`; `W1=G2_PREFLIGHT_PASS_SCOPED/NOT_AUTHORIZED`; `W2–W7=HOLD`; `G3–G8=NOT_AUTHORIZED`; `PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`.
