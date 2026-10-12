@@ -1,7 +1,7 @@
 # Reltroner.com — Canonical Engineering Progress Archive
 
 > Directory: `reltroner.com-upgrade/progress-engineering-canonical/` (note: **canonical**, not the former typo `canocical`).
-> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / PROVISIONING NOT EXECUTION-VERIFIED, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
+> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 OWNER APPROVED / ISOLATED WORKTREE READY (OWNER-REPORTED), GEMINI RETRY PENDING, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
 > Parent authority: [Architecture Contract](../00-ratified-frontend-architecture-contract-20261012.md) → [W0 Work Order](../02-w0-00-read-only-discovery-work-order-20261012.md) → [Release Governance](../05-source-workspace-and-release-governance.md) → [Acceptance Traceability](../03-phase1-acceptance-and-invariant-traceability.md).
 > [Live engineering progress ledger](../01-engineering-progress-ledger.md) is the summary index; dated receipts here preserve evidence and residual risks.
 
@@ -37,6 +37,8 @@
 
 | [RC-W1-03 — Owner combined G2 ratification / bounded isolated execution](./RC-W1-03-owner-g2-ratification-and-isolated-execution-20261012.md) | Owner explicitly approved conditional narrow fetch, protected-primary verification, one isolated W1 worktree and 3-file TSX local implementation/testing; does NOT approve PR/preview/merge/deploy | **G2 OWNER APPROVED**; provisioning execution pending |
 | [RC-W1-04 — Gemini IDE 3-file implementation and QA prompt](./RC-W1-04-gemini-ide-authorized-bounded-implementation-and-qa-prompt-20261012.md) | Agent prompt for source/route truth, Creator/Reader IA, strict allowed TSX, typed checks, mobile and browser evidence; run only after worktree READY | **G2 APPROVED; IDE NOT EXECUTED**, G3+ HOLD |
+
+| [RC-W1-05 — G2 worktree READY; Gemini first attempt STOP; offline context recovery](./RC-W1-05-provisioning-success-gemini-gate-stop-offline-recovery-20261012.md) | Owner provisioning 18:39 WIB verified narrow fetch, exact isolated SHA and 14 hash-protected files; Gemini read-only preflight passed but had no owner receipt/GitHub access and no local node_modules; self-contained offline handoff to continue bounded source edits | **G2 PROVISIONED PASS_SCOPED; W1 SOURCE NOT YET EDITED; G3 HOLD** |
 
 ## Publication policy
 
