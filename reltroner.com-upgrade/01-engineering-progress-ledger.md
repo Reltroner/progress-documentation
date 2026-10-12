@@ -15,7 +15,7 @@ GIT-VERIFIED = GitHub source/ref/commit, not local runtime; OWNER-REPORTED = quo
 | WEB-E01 | progress-documentation/main initial | 73c24bcf0210b533020823c2d32680a2fea7eecb | GIT-VERIFIED, pre-ratification |
 | WEB-E02 | reltroner-studio/main | 18b295f96ccb521b228a1855e79448158c09db15 | GIT-VERIFIED, at discovery |
 | WEB-E03 | reltroner-studio-resource/main | 6c6fb38f8ff3376c0789c15bcfe4d0cafc4d057e | GIT-VERIFIED, at discovery |
-| WEB-E04 | Studio primary Windows checkout | main up to date, 14 untracked files (12 music, 2 places) | OWNER-REPORTED; cannot inspect local state via GitHub |
+| WEB-E04 | Studio primary Windows checkout | local HEAD d6969dd (11 commits behind Studio GitHub main 18b295f); exactly 14 protected untracked Markdown; zero tracked modifications | OWNER-REPORTED; cannot inspect local state via GitHub |
 | WEB-E05 | Vercel | Hobby screenshots: deployed www.reltroner.com, apex 307 redirect, CDN/firewall dashboards, Speed Insights activation prompt | UI-SNAPSHOT; no actual billing/capacity acceptance |
 | WEB-E06 | Site root implementation | app/layout.tsx loads CommandPalette, GoogleAnalytics, RouteAnalytics; app/page.tsx ecosystem gateway | GIT-VERIFIED at WEB-E02 |
 | WEB-E07 | Contact source | app/contact/page.jsx + components/sections/ContactForm.jsx use Formspree endpoint and Google reCAPTCHA | GIT-VERIFIED at WEB-E02; actual submissions not tested |
@@ -30,7 +30,7 @@ GIT-VERIFIED = GitHub source/ref/commit, not local runtime; OWNER-REPORTED = quo
 | Stage | State | Blockers/next evidence |
 |---|---|---|
 | Ratify website expanded Phase 1 | OWNER RATIFIED | Document commit verification required |
-| W0-00 discovery | START AUTHORIZED (READ-ONLY) | Complete W0 checks and owner disposition |
+| W0-00 discovery | IN PROGRESS (READ-ONLY); multiple scoped receipts | Complete provider entitlements, privacy/UX, cost/release checks and owner disposition |
 | W1-IA | HOLD | W0 content/map/route evidence |
 | W2-Search/rails | HOLD | W0 shared index contract and responsive tests |
 | W3-CDN | HOLD | W0 network/headers and existing no-cost deploy trigger |
@@ -62,3 +62,14 @@ For each new event: ID, timestamp, actor (Owner / ChatGPT reviewer / IDE impleme
 ## 6. First next step
 
 Execute [W0-00 read-only discovery](./02-w0-00-read-only-discovery-work-order-20261012.md): no installs, no Git local mutations, no provider toggles, no releases. After W0 evidence and owner acceptance, write an exact W1 nonproduction work order; do NOT reinterpret ratified architecture as blanket permission to build/deploy anything.
+
+## 7. Canonical engineering evidence archive — 2026-10-12 update
+
+For the full reproducible, sanitized findings consult the [canonical progress archive](./progress-engineering-canonical/README.md) and its dated documents:
+
+- [RC-W0-00 — original Vercel, GitHub, CDN and local evidence](./progress-engineering-canonical/RC-W0-00-vercel-and-provider-discovery-receipt-20261012.md); includes dated correction for a local ignored `public/images/background.webp` that was absent from deployed Git source.
+- [RC-W0-01 — Cloudflare, Resend, Web3Forms, Vercel Usage and responsive UX](./progress-engineering-canonical/RC-W0-01-provider-and-mobile-ux-evidence-20261012.md). The underlying owner evidence contains UI snapshots, provider account screens and 320x480 mobile navigation/collection imagery; public receipts omit personal/account secrets.
+
+Current W0 evidence disposition: **AC01 PASS_SCOPED, AC02 PASS_SCOPED, AC03 PARTIAL, AC04 PARTIAL, AC05 PARTIAL, AC06 PARTIAL, AC07 PARTIAL account access / UNKNOWN entitlement, AC08 PARTIAL / NOT_CONFIGURED, AC09 PARTIAL, AC10 PARTIAL, AC11 PARTIAL, AC12 PENDING.** Vercel `main` production still requires an independent technical release gate; no automatic merge into a release-tracked branch. Cloudflare Workers AI, Resend marketing and Web3Forms verification/quotas remain unproven. Retain W1–W7 on HOLD.
+
+**Documentation commits in `progress-documentation` only** do not change `reltroner-studio`, resource files, Vercel, Cloudflare, Resend, Web3Forms, LMS/ERP, DNS, or production. Phase 1 NOT ACCEPTED; Phase 2 NOT ACTIVE.
