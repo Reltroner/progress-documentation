@@ -1,7 +1,7 @@
 # Reltroner.com — Canonical Engineering Progress Archive
 
 > Directory: `reltroner.com-upgrade/progress-engineering-canonical/` (note: **canonical**, not the former typo `canocical`).
-> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 READ-ONLY DISCOVERY IN PROGRESS**, W1–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
+> Scope: sanitized progress documentation and timestamped evidence. **Current phase: W0 G1 OWNER-APPROVED DISCOVERY CLOSED WITH RESIDUALS**, W1 G2 WORK ORDER PREPARED/NOT AUTHORIZED, W2–W7 HOLD, Phase 1 not accepted, Phase 2 not active.
 > Parent authority: [Architecture Contract](../00-ratified-frontend-architecture-contract-20261012.md) → [W0 Work Order](../02-w0-00-read-only-discovery-work-order-20261012.md) → [Release Governance](../05-source-workspace-and-release-governance.md) → [Acceptance Traceability](../03-phase1-acceptance-and-invariant-traceability.md).
 > [Live engineering progress ledger](../01-engineering-progress-ledger.md) is the summary index; dated receipts here preserve evidence and residual risks.
 
@@ -27,6 +27,9 @@
 
 | [RC-W0-08 — Direct authoritative DNS timeout and Cloudflare Resend record absence](./RC-W0-08-authoritative-dns-timeouts-and-cloudflare-zone-absence-20261012.md) | 10 direct nameserver queries including SOA timed out; **not** authoritative NXDOMAIN. Owner Cloudflare DNS GUI reports required Resend records absent; two prior public resolvers also did not find them. | AC07 sender BLOCKED; W6 handoff; W0 DNS discovery documented |
 | [RC-W0-09 — Final discovery matrix & proposed W1 G1/G2 entry](./RC-W0-09-final-discovery-disposition-and-proposed-w1-entry-20261012.md) | All 12 W0 acceptance dispositions, unresolved W2–W7 blockers, smallest three-file TSX W1 IA proposal, exact separate G1 and G2 owner approvals | **G1 PENDING_OWNER**, G2 NOT_AUTHORIZED, W1 HOLD |
+
+| [RC-W0-10 — Owner G1 ratification, W0 discovery closure](./RC-W0-10-owner-g1-ratification-and-discovery-closure-20261012.md) | Exact owner G1 approval, W0-AC01–12 with scoped/non-PASS status retained, all 27 WEB-AC mandatory, no G2/provider/deploy authorization | **G1 APPROVED**, **W0 CLOSED WITH RESIDUALS**, G2 PENDING |
+| [RC-W1-01 — Proposed exact-scope G2 IA work order](./RC-W1-01-proposed-g2-first-contact-creator-reader-ia-work-order-20261012.md) | SHA-locked three TSX files, Creator/Reader/collaborator destination candidates, PowerShell 5.1 no-write preflight, eventual bounded IDE prompt, W1 negative QA, stop/preview/cost gates | **G2 NOT AUTHORIZED / W1 NOT EXECUTED** |
 
 ## Publication policy
 
