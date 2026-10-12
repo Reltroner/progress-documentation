@@ -1,5 +1,8 @@
 # Reltroner.com — Canonical Engineering Progress Archive
 
+> **LATEST OWNER-REQUESTED W1 REFINEMENT — 2026-10-13:** [RC-WEB-ADR-009 — dedicated Creator/Reader Use-Case Pathways + image-first portfolio in yellow gap](../09-owner-approved-pathway-and-portfolio-landing-refinement-20261013.md). Local RC-W1-21 patch has been **generated and Node-syntax-checked but NOT RUN on owner Windows**, and RC-W1-22 replaces obsolete five-file RC-W1-20 with **six-file** validation. New showcase includes two public WebPs proven to exist at Git resource SHA `50b259bf8db5b8c04baf0c0cb9b1cf11a32e9c70`, not yet verified through jsDelivr/browser. Three tracked TSX and three untracked TSX expected after successful patch. No app source GitHub commit or deploy.
+
+
 > **OWNER EXECUTED RC-W1-19 SOURCE PASS — 2026-10-13:** [RC-W1-20 actual receipt and one-shot validation work order](./RC-W1-20-owner-local-five-path-source-pass-and-fresh-build-validation-work-order-20261013.md). `/start/creators` and `/start/readers` TSX pages have been **created locally**, and Hero CTAs changed; current five-path isolated source state = 3 modified tracked TSX + 2 untracked new pages, primary owner drafts unharmed during mutation. Typecheck/content/build/localhost QA **not yet executed for this new source**. External `RC-W1-20-isolated-five-file-local-validation-20261013.ps1` validated statically, SHA256 `51eff97e5dc177e45cc8e5de3a3d74cbbdd41445c40858bd8022128020965399`. The historical three-path work order/old browser proof below does not certify the new routes. No commit/PR/preview/deployment was performed.
 
 
