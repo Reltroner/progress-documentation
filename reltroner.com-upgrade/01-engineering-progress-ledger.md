@@ -336,3 +336,17 @@ Owner ran the original one-path RC-W1-12 restoration at `2026-10-12T22:22:25.697
 **Fix artifact:** `RC-W1-12R-G2-QA-one-path-restore-PS51-fix-20261012.ps1`, SHA-256 `1183d81e424e012e1f06ce69b6b179c43d47e9ff1dd604d7e943e49e738e3cc5`, 169 lines. External-to-repository, statically inspected. It removes native Node argument quoting from the only failing check, compares **every line** of Git HEAD baseline to current `next-env.d.ts` with exactly one permitted import change, and still requires `git diff --numstat` exactly 1 added/1 removed. All originally approved branch/topology/hash/status/ref guards, targeted only-file restore, and post-restoration three-TSX status verification remain unchanged. This is a **technical correction within the already-approved RC-W1-11/12 one-path authority**, not a new grant for source edits, another installer/build or remote code changes. Operator should run/paste the new script **once**, not the original one; STOP on any unexpected deviation.
 
 **Gate unchanged until actual output:** `G2_QA_INSTALL/TYPECHECK/CONTENT/BUILD=PASS`, `RC_W1_12R_RESTORE=PENDING_OPERATOR_EXECUTION`, `W1_BROWSER_QA=HOLD`, `G3–G8=NOT_AUTHORIZED`, `PHASE1=NOT_ACCEPTED`, `PHASE2=NOT_ACTIVE`. Do not claim acceptance, perform QA agent browser clicks or modify Studio primary/14 Markdown without valid restore completion receipt.
+
+## 29. Successful one-path restore; browser QA READY (2026-10-12 22:30 WIB)
+
+[RC-W1-15 — Owner restoration PASS and localhost browser QA readiness](./progress-engineering-canonical/RC-W1-15-one-file-restore-pass-browser-qa-ready-20261012.md) archives the actual Windows PowerShell execution at `2026-10-12T22:30:24.4662754+07:00`.
+
+- `NEXT_ENV_GENERATED_DIFF=EXACT_ONE_LINE_PASS`, `RC_W1_12_PRE_RESTORE=PASS`.
+- The one-owner-approved targeted generated-file restoration succeeded: `RC_W1_12_NEXT_ENV_RESTORE=PASS`.
+- `G2_QA_SOURCE_STATUS=EXACT_THREE_TSX`: only the three originally allowed TSX edits remain, the tracked `next-env.d.ts` matches HEAD.
+- `G2_QA_PRIMARY_14=HASHES_UNCHANGED`: the script compared all 14 owner-draft SHA256 hashes before/after its execution, alongside TSX/package hashes and Git refs. This does not imply a cross-session provisioning hash comparison.
+- `G2_QA_BROWSER=AUTHORIZED_LOCALHOST_ONLY`. Prior agent BLOCKED_RESTORE_EVIDENCE has been resolved by later owner action; real browser QA still not executed.
+
+Earlier npm ci 263 packages, typecheck exit 0, content validation 0 errors/371 warnings/419 files, and Next build 440/440 pages exit 0 remain genuine scoped successes. Do not rerun install/build. Start the already built localhost server only if not running, with loopback 127.0.0.1:3101. Agent must collect real Chrome responsive/zoom/keyboard/ARIA/route/console evidence, block analytics trackers before first navigation, read only approved worktree data, submit no forms, and stop after report. No source edits, Git PR/push, preview, merge or deployment.
+
+**Gates:** `G1 APPROVED`; `G2 SOURCE PASS_SCOPED`; `G2-QA INSTALL/TYPECHECK/CONTENT/BUILD PASS`; `RC-W1-12R RESTORE PASS`; `BROWSER QA READY_NOT_EXECUTED`; `W1 PARTIAL`; `G3–G8 HOLD`; Phase 1 NOT ACCEPTED; Phase 2 NOT ACTIVE.
