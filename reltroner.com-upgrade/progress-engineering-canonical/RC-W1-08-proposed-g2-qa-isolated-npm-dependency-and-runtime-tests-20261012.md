@@ -1,5 +1,7 @@
 # RC-W1-08 — **PROPOSED** G2-QA Amendment: Isolated npm Dependency Installation and W1 Runtime/Browser Testing
 
+> **2026-10-12 OWNER APPROVAL ADDENDUM — CURRENT STATUS:** The owner explicitly **APPROVED G2-QA RC-W1-08** for exactly one isolated `npm ci --ignore-scripts --no-audit --no-fund --no-save` attempt with gated typecheck/content validation/one build and local browser QA. See [RC-W1-09 owner-ratified executable scope](./RC-W1-09-owner-g2-qa-approval-isolated-npm-ci-and-tests-20261012.md). All `PENDING_OWNER` / `DO NOT RUN YET` language below is historic *pre-ratification* text, superseded only for this precisely bounded QA operation. No execution has been reported; G3–G8 remain not authorized.
+
 > **OWNER APPROVAL REQUIRED; NOT YET AUTHORIZED.**
 > Prepared 2026-10-12 Asia/Jakarta after [RC-W1-07R PASS_SCOPED read-only toolchain review](./RC-W1-07R-successful-read-only-lockfile-toolchain-revalidation-20261012.md).
 > **Existing authority:** [RC-W1-03 G2 owner ratification](./RC-W1-03-owner-g2-ratification-and-isolated-execution-20261012.md), [RC-W1-06 independent source review](./RC-W1-06-independent-source-review-g2-implementation-and-qa-blockers-20261012.md); initial G2 **explicitly prohibited** dependency installation.
