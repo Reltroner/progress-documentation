@@ -1,5 +1,7 @@
 # RC-W1-02 — Missing Local Commit Object, Narrow Git Fetch Plan, G2 Decision Pending
 
+> **G2 APPROVAL ADDENDUM (2026-10-12):** Owner explicitly APPROVED the combined RC-W1-01 + RC-W1-02 scope. The specified **narrow object fetch is now conditionally AUTHORIZED**, only after exact preflight succeeds and only with approved flags and no ref/primary modification. Worktree/three-file IDE work is likewise G2 authorized only in the named isolated path. Refer to [RC-W1-03](./RC-W1-03-owner-g2-ratification-and-isolated-execution-20261012.md). Historic `NOT AUTHORIZED` below describes state BEFORE this G2 decision; no actual fetch has yet been observed. **No G3–G8 approval.**
+
 > **Recorded on 2026-10-12 Asia/Jakarta.** User supplied PowerShell console result after the 18:12:27 WIB preflight; the new probe did not output its own independent wall-clock timestamp.
 > **Stage:** `G1_APPROVED`; `RC-W1-00_PREFLIGHT=PASS_SCOPED`; `G2_COMMIT_OBJECT=NOT_AVAILABLE_LOCALLY`; **`G2=NOT_AUTHORIZED`**.
 > Evidence: OWNER_POWERSHELL_OUTPUT; reviewer separately checked GitHub Studio `main` on this date at `18b295f96ccb521b228a1855e79448158c09db15`. Owner's local PC cannot be accessed by the GitHub connector.
