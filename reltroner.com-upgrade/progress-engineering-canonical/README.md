@@ -44,6 +44,9 @@
 
 | [RC-W1-07 — QA discovery JSON parser STOP and portable read-only recovery](./RC-W1-07-qa-toolchain-discovery-json-parser-failure-and-read-only-fix-20261012.md) | Owner Node/npm and dual-lockfile inspection passed until PowerShell ConvertFrom-Json rejected packages empty root key; PS5.1/7-compatible Node JSON parser recovery provided; no install/test run | **DISCOVERY PARTIAL / QA BLOCKED**, G3 HOLD |
 
+| [RC-W1-07R — Successful read-only lockfile/toolchain revalidation](./RC-W1-07R-successful-read-only-lockfile-toolchain-revalidation-20261012.md) | Node JSON parses npm root; 0 root dependency mismatches; npm 10/Node 22, exact 3-file diff, 48.79GB free; local self-link `file:` still a caution | **PASS_SCOPED_READ_ONLY**, runtime QA BLOCKED |
+| [RC-W1-08 — Proposed isolated npm G2-QA amendment](./RC-W1-08-proposed-g2-qa-isolated-npm-dependency-and-runtime-tests-20261012.md) | Proposal only: single npm lockfile-driven `npm ci --ignore-scripts` attempt after approval, then typecheck/content/build/localhost QA with strict STOP gates | **PENDING_OWNER**, no install, G3 HOLD |
+
 ## Publication policy
 
 This directory is the **canonical publication target** for Reltroner.com progress engineering: discoveries, reproducible build/test/CI reviews, risk/gap/decision receipts, later workstream evidence, previews, release/rollback receipts and sanitized handoff records. Once user-authorized and safe, publish directly to `Reltroner/progress-documentation` `main` (with a rechecked HEAD and exact file SHA) rather than requiring a local Markdown download and re-upload.
