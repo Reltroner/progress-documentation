@@ -1,5 +1,8 @@
 # RC-WEB-AC-001 — Phase 1 Website Acceptance Matrix & Invariant Crosswalk
 
+> **2026-10-13 OWNER AMENDMENT — [RC-WEB-ADR-008](./08-owner-execution-authority-and-dedicated-creator-reader-tsx-adr-20261013.md):** The owner explicitly requires the homepage Creator/Reader CTAs to enter **new independent TSX onboarding pages** `/start/creators` and `/start/readers`, with existing Markdown documents only as later optional reading. WEB-AC01–04 now evaluate the **two-step** homepage → TSX orientation → published article/series path, not direct jump to an MD-derived article. Previous W1 acceptance evidence is historical for older CTA destinations; two new routes require a fresh code/test receipt. Owner may direct cross-workstream order without ceremonial permission loops, but 27 WEB-AC, objective evidence and no-spend remain binding; none of the acceptance states in the table below is silently promoted to PASS.
+
+
 > Date: 2026-10-12 Asia/Jakarta. STATUS: **RATIFIED CONTRACT / TESTS NOT YET EXECUTED**.
 > Owner ratification sets feature scope, not PASS results. Exact thresholds are **initial test targets** until a W0 measurement and owner-approved benchmark receipt.
 > All status entries below are PENDING by default; mark PASS_SCOPED only with an immutable source/runtime proof.
