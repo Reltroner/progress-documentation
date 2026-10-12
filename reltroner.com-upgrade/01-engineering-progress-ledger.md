@@ -240,3 +240,12 @@ Owner can later choose (A) only narrow fetch and verification, or (B) one **expl
 - **Restrictions unchanged:** no Git source commit/push/PR, Vercel Preview, merge, deployment, paid providers or DNS/GA edits. 14 primary protected Markdown unchanged at provisioning receipt; no fresh post-IDE hashes reported.
 
 **Current gates:** `G1=APPROVED`; `G2=APPROVED_LOCAL_SOURCE_PATCH_REPORTED`; `G2_SOURCE_REVIEW=PASS_SCOPED`; `W1=PARTIAL_QA_BLOCKED`; `G3..G8=HOLD`; `WEB_PHASE1=NOT_ACCEPTED`; `PHASE2=NOT_ACTIVE`.
+
+## 21. G2 QA discovery parsed-lockfile failure, PS5/7 read-only fix (2026-10-12 19:23 WIB)
+
+**Canonical:** [RC-W1-07 — QA toolchain inspection partial; npm lockfile empty-key PowerShell parser failure and corrected continuation](./progress-engineering-canonical/RC-W1-07-qa-toolchain-discovery-json-parser-failure-and-read-only-fix-20261012.md).
+
+- **Owner-proven read-only checks:** isolated `phase1/w1-creator-reader-ia-20261012` HEAD `18b295f96ccb521b228a1855e79448158c09db15`; exactly 3 approved TSX files modified; `package-lock.json` and `bun.lock` exist; `node_modules=False`; Node `v22.23.1`, npm `10.9.8`, Bun absent; root `learn-nextjs = file:`.
+- **PowerShell script STOP, not application error:** `ConvertFrom-Json` rejects the valid npm root empty string property `packages[""]` unless `-AsHashtable` is used; PowerShell 5.1 lacks that switch. Disk-space segment/end marker `QA_TOOLCHAIN_DISCOVERY=COMPLETE_READ_ONLY` were **NOT REACHED**. Corrected `RC-W1-07R` uses Node 22 `JSON.parse` read-only (cross-PowerShell edition), compares package/lock root specs, inspects `file:` self-reference, prints free disk and reports source Git state.
+- **Decision:** `RC-W1-07=PARTIAL_PARSER_STOP`; **no npm install/build**, no source/provider change. Wait for actual `RC_W1_07R=COMPLETE_READ_ONLY` evidence before proposing any separate owner G2-QA dependency authorization. Neither checked root specs nor lock presence alone guarantees dependency install compatibility.
+- **Gates unchanged:** G1 approved; G2 local 3-TSX source patch reviewed PASS_SCOPED but W1 runtime QA BLOCKED_DEPENDENCIES; G3–G8 NOT AUTHORIZED; Phase 1 NOT ACCEPTED; Phase 2 NOT ACTIVE. All 27 WEB-AC mandatory.
