@@ -1,0 +1,58 @@
+# RC-WEB-ADR-012 — Owner-Directed Reading Path in Compass Navigator, Centered Full-Width Articles, Media Playback Repairs
+
+> **Status:** OWNER-REQUESTED DESIGN & REMEDIATION (2026-10-13 Asia/Jakarta). **Local source modification NOT performed by ChatGPT**: the prototype is uncommitted at `C:\Projects\reltroner-studio-w1-ia` / `localhost:3000`. This ratifies UX acceptance and authorizes Antigravity to make bounded local fixes. No test PASS claimed yet.
+> **Precedence:** This *later owner instruction* supersedes [ADR-011](./11-mobile-reading-path-in-hamburger-and-editorial-shell-refinement-20261013.md) for placement of article Reading Path on **all screen sizes**. The 18 WEB invariants/27 AC, Git Markdown/publication authority, zero additional spend, owner draft protection, truthfulness of provider outcomes and secure embeds remain binding. [WEB design](./06-frontend-component-and-content-architecture.md).
+> **Evidence:** Two annotated screenshots from local desktop Chrome: `/factions/beluftrner` or equivalent actual faction slug (verify route from local screenshot/content), and `/music/hargenbor-paradise-by-the-waves`. Red cross marks left sticky Reading Path. Yellow rectangles mark (1) HTML5 <video> 0:00 + visible fallback text, (2) YouTube embed "Video player configuration error — Error 153". Green arrows indicate expanding article horizontally after removal of the left rail. Compass icon is the floating **Navigator** bottom-right.
+
+## 1. Owner's new interaction design
+
+**Remove standalone Reading Path rail from ALL individual published article surfaces** (not just the two pictured routes) and remove the grid track, extra margin/padding, sticky/tall scroll regions and orphaned desktop/mobile triggers used only to render the same functionality. **Do not delete the outline model, heading parser, canonical article anchors, or search/index providers.**
+
+**Integrate the *functionality* into the existing compass Navigator**: When viewing a published article with headings, Navigator panel exposes an accessible visible `Reading Path` tab/section/quick action with ordered, nested headings, current active section and direct anchor navigation. Reuse current `ReadingPathProvider` state and `ContentHeading` model if available; do not create a second unrelated outline registry. When an entry is clicked, update URL hash, scroll target into view below header, close/condense panel sensibly, and provide accessible focus behavior. On article changes update headings; on collections, homepage/contact and routes without headings hide it, clear stale entries. Preserve current Navigator chat/AI unavailability honesty, source/citation/quick action functions. Compass launcher and panel must not cover article media, CTA, footer, or mobile keyboard. Header hamburger returns to ordinary site navigation (not a duplicate article TOC trigger); reconcile ADR-011 local code without double menus. Prevent `Maximum update depth exceeded` loops by idempotent heading state and stable effects, including empty arrays, and clean up upon unmount/route changes.
+
+**Fuller but still readable centered article:** Remove old left/right rail grid tracks; center a single content region on large viewports via `mx-auto w-full`, padding/gutters at 320/375/768/1024/1440, and a comfortable responsive max container (e.g. 1080–1280px on desktop where available). Body paragraphs bounded to ~70–90 characters/line and centered inside the larger panel, but media, diagrams, responsive tables, imagery, embedded video and rich-HTML visuals may occupy **wider full content panel width**. No new `w-screen` overflow, no unreadable 150-character paragraphs, no horizontally centered text paragraphs where editorial left alignment is appropriate. Ensure figures/iframes `width:100%; max-width:100%; aspect-ratio:16/9;` with correct smaller-screen aspect behavior; no crop of essential media. Centered **container**, not necessarily centered body text. Preserve breadcrumb, intro, publication labels, heading semantics, related content below body, newsletter/footer order.
+
+## 2. Media failure A: HTML5 video 0:00 and fallback text
+
+Screenshot on a faction article shows native `<video>` with 0:00 and a visible “Your browser does not support the video tag.” (diagnose separately whether text is literal outside `<video>` or fallback inside an unexpectedly closed/rewritten tag).
+
+A video player 0:00 is **not proof of a bad browser**: inspect DOM and parsed content, `currentSrc`, `networkState`, `readyState`, `video.error?.code`, network response/status/redirect/MIME/CORS/content-length/Range/206 support, actual file type/codec, source URL and directives. Native codec may be unsupported even when URL returns 200. Locate both arbitrary raw HTML `<video>` and `::video{...}` Markdown directive implementations; test renderer pipeline `lib/utils/content.js`, `lib/utils/videoEmbeds.ts` (paths from older Studio main; actual local files may have changed), CDN resolver/CSP. **Do not create or upload replacement video, fabricate a playable source, change protected author Markdown, autoplay audio, or swallow runtime error**.
+
+Normalize allowed direct video into responsive <video> with valid source/type where supported and explicit non-error poster/link fallback for missing/unplayable sources. Fallback text must not show simultaneously with valid player, nor leave empty 0:00 area labelled successful. If source actually unavailable, show a truthful `Video currently unavailable` placeholder and safe external link only for verified approved destinations. Sanitize any embedded HTML/url. Tests for MP4/WebM, missing source/404, wrong MIME, unsupported codec, mobile sizing and keyboard controls.
+
+## 3. Media failure B: embedded YouTube error 153
+
+Screenshot `/music/hargenbor-paradise-by-the-waves` shows YouTube Error 153. **Official YouTube API docs:** error 153 = no HTTP Referer header or equivalent client identity. Source: https://developers.google.com/youtube/iframe_api_reference ; required identity and recommended default `strict-origin-when-cross-origin`: https://developers.google.com/youtube/terms/required-minimum-functionality . This is a *likely precise error meaning*, not independently confirmed actual request headers in owner's browser. **Inspect actual local browser Network requests and response headers** before attributing root cause to one component. Check Next `headers`, CSP/referrer policy meta, per-iframe `referrerPolicy` (`no-referrer` would suppress identity), nested iframe/sandbox, redirect, browser extensions/tracker block behavior, and whether embedding is disabled by the video owner. Fix only the site's own unsafe/suppressing policy; prefer site/iframe `strict-origin-when-cross-origin` scoped to allowed embeds if verified. Do not spoof Referer via JS, proxy streams, circumvent YouTube restrictions, disable privacy for whole application blindly, or promise that referrer adjustment ensures all videos play.
+
+For arbitrary Markdown raw iframe and directive-based frames, normalize/allowlist `www.youtube.com/embed/VIDEO_ID` (and safe youtube-nocookie only where provider supports/requires) with strict URL validation, width/height/aspect, allow attributes, meaningful title, lazy loading, privacy disclosure and an **Open on YouTube** accessible safe fallback outside iframe. Avoid untrusted arbitrary iframe HTML/JS ingestion or inserting secrets. Error 153 should be recorded if persistent, and fallback must be navigable. For screenshot route existing iframe points to `https://www.youtube.com/embed/hfqdcNQ_wlA` in Git `content/music/hargenbor-paradise-by-the-waves.md` at the old remote SHA; DO NOT edit author Markdown solely to hide the problem. Whether that video remains playable/embeddable must be checked in runtime with redacted network metadata; do not send user cookies externally beyond normal embed navigation in approved QA.
+
+**Privacy tradeoff:** owner previously required browser analytics/trackers blocked during QA (W4). YouTube embeds are third-party and may share user data when loaded; distinguish blocking GA/GTM from blocking YouTube itself, and do not circumvent an explicit consent gate. A consent-blocked video is `BLOCKED_BY_CONSENT`, not `BROKEN_PLAYER`. If an opt-in media activation is appropriate, use a thumbnail/activate-to-load component and truthful privacy text.
+
+## 4. Local execution instructions and acceptable scope
+
+Read-only preflight worktree status/HEAD/origins, existing uncommitted W1–W7 source, actual Navigator implementation, `ReadingPathContext`, `AdaptiveArchiveShell`, `ContentEntryPage`, global hamburger, video rendering and runtime headers. **Preserve all owner local dirty paths; no older exact-3/5/6-file validator, no checkout/rebase/reset/clean.** Use existing dependencies, TypeScript/TSX, smallest cohesive refactor; no GitHub source write. Do not alter `C:\Projects\reltroner-studio` primary nor its 14 untracked protected Markdown files. No external paid provider/API use or LMS/HRM requests, no real forms, no deploy/PR/merge. Source changes to current isolated worktree are owner-authorized; local browser QA is authorized for these pages.
+
+## 5. Acceptance evidence matrix (must observe, not infer from a green build)
+
+| Scope | Acceptance |
+|---|---|
+| All article pages, 1440×900 and 1024×768 | No Reading Path rail in DOM/layout/a11y tree, no leftover blank sidebar track. Single center article panel with adequate width and gutters; prose remains legible, rich media visibly wider. Navigator functions intact. |
+| 320×480, 375×812, 768×1024 | One-column centered container, no horizontal overflow; compass opens reachable Reading Path with actual current headings; no stale headings, no extra Reading Path pill or hamburger duplication. |
+| Navigator | On faction/music/TDA article: correct nested headings and active heading; entry click sets `#id`, scrolls to visible heading, closes/returns focus properly; on `/series`, `/`, `/contact` no stale article TOC, search/chat fallback survives. No infinite update loop. |
+| HTML5 video in target faction article | Source diagnosis `HTTP/codecs/event state` recorded; valid source plays if available, else explicit stable fallback/no misleading player 0:00. Full-width responsive media, no duplicate fallback text. |
+| YouTube music article | Real embed network/Referer inspected and root cause qualified; playback if host permits, otherwise accurate linked fallback. No forced vendor tracking/secret leak; Error 153 not mislabelled unsupported codec. |
+| Article shell/related/footer | Related content and footer stay outside sticky/scroll trap; Navigator does not obscure video, forms or CTA. Heading semantics and Markdown preserved. |
+| Robustness | Existing `npm run typecheck`, `npm run content:validate`, `npm run build` once after code settles; targeted unit tests and actual browser screenshots at 320,375,768,1024,1440 + 200% zoom, console/hydration/network logs. No unapproved outbound provider tests. |
+
+## 6. Required result status
+
+- `RC_UX_05_READING_PATH_RAIL=REMOVED|NOT_REMOVED`
+- `RC_UX_05_COMPASS_READING_PATH=PASS|PARTIAL|FAIL`
+- `RC_UX_05_FULLWIDTH_CENTERED=PASS|PARTIAL|FAIL`
+- `RC_UX_05_NATIVE_VIDEO=PLAYABLE|HONEST_FALLBACK|UNRESOLVED`
+- `RC_UX_05_YOUTUBE_153=RESOLVED|FALLBACK_ONLY|UNRESOLVED`
+- `RC_UX_05_MEDIA_PRIVACY=PASS|PARTIAL|FAIL`
+- `RC_UX_05_LOCAL_TESTS=PASS|PARTIAL|FAIL`
+- `RC_UX_05_OWNER_VISUAL_ACCEPTANCE=PENDING`
+
+**Current:** `RC_UX_05_OWNER_DIRECTIVE=RATIFIED`; `LOCAL_IMPLEMENTATION=NOT_EXECUTED_BY_CHATGPT`; `SOURCE_MAIN_REMOTE_UNCHANGED_AS_LAST_CHECK`; `PHASE1_DOD=NOT_ACCEPTED`.
