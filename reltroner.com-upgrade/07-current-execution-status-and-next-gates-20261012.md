@@ -1,5 +1,8 @@
 # Reltroner.com — Current Execution Status, Critical Path, Decision Gates (2026-10-12)
 
+> **CURRENT OWNER QA DECISION — RC-UX-05R3 2026-10-13:** Antigravity reports `Navbar.tsx`, `WikiBreadcrumbs.tsx`, `CollectionPageClient.tsx` changed and 117 browser checks + 21 focused tests + build PASS. Owner **accepts only removal of the desktop-left “Reltroner Studio” label**; all other UX tasks are **NOT ACCEPTED** despite reported numeric breadcrumb centering. New mobile 320×480 faction article screenshot proves header still visibly overlaps content; 0:00 native video and fallback text remain. Reading Path rail/Compass migration and YouTube remain unaccepted/unverified. Do not certify Phase 1 or RC-UX-05R2 based on automated suites. Prioritize RC-UX-05R3 exact-route screenshot-driven source remediation without resetting dirty worktree, submitting provider requests or deploying. [Binding ADR-012 owner rejection receipt](./12-owner-navigator-reading-path-fullwidth-article-and-media-debugging-20261013.md).
+
+
 > **LATEST SCREENSHOT UX ADDENDUM RC-UX-05R2 — 2026-10-13:** [ADR-012](./12-owner-navigator-reading-path-fullwidth-article-and-media-debugging-20261013.md) now also requires removing the **desktop-left “Reltroner Studio” header brand text** crossed out on `/philosophies` while retaining real desktop menu/search/Apps/identity and rebalancing the header with no reserved blank column; center **all Knowledge Base collection breadcrumbs** above their page headings using a shared component, with correct mobile wrap and links. Does not supersede prior mobile header-to-Compass requirement. `SOURCE_FIX=NOT_EXECUTED_BY_CHATGPT`; `OWNER_VISUAL_QA=PENDING`.
 
 
