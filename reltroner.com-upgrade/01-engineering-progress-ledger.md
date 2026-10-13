@@ -1,5 +1,8 @@
 # Reltroner.com — Living End-to-End Engineering Progress & Risk Ledger
 
+> **NEWEST OWNER VERDICT 2026-10-13 [RC-UX-05R3](./12-owner-navigator-reading-path-fullwidth-article-and-media-debugging-20261013.md):** Owner reviewed Antigravity RC-UX-05R2 report (3 files changed; 117 browser checks, 21 focused tests and build PASS reported) and **ACCEPTS ONLY desktop “Reltroner Studio” header label removal**; owner does NOT accept breadcrumb UX, mobile header → Compass, desktop/article Reading Path rail → Compass, native HTML5 video, or YouTube media acceptance. Owner supplied 320×480 `/factions/beluftrner` screenshot with mobile header overlaying image, 0:00 player and fallback text. Numeric centering reports are not visual acceptance. Work remains LOCAL REMEDIATION PENDING; no DoD advancement from agent's green counts.
+
+
 > **LATEST UX CHANGE — 2026-10-13 [RC-WEB-ADR-011](./11-mobile-reading-path-in-hamburger-and-editorial-shell-refinement-20261013.md):** User screenshot-based post-agent visual audit identifies unresolved desktop competing rail UX and mobile duplicate pills even though Antigravity RC-UX-01 pasted report claimed 72/72 checks PASS, typecheck/contents/build PASS. **Do not promote that test report to owner UX acceptance**. Newly ratified correction: mobile actual Reading Path heading navigation must move into existing top-right hamburger menu; delete inline `Reading path` and `Explore archive` pills, preserve archive via header search/Ctrl+K; desktop prefer one contextual left Reading Path rail and dominant prose without persistent right Archive Explorer rail. Local source still requires inspection and rework; no application code changed through this documentation update.
 
 
