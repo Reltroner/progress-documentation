@@ -1,0 +1,1152 @@
+{
+  "schema_version": 1,
+  "document_id": "LMS-P4B-02-DESIGN-20261011",
+  "phase": "4B-02",
+  "status": "DESIGN_CANDIDATE_OWNER_REVIEW_PENDING",
+  "authority": {
+    "parent_physical_contract": "master-infrastructure-placement-contract.md",
+    "parent_logical_contract": "logical-service-boundary-api-contract.md",
+    "ratified_nonproduction_design_adr": "adr-lms-trust-001-internal-signing-and-replay-ratification-20261010.md",
+    "runtime_approval": false,
+    "production_approval": false
+  },
+  "pins": {
+    "lms_be_main": "617dadc0d0d627071d713ceb729df6658202b43e",
+    "lms_fe_main": "eb01a4d2c924299b929aebf0f4826b94cf341fc6",
+    "progress_docs_main_at_draft": "183372371b3a40a0349ac390848911273ccd2361"
+  },
+  "paths": {
+    "workorder": "phase4b-02-internal-trust-runtime-design-and-nonproduction-acceptance-contract-20261011.md",
+    "test_matrix": "phase4b-02-internal-trust-nonproduction-negative-test-matrix-20261011.md"
+  },
+  "source_inventory": {
+    "services": [
+      "gateway",
+      "learning",
+      "mentorship",
+      "knowledge",
+      "assistant",
+      "audit"
+    ],
+    "request_id_middleware_observed_in_all_six": true,
+    "trust_middleware_observed_in_app_middleware_directories": false,
+    "business_route_definitions_observed_in_service_api_php": 0,
+    "health_ready_dependency_check_observed": false,
+    "internal_services_handlecors_removed_in_bootstrap": true,
+    "public_gateway_handlecors_removed_in_bootstrap": false,
+    "notes": "GitHub source-only observation, not runtime enumeration or route:list proof"
+  },
+  "frozen_contract": {
+    "public_operations": 26,
+    "capabilities": 19,
+    "postgres_domain_databases": 4,
+    "gateway_only_public_ingress": true,
+    "internal_nonpublic_service_count": 5
+  },
+  "design_profile": {
+    "algorithm": "EdDSA",
+    "curve": "Ed25519",
+    "max_assertion_ttl_seconds": 60,
+    "max_skew_seconds": 5,
+    "rotation_overlap_max_seconds": 180,
+    "jti_entropy_min_bits": 128,
+    "replay_atomic_single_use_required": true,
+    "recovery_quarantine_min_seconds": 65,
+    "redis_independent_keyspace_loss_detector_required": true,
+    "runtime_authorized": false,
+    "oidc_algorithm_approved_from_effective_keycloak_data": false,
+    "dual_assertion_wire_format_finalized": false
+  },
+  "test_matrix": {
+    "total_cases": 86,
+    "executed_cases": 0,
+    "categories": {
+      "gateway_oidc": 16,
+      "workload_identity": 14,
+      "delegated_principal": 14,
+      "redis_failure_replay": 22,
+      "private_routing_error_hygiene": 10,
+      "key_rotation_operational_regression": 10
+    },
+    "all_security_denials_require_zero_unauthorized_side_effects": true,
+    "http_404_from_unimplemented_route_never_counts_as_auth_denial": true
+  },
+  "decision_register": [
+    {
+      "id": "D02-01",
+      "title": "Two independently verifiable JWS types, transport and binding",
+      "status": "PENDING_OWNER_DESIGN_RATIFICATION"
+    },
+    {
+      "id": "D02-02",
+      "title": "Independently trustworthy Redis replay keyspace loss detection",
+      "status": "BLOCKS_RUNTIME_ACCEPTANCE"
+    },
+    {
+      "id": "D02-03",
+      "title": "Error response mapping and compatibility (503 proposal)",
+      "status": "PENDING_OWNER_CONTRACT_REVIEW"
+    },
+    {
+      "id": "D02-04",
+      "title": "Isolated nonproduction keys and test runtime",
+      "status": "PENDING_OWNER_ENV_APPROVAL"
+    },
+    {
+      "id": "D02-05",
+      "title": "Observed Keycloak OIDC alg/JWKS/azp and policy approval",
+      "status": "BLOCKS_OIDC_RUNTIME"
+    }
+  ],
+  "phase_gate": {
+    "source_review": "SOURCE_DISCOVERY_COMPLETE",
+    "work_order": "DOCUMENTATION_CANDIDATE",
+    "owner_design_signoff": "PENDING",
+    "nonproduction_runtime": "NOT_STARTED",
+    "ci_for_4b02": "NOT_STARTED",
+    "production": "NOT_AUTHORIZED"
+  },
+  "forbidden_without_separate_approval": [
+    "LMS-BE or LMS-FE source coding",
+    "new GitHub source PR merge",
+    "VPS/HRM/Keycloak/Redis/PostgreSQL modifications",
+    "Cloudflare/DNS deployment",
+    "real production private keys or access tokens",
+    "new paid hosting",
+    "rewrite FROZEN parent contracts"
+  ],
+  "e39_assurance": {
+    "review_receipt": "phase4b-02-gemini-independent-design-review-e38-20261011.md",
+    "risk_register": "phase4b-02-e39-pre-ratification-assurance-risk-register-20261011.md",
+    "risk_items_classified": 16,
+    "test_verdict_override": "phase4b-02-internal-trust-nonproduction-negative-test-matrix-20261011.md#7-e39--test-verdict-disambiguation-and-conditional-pass-semantics-before-design-ratification-2026-10-11",
+    "historical_test_matrix_cases": 86,
+    "real_http_cases_executed": 0,
+    "suggested_new_tests_not_approved": 18,
+    "proposed_future_total_if_all_adopted": 104,
+    "unresolved_critical": [
+      "cryptographic binding of actual HTTP request method/path/query/body",
+      "two-proof role separation and cross-token binding",
+      "silent redis nonce loss and cross-worker recovery quarantine",
+      "unverified effective Keycloak OIDC algorithm and capability mapping",
+      "genuine isolated HTTP/Redis acceptance not run"
+    ],
+    "owner_risk_free_condition_satisfied": false,
+    "absolute_zero_risk_guarantee_possible": false,
+    "design_ratification": "HOLD_PENDING_EXPLICIT_OWNER_DECISION_AND_PROOF",
+    "source_code_authorized": false,
+    "production_authorized": false
+  },
+  "e40_feasibility": {
+    "record": "phase4b-02-e40-d02-01-dual-assertion-and-d02-02-replay-integrity-feasibility-proof-20261011.md",
+    "method": "isolated PHP sodium Ed25519 with two JWS test keys + Redis-only fault model + OS-file-lock replay ledger model",
+    "executor": "assistant isolated Linux container",
+    "php_version": "8.4.24",
+    "reproducible_zip_filename": "LMS-P4B02-D02-D01-ISOLATED-PROOF-20261011.zip",
+    "proof_php_sha256": "0DF6D1D50BCB99D0EEE2D7F7422ECADB7DE21C1DE96BF191B4DC2045F499867E",
+    "execution": {
+      "total": 30,
+      "passed": 30,
+      "failed": 0,
+      "crypto_request_binding_cases": 17,
+      "replay_failure_model_cases": 13,
+      "actual_redis_used": false,
+      "actual_postgres_used": false,
+      "actual_keycloak_used": false,
+      "network_calls": false,
+      "production_access": false
+    },
+    "critical_finding": {
+      "redis_only_with_silent_nonce_loss": "UNSAFE_COUNTEREXAMPLE_PROVEN_IN_MODEL",
+      "independent_durable_ledger": "MODEL_GREEN_ONLY",
+      "live_redis_loss_detection": "NOT_PROVEN",
+      "live_postgres_atomicity_and_failover": "NOT_PROVEN"
+    },
+    "d02_01": "ROLE_SEPARATED_TWO_JWS_SIGNED_HTTP_TARGET_BINDING_MODEL_GREEN_OWNER_WIRE_RATIFICATION_PENDING",
+    "d02_02": "REDIS_ONLY_INTEGRITY_BLOCKED_REVISED_ADR_DURABLE_AUTHORITY_ALTERNATIVE_PENDING_OWNER_AND_REAL_PG18_REDIS8_TESTS",
+    "d02_03": "PENDING_ERROR_CONTRACT_APPROVAL",
+    "d02_04": "TEST_ONLY_LOCAL_EPHEMERAL_KEY_SCOPE_EXECUTED_REAL_NONPROD_SERVERS_PENDING_APPROVAL",
+    "d02_05": "EFFECTIVE_KEYCLOAK_ACCESS_JWT_ALG_CLIENT_SCOPE_UNVERIFIED",
+    "candidate_adr_amendment_required": true,
+    "canonical_t02_cases_drafted": 86,
+    "canonical_t02_cases_executed": 0,
+    "owner_design_ratification": "HOLD",
+    "source_implementation_authorized": false,
+    "production_authorized": false
+  },
+  "e41_sql_engine": {
+    "record": "phase4b-02-e41-sqlite-transactional-durability-supplement-20261011.md",
+    "engine": "ACTUAL_SQLITE3_TRANSACTION_ENGINE_NOT_POSTGRESQL18",
+    "executor": "assistant isolated container Python3.13 standard-library sqlite3",
+    "tests": {
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "real_process_concurrency": true,
+      "child_precommit_crash_rollback": true,
+      "simulated_redis_flush_did_not_erase_sql_ledger": true
+    },
+    "source_sha256": "A6BEAA88238F7C31D49268FA049BAD6928162444B31AC51A667440241F872859",
+    "proof_zip_sha256": "7C06EBE907102C6B01CD939FEE3124363620581444CB24D3D9C5601BE5DFABE3",
+    "proof_zip_in_docs_git": false,
+    "real_redis8_run": false,
+    "real_postgres18_run": false,
+    "pg18_wal_and_replica_failover_tested": false,
+    "experimental_tests_outside_canonical_t02": 38,
+    "canonical_http_t02_executed": 0,
+    "design_ratification": "HOLD"
+  },
+  "e43_windows_owner_proof": {
+    "status": "OWNER_OPERATOR_REPORTED_WINDOWS_PHP_MODEL_PASS",
+    "D01_PHP_Ed25519_cases": 17,
+    "D02_PHP_redis_replay_model_cases": 13,
+    "passed": 30,
+    "failed": 0,
+    "source": "owner-pasted-terminal-lines-in-current-conversation",
+    "security_finding": "REDIS_ONLY_SILENT_NONCE_LOSS_UNSAFE_DEMONSTRATED_NOT_A_REDIS_SAFETY_PASS",
+    "reported_redis_server_used": false,
+    "reported_postgres_server_used": false,
+    "reported_keycloak_used": false,
+    "reported_production_access": false,
+    "windows_E41_SQLite": "NOT_YET_OBSERVED",
+    "windows_E44_local_capability": "NOT_YET_OBSERVED",
+    "canonical_T02_real_HTTP_cases_executed": 0,
+    "real_Postgres18_Redis8_test_executed": false,
+    "operator_scripts": [
+      {
+        "name": "LMS-P4B02-E43-WINDOWS-E41-SQL-VERIFY-PS51.ps1",
+        "sha256": "C5BE343FECA5DAD26A5BEE13AEC08DEA6CCDB20FE4D476015E4D18744B0F047A",
+        "purpose": "Exact SHA guarded local eight-case SQLite run"
+      },
+      {
+        "name": "LMS-P4B02-E44-LOCAL-PG18-REDIS8-READONLY-PREFLIGHT-PS51.ps1",
+        "sha256": "53734B5345D5C44E2B3B1803A4F5867BA58E70756E7D71CFB844A8B5A22559B2",
+        "purpose": "Read-only offline local toolchain and capacity inventory"
+      }
+    ],
+    "owner_approval_to_start_Docker_or_real_databases": false,
+    "architecture_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e43r_windows_remediation": {
+    "incident": "ZIP_SHA_PASS_BUT_EXTRACTED_FIVE_ALLOWLIST_FILES_HAVE_F4_PREFIX",
+    "original_e43_windows": "STOP_PRECHECK_BEFORE_SQL_EXECUTION",
+    "E41_windows_sqlite": "NOT_RUN",
+    "E44_windows_local_inventory": "NOT_RUN_BATCH_STOP",
+    "new_script": "LMS-P4B02-E43R-WINDOWS-E41-SQL-VERIFY-PS51.ps1",
+    "script_sha256": "F48B91A88F98FBF1438D52A5D3D1C2F0F1D6FB12EB6C6669E5161CFC047E9754",
+    "accepted_exact_layouts": [
+      "ROOT_FIVE_FILES_NO_DIRS",
+      "F4_FIVE_FILES_ONE_DIR"
+    ],
+    "zip_and_proof_content_modified": false,
+    "assistant_linux_sqlite_rerun": "8_OF_8_PASS_UNCHANGED_SOURCE",
+    "windows_e43r_rerun": "PENDING",
+    "production_authorized": false
+  },
+  "e43s_windows_remediation": {
+    "observed": "OUTER_POWERSHELL_NATIVE_COMMAND_ERROR_DUE_TO_CHILD_STDERR_REDIRECTION_AND_STOP_PREFERENCE",
+    "inner_e43r_stop_reason": "UNKNOWN_UNTIL_OPERATOR_REPORT_READ",
+    "E41_windows_sqlite": "NOT_VERIFIED",
+    "E44_windows": "NOT_RUN",
+    "new_file": "LMS-P4B02-E43S-WINDOWS-E41-SQL-VERIFY-PS51.ps1",
+    "sha256": "232FBCC99257921176C4DC46B77068ADEA0529B2A572D2930C8A91C7E3A71416",
+    "fixes": [
+      "NO_EXPAND_ARCHIVE",
+      "EXACT_ROOT_ZIP_MEMBER_BYTES_AND_SHA",
+      "CAPTURE_PYTHON_STDOUT_STDERR_VIA_PROCESSSTARTINFO",
+      "NONZERO_EXIT_WITH_SAVED_STOP_REASON"
+    ],
+    "assistant_original_SQL_python_rerun": "8_OF_8_PASS_LINUX_NOT_WINDOWS",
+    "operator_e43s_execution": "PENDING",
+    "production_authorized": false
+  },
+  "e44b_python_missing_offline_discovery": {
+    "observed_e43s": "FIVE_ZIP_SOURCE_AND_LAUNCHER_SHA_GATES_PASS_PYTHON3_8_CLI_UNAVAILABLE",
+    "windows_sqlite_actual": "NOT_RUN_PRECHECK_BLOCKED",
+    "windows_e44": "NOT_RUN_OUTER_BATCH_STOP",
+    "candidate_alternatives": [
+      "PHP_SQLITE3_IF_ALREADY_ENABLED",
+      "PHP_PDO_SQLITE_IF_ALREADY_ENABLED",
+      "WINDOWS_WINSQlITE3_DLL_IF_PRESENT_AND_LATER_VERIFIED"
+    ],
+    "new_script_filename": "LMS-P4B02-E44B-OFFLINE-SQLITE-RUNTIME-DISCOVERY-PS51.ps1",
+    "new_script_sha256": "15246790967ced14634c8e9b25a400f1921a0a7f87449b3b062482b352d9982b",
+    "execution_status": "PENDING_OWNER_WINDOWS",
+    "script_does_not_install_or_start_services": true,
+    "canonical_http_t02_executed": 0,
+    "postgres18_redis8_actual_executed": false,
+    "production_authorized": false
+  },
+  "e44c_checksum_remediation": {
+    "operator_e44b_report": "SHA256_MISMATCH_BLOCKED_BEFORE_E44B_EXECUTION",
+    "windows_e44b_actual_sha": "UNKNOWN_NOT_PROVIDED",
+    "original_container_e44b": {
+      "sha256": "15246790967ced14634c8e9b25a400f1921a0a7f87449b3b062482b352d9982b",
+      "bytes": 4766,
+      "text_encoding": "UTF8_NO_BOM_LF",
+      "lines": 95
+    },
+    "previous_artifact_format_claim": "UTF8_BOM_CRLF_INCORRECT",
+    "strategy": "DIRECT_IN_CHAT_PS51_WITHOUT_E44B_DOWNLOAD_SHA_GUARD_OR_OPTIONAL_CORRECTED_BOM_CRLF_E44C",
+    "optional_e44c_file": "LMS-P4B02-E44C-OFFLINE-SQLITE-DISCOVERY-PS51.ps1",
+    "optional_e44c_sha256": "4290E24E2CF626F61DC73369B421928DC40B86D613C28877D8FB2E7A350081E5",
+    "original_e44_sha256_required": "53734B5345D5C44E2B3B1803A4F5867BA58E70756E7D71CFB844A8B5A22559B2",
+    "local_php_sqlite_discovery": "PENDING_USER_WINDOWS_RUN",
+    "offline_e44_discovery": "PENDING_USER_WINDOWS_RUN",
+    "real_pg18_redis8_tested": false,
+    "canonical_T02_http_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e45_php_sqlite_windows_proof": {
+    "owner_discovery": {
+      "php_cli": "FOUND",
+      "php_sqlite3": "PRESENT",
+      "php_pdo_sqlite": "PRESENT",
+      "windows_native_sqlite_dll": "PRESENT_NOT_INVOKED",
+      "e44_readonly": "PASS",
+      "docker_desktop_service": "STOPPED_READONLY_OBSERVATION",
+      "psql": "NOT_FOUND_ON_PATH",
+      "redis_server_cli": "FOUND_NOT_RUNTIME_VERIFIED",
+      "ram_total_gib": 15.33,
+      "ram_free_gib": 2.84,
+      "local_c_free_gib": 45.86,
+      "real_pg18_redis8_tested": false
+    },
+    "proposed_operator_files": [
+      {
+        "name": "LMS-P4B02-E45-PDO-SQLITE-PROOF.php",
+        "sha256": "4DBBD24D495587788FACF9D4B60D73625B5A1B8C04E5325CAA14DAA922928A35"
+      },
+      {
+        "name": "LMS-P4B02-E45-RUN-WINDOWS-PS51.ps1",
+        "sha256": "7EE19ED7FF1083572F9B53F7A09655B4411F6F1C5555744A9954DDABB40A89DE"
+      }
+    ],
+    "eight_scenarios": [
+      "SQL-001",
+      "SQL-002",
+      "SQL-003",
+      "SQL-004",
+      "SQL-005",
+      "SQL-006",
+      "SQL-007",
+      "SQL-008"
+    ],
+    "php_source_syntax_validation": "PASS_PHP_8_4_24_LINT_ONLY",
+    "assistant_runtime_limit": "PHP_CONTAINER_HAS_NO_PDO_SQLITE_EXTENSION",
+    "windows_executed": 8,
+    "windows_passed": 8,
+    "operator_execution": "OWNER_REPORTED_ALL_EIGHT_PASS_20261011T032250_PLUS0700",
+    "canonical_t02_http_executed": 0,
+    "source_implementation_authorized": false,
+    "owner_design_ratification": "HOLD",
+    "production_authorized": false,
+    "acceptance": "PROVEN_SCOPED_WINDOWS_PDO_SQLITE_ONLY",
+    "operator_markers": [
+      "E45_GATE01_PHP_SOURCE_SHA256=PASS",
+      "E45_GATE02_LOCAL_PDO_SQLITE=PASS",
+      "E45_GATE03_PHP_SYNTAX=PASS",
+      "SQL_SUMMARY total=8 passed=8 failed=0",
+      "E45_GATE04_PHP_PROCESS_EXIT=PASS_0",
+      "E45_GATE05_SQLITE_SCENARIOS=PASS_8_OF_8",
+      "E45_FINAL_RESULT=PASS_LOCAL_PDO_SQLITE_8_OF_8"
+    ]
+  },
+  "e46_f0_isolation": {
+    "record": "phase4b-02-e46-e45-windows-sql-proof-acceptance-and-isolated-pg18-redis8-gate-20261011.md",
+    "script": "LMS-P4B02-E46-F0-OFFLINE-ISOLATION-PREFLIGHT-PS51.ps1",
+    "sha256": "560038D47ADB98FCA547C74D9CF089A527EC798707461D68731BB236920C389B",
+    "script_utf8_bom_crlf_lines": 144,
+    "runtime": "OWNER_WINDOWS_E46_F0_PASS_READONLY_FACT_COLLECTION_ONLY",
+    "safety": "METADATA_READ_ONLY_NO_DOCKER_DAEMON_NO_NETWORK_NO_SERVICE_START",
+    "real_pg18_redis8_executed": false,
+    "postgres_tests_planned": 10,
+    "owner_approval_to_start_containers": false,
+    "design_ratification": "HOLD",
+    "observed": {
+      "docker_env_overrides_all_unset": true,
+      "docker_desktop_service": "STOPPED",
+      "saved_docker_context_metadata_file_count": 1,
+      "current_docker_context": "DEFINED_VALUE_REDACTED_NOT_CLASSIFIED",
+      "ram_total_gib": 15.33,
+      "ram_free_gib": 2.78,
+      "system_disk_free_gib": 45.85,
+      "four_reported_flags": [
+        "DOCKER_DESKTOP_NOT_RUNNING_NO_AUTOSTART",
+        "CURRENT_DOCKER_CONTEXT_REQUIRES_HUMAN_REVIEW",
+        "SAVED_DOCKER_CONTEXTS_REQUIRE_OFFLINE_REVIEW",
+        "FREE_RAM_UNDER_4GIB_REVIEW_CAPACITY_NO_START"
+      ],
+      "isolation_eligibility": "BLOCKED_PENDING_OWNER_ENVIRONMENT_REVIEW",
+      "docker_daemon_contacted": false,
+      "real_pg18_redis8_tested": false
+    }
+  },
+  "e46_f0r_offline_context_review": {
+    "receipt": "phase4b-02-e46-f0-owner-windows-evidence-and-f0r-offline-context-classification-20261011.md",
+    "artifact": "LMS-P4B02-E46-F0R-OFFLINE-CONTEXT-REVIEW-PS51.ps1",
+    "artifact_sha256": "A94D79BA341452B3715CA99013221CB62BE0CC4E4838C8CDD874F53AFBCB0131",
+    "file_utf8_bom_crlf_lines": 159,
+    "operator_windows_execution": "OWNER_REPORTED_PASS_READONLY_CLASSIFICATION_ONLY_20261011T034123_PLUS0700",
+    "classifies_endpoint_protocol_only": true,
+    "never_displays_context_name_or_endpoint_or_secret": true,
+    "no_docker_wsl_pg_redis_network_invocation": true,
+    "even_candidate_local_context_allows_runtime": false,
+    "owner_permission_to_start_containers": false,
+    "design_ratification": "HOLD",
+    "production_authorized": false,
+    "owner_reported": {
+      "current_context_exact_match_count": 1,
+      "saved_context_metadata_files": 1,
+      "current_endpoint_class": "LOCAL_WINDOWS_NPIPE_CANDIDATE_UNVERIFIED",
+      "docker_desktop_service": "STOPPED_NOT_CHANGED",
+      "ram_free_gib": 3.56,
+      "isolation_flag_count": 1,
+      "isolation_flag": "HOST_RAM_UNDER_4GIB_NO_START",
+      "runtime_authorization": "NO_GO_OWNER_APPROVAL_AND_REAL_ENV_REQUIRED",
+      "actual_docker_daemon_contacted": false,
+      "actual_pg18_redis8_tested": false
+    }
+  },
+  "e46_f0s_capacity": {
+    "status": "OWNER_WINDOWS_PASS_READONLY_CAPACITY_FACTS_ONLY",
+    "receipt": "phase4b-02-e46-f0r-windows-acceptance-and-f0s-resource-capacity-readonly-workorder-20261011.md",
+    "capabilities": [
+      "THREE_READONLY_WIN32_OPERATING_SYSTEM_MEMORY_SAMPLES",
+      "SYSTEM_DRIVE_FREE_SPACE",
+      "DOCKER_DESKTOP_WINDOWS_SERVICE_STATUS_READ_ONLY",
+      "AGGREGATE_REDACTED_PROCESS_WORKING_SET_CATEGORIES"
+    ],
+    "reported_threshold_gib": 4,
+    "threshold_is_project_conservative_screen_not_vendor_guarantee": true,
+    "may_start_docker_or_wsl_or_services": false,
+    "may_kill_processes": false,
+    "memory_passing_grants_runtime_authorization": false,
+    "actual_pg18_redis8_tested": false,
+    "owner_local_authorization": "NO_GO",
+    "design_ratification": "HOLD",
+    "production_authorized": false,
+    "possible_ci_alternative": "RESEARCH_ONLY_NOT_AUTHORIZED_NO_RUNNER_STARTED_NO_COST_INCURRED",
+    "observed": {
+      "ram_samples_gib": [
+        2.73,
+        2.74,
+        2.74
+      ],
+      "minimum_free_ram_gib": 2.73,
+      "total_ram_gib": 15.33,
+      "system_drive_free_gib": 45.84,
+      "docker_desktop": "STOPPED",
+      "working_set_gib": {
+        "browser": 6.15,
+        "ide": 1.37,
+        "virtualization": 0.01,
+        "database": 0.14,
+        "other": 8.15
+      },
+      "working_sets_not_guaranteed_reclaimable": true,
+      "capacity_screen": "UNDER_4GIB_REVIEW",
+      "runtime_authorization": "NO_GO_OWNER_APPROVAL_REQUIRED"
+    }
+  },
+  "e46_f1_github_ci_feasibility": {
+    "record": "phase4b-02-e46-f0s-windows-capacity-acceptance-and-f1-github-actions-isolation-feasibility-20261011.md",
+    "status": "PARTIAL_READ_ONLY_NO_EXECUTION",
+    "source_repo": "Reltroner/LMS-BE",
+    "source_repo_public": true,
+    "existing_workflow": ".github/workflows/phase3b-contract-ci.yml",
+    "existing_workflow_sha": "78c507dc57910eadc9de31819dac7fb6a3d845f1",
+    "standard_ubuntu_24_04_existing_runs_success": true,
+    "github_documentation_public_standard_runner_free": true,
+    "github_larger_runner_billed": true,
+    "account_actions_policy_review": "PENDING_OWNER_GUI",
+    "account_billing_review": "PENDING_OWNER_GUI",
+    "separate_lab_created": false,
+    "new_workflow_created": false,
+    "new_workflow_executed": false,
+    "real_pg18_redis8_cases_run": 0,
+    "canonical_http_cases_run": 0,
+    "design_ratification": "HOLD",
+    "production_authorization": false,
+    "actions_policy_owner_gui_verified": true,
+    "billing_owner_gui_verified": "OVERVIEW_SNAPSHOT_ONLY_PRODUCT_AND_BUDGET_STILL_PENDING"
+  },
+  "e46_f2_owner_actions_gui_security_and_billing": {
+    "receipt": "phase4b-02-e46-f2-owner-github-actions-policy-billing-evidence-and-manual-pg18-redis8-sandbox-contract-20261011.md",
+    "owner_source": "THREE_GUI_SCREENSHOTS_AND_PERSONAL_BILLING_OVERVIEW_TEXT",
+    "repo": "Reltroner/LMS-BE",
+    "actions_enabled": true,
+    "allowed_actions_setting": "ALL_ACTIONS_AND_REUSABLE_WORKFLOWS",
+    "require_full_length_action_sha": false,
+    "existing_BE_workflow_uses_tagged_actions": [
+      "actions/checkout@v4",
+      "shivammathur/setup-php@v2"
+    ],
+    "sha_requirement_change_without_workflow_migration": "BLOCKED_MAY_BREAK_EXISTING_CI",
+    "workflow_permission_default": "READ_REPOSITORY_CONTENTS_AND_PACKAGES",
+    "allow_actions_create_approve_pr": false,
+    "fork_pr_approval": "FIRST_TIME_CONTRIBUTORS",
+    "artifact_log_retention_days": 90,
+    "github_plan": "GitHub Free",
+    "billing_snapshot": {
+      "gross_metered_usd": 1.82,
+      "included_discount_usd": 1.82,
+      "gross_less_discount_usd": 0,
+      "top_repos_gross_usd": {
+        "LMS-BE": 1.22,
+        "LMS-FE": 0.47,
+        "reltroner-hr-app": 0.13
+      },
+      "actions_specific_usage": "UNKNOWN_NOT_PROVIDED",
+      "budget_limit": "UNKNOWN_NOT_PROVIDED",
+      "future_zero_spend_guaranteed": false,
+      "actions_product_screenshot": {
+        "billable_usage_usd": 0,
+        "consumed_usage_usd": 1.82,
+        "discounts_usd": 1.82,
+        "included_minutes_used": 0,
+        "included_minutes_total": 2000,
+        "included_storage_gb_used": 0,
+        "included_storage_gb_total": 0.5,
+        "actions_budget_hard_stop_verified": false
+      }
+    },
+    "standard_public_runner_free_per_github_docs": true,
+    "larger_runners_billable": true,
+    "next_sandbox_design": "SEPARATE_PUBLIC_SYNTHETIC_ONLY_WORKFLOW_DISPATCH_SINGLE_STANDARD_UBUNTU_24_04_RUNNER",
+    "operator_owner_permissions": {
+      "create_lab_repo": false,
+      "add_workflow": false,
+      "execute_real_services": false,
+      "alter_existing_actions_settings": false
+    },
+    "new_repo_created": false,
+    "new_workflow_created": false,
+    "new_workflow_executed": false,
+    "verified_container_image_digests": 0,
+    "real_pg18_redis8_cases_executed": 0,
+    "canonical_http_t02_cases_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3_owner_approved_public_empty_lab": {
+    "receipt": "phase4b-02-e46-f3-owner-conditional-approval-zero-additional-cost-public-sandbox-provisioning-20261011.md",
+    "owner_permission": "CREATE_ONE_EMPTY_PUBLIC_LMS_TRUST_SANDBOX_ONLY_CONDITIONAL_ON_PRODUCTIVITY_AND_NO_EXTRA_COST",
+    "desired_repo": "Reltroner/lms-trust-sandbox",
+    "github_lookup_before_creation": "HISTORICAL_PRE_CREATION_NOT_FOUND_SUPERSEDED",
+    "github_connector_create_repository_supported": false,
+    "create_repo_execution": "OWNER_GUI_CREATED_GITHUB_LIVE_VERIFIED_20261011",
+    "visibility_required": "public",
+    "initial_readme": false,
+    "initial_gitignore": false,
+    "initial_license": false,
+    "template": false,
+    "initial_workflow_created": false,
+    "runner_started": false,
+    "postgres18_redis8_started": false,
+    "new_repo_may_hold_prod_secrets": false,
+    "approved_to_add_workflow": false,
+    "approved_to_run_workflow": false,
+    "selected_runner_when_later_approved": "ubuntu-24.04_STANDARD_PUBLIC",
+    "official_runner_specs": {
+      "vcpu": 4,
+      "memory_gib": 16,
+      "ssd_gb": 14
+    },
+    "expected_runner_incremental_cost_usd": 0,
+    "account_budget_cap_verified": false,
+    "local_docker_no_go": true,
+    "existing_reltroner_proof_repo_rejected_as_unrelated_authorship_repo": true,
+    "PG_R01_to_10_executed": 0,
+    "canonical_T02_HTTP_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3a_live_repo_verification": {
+    "receipt": "phase4b-02-e46-f3a-github-empty-lab-live-acceptance-and-f3b-workorder-20261011.md",
+    "repository_full_name": "Reltroner/lms-trust-sandbox",
+    "github_repo_id": 1413681840,
+    "owner": "Reltroner",
+    "visibility": "public",
+    "archived": false,
+    "created_at_utc": "2026-10-10T21:28:06Z",
+    "repo_size": 0,
+    "default_branch_configured": "main",
+    "actual_branch_refs": 0,
+    "github_contents_result": "404_THIS_REPOSITORY_IS_EMPTY",
+    "github_actions_runs_total": 0,
+    "initial_commit_exists": false,
+    "has_workflow": false,
+    "creation_actor": "OWNER_GUI",
+    "connected_github_audit": "PASS_READ_ONLY",
+    "gate_f3a": "PASS_VERIFIED_EMPTY_PUBLIC_LAB",
+    "gate_f3b": "DESIGN_PREPARED_FIRST_DEFAULT_BRANCH_COMMIT_AND_WORKFLOW_NOT_AUTHORIZED",
+    "gate_f3c": "MANUAL_RUN_NOT_AUTHORIZED",
+    "sandbox_actions_policy_gui": "OWNER_SCREENSHOTS_REVIEWED_20261011_BROAD_ACTIONS_SHA_OFF",
+    "billing_hard_spending_cap": "OWNER_GUI_ACTIONS_BUDGET_ZERO_STOP_USAGE_YES_OBSERVED_NOT_LIVE_TESTED",
+    "oci_digests_ratified": 0,
+    "database_engines_started": false,
+    "real_pg18_redis8_cases_executed": 0,
+    "canonical_http_t02_cases_executed": 0,
+    "owner_design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3b_owner_actions_budget_gui_review": {
+    "receipt": "phase4b-02-e46-f3b-owner-actions-zero-budget-security-review-and-oci-preflight-20261011.md",
+    "evidence_source": "THREE_OWNER_GUI_SCREENSHOTS_20261011_NO_SAVE_ACTION",
+    "sandbox": "Reltroner/lms-trust-sandbox",
+    "actions_permissions": "ALLOW_ALL_ACTIONS_AND_REUSABLE_WORKFLOWS",
+    "require_actions_full_length_sha": false,
+    "retention_days": 90,
+    "fork_pr_approval": "FIRST_TIME_CONTRIBUTORS",
+    "default_github_token_permissions": "READ_REPOSITORY_CONTENTS_AND_PACKAGES",
+    "allow_actions_create_or_approve_pull_requests": false,
+    "billing_account_budget_count": 5,
+    "billing_products_with_zero_budget_stop_usage_yes": [
+      "Codespaces",
+      "Packages",
+      "Actions",
+      "Git LFS",
+      "All AI Credit SKUs"
+    ],
+    "actions_budget_usd": 0,
+    "actions_spent_usd": 0,
+    "actions_stop_usage_yes": true,
+    "included_usage_alerts": "ON",
+    "actions_budget_operational_enforcement_test": "NOT_TESTED",
+    "standard_public_runner_expected_incremental_cost_usd": 0,
+    "recommended_lab_only_hardening": "ALLOW_RELTRONER_ONLY_IF_ZERO_EXTERNAL_USES_PLUS_REQUIRE_FULL_SHA_PLUS_OPTIONAL_RETENTION_30D",
+    "recommendation_applied": false,
+    "permission_to_change_settings": "NOT_YET_EXPLICITLY_GRANTED",
+    "permission_to_change_actions_budget": false,
+    "powershell_5_1_registry_manifest_candidate": "PREPARED_DESIGN_ONLY_NOT_EXECUTED",
+    "public_registry_network_reads_authorized": "REQUIRES_OWNER_OPERATOR_CONSENT",
+    "oci_index_digest_verified": 0,
+    "oci_child_amd64_digest_verified": 0,
+    "job_image_dual_client_capability": "NOT_VERIFIED",
+    "workflow_source_approved": false,
+    "initial_default_branch_commit_authorized": false,
+    "first_manual_run_authorized": false,
+    "real_pg18_redis8_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3b_r1_owner_sha_save_and_oci_manifest": {
+    "receipt": "phase4b-02-e46-f3b-owner-actions-zero-budget-security-review-and-oci-preflight-20261011.md",
+    "observed_date": "2026-10-11",
+    "sandbox": "Reltroner/lms-trust-sandbox",
+    "owner_gui_toast": "Actions policy updated.",
+    "action_sha_pin_checkbox_current_visible": true,
+    "action_sha_pin_save_observed": true,
+    "action_sha_pin_verified_after_page_refresh": false,
+    "allowed_actions_radio_current_visible": "ALLOW_ALL_ACTIONS_AND_REUSABLE_WORKFLOWS",
+    "allow_reltroner_only_enabled": false,
+    "action_policy_hardening": "PARTIAL_SHA_PINNING_ON_ACTION_ORIGIN_ALLOW_ALL",
+    "retention_days_observed": 90,
+    "windows_operator_powershell_preflight": "PASS_DIGEST_BYTES_AND_AMD64_DESCRIPTOR",
+    "provenance": "OWNER_PASTED_EXECUTION_OUTPUT_NOT_INDEPENDENTLY_LIVE_FETCHED",
+    "index_manifests": [
+      {
+        "role": "postgres",
+        "discovery_tag": "postgres:18",
+        "index": "docker.io/library/postgres@sha256:74935e72241653ca55e0414067e6d8763aceb8a810eb51b452253ec3dcfc4336",
+        "linux_amd64_child_digest": "sha256:885953109528ad3dfc90362b1a6f50a78620b5315be19f187753d267e484dc5b",
+        "index_manifest_raw_sha256_verified_by_owner_script": true,
+        "child_manifest_raw_sha256_verified_by_owner_script": true,
+        "actual_software_runtime_version_verified": false,
+        "oci_signature_verified": false
+      },
+      {
+        "role": "redis",
+        "discovery_tag": "redis:8",
+        "index": "docker.io/library/redis@sha256:2c2dff791878316e3b083188be0d578423b24813cdda5de0e80ea4f7b3e6bfd6",
+        "linux_amd64_child_digest": "sha256:6e9101032a2126aeeb4b1e862ac77d2fcf26b831ae37e5ff2e69169f82ddd411",
+        "index_manifest_raw_sha256_verified_by_owner_script": true,
+        "child_manifest_raw_sha256_verified_by_owner_script": true,
+        "actual_software_runtime_version_verified": false,
+        "oci_signature_verified": false
+      },
+      {
+        "role": "ubuntu",
+        "discovery_tag": "ubuntu:24.04",
+        "index": "docker.io/library/ubuntu@sha256:534baea6a22c03a63003dbc8dbe78fe34bc0d7e595d9a9dc9834884ff530eb55",
+        "linux_amd64_child_digest": "sha256:f610ab94648195aa356059f5b41d6085c9d4d903c072430cdd1af7bdb646106b",
+        "index_manifest_raw_sha256_verified_by_owner_script": true,
+        "child_manifest_raw_sha256_verified_by_owner_script": true,
+        "actual_software_runtime_version_verified": false,
+        "oci_signature_verified": false
+      }
+    ],
+    "real_image_layers_pulled": false,
+    "job_container_clients_verified": false,
+    "sandbox_branches": 0,
+    "sandbox_actions_runs": 0,
+    "existing_actions_budget_stop_usage": "ZERO_USD_STOP_YES_OBSERVED_PREVIOUS_OWNER_SCREENSHOT",
+    "repository_action_policy_restriction_pending_owner_gui": true,
+    "owner_initial_commit_permission": false,
+    "owner_first_run_permission": false,
+    "real_pg_r01_to_r10_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3b_r2_allowlist_visible_and_static_candidate": {
+    "record": "phase4b-02-e46-f3b-r2-origin-allowlist-evidence-and-static-first-workflow-review-20261011.md",
+    "owner_screenshot": "SANDBOX_ACTIONS_GENERAL_20261011",
+    "visible_allowed_actions": "ALLOW_RELTRONER_ACTIONS_AND_REUSABLE_WORKFLOWS_SELECTED",
+    "full_length_commit_sha_checked": true,
+    "success_toast_visible": "Default workflow permissions settings saved.",
+    "success_toast_is_actions_policy_confirmation": false,
+    "policy_persisted_after_refresh": "UNVERIFIED_REQUEST_OWNER_CTRL_R_SCREENSHOT",
+    "retention_days_observed": 90,
+    "manual_workflow_yaml_candidate": {
+      "name": "candidate.yml",
+      "lines": 136,
+      "sha256": "88516d1925c4b03286c27d90dfd124268dcc237395cf0a6bc958b963e55dd5e2",
+      "yaml_base_loader_parse": "OFFLINE_PASS",
+      "static_invariants": "OFFLINE_PASS",
+      "runnable_source_in_github": false
+    },
+    "bash_sql_redis_client_candidate": {
+      "name": "initial-lab.sh",
+      "lines": 93,
+      "sha256": "79992c8dc5c06e8a4c93c805fb80d257d48156cd3696627c8ad5e9a27e88ba3f",
+      "bash_n_syntax": "OFFLINE_PASS",
+      "runtime_tested": false,
+      "runnable_source_in_github": false
+    },
+    "workflow_explicit_triggers": [
+      "workflow_dispatch"
+    ],
+    "external_actions_uses": 0,
+    "job_count": 1,
+    "timeout_minutes": 10,
+    "service_names": [
+      "postgres",
+      "redis"
+    ],
+    "host_published_ports": 0,
+    "real_database_test_cases_executed": 0,
+    "canonical_http_tests_executed": 0,
+    "approval_first_sandbox_default_branch_commit": false,
+    "approval_first_manual_run": false,
+    "owner_design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3b_r3_postrefresh_policy_and_remediated_source": {
+    "record": "phase4b-02-e46-f3b-r3-postrefresh-policy-and-remediated-workflow-source-audit-20261011.md",
+    "policy_owner_reported_browser_refresh": true,
+    "policy_post_refresh_screenshot": "ALLOW_RELTRONER_ONLY_SELECTED_AND_FULL_LENGTH_SHA_CHECKED",
+    "origin_restriction": "PASS_OWNER_GUI_POST_REFRESH",
+    "full_sha_requirement": "PASS_OWNER_GUI_POST_REFRESH",
+    "admin_api_post_refresh_validation": "NOT_AVAILABLE",
+    "retention_days": 90,
+    "existing_be_actions_setting_changed": false,
+    "synthetic_public_sandbox": {
+      "repository": "Reltroner/lms-trust-sandbox",
+      "visibility": "public",
+      "branch_count": 0,
+      "workflow_runs_count": 0
+    },
+    "prior_r2_archive_sha_verification": "SHA256SUMS_ALL_3_MATCH",
+    "prior_r2_bash_n": "PASS",
+    "prior_r2_yaml_inline_vs_shell": "PASS",
+    "r2_static_audit_gaps": [
+      "R02_MISSING_EXPECTED_SQLSTATE_ASSERTION",
+      "R03_MISSING_REDIS_DB_EMPTY_AND_NX_PX_TTL_PRECONDITIONS",
+      "R01_PARALLEL_LAUNCH_OVERSTATES_OVERLAP",
+      "IF_NOT_EXISTS_COULD_REUSE_OLD_FIXTURE"
+    ],
+    "revised_r3_review_zip": {
+      "name": "LMS-E46-F3B-R3-remediated-review-only.zip",
+      "size_bytes": 6964,
+      "sha256": "07e230b0764798734975d76ebb6d0f6364d2633ecdb8595ba0aad637d95cafc0",
+      "committed_in_github": false
+    },
+    "revised_r3_yaml": {
+      "name": "candidate.yml",
+      "line_count": 144,
+      "sha256": "0e133699da2740eef7fffcff0adbe9ddf1705343853373a9db0b9595759bdb98",
+      "yaml_base_loader_parse": "PASS",
+      "manual_only_structure": "PASS",
+      "external_uses_count": 0,
+      "host_published_ports_count": 0
+    },
+    "revised_r3_shell": {
+      "name": "initial-lab.sh",
+      "line_count": 101,
+      "sha256": "404287a0f1b3202b49e687ec1c68f8396ee32e9bc832b965527e48bdefd0ee61",
+      "bash_n": "PASS",
+      "inline_yaml_identical": true,
+      "sqlstate_23505_check_in_source": true,
+      "redis_dbsize_nx_px_ttl_check_in_source": true,
+      "runtime_tested": false
+    },
+    "actionlint": "NOT_AVAILABLE_NOT_RUN",
+    "shellcheck": "NOT_AVAILABLE_NOT_RUN",
+    "redis_service_target_identity": "NOT_RUNTIME_VERIFIED",
+    "job_image_command_runtime": "NOT_VERIFIED",
+    "first_sandbox_default_branch_commit_authorized": false,
+    "first_ci_workflow_dispatch_authorized": false,
+    "real_pg18_redis8_acceptance_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "owner_design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3b_r4_owner_r3_zip_integrity_and_static_network_review": {
+    "receipt": "phase4b-02-e46-f3b-r4-owner-zip-integrity-and-static-client-network-risk-review-20261011.md",
+    "owner_windows_r3_zip_integrity": "PASS_EXACT_SHA256_MATCH_REPORTED",
+    "original_r3_zip_sha256": "07e230b0764798734975d76ebb6d0f6364d2633ecdb8595ba0aad637d95cafc0",
+    "original_r3_archive_independently_verified": true,
+    "original_r3_source_member_sha256_all_3_verified": true,
+    "original_r3_bash_n": "PASS_STATIC",
+    "original_r3_yaml_parse": "PASS_STATIC",
+    "source_review_findings": [
+      {
+        "id": "R4-01",
+        "severity": "P1",
+        "finding": "REDIS_TCP_CONNECT_NOT_INDEPENDENTLY_TIME_BOUND",
+        "disposition": "R4_CANDIDATE_GNU_TIMEOUT_WRAPPER_NOT_RUNTIME_PROVEN"
+      },
+      {
+        "id": "R4-02",
+        "severity": "P1",
+        "finding": "REDIS_DBSIZE_ZERO_NOT_DISPOSABLE_ENDPOINT_AUTHENTICATION_BEFORE_FLUSHDB",
+        "disposition": "R4_CANDIDATE_JOB_SERVICE_CONTAINER_IDS_NETWORK_MATCH_GUARDS_NOT_CRYPTOGRAPHIC_IDENTITY"
+      },
+      {
+        "id": "R4-03",
+        "severity": "P2",
+        "finding": "IMAGE_RUNTIME_BASH_PSQL_TIMEOUT_NOT_VERIFIED"
+      },
+      {
+        "id": "R4-04",
+        "severity": "P2",
+        "finding": "CUSTOM_RESP_PARSER_NOT_FULLY_VALIDATED"
+      },
+      {
+        "id": "R4-05",
+        "severity": "P2",
+        "finding": "THREE_SCOPED_TESTS_NOT_CANONICAL_HTTP"
+      }
+    ],
+    "reviewed_github_docs": [
+      "https://docs.github.com/en/actions/tutorials/use-containerized-services/use-docker-service-containers",
+      "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts",
+      "https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/run-jobs-in-a-container"
+    ],
+    "r4_review_only_archive": {
+      "name": "LMS-E46-F3B-R4-static-review-only.zip",
+      "sha256": "32af6170d2609fe137d7cf18eb184b763e9fe6bac9932e5995240716a48ad393",
+      "bytes": 7435,
+      "committed_to_github": false
+    },
+    "r4_candidate_yml": {
+      "name": "candidate.yml",
+      "sha256": "3b737d2181c6bd15c710edce7071dcaee036ae4d90a83d57ecdd435a5786a02e",
+      "lines": 159,
+      "parse": "PASS_STATIC",
+      "manual_only": true,
+      "uses_count": 0
+    },
+    "r4_candidate_bash": {
+      "name": "initial-lab.sh",
+      "sha256": "49aabab25ed8129ab1e5970517b4ead9083917f130207343933b038131eb2a2d",
+      "lines": 109,
+      "bash_n": "PASS_STATIC",
+      "gnu_timeout_wrapped_redis_connect": true,
+      "github_job_service_network_guard": true,
+      "runtime_tested": false
+    },
+    "timeout_binary_in_job_image_verified": false,
+    "redis_endpoint_cryptographically_authenticated": false,
+    "shellcheck_or_actionlint_run": false,
+    "first_default_branch_commit_authorized": false,
+    "first_manual_run_authorized": false,
+    "sandbox_repo_visibility": "public",
+    "sandbox_branch_count": 0,
+    "sandbox_actions_runs": 0,
+    "real_pg_r01_through_r10_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3b_r5_split_diagnostic_and_destructive": {
+    "record": "phase4b-02-e46-f3b-r5-isolated-readonly-diagnostic-and-withheld-destructive-workorder-20261011.md",
+    "request": "PREPARE_R5A_READONLY_AND_WITHHOLD_R5B_DESTRUCTIVE",
+    "archive": {
+      "filename": "LMS-E46-F3B-R5-split-candidates-REVIEW-ONLY.zip",
+      "sha256": "91b8cd9bd7750a81ab1489362741c3e27ec6aca0ee0fb5e37e0d303909818125",
+      "bytes": 10864,
+      "committed_to_sandbox": false,
+      "files": [
+        {
+          "name": "R5A-DIAGNOSTIC-CANDIDATE.yml",
+          "sha": "3d61fb43f5b9f4c3f6c1b759ccdbb682b731459568b711c653e4327adcd7a25e",
+          "lines": 131
+        },
+        {
+          "name": "R5A-diagnostic.sh",
+          "sha": "450a8837db293cae4d3a94a81027eda1a21325bee648a486d7f8c4c6d9564605",
+          "lines": 78
+        },
+        {
+          "name": "R5B-WITHHELD-fault-harness.sh.txt",
+          "sha": "256789de8a399d7d70cd871f0bb3309abc5c09df486c7c914551d2b174648b5c",
+          "lines": 112
+        },
+        {
+          "name": "R5B-DESTRUCTIVE-GATE-CONTRACT.md",
+          "sha": "5f96f64825896d55f3c32d6c7b77edf0ce1d281c65cb7e8a658b62eda69d7414",
+          "lines": 45
+        },
+        {
+          "name": "README-REVIEW-ONLY.md",
+          "sha": "607573038c68d0ebcc3052745f3df3963a14120bb5e7c81d33cc013be5a3b87c",
+          "lines": 41
+        }
+      ]
+    },
+    "r5a": {
+      "yaml_parse": "PASS_OFFLINE",
+      "bash_n": "PASS_OFFLINE",
+      "inline_matches_standalone": true,
+      "manual_only": true,
+      "runner": "ubuntu-24.04",
+      "timeout_minutes": 10,
+      "permissions": "NONE",
+      "external_uses": 0,
+      "host_published_ports": 0,
+      "postgres_writes_in_diagnostic": 0,
+      "redis_write_commands": 0,
+      "postgres_readonly_session": true,
+      "commands": [
+        "pg_isready",
+        "PostgreSQL SELECT",
+        "Redis PING",
+        "Redis INFO server",
+        "Redis DBSIZE"
+      ],
+      "synthetic_local_resp_mock": "PASS_3_OF_3",
+      "real_pg18_redis8_execution": "NOT_RUN",
+      "shellcheck": "NOT_RUN",
+      "actionlint": "NOT_RUN"
+    },
+    "r5b": {
+      "separate_workflow_yaml_created": false,
+      "unconditional_pre_network_fail_interlock": true,
+      "real_fault_injection": "NOT_RUN",
+      "owner_commit_approval": false,
+      "owner_execution_approval": false
+    },
+    "sandbox_public": true,
+    "sandbox_branch_count": 0,
+    "sandbox_actions_run_count": 0,
+    "first_r5a_workflow_commit_approved": false,
+    "first_r5a_manual_run_approved": false,
+    "pg_r01_to_r10_executed": 0,
+    "canonical_t02_http_executed": 0,
+    "owner_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3b_r5a_first_default_branch_bootstrap": {
+    "receipt": "phase4b-02-e46-f3b-r5a-first-diagnostic-bootstrap-commit-and-first-run-decision-20261011.md",
+    "owner_request": "FINAL_SOURCE_REVIEW_AND_FIRST_DIAGNOSTIC_WORKFLOW_COMMIT_WITHOUT_RUNNING",
+    "repository": "Reltroner/lms-trust-sandbox",
+    "visibility": "public",
+    "branch": "main",
+    "first_commit_sha": "3f8f923bf444f18b7ed5eed8ab738345f9b1a728",
+    "first_commit_parents": 0,
+    "exact_workflow_path": ".github/workflows/e46-f3b-r5a-diagnostic.yml",
+    "committed_tree_leaf_files": 1,
+    "other_workflows_committed": 0,
+    "r5b_source_committed": false,
+    "github_blob_sha": "d2f616c72e7c225431b54b2fa51d0e5b7b4139b8",
+    "exact_yaml_sha256": "1e318115f31d15fc5feb7d0af0cb18c704a62c1e8d94f030809dbb1b2e4e10a4",
+    "exact_yaml_bytes": 7199,
+    "local_bash_sha256": "db5ac3390f9262d726d68ca772722399980104c781e6498706aaf1d034d84f7f",
+    "github_readback_matches_reviewed_sha256": true,
+    "static_bash_n": "PASS",
+    "static_yaml_base_loader": "PASS",
+    "local_resp_mock": "PASS_4_OF_4",
+    "runtime_postgres18_redis8": "NOT_RUN",
+    "permissions_empty": true,
+    "workflow_dispatch_only": true,
+    "job_count": 1,
+    "standard_runner": "ubuntu-24.04",
+    "timeout_minutes": 10,
+    "external_uses": 0,
+    "host_service_port_mappings": 0,
+    "diagnostic_mutating_pg_commands": 0,
+    "diagnostic_mutating_redis_commands": 0,
+    "github_action_runs_after_commit": 1,
+    "first_workflow_commit_gate": "PASS_VERIFIED",
+    "first_manual_job_authorized": true,
+    "first_manual_job_review": "ONE_OWNER_RUN_CONSUMED_ACTUAL_PASS_20261011",
+    "budget": "ACTIONS_ZERO_USD_STOP_USAGE_YES_OWNER_GUI_SNAPSHOT",
+    "runner_upgrade_authorized": false,
+    "secret_addition_authorized": false,
+    "destructive_r5b_authorized": false,
+    "pg_r01_to_r10_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "owner_trust_design_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3c_r5a_owner_one_time_dispatch_approved": {
+    "receipt": "phase4b-02-e46-f3c-r5a-owner-first-run-approval-and-dispatch-operator-handoff-20261011.md",
+    "requested_scope": "ONE_R5A_WORKFLOW_DISPATCH_EXACT_MAIN_SHA",
+    "owner_approved": true,
+    "authorized_once_not_consumed": false,
+    "first_run_executed": true,
+    "dispatch_tool_available_in_connected_github": false,
+    "reason_not_dispatched": "NO_DISPATCH_NEW_WORKFLOW_ACTION_AND_BUDGET_PRIVATE_NOT_FRESHLY_RECHECKABLE",
+    "expected_repo": "Reltroner/lms-trust-sandbox",
+    "expected_branch": "main",
+    "expected_commit": "3f8f923bf444f18b7ed5eed8ab738345f9b1a728",
+    "expected_workflow": ".github/workflows/e46-f3b-r5a-diagnostic.yml",
+    "expected_yaml_sha256": "1e318115f31d15fc5feb7d0af0cb18c704a62c1e8d94f030809dbb1b2e4e10a4",
+    "observed_workflow_blob_sha": "d2f616c72e7c225431b54b2fa51d0e5b7b4139b8",
+    "preflight_repo_public": true,
+    "preflight_main_exact_sha": true,
+    "preflight_only_one_root_commit": true,
+    "preflight_only_one_workflow": true,
+    "preflight_actions_runs_total": 0,
+    "runner": "ubuntu-24.04_STANDARD_PUBLIC",
+    "job_limit_minutes": 10,
+    "allowed_reruns": 0,
+    "actions_budget_last_observed": "0_USD_STOP_USAGE_YES_OWNER_GUI_EVIDENCE",
+    "actions_budget_live_current_verification": "UNAVAILABLE_REQUIRES_OWNER_READONLY_GUI_CHECK",
+    "paid_runner_allowed": false,
+    "r5b_destructive_allowed": false,
+    "changes_to_production_allowed": false,
+    "pg_r01_to_r10_executed": 0,
+    "canonical_http_t02_executed": 0,
+    "d02_ratification": "HOLD",
+    "actual_run_id": 38092783946,
+    "consumption": "OWNER_GUI_DISPATCH_CONSUMED_ATTEMPT_1"
+  },
+  "e46_f3c_r5a_actual_runtime_acceptance": {
+    "receipt": "phase4b-02-e46-f3c-r5a-actual-github-actions-pg18-redis8-runtime-acceptance-20261011.md",
+    "run_url": "https://github.com/Reltroner/lms-trust-sandbox/actions/runs/38092783946",
+    "run_id": 38092783946,
+    "workflow_id": 380865984,
+    "job_id": 114332472709,
+    "repo": "Reltroner/lms-trust-sandbox",
+    "workflow_path": ".github/workflows/e46-f3b-r5a-diagnostic.yml",
+    "head_sha": "3f8f923bf444f18b7ed5eed8ab738345f9b1a728",
+    "event": "workflow_dispatch",
+    "branch": "main",
+    "run_attempt": 1,
+    "run_number": 1,
+    "run_created_at_utc": "2026-10-10T22:48:26Z",
+    "run_updated_at_utc": "2026-10-10T22:48:48Z",
+    "status": "completed",
+    "conclusion": "success",
+    "job_count": 1,
+    "job_conclusion": "success",
+    "all_job_steps_success": true,
+    "runner_image": "ubuntu-24.04",
+    "wall_elapsed_seconds_estimate": 22,
+    "github_repo_actions_run_count": 1,
+    "artifacts_uploaded": 0,
+    "confirmed_actual_runtime": {
+      "job_and_service_container_network": "PASS_SCOPED_SAME_NETWORK_DISTINCT_IDS",
+      "postgres_server_version_num": 180006,
+      "postgres_server_version": "18.6",
+      "postgres_default_and_current_transaction_readonly": "PASS",
+      "redis_server_version": "8.10.2",
+      "redis_ping_info_dbsize": "PASS",
+      "redis_initial_db_empty": true,
+      "bash_psql_pg_isready_gnu_timeout": "PASS_BY_WORKFLOW_COMPLETED",
+      "container_cleanup": "SUCCESS"
+    },
+    "warnings": [
+      {
+        "severity": "P1_BLOCKS_FUTURE_DESTRUCTIVE_REDIS",
+        "issue": "REDIS8_NO_AUTH_OR_NETWORK_RESTRICTIONS_LOG_WARNING",
+        "mitigation": "Require independently reviewed disposable authenticated/isolated target design and new owner authorization before FLUSHDB"
+      },
+      {
+        "severity": "NOTICE",
+        "issue": "POSTGRES_INITDB_LOCAL_TRUST_AUTH_WARNING",
+        "mitigation": "No production policy inference; 4 DB owner grants separate"
+      },
+      {
+        "severity": "NOTICE",
+        "issue": "SYNTHETIC_PASSWORD_IN_SETUP_LOG_OUTPUT",
+        "mitigation": "No raw log publication, never reuse on production"
+      },
+      {
+        "severity": "NOTICE",
+        "issue": "POST_RUN_BILLABLE_COST_NOT_INDEPENDENTLY_RECHECKED",
+        "mitigation": "No claim of proven zero invoiced cost"
+      }
+    ],
+    "budget_owner_gui_pre_run": "ACTIONS_SPENT_0_BUDGET_0_STOP_USAGE_YES",
+    "budget_post_run": "NOT_RECHECKED",
+    "first_run_owner_consent": "CONSUMED_ONE_ATTEMPT",
+    "rerun_authorized": false,
+    "destructive_r5b_authorized": false,
+    "pg_r01_to_r10_real_executed": 0,
+    "canonical_t02_real_executed": 0,
+    "owner_d02_ratification": "HOLD",
+    "production_authorized": false
+  },
+  "e46_f3c_r5b_sql_only_and_redis_local_uds_acl_review": {
+    "receipt": "phase4b-02-e46-f3c-r5b-sql-only-static-review-and-redis-uds-acl-zero-flush-security-contract-20261011.md",
+    "owner_request": "AUDIT_R5B_SQL_ONLY_AND_IMPROVE_REDIS_ENDPOINT_SECURITY_BEFORE_KEYSPACE_LOSS",
+    "verified_prior_r5a": {
+      "run_id": 38092783946,
+      "conclusion": "success",
+      "sandbox_main_sha": "3f8f923bf444f18b7ed5eed8ab738345f9b1a728",
+      "repository_runs": 1
+    },
+    "sql_only": {
+      "archive": "LMS-E46-F3C-R5B-SQL-only-Redis-security-review-20261011.zip",
+      "archive_sha256": "f87f189a00dea4ec46cdf7b1166a44ca0e87fce5236de816c12a2796ca979f94",
+      "size_bytes": 9317,
+      "sql_source_sha256": "a6a61eae93c9efd718ccbc34ff1b07433834cc71f410ff62a7a66a2e42284396",
+      "workflow_specimen_sha256": "5e5b9c17c949b1510139f19681e61b7ebd9a48f92fe45347a08cfbc50574df4b",
+      "job_services": [
+        "postgres"
+      ],
+      "redis_services": 0,
+      "sql_r01_r02_real_tests": 0,
+      "expected_sqlstate": "23505",
+      "sql_bash_syntax": "PASS",
+      "yaml_parse": "PASS",
+      "source_inline_exact": true,
+      "early_fail_lock_exercised": "PASS_EXIT_1_BEFORE_IO",
+      "initial_commit_authorized": false,
+      "first_run_authorized": false
+    },
+    "redis_security": {
+      "archive": "LMS-E46-F3C-R5B-Redis-UDS-ACL-security-review-20261011.zip",
+      "archive_sha256": "0d73b7f27fe45b05c040f2c21db91ade8173a3559ab550897db0f9e0e10a5cf8",
+      "size_bytes": 5115,
+      "source_sha256": "6c1bd7b58fa2ad974f9366f7a83196c98bd692c968eae81bc77c31b35d88b48d",
+      "security_workorder_sha256": "54135383e1d6bbc698246a9a103c528bfc3cd07a72f0e3615b5a9383b0a23b44",
+      "design": "SINGLE_REDIS_JOB_CONTAINER_NO_SERVICES_LOCAL_UNIX_SOCKET_ONLY_PORT_0_PRESTART_DEFAULT_OFF_ACL",
+      "server_authenticates_before_listening": "CANDIDATE_DESIGN_NOT_RUNTIME_VERIFIED",
+      "run_unique_random_acl_credentials": true,
+      "real_flushdb_commands_executed": 0,
+      "acl_dryrun_support": "OFFICIAL_REDIS_DOCS_SUPPORTED_RUNTIME_NOT_TESTED",
+      "source_bash_syntax": "PASS",
+      "early_fail_lock_exercised": "PASS_EXIT_1_BEFORE_IO",
+      "initial_commit_authorized": false,
+      "first_run_authorized": false,
+      "security_runtime_gate": "HOLD_NOT_RUN",
+      "combined_postgres_redis_pg_r03_topology": "NOT_APPROVED_OR_VERIFIED"
+    },
+    "code_committed_to_sandbox": false,
+    "github_actions_run_dispatched": false,
+    "additional_paid_resources_authorized": false,
+    "pg_r01_to_r10_executed": 0,
+    "canonical_t02_http_executed": 0,
+    "d02_owner_ratification": "HOLD",
+    "production_authorized": false
+  }
+}
