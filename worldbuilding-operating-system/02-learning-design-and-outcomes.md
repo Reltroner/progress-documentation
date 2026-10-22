@@ -44,6 +44,20 @@ Do not confuse increasing scale with increasing quality. A small world can demon
 6. Check: a short question or explain-your-reasoning prompt.
 7. Handoff: identify which output becomes input to the next lesson.
 
+## Progressive-disclosure lesson contract
+
+| Level | Job | Example |
+| --- | --- | --- |
+| L1 | Human hook | What happens after an exciting idea? |
+| L2 | Familiar difficulty | More lore does not explain what changed |
+| L3 | Bounded value | Reuse a consequence to find the next question |
+| L4 | Worked method | Seed → constraint → interaction → consequence → changed state → new question |
+| L5 | Optional detail | Causal dependencies, governance and world states |
+
+L1–L5 describes **communication depth**, not module numbers. Demonstrate a small choice and consequence **before abstraction** where possible; then give a learner-owned micro-task, an honest limitation and a voluntary deeper route.
+
+The **six-stage practice** from [Communication Framework §11](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-communication-framework.md) is a beginner-facing translation of [Master §47](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-master-source-of-truth.md): seed → system → interaction → consequence → changed state → new pressure → new question → possibility → further interaction. The constraint helps define system limits; pressure and possibilities can be unfolded later. Neither list is a universal physics law. A learner's explanation of a supplied example is weaker evidence than an independently completed second cycle.
+
 ## Assessment architecture
 
 - **Formative:** in-lesson checks and reflection prompts; mistakes invite revision.

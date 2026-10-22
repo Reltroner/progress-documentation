@@ -76,6 +76,20 @@
 - **Flow:** abstract method from first project → begin new seed or expand existing one → rerun a smaller cycle.
 - **Done when:** method transfers without reproducing Asthortera or the tutorial example.
 
+## Context-first discovery and first useful action
+
+The learner personas are **hypotheses**, not verified needs of specific people. When necessary ask only: “Where does your world idea stop developing?”
+
+| Situation | Human question | Smallest evidence |
+| --- | --- | --- |
+| Disconnected ideas | What changes when two ideas meet? | One explained consequence |
+| Contradictory rules | Which rule actually applies? | One valid boundary/exception |
+| Empty-feeling world | Who lives with this condition? | One everyday choice |
+| No next step | What remained different after the last event? | S0 → event → S1 → new question |
+| Communication difficulty | What does the audience need to know now? | One small scene or record |
+
+**UC-09: independent first try.** Select a seed, one limit, interacting elements, consequence, changed state and next question, then keep a short note. This is a **proposed use case**, not a claim of a live interface. No account, AI, paid mentor, long novel or public sharing is needed for the conceptual practice. Polite interest is not proof of adoption, payment intent or testimonial consent.
+
 ## Service and learner-agency boundaries
 
 Paper, diagrams, plain-text/Markdown and accessible tools are valid. No account, instructor call, camera, AI subscription or purchased software is a conceptual prerequisite. Mentorship and commercial offerings, if any, are separate decisions requiring evidence and authorization. Independent learner agency is the target; dependence is not an upsell strategy.

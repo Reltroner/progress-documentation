@@ -75,6 +75,19 @@
 - What learner feedback constitutes evidence that the second-cycle method actually transfers?
 - What language and delivery conventions best fit the intended learners?
 
+## Additional communication alignment decisions (2026-10-23)
+
+| ID | Candidate decision | State | Needed before acceptance |
+| --- | --- | --- | --- |
+| D-13 | Introduce six-stage micro-exercise before deep architecture | Proposed, documented | Novice comprehension |
+| D-14 | Keep L1–L5 depth separate from eight-module curriculum | Proposed, documented | Lesson copy review |
+| D-15 | Require relevance → mechanism → evidence/limit → invitation | Draft editorial rule | Authored lesson samples |
+| D-16 | Avoid unsupported productivity promises or mandatory AI/mentors | Draft editorial rule | Runtime/copy checks |
+| D-17 | Separate visibility, learning transfer and commercial evidence | Draft evidence policy | Real observations |
+| D-18 | Retain 89 lesson titles without automatic MDX publication | Unchanged candidate scope | Ratification + release approval |
+
+Next: pilot a Module 01 introduction and six-stage worksheet, run a lesson-overlap audit, then validate the actual LMS/publication contract separately. [Communication conformance audit](13-communication-conformance-audit.md).
+
 ## Decision log
 
 **2026-10-14 — Candidate archive created:** An eight-module brainstorming structure has been documented for review. **Not a ratification**, course launch, learner test or publication event.

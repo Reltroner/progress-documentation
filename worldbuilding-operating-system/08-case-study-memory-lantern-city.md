@@ -9,6 +9,14 @@
 
 A town called **Lumenhaven** has developed memory-lantern craft. A lantern allows a person to store a bounded personal recollection and — under specified conditions — share it with another. The case explores memory, trust, consent and evidence without assuming the society is morally perfect.
 
+## Demonstrate before explaining the full model
+
+**What if a city preserved memories in lanterns?** People value remembering their loved ones. But sharing requires permission. A genuine transferred record receives a misleading label, changing how a mediator trusts it. The city creates a review process. **Who can now challenge the reviewers?**
+
+**Seed:** lantern memory → **constraint:** sharing consent → **interaction:** archive and mediator → **consequence:** misleading explanation is exposed → **changed state:** provenance reviews → **new question:** who supervises them?
+
+This makes the causal mechanism tangible before “institutional epistemic architecture.” It does not prove learner efficacy or place this invented city inside published Asthortera canon. **Optional action:** try six similar prompts with your own idea; the eight-module deep analysis below is optional.
+
 ## Module 01 — Fundamentals
 
 Recognize that “lanterns hold memories” is a **creative seed**, not a complete world. The world requires rules, choices, institutions and consequences. Learners distinguish its setting facts from a possible story.

@@ -78,6 +78,23 @@ These counts describe the **v0.1 syllabus inventory**, not published content, es
 - By **07:** another reader can understand one relevant world relationship.
 - By **08:** learner can independently document and run a second creative cycle.
 
+## Eight modules, five communication depths
+
+The eight modules define **learning coverage**; L1–L5 determines **how deeply an idea should be explained right now**. Do not present L5 canon architecture before an introductory example.
+
+| Module | First human question | Minimum causal result |
+| --- | --- | --- |
+| 01 | What makes a world more than disconnected facts? | One rule changes a choice |
+| 02 | What idea should I start with? | A focused premise |
+| 03 | Why do limits matter? | A meaningful trade-off |
+| 04 | Who lives with this rule? | A daily-life effect |
+| 05 | What happens when systems interact? | A → mechanism → B |
+| 06 | What changed after an event? | S0 → event → S1 |
+| 07 | How can another person experience it? | One short scene or record |
+| 08 | How can I continue without help? | One inherited second creative loop |
+
+Keep optional deeper material discoverable, avoid assuming bigger worlds are better, and do not infer success from course size.
+
 ## Post-beginner extension boundary
 
 Advanced civilizational simulation, long-horizon politics/economics, hard science, large-scale canon operations, and dedicated AI/software tooling are candidate **follow-on courses**, not entrance requirements.

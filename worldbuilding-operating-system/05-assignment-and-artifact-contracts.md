@@ -80,6 +80,19 @@ Source of truth distinguishes facts, drafts and contradictions. Demonstrate a **
 
 This is an **example**, not a mandatory Git repository, folder structure, toolchain or upload format. One notebook, one accessible document or plain text is valid when the evidence remains inspectable.
 
+## One-page six-stage creator practice
+
+| Stage | Accessible learner prompt | Evidence |
+| --- | --- | --- |
+| Seed | What interests me? | One idea |
+| Constraint | What limit makes it matter? | One rule |
+| Interaction | Who/what meets? | One relationship |
+| Consequence | What changes, and why? | One causal effect |
+| Changed state | What stays different? | S0 → S1 |
+| New question | What is now possible to ask? | One inherited creative input |
+
+**Example (noncanonical):** memory lanterns → consent → archive and mediator conflict → disputed testimony → new review process → who may challenge that process? This is a worked example, not learner efficacy evidence. Each assignment should open with a relatable challenge, demonstrate a mechanism, specify an inspectable outcome, then offer one *optional* self-directed action. Do not demand an account, paid mentor, AI, publishing or private-data upload. Learner IP stays learner-owned.
+
 ## Instructor feedback protocol
 
 Use **observation → causal question → revision option**. Example: “The city's transport rule says journeys are instantaneous, but a three-day commute drives this conflict. Is this a local exception or should the conflict use a different constraint?” Do not impose the instructor's fictional preferences or rewrite the learner's project by default.

@@ -85,6 +85,20 @@ Source sections are **interpretive mappings**, not quotes of a separately approv
 5. For changes, state reason, affected files, implications, validation and requested authority.
 6. Never interpret this folder as a request to change LMS infrastructure or publish content.
 
+## Additional communication authority reference (2026-10-23)
+
+[Communication Framework v1.0](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-communication-framework.md), blob `a94214dc3e73a79e47666e9687fac3ec2d64d867`, lastUpdated 2026-10-22, is a **proposed operational** guide subordinate to the binding apex. Its conflicting `published` metadata/prose is recorded in [13](13-communication-conformance-audit.md), not resolved here.
+
+| Framework areas | Course refinements |
+| --- | --- |
+| §§1,3–4 — relevance, L1–L5, message structure | 00–04, 12 |
+| §§5–6 — context, education vs sales | 01,09 |
+| §§9–11 — voice, six-stage method, narrative modes | 02,05,07–08,12 |
+| §§13,15,18 — CTA truth, evidence, COM gates | 06,09,12–13 |
+| Apex §§47,54–55 — compounding, translation, commercial boundaries | 00–13 |
+
+**Added documents:** [12 — Authoring contract](12-creator-communication-and-lesson-copy-contract.md); [13 — Audit](13-communication-conformance-audit.md). Read them before writing new MDX. Documentation refinement does not publish course content.
+
 ## Suggested next unit of work
 
 Execute a **lesson-level redundancy and dependency audit**, propose consolidations, and specify measurable outcomes and examples per lesson; only then request explicit curriculum ratification.

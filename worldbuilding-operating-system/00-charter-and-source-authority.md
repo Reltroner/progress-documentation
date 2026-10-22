@@ -62,6 +62,12 @@ The course must not teach that a scarcity-world, traditional medieval-fantasy wo
 
 **Failure modes to monitor:** premature complexity, formulaic worlds, one-size-fits-all settings, forced storytelling, hidden paywalls, AI replacing learner reasoning, and equating tutorial publication with actual learning.
 
+## Creator-facing translation boundary (2026-10-23)
+
+Introduce the course through the human problem **“What happens after your interesting world idea?”** and the causal mechanism **rule → choice → consequence → changed state → new question**, not a brand manifesto. Communicate one inspectable example and offer deeper details only on request. Creator education is the primary pathway; Asthortera's narrative experience is optional proof-of-work, not an obligatory learner canon. The [communication guide](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-communication-framework.md) is **proposed and subordinate** to the [apex](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-master-source-of-truth.md).
+
+A course intention, worked fictional example, independently observed learner outcome, production release and actual purchase are **different evidence states**. Never guarantee productivity, cure stagnation, publishing success or income. AI, mentorship and public participation are optional.
+
 ## 7. Authority of this version
 
 This document **proposes** a course, not a binding product decision. Ratification, production authorization and acceptance require separate recorded evidence.

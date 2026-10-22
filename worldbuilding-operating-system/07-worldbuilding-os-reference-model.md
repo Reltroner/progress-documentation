@@ -75,6 +75,12 @@ These are transferable **presentation functions** inspired by the master source'
 
 The reference model describes how to make and test **learner-generated world claims**. It does not grant those claims authority inside Reltroner Studio's Asthortera canon. Draft facts can be changed; any public versioning requirement belongs to the specific creator's adopted publication policy.
 
+## Human-language on-ramp
+
+**First question:** “If your city changes a rule, what would one resident do differently tomorrow?” **Demonstrate:** a rule changes a choice; the choice changes the city; the changed city creates a new question. **Only then name** state transitions, institutional interdependencies and canon registers.
+
+[Communication §11](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-communication-framework.md) uses six introductory stages: seed, constraint, interaction, consequence, changed state, new question. [Master §47](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-master-source-of-truth.md) adds system, new pressure, new possibility and further interaction. This is a **resolution difference**, not textually identical chains. L1–L3 is human relevance, L4 is the worked method, and L5 is the optional detailed model. A fictional example cannot by itself validate learner outcomes.
+
 ## Anti-patterns
 
 Worldbuilding by infinite category checklist; arbitrary exceptions; one universal protagonist controlling all outcomes; teaching one ideology as required; conflating higher spectacle with higher causal quality; AI generating continuity claims without review; irreversible canon freeze before the learner understands their world.

@@ -68,6 +68,20 @@ Avoid “Which exact phrase appeared in the slide?” as the dominant format. Qu
 
 Evidence capture → check rubric → highlight strongest causal link → identify one meaningful gap → let learner revise → compare before/after → document remaining uncertainty.
 
+## Communication quality and learning-evidence ladder
+
+The proposed communication [COM-01–COM-15 checks](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-communication-framework.md) apply to **copy review**, not automatically to ratified capstone grades.
+
+| Observation | May support | Does not prove |
+| --- | --- | --- |
+| Page viewed | Visibility | Understanding |
+| Example explained | Local comprehension | Independent application |
+| Exercise attempted | Voluntary participation | Demand or paid intent |
+| Second cycle created without help | Situated skill transfer | Universal method efficacy |
+| Practice repeated later | Stronger longitudinal evidence | Guaranteed future results |
+
+Ask: “Which world rule caused this?” “What remained different?” “Why did that change create a new question?” Accept multiple coherent genres and interpretations. Do not invent passing thresholds, cohort outcomes, conversion rates, or financial claims.
+
 ## Evidence, not marketing
 
 Completion does not prove reduced burnout, guaranteed creative productivity, successful publishing, reader engagement or market validation. The studio should validate learning outcomes with novice trials and disclosed methods before making effectiveness claims.

@@ -31,6 +31,14 @@ The core promise to investigate: **help beginners develop a coherent fictional w
 | [10-open-decisions-and-roadmap.md](10-open-decisions-and-roadmap.md) | Unratified choices, validation plan and decision log |
 | [11-handoff-and-traceability.md](11-handoff-and-traceability.md) | Portable AI handoff, authority and evidence mapping |
 
+## Communication refinement (2026-10-23)
+
+This candidate is aligned at the **documentation-design level** with the [binding Master Source of Truth v2.3](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-master-source-of-truth.md) and the **proposed, subordinate** [Communication Framework v1.0](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-communication-framework.md). This does not ratify the course or communication guide.
+
+**Beginner-first entry:** “I have a fictional world idea. What meaningful question follows?” Explain a concrete choice and consequence before the OS architecture. Use **L1 human hook → L2 recognizable problem → L3 value → L4 worked six-stage example → L5 optional internal depth**. These levels are distinct from the eight modules. Write **relevance → mechanism → evidence/limit → voluntary invitation**.
+
+New: [12 — Creator communication contract](12-creator-communication-and-lesson-copy-contract.md) and [13 — Compliance audit](13-communication-conformance-audit.md). The 89 lesson titles, 8 assignments, 8 quizzes and capstone remain **proposed**, not published.
+
 ## Architecture at a glance
 
 Imagine → Structure → Connect → Simulate → Evaluate → Express → Reuse.

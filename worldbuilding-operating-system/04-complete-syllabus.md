@@ -10,7 +10,20 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 **Target:** Beginner creators; original and learner-owned world; paper/Markdown accepted  
 **Progression:** Understand → Imagine → Define → Populate → Connect → Simulate → Express → Operate.
 
+## Human-first editorial approach (revision 0.2)
+
+The eight module introductions below are **copy candidates**, not new lessons or evidence of published content. For every module use **relevance → causal mechanism → inspectable example/limit → voluntary next action**. Five explanation resolutions L1–L5 are not the eight module stages. [Authoring contract](12-creator-communication-and-lesson-copy-contract.md).
+
 ## 01 — Worldbuilding Fundamentals
+
+> **L1–L2 human question:** Have an idea but unsure what matters?
+>
+> **L3–L4 causal demonstration:** A rule changes a choice.
+>
+> **Observable evidence:** One causal example.
+>
+> **Voluntary next action:** Try your own rule.
+
 
 **Reasoning:** Establish a mental model before isolated vocabulary, aesthetics or lore lists.
 **Main objective:** Understand worldbuilding as the creation of coherent, interconnected fictional worlds.
@@ -36,6 +49,15 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 
 ## 02 — Creative Seeds & World Premise
 
+> **L1–L2 human question:** Too many ideas to start?
+>
+> **L3–L4 causal demonstration:** A bounded what-if makes a premise.
+>
+> **Observable evidence:** One premise.
+>
+> **Voluntary next action:** Choose a seed.
+
+
 **Reasoning:** A bounded premise lets beginners start before scaling into encyclopedic creation.
 **Main objective:** Transform an initial creative idea into a clear, manageable world premise.
 
@@ -60,6 +82,15 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 **Cumulative handoff:** Reuse this module's work in the following module rather than start a fresh fictional world.
 
 ## 03 — World Foundations & Constraints
+
+> **L1–L2 human question:** Why do limits matter?
+>
+> **L3–L4 causal demonstration:** A constraint creates a trade-off.
+>
+> **Observable evidence:** One consequence.
+>
+> **Voluntary next action:** Test the rule.
+
 
 **Reasoning:** A world needs baseline assumptions and generative limits before contradictions become meaningful.
 **Main objective:** Establish starting conditions, possible and impossible events, and coherent exceptions.
@@ -87,6 +118,15 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 
 ## 04 — People, Places & Lived Experiences
 
+> **L1–L2 human question:** Who lives with the rule?
+>
+> **L3–L4 causal demonstration:** Daily life shifts.
+>
+> **Observable evidence:** One person's choice.
+>
+> **Voluntary next action:** Follow one resident.
+
+
 **Reasoning:** Abstract rules must become inhabitants' meaningful daily experiences; scale need not precede intimacy.
 **Main objective:** Create meaningful locations, inhabitants, relationships and everyday consequences.
 
@@ -113,6 +153,15 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 
 ## 05 — World Systems & Interactions
 
+> **L1–L2 human question:** What happens when systems meet?
+>
+> **L3–L4 causal demonstration:** One system changes another.
+>
+> **Observable evidence:** A → mechanism → B.
+>
+> **Voluntary next action:** Connect two systems.
+
+
 **Reasoning:** Once parts exist, learners can build causal relationships rather than detached lore categories.
 **Main objective:** Design interconnected systems and explain how their interactions shape the world.
 
@@ -138,6 +187,15 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 **Cumulative handoff:** Reuse this module's work in the following module rather than start a fresh fictional world.
 
 ## 06 — Causality, Change & Consequences
+
+> **L1–L2 human question:** What remained changed?
+>
+> **L3–L4 causal demonstration:** An event creates a new state.
+>
+> **Observable evidence:** S0 → event → S1.
+>
+> **Voluntary next action:** Ask what follows.
+
 
 **Reasoning:** A functioning world must react to action and inherit changes; complication is not arbitrary spectacle.
 **Main objective:** Model events, decisions, consequences and world-state transitions.
@@ -166,6 +224,15 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 
 ## 07 — World Expression & Storytelling
 
+> **L1–L2 human question:** How can readers understand?
+>
+> **L3–L4 causal demonstration:** A lived experience explains the rule.
+>
+> **Observable evidence:** One short artifact.
+>
+> **Voluntary next action:** Offer deeper context.
+
+
 **Reasoning:** Coherent worlds still need appropriate interfaces for readers; a novel is not compulsory.
 **Main objective:** Express a fictional world through comprehensible, engaging and suitable formats.
 
@@ -191,6 +258,15 @@ This document is a **content inventory**, not complete teaching materials. Lesso
 **Cumulative handoff:** Reuse this module's work in the following module rather than start a fresh fictional world.
 
 ## 08 — Canon & Creative Compound Workflows
+
+> **L1–L2 human question:** How will you continue?
+>
+> **L3–L4 causal demonstration:** Old consequences become new seeds.
+>
+> **Observable evidence:** One independent second cycle.
+>
+> **Voluntary next action:** Keep an open question.
+
 
 **Reasoning:** Having designed and expressed a world, learners must preserve coherence and independently generate a second cycle.
 **Main objective:** Maintain, evaluate and expand a world using repeatable creative workflows.

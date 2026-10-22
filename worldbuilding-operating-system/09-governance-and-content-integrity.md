@@ -61,6 +61,14 @@ Avoid copying an Earth political narrative into a fictional world and calling re
 - No promise to prevent burnout or treat psychological distress.
 - Do not market a course draft as an existing paid program or official credential.
 
+## Proposed communication source and audit limits
+
+[Communication Framework v1.0](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-communication-framework.md) is explicitly **proposed/subordinate** to [Master v2.3](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-master-source-of-truth.md). Its frontmatter says `published: true` whereas §0.2 prose mentions `published: false`. This source discrepancy is recorded, **not** repaired in this repository: public file availability is different from founder ratification.
+
+Use its COM-01–COM-15 as **editorial QA** for relevance, causal clarity, L1–L5 fit, honest evidence, source/canon boundaries, optional CTAs, privacy and consent. Document-level compliance is not certification of public UX, learner transfer, content rights, release, or mentorship readiness.
+
+Curiosity, comprehension, voluntary practice, independent use, trust, commercial intent and actual payment must not be conflated. AI suggestions remain optional brainstorming, never automatic canon. Sharing with third-party AI or publishing a learner artifact must be an informed learner action.
+
 ## Proposed change-control record
 
 Each substantive change records: **date; author; previous decision; proposed change; source authority; reason; affected modules/assignments; dependency effects; learner impact; risk; status; owner disposition**.
