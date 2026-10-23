@@ -62,6 +62,12 @@ The Communication Framework source frontmatter declares `published: true`, while
 - **§§52–54:** earned authority, stakeholder-specific value translation and progressive disclosure; 00–03,12.
 - **§55:** honest readiness evidence and potential future mentorship, not an assumed live product; 06,09,10,12.
 
+## Historical snapshot boundary following curriculum v0.3 (2026-10-24)
+
+This document records a **2026-10-23 communication-alignment audit**. Its `PASS (DOC)` markers do not certify the later usage-first / mental-model / transfer amendment, real learner performance or released LMS pages. New candidate requirements and proposed tests are in [02](02-learning-design-and-outcomes.md), [06](06-assessment-and-capstone.md), [10](10-open-decisions-and-roadmap.md), and [14](14-usage-mental-model-and-transfer-map.md).
+
+No unseen learner transfer scenario has been evaluated, and no real-world effectiveness or specialist competency may be claimed from committing curriculum documents.
+
 ## Unresolved work and next verification
 
 1. Pilot a complete **Module 01 learner-facing introduction** with a genuine beginner. Observe whether they can derive an inherited next question from a stated change; never fabricate a passing percentage.

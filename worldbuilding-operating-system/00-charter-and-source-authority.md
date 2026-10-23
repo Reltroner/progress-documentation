@@ -10,7 +10,7 @@ Beginning worldbuilders may have many concepts, characters, maps or story ideas 
 ## 2. Working course identity
 
 **Title:** Worldbuilding Operating System  
-**Subtitle:** Build Your Own Fictional World Through Systems Thinking  
+**Subtitle:** Learn Systems Thinking and Problem Solving Through Worldbuilding  
 **Positioning:** Beginner-first, genre-agnostic, cumulative, creator-owned, project-based.
 
 An **operating system** here is a metaphor and practical method for managing creative inputs, world configuration, entities, interacting systems, state changes, expressive outputs, continuity and feedback. It is **not** a software operating system, required SaaS platform or tool certification.
@@ -21,7 +21,7 @@ Enable a learner to **conceive, structure, connect, test, express, maintain and 
 
 ### Main objective
 
-By the end of the candidate course, learners should be able to design, organize, operate and independently expand their own fictional worlds using foundational systems thinking, causal reasoning, creative constraints and a repeatable worldbuilding workflow.
+By the end of the candidate course, learners should be able to design, organize, operate and independently expand their own fictional worlds **and explain, adapt and test selected mental models in one unfamiliar, bounded non-fiction problem context**. The ability to generalize outside worldbuilding is a separately assessed hypothesis, not a presumed effect of creative practice.
 
 ### Learner value hypothesis
 
@@ -46,6 +46,16 @@ The method may reduce fragmentation, improve causal coherence, increase creative
 **Asthortera-specific setting:** Reltronland, Depcutland, Astralis, Nytherion, the high-development baseline, unusual spatial mobility and particular national canon. These remain optional **illustrations only**.
 
 The course must not teach that a scarcity-world, traditional medieval-fantasy world or small slice-of-life setting is invalid because it does not conform to Asthortera's macro-canon.
+
+## 4A. Usage-first mental-model and cross-domain transfer mission (candidate v0.3)
+
+**Primary use:** create, reason about and revise a learner-owned fictional world. **Second educational purpose:** learn *how to think about a problem*: frame a question, distinguish claims from assumptions, set boundaries, identify actors and dependencies, compare alternatives, trace state changes, communicate reasoning and iterate from feedback.
+
+**Learning principle:** worldbuilding is a **controlled, low-stakes laboratory**, not a shortcut to expert knowledge of a real field. The learner can invent fictional rules; real contexts require observed constraints, uncertainty, stakeholder consent, domain-specific evidence and potentially professional expertise. Do not transfer a fictional conclusion; transfer a **reasoning procedure**, then re-check its fit.
+
+**Four-part evidence contract:** a relevant fictional use case → one explicit mental model → one inspectable creative artifact → one bounded transfer probe with `maps / does not map / unknown / next test`. Supported transfer domains are ordinary study, project coordination, planning, creative collaboration and communication. Sensitive or high-stakes professional problem-solving is **outside independent assignment scope**.
+
+**Claim boundary:** a student recognizing an analogy does **not** prove practical cross-domain skill; a simulated external case is a rehearsed application; independent performance in a genuinely new context is stronger situated evidence, not universal expertise or employability. See [14](14-usage-mental-model-and-transfer-map.md).
 
 ## 5. Authority and precedence
 

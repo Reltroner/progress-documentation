@@ -24,6 +24,8 @@
 | F-07 | Revisions erase prior context | Keep a simple source of truth | Canon/decision register |
 | F-08 | I run out of ideas after each finished piece | Use output as structured input | Second-cycle log |
 | F-09 | I fear losing creative freedom | Separate provisional drafts from published facts | Version/status labels |
+| F-10 | I know a creative technique but cannot tell where else it helps | Extract the reasoning pattern, adapt it to a small real-world problem and identify invalid assumptions | Bounded transfer note |
+| F-11 | I follow examples but struggle with unfamiliar situations | Reframe a fresh scenario, compare alternatives, explain uncertainty and revise with feedback | Independent problem-solving trace |
 
 ## Use-case specifications
 
@@ -89,6 +91,20 @@ The learner personas are **hypotheses**, not verified needs of specific people. 
 | Communication difficulty | What does the audience need to know now? | One small scene or record |
 
 **UC-09: independent first try.** Select a seed, one limit, interacting elements, consequence, changed state and next question, then keep a short note. This is a **proposed use case**, not a claim of a live interface. No account, AI, paid mentor, long novel or public sharing is needed for the conceptual practice. Polite interest is not proof of adoption, payment intent or testimonial consent.
+
+## UC-10 — Apply a mental model outside fictional worldbuilding (proposed)
+
+- **Actor:** learner seeking practical relevance beyond fiction, not presumed to hold specialist credentials.
+- **Trigger:** a safe everyday problem such as a study schedule that fails when a dependency changes, conflicting responsibilities in a group activity, or communicating a plan to a peer.
+- **Flow:** (1) describe the actual context, (2) select a mental model practiced in worldbuilding, (3) identify what maps and what does not, (4) collect or request needed real evidence, (5) propose two bounded options, (6) choose a reversible low-risk test or a justified decision to defer, (7) reflect on observed results.
+- **Done when:** the learner gives a usable reasoning trace including **one invalid analogy or unknown**, not merely renames fictional variables.
+- **Not assumed:** business success, clinical/financial/legal expertise, adoption of a particular ideology or guaranteed skill transfer.
+
+## UC-11 — Diagnose a problem rather than decorate its description (proposed)
+
+A learner distinguishes symptom from mechanism, actors from assumptions, and immediate effects from downstream effects. They produce a concrete problem statement, a causal hypothesis with stated uncertainty, and an action that could test or falsify it. A small fictional setting provides initial practice; a second, unfamiliar low-risk scenario checks whether the mental model can be **adapted**, not memorized.
+
+**Audience protection:** these use cases are optional beginner extensions until piloted, and should never replace worldbuilding with a generic productivity or professional certification course.
 
 ## Service and learner-agency boundaries
 

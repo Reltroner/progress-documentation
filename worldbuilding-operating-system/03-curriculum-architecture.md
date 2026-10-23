@@ -16,6 +16,25 @@
 | 07 — World Expression & Storytelling | Coherent worlds still need appropriate interfaces for readers; a novel is not compulsory. | Express a fictional world through comprehensible, engaging and suitable formats. | Module 06 |
 | 08 — Canon & Creative Compound Workflows | Having designed and expressed a world, learners must preserve coherence and independently generate a second cycle. | Maintain, evaluate and expand a world using repeatable creative workflows. | Module 07 |
 
+## Dual-track architecture: relevant usage and bounded transfer (candidate v0.3)
+
+**Track A:** Apply mental models to concrete fictional-world problems in one learner-owned world. **Track B:** abstract the reusable *reasoning process*, then cautiously re-test it in a different, low-risk non-fiction context. The second track is not automatically proven by work on the first.
+
+| Module | Fictional usage | Mental model | Everyday transfer probe |
+| --- | --- | --- | --- |
+| 01 | Recognize whether an imagined idea creates a choice. | Elements and causal links. | Spot one assumption affecting a study routine. |
+| 02 | Choose a bounded idea instead of endlessly adding options. | Problem framing and scope. | Frame one small personal project goal and alternatives. |
+| 03 | Test how a fictional rule changes available choices. | Assumptions, constraints and trade-offs. | Revise a group study plan given a real availability constraint. |
+| 04 | Explore how a world rule affects different inhabitants. | Stakeholders, incentives and perspective. | Compare two people's experience of a shared group rule. |
+| 05 | Diagnose how changing system A affects system B. | Boundaries, dependencies and feedback. | Map one collaboration handoff and its bottleneck. |
+| 06 | Compare responses to a fictional disruptive event. | States, counterfactuals and second-order effects. | Compare two low-risk adjustments to a study plan. |
+| 07 | Explain a world rule to someone with a specific question. | Audience understanding and relevant disclosure. | Explain a team-project change to a newcomer. |
+| 08 | Run a second world cycle without losing prior decisions. | Revision logs, model selection and iteration. | Independently analyze a new low-risk everyday coordination problem. |
+
+The **cross-domain reasoning procedure** is: name the actual problem → identify the useful structural analogy → state the model without fictional nouns → identify at least one mismatch → seek missing evidence → compare alternatives → propose a reversible test or defer. An imagined rule cannot stand in for evidence about real people or organizations.
+
+**Scaffolding:** 01–02 recognize and describe patterns; 03–04 guided adaptation; 05–07 compare mechanisms and alternatives; 08 independently choose a model for an unfamiliar everyday scenario. High-stakes medical, legal, financial or safety interventions are excluded; specialist competency is not implied. Lesson-level mapping: [14 — Usage and Transfer](14-usage-mental-model-and-transfer-map.md).
+
 ## Conceptual dependency chain
 
 01 API-style mental model equivalent: **what is worldbuilding?**  

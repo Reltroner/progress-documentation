@@ -62,6 +62,9 @@ Source sections are **interpretive mappings**, not quotes of a separately approv
 | 09-governance-and-content-integrity.md | Publishing, licensing or changing canon labels |
 | 10-open-decisions-and-roadmap.md | Requesting ratification or next authorization |
 | 11-handoff-and-traceability.md | Resuming the project with a different tool/AI |
+| 12-creator-communication-and-lesson-copy-contract.md | Beginner-facing educational copy |
+| 13-communication-conformance-audit.md | Historical communication audit, not validation of transfer |
+| 14-usage-mental-model-and-transfer-map.md | Usage/mental model/transfer probe for all 89 candidate lessons |
 
 ## Exact candidate inventory
 
@@ -98,6 +101,14 @@ Source sections are **interpretive mappings**, not quotes of a separately approv
 | Apex §§47,54–55 — compounding, translation, commercial boundaries | 00–13 |
 
 **Added documents:** [12 — Authoring contract](12-creator-communication-and-lesson-copy-contract.md); [13 — Audit](13-communication-conformance-audit.md). Read them before writing new MDX. Documentation refinement does not publish course content.
+
+## Usage-first transfer amendment — 2026-10-24
+
+**Interpret the course as a fictional-world laboratory that may teach reusable reasoning forms**, not as proof that fiction-writing alone provides domain competence. Requested output: relevant use → explicit mental model → learner-owned creative decision → cautious non-fiction adaptation.
+
+**Changed:** 00 charter, 01 learner uses, 02 outcomes, 03 dual-track architecture, 04 syllabus, 05 paired evidence, 06 independent transfer rubric, 07 conceptual boundary, 08 teaching case, 10 open decisions, 12 editorial contract, 13 historical audit scope, and new [14](14-usage-mental-model-and-transfer-map.md).
+
+**Unchanged:** 8 modules, 89 lesson titles, 8 assignments, 8 quizzes, one capstone and all original unpublished status boundaries. Separate fictional near-transfer from unfamiliar non-fiction case, and emphasize where analogies break; real fields require empirical/domain evidence. This design is not a credential, an evaluated pilot, a ratified curriculum, or an LMS release.
 
 ## Suggested next unit of work
 

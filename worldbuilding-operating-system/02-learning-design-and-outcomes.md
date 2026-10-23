@@ -5,7 +5,7 @@
 
 ## Teaching thesis
 
-Learning follows **Understand → Imagine → Define → Populate → Connect → Simulate → Express → Operate**. Introduce creative compounding conceptually in Module 01, reinforce it through cumulative assignments, and teach the integrated workflow in Module 08. This is analogous to using Postman throughout an API course before studying reusable workflows in depth.
+Learning follows **Encounter a relevant creative use → articulate a mental model → apply it in worldbuilding → test a bounded analogy → revise the model**. The eight-module domain sequence remains **Understand → Imagine → Define → Populate → Connect → Simulate → Express → Operate**. Creative compounding begins as a small demonstration in Module 01 and matures into independent workflow in Module 08. Tool-specific software-course analogies are not a pedagogical prerequisite.
 
 ## Prerequisites
 
@@ -24,7 +24,25 @@ By completion, learners can:
 - **CLO-07 Express:** choose an appropriate presentation mode for a specific reader knowledge need.
 - **CLO-08 Govern:** label drafts, established facts, unresolved contradictions and revisions.
 - **CLO-09 Compound:** demonstrate that one meaningful cycle's output becomes input for a second cycle.
-- **CLO-10 Transfer:** articulate and independently use the method without mandatory tools or mentor support.
+- **CLO-10 Independent reuse:** articulate and independently reapply the method in a different fictional world, genre or creative task without mandatory tools or mentor support.
+- **CLO-11 Bounded cross-domain transfer:** adapt one learned reasoning pattern to an unfamiliar, low-risk **non-fiction** problem, explicitly identifying what maps, what breaks, required evidence and a reversible test.
+- **CLO-12 Metacognitive calibration:** compare two plausible explanations or interventions, identify uncertainty and revise an initial decision in response to new evidence.
+
+## Backward design: usage → mental model → transfer evidence (candidate v0.3)
+
+The **usage** is a question the learner actually has or a clearly hypothetical problem worth exploring; the **mental model** is an explicitly reusable representation, not a list of worldbuilding terms. Students must first see the method solve a small fictional problem before being invited to test its limits in another context.
+
+For every future lesson, record:
+
+1. **Problem to solve:** one understandable fictional-world situation and a decision at stake.
+2. **Model in one sentence:** e.g. constraint/trade-off, system boundary, actor incentives, dependency chain, feedback, perspective, state transition, or reversible experiment.
+3. **Application:** what a learner changes in their own fictional world; attach an inspectable cause-and-effect trace.
+4. **Transfer probe:** a *different* low-risk context; specify matching structure, nonmatching facts and missing real-world evidence.
+5. **Reflection:** what changed in the learner's reasoning and which alternative explanation was considered.
+
+**Scaffolding:** Module 01–02 = notice/describe an analogy (optional); Module 03–04 = guided adaptation; Module 05–07 = reason with new contextual assumptions and compare alternatives; Module 08 = independently select and justify a mental model in one previously unseen non-fiction scenario. Such progression is a **proposed instructional design**, not yet validated.
+
+**Separately assess:** (a) worldbuilding competence, (b) identifying the abstract pattern, (c) near transfer inside fiction, (d) *farther* transfer into a real everyday context. Passing (a) does not imply (d). Do not infer transfer from quiz recall, enthusiastic feedback, or fictional artifacts alone. Explicit mapping: [14](14-usage-mental-model-and-transfer-map.md).
 
 ## Progressive abstraction
 

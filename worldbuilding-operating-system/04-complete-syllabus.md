@@ -1,4 +1,4 @@
-# 04 — Complete Course Syllabus (Candidate v0.1)
+# 04 — Complete Course Syllabus (Candidate v0.3: Usage-First, Mental Models and Transfer)
 
 **Status:** PROPOSED — 2026-10-14  
 **Role:** Preserve every proposed lesson title, module rationale, outcome, assignment and quiz for handoff.
@@ -6,13 +6,20 @@
 This document is a **content inventory**, not complete teaching materials. Lesson scripts, illustrations, reading/video/audio assets, item banks, expected durations and LMS publication status are not yet authored or accepted.
 
 **Title:** Worldbuilding Operating System  
-**Subtitle:** Build Your Own Fictional World Through Systems Thinking  
+**Subtitle:** Learn Systems Thinking and Problem Solving Through Worldbuilding  
 **Target:** Beginner creators; original and learner-owned world; paper/Markdown accepted  
 **Progression:** Understand → Imagine → Define → Populate → Connect → Simulate → Express → Operate.
+**Lesson contract:** relevant creative problem → named reasoning model → worldbuilding application → bounded cross-domain probe (see [14](14-usage-mental-model-and-transfer-map.md)).
 
 ## Human-first editorial approach (revision 0.2)
 
 The eight module introductions below are **copy candidates**, not new lessons or evidence of published content. For every module use **relevance → causal mechanism → inspectable example/limit → voluntary next action**. Five explanation resolutions L1–L5 are not the eight module stages. [Authoring contract](12-creator-communication-and-lesson-copy-contract.md).
+
+## Applied use and skill transfer — how to read this syllabus
+
+The fictional world is a **low-stakes reasoning laboratory**. Each lesson remains about worldbuilding, but its application must reveal a reusable way of framing, testing, explaining or revising problems. Its outside-world transfer probe is a question, **not a claim of transferable expertise**. Real context needs real evidence; invented assumptions must be discarded when necessary. Detailed 89-lesson mapping: [14 — Usage / Mental Model / Transfer](14-usage-mental-model-and-transfer-map.md).
+
+**Progression:** modules 01–02 recognition; 03–04 guided adaptation; 05–07 counterfactuals and evidence-aware alternatives; 08 independent application to one unfamiliar, low-risk non-fiction scenario. A lesson title is not published MDX or a validated outcome.
 
 ## 01 — Worldbuilding Fundamentals
 
@@ -39,6 +46,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **01.07 — Isolated Ideas vs Interconnected Worlds**
 - **01.08 — Introduction to Creative Compounding**
 - **01.09 — Defining Your Own Worldbuilding Goals**
+
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Recognize whether an imagined idea creates a choice.
+
+**Mental model:** Elements and causal links.
+
+**Everyday adaptation (bounded):** Spot one assumption affecting a study routine.
+
+**Evidence expected:** A world choice and a tentative analogy. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
 
 ### Practical application
 
@@ -73,6 +90,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **02.08 — Choosing an Initial Worldbuilding Scope**
 - **02.09 — Avoiding Early Worldbuilding Overcomplexity**
 - **02.10 — Creating Your First World Premise**
+
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Choose a bounded idea instead of endlessly adding options.
+
+**Mental model:** Problem framing and scope.
+
+**Everyday adaptation (bounded):** Frame one small personal project goal and alternatives.
+
+**Evidence expected:** World premise plus a bounded everyday question. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
 
 ### Practical application
 
@@ -109,6 +136,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **03.10 — General Rules vs Local Exceptions**
 - **03.11 — Testing Internal World Consistency**
 
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Test how a fictional rule changes available choices.
+
+**Mental model:** Assumptions, constraints and trade-offs.
+
+**Everyday adaptation (bounded):** Revise a group study plan given a real availability constraint.
+
+**Evidence expected:** Rule, exception and analogy-mismatch note. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
+
 ### Practical application
 
 **Assignment — Establish Your World's Foundations:** State rules and constraints and justify one exception or boundary case.
@@ -144,6 +181,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **04.10 — Micro, Meso, and Macro Perspectives**
 - **04.11 — Translating World Rules into Everyday Life**
 
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Explore how a world rule affects different inhabitants.
+
+**Mental model:** Stakeholders, incentives and perspective.
+
+**Everyday adaptation (bounded):** Compare two people's experience of a shared group rule.
+
+**Evidence expected:** Lived-world example plus an unverified stakeholder hypothesis. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
+
 ### Practical application
 
 **Assignment — Create a Lived-In World:** Define one place, local agents, their relationships and one ordinary scene or observation.
@@ -178,6 +225,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **05.09 — Introduction to Feedback Loops**
 - **05.10 — Cross-Domain Worldbuilding**
 - **05.11 — Mapping a Small Interconnected System**
+
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Diagnose how changing system A affects system B.
+
+**Mental model:** Boundaries, dependencies and feedback.
+
+**Everyday adaptation (bounded):** Map one collaboration handoff and its bottleneck.
+
+**Evidence expected:** Directed world graph plus an evidence-checkable external dependency. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
 
 ### Practical application
 
@@ -215,6 +272,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **06.11 — Generating New Questions from Consequences**
 - **06.12 — Introduction to Emergent Worldbuilding**
 
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Compare responses to a fictional disruptive event.
+
+**Mental model:** States, counterfactuals and second-order effects.
+
+**Everyday adaptation (bounded):** Compare two low-risk adjustments to a study plan.
+
+**Evidence expected:** S0/S1 explanation plus outside-context alternatives. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
+
 ### Practical application
 
 **Assignment — Simulate a World Change:** Trace one event from an initial state to a changed state and future question.
@@ -249,6 +316,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **07.09 — Benefits, Contradictions, and Perspective**
 - **07.10 — Creating a Short Worldbuilding Experience**
 - **07.11 — Leaving Meaningful Open Questions**
+
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Explain a world rule to someone with a specific question.
+
+**Mental model:** Audience understanding and relevant disclosure.
+
+**Everyday adaptation (bounded):** Explain a team-project change to a newcomer.
+
+**Evidence expected:** World explanation plus context-specific message and uncertainty. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
 
 ### Practical application
 
@@ -288,6 +365,16 @@ The eight module introductions below are **copy candidates**, not new lessons or
 - **08.13 — Avoiding Creative Stagnation**
 - **08.14 — Planning Independent World Expansion**
 
+### Usage, mental model and cross-domain bridge (proposal v0.3)
+
+**Worldbuilding use:** Run a second world cycle without losing prior decisions.
+
+**Mental model:** Revision logs, model selection and iteration.
+
+**Everyday adaptation (bounded):** Independently analyze a new low-risk everyday coordination problem.
+
+**Evidence expected:** Second world cycle and a separate bounded non-fiction transfer memo. Explain what maps, what does *not* map and what remains unknown. In modules 01–02, a brief observation is enough; later modules progressively test alternatives. Do not infer real-world outcomes from fictional coherence.
+
 ### Practical application
 
 **Assignment — Build Your Worldbuilding Workflow:** Organize the world, run a second cycle, and show output becoming input.
@@ -297,7 +384,7 @@ The eight module introductions below are **copy candidates**, not new lessons or
 
 ## Final Capstone — My Worldbuilding Operating System v1.0
 
-Consolidate the eight module outputs, document the world-state transition, expose at least one reader-facing experience, audit continuity and run one **second** creative cycle whose seed is derived from the first cycle.
+Consolidate the eight module outputs, document the world-state transition, expose at least one reader-facing experience, audit continuity and run one **second** creative cycle whose seed is derived from the first cycle. **Additional, separately evaluated transfer artifact (candidate):** independently reason through one unfamiliar, low-risk everyday problem, name a reusable mental model, identify where the analogy fails, compare alternatives and propose a reversible test or justified deferral. A hypothetical everyday problem is sufficient; no high-stakes action is required.
 
 **Separate documents:** [05 — Artifacts](05-assignment-and-artifact-contracts.md), [06 — Assessment](06-assessment-and-capstone.md), [07 — Reference Model](07-worldbuilding-os-reference-model.md).
 

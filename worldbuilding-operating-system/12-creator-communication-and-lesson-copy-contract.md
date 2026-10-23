@@ -52,6 +52,16 @@ The [apex §47](https://github.com/Reltroner/reltroner-studio/blob/main/content/
 
 **Quality threshold:** a learner can point to which earlier change produced the new question. This is an **exercise check**, not a ratified pass mark or guarantee against creative stagnation.
 
+## Usage before jargon, transfer with epistemic limits (proposed v0.3)
+
+**First-contact copy must answer:** “When would I use this?” A typical lesson introduces a recognizable fictional difficulty, shows one cause-and-effect decision, **then** names the mental model. Avoid a list of impressive abstractions without an inspectable learner action.
+
+**Optional transfer bridge:** “Where else could this pattern help?” followed immediately by “Which facts, people, risks or assumptions do *not* map?” Module 01–02 is recognition; advanced modules can compare alternatives and validation methods. An analogy may correctly be *rejected*.
+
+**Paired illustration:** fictional classroom relies on permission from a memory archive → abstract form: B depends on A → everyday scenario: team presentation needs an approved diagram → difference: permission, deadline, affected people and what constitutes approval must be checked rather than invented. Never promise professional expertise, economic returns, guaranteed improvement or learner effectiveness from this illustration.
+
+All lesson IDs have an authoring proposal in [14](14-usage-mental-model-and-transfer-map.md). This does not change live MDX or publication permissions.
+
 ## 5. Reusable lesson-writing pattern
 
 Open every new lesson with a relatable scenario, show a small causal effect **before abstract terminology** when feasible, explain the concept, invite one learner-owned micro-task, state evidence and uncertainty, then offer optional depth.

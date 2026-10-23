@@ -7,6 +7,16 @@
 
 This is a **metaphorical and practical creator workflow**, not executable software. It abstracts transferable design principles from Reltroner Studio's Creative Compound Machine. It must **not** be mistaken for an Asthortera simulation engine, an LMS service definition or a generic law of fiction.
 
+## General-purpose reasoning architecture and transfer limits (candidate v0.3)
+
+The OS metaphor supports a **repeatable reasoning workflow**: `observe context → define the question → choose boundaries → make assumptions visible → identify agents/dependencies → explore alternatives → trace plausible consequences → check evidence → revise → preserve learning`. Worldbuilding makes this concrete because a creator can alter fictional rules in a low-stakes sandbox.
+
+**Mental-model abstraction** separates: **form** (e.g. A requires B before C), **fiction-specific facts** (memory lantern consent), and **real-world evidence** (actual permission policy, timing, affected people). Only the tentative *form* may transfer; facts and value judgments must be re-established. A model can fail when actors have different incentives, unknown constraints, feedback or social consequences.
+
+**Transfer example:** in a fictional city, an archive must approve memory use before a teacher can prepare class materials. The portable model is a **dependency constraint**. In an ordinary group presentation, a speaker may depend on receiving a teammate's slides before rehearsal. What maps: prerequisite timing. What does not: magical records and consent rules. Evidence to ask for: deadline, actual commitments and alternate resources. Safer decision: confirm the deadline and prepare a fallback; do not assume the team behaves like fictional institutions.
+
+**Non-goals:** this is not a scientific causal inference engine, medical/legal/financial advice, proof of any claim about a real community, AI automation instruction or system-architecture certification. See [14](14-usage-mental-model-and-transfer-map.md) for the lesson-by-lesson bridge.
+
 ## Component architecture
 
 | Component | Input | Operation | Output |

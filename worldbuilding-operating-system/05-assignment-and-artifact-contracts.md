@@ -18,6 +18,25 @@
 | 07 | World Experience Artifact | Short scene, travelogue, in-world record or explanation; intended audience and knowledge need | Documented world |
 | 08 | World Source of Truth & Creative Loop Log | Known rules, status labels, inconsistency notes, second cycle and next independent step | Final capstone |
 
+## Paired evidence inside the same eight assignments (candidate v0.3)
+
+Keep **one cumulative fictional world** and the existing **eight assignments**; do not create eight additional mandatory submissions. For each assignment, the fictional-world artifact remains primary. Add a short **reasoning annotation** that identifies the model and one potential outside-world application. Independent non-fiction transfer is assessed only in the separate capstone lane.
+
+| Module | Visible reasoning habit | Guided non-fiction bridge (no sensitive information required) |
+| --- | --- | --- |
+| 01 | Distinguish an interesting fact from a meaningful causal relationship | Identify a similar decision in a routine; note one uncertainty |
+| 02 | Select problem boundaries and define an actionable question | Convert a vague hobby or learning goal into a bounded problem |
+| 03 | Challenge assumptions and identify trade-offs | Adjust a shared activity plan to one genuine constraint |
+| 04 | Compare stakeholder experience rather than presume sameness | Examine two perspectives on a team agreement; ask what should be verified |
+| 05 | Map dependencies and possible bottlenecks | Trace a simple project handoff and a missing prerequisite |
+| 06 | Compare alternative interventions and downstream consequences | Predict outcomes of two low-risk learning-schedule changes |
+| 07 | Translate complex material into audience-relevant language | Explain a small process change and ask the audience what was understood |
+| 08 | Independently choose, test and revise a reasoning procedure | Analyze one unseen everyday case; propose reversible next action or deferral |
+
+**Minimum reasoning annotation:** `creative decision / model used / actual effect / possible outside context / what does not transfer / missing evidence`. Modules 01–02 may remain observational; 03–07 are scaffolded; Module 08 includes independent selection. Learners need not upload private work, medical, financial or personal data. A hypothetical everyday case is acceptable.
+
+**Real-world validity:** a fictional explanation may be logically coherent yet empirically false if transplanted to reality. Always distinguish invented rules from observations; note affected people, missing evidence, and when to avoid action. [14](14-usage-mental-model-and-transfer-map.md) maps each of the 89 proposed lesson IDs.
+
 ## Proposed assignment template
 
 **Assignment ID/title:**  
@@ -28,7 +47,8 @@
 **Artifact:** prose, bullet list, map, diagram, audio with transcript or equivalent accessible format.  
 **Causal proof:** explain what leads to what and why.  
 **Uncertainty:** open questions or hypotheses, not falsely final facts.  
-**Reflection:** what would be revised next?  
+**Reflection:** what would be revised next?
+**Mental-model note (as appropriate to module):** what reasoning pattern was used, what might transfer, what mismatches and what new evidence would be required?  
 **Status:** draft / structured / ready for feedback.
 
 ## Deliverable-specific checks

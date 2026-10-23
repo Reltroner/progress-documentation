@@ -19,6 +19,10 @@
 | D-10 | Assessment scores | Draft weights; no approved pass mark | Open | Calibration samples |
 | D-11 | Publishing workflow | No LMS publication authorized by these docs | Not authorized | Explicit release scope and existing LMS evidence |
 | D-12 | Mentorship/monetization | Separate candidate offers, not part of beginner course promises | Deferred | Learner demand, delivery readiness and owner approval |
+| D-20 | Transfer purpose | Worldbuilding usage to mental-model and non-fiction reasoning | Proposed v0.3 | Learner study |
+| D-21 | Candidate inventory | Retain 8 modules / 89 lesson titles, add usage-transfer map | Proposed v0.3 | Workload audit |
+| D-22 | Separate transfer evidence | External transfer cannot be inferred from world-quality grade | Proposed v0.3 | Unseen-case pilot |
+| D-23 | Safe practice scope | Low-risk everyday contexts; state failed analogies | Proposed v0.3 | Prompt and privacy review |
 
 ## Review sequence: smallest useful next steps
 
@@ -87,6 +91,18 @@
 | D-18 | Retain 89 lesson titles without automatic MDX publication | Unchanged candidate scope | Ratification + release approval |
 
 Next: pilot a Module 01 introduction and six-stage worksheet, run a lesson-overlap audit, then validate the actual LMS/publication contract separately. [Communication conformance audit](13-communication-conformance-audit.md).
+
+## Revision log — 2026-10-24: usage-first and transfer-aware v0.3
+
+**Previous candidate:** fictional-world competence and creative continuation, with transfer mainly described as a general principle and near-transfer to new worlds.
+
+**New requested objective:** prioritize **relevant usage**, form explicit **mental models and problem-solving habits**, then test whether a reasoning pattern can be adapted to **another non-fiction domain**.
+
+**Decision (documentation proposal, not ratification):** worldbuilding remains the creative laboratory. Update 00–08, the syllabus, assignments, review gates and [14 — per-lesson transfer map](14-usage-mental-model-and-transfer-map.md). Retain 8 modules, 89 lesson titles, 8 assignments, 8 quizzes and one capstone; add a **separately evaluated transfer appendix** without creating another compulsory course.
+
+**Evidence gate:** run a novice exercise and an unfamiliar low-risk non-fiction task; record whether the student can identify the correct reusable model, limitations, uncertainty, viable alternatives and a reversible check. Compare independent assessments before claiming any transfer effect. Avoid unsupported general effectiveness metrics or career/credential claims.
+
+**Scope:** no LMS production, MDX, teaching-video publication, Asthortera canon, paid offer, legal/safety advice, or binding apex change. All approval and publication gates remain independent.
 
 ## Decision log
 

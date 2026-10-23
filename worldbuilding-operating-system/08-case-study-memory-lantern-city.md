@@ -82,6 +82,25 @@ A learner may choose **one** of these as the first accessible artifact. No novel
 
 Mark the city's five original rules as **structured draft facts**, the hearing outcome as a **proposed event**, and the verification body as **unresolved future architecture**. After reviewing continuity, run the second creative cycle from its consequence: local groups seek alternative community verification processes.
 
+## Two-column case transfer: from worldbuilding to an everyday problem (candidate v0.3)
+
+**Fictional practice:** a teacher needs permission to use lantern memory in a lesson; the archive checks provenance; a contested record changes the verification process. The learner's fictional world is allowed to define this rule by creative choice.
+
+**Extracted mental models:** prerequisites and dependencies; stakeholder incentives; evidence provenance; rule exceptions; downstream effects; changing institutional states. These are **abstract reasoning tools**, not claims that fictional institutions behave like real ones.
+
+**Independent everyday scenario (illustrative, not researched):** three students plan a small group presentation. One person depends on another for an image with uncertain usage permission; a deadline is approaching. A student could map the dependencies, check actual permission, compare using an alternative image vs rescheduling, and document what new information would change their decision.
+
+| Transfer check | Responsible answer |
+| --- | --- |
+| **Maps** | prerequisite availability, consent/permissions as a relevant question, time pressure and consequences |
+| **Does not map** | memory lantern technology, fictional archive authority, automatic assumptions about real copyright rules |
+| **Unknown** | who owns the image, what permission exists, actual school/team policies and available alternatives |
+| **Options** | request clarification and use a known permitted alternative; or reduce scope until the asset is verified |
+| **Reversible low-risk step** | ask for permission status and create a fallback draft while waiting |
+| **Learning evidence** | explain why the dependency matters and what would invalidate the analogy |
+
+**Teaching purpose:** compare the **shape of the problem**, not equate fictional rules with real-world law. No claim is made that this case is field-tested or demonstrates successful transfer by a learner.
+
 ## Counterexample
 
 Weak expansion: “Five new empires arrive with ten legendary lantern types.” It could be entertaining, but nothing shows why prior rules or events generated it.

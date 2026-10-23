@@ -14,9 +14,9 @@
 
 ## Proposed capstone brief
 
-**Title:** My Worldbuilding Operating System v1.0
+**Title:** My Worldbuilding Operating System v1.0 — World Project and Independent Transfer Appendix
 
-Submit one coherent world package assembling all eight module artifacts. Then introduce a second creative cycle whose **input is an explicit consequence from the first cycle**, not an unrelated new lore fact. Include a short self-explanation of how world rules, actors and systems interact and what will happen next if a key condition changes.
+Submit one coherent world package assembling all eight module artifacts. Then introduce a second creative cycle whose **input is an explicit consequence from the first cycle**, not an unrelated new lore fact. Include a short self-explanation of how world rules, actors and systems interact and what will happen next if a key condition changes. **Separately** complete an unfamiliar, low-risk, non-fiction case demonstrating problem framing, adapted model selection, analogy limitations, alternative comparison and a reversible test or defensible deferral. A fully hypothetical everyday scenario is valid; no real-world intervention is required.
 
 ## Proposed capstone evidence checklist
 
@@ -32,6 +32,22 @@ Submit one coherent world package assembling all eight module artifacts. Then in
 10. A self-directed next question and plan that does not require the instructor.
 
 These are **observable candidate acceptance conditions**, not learner data or a frozen LMS rubric.
+
+## Separate transfer assessment lane (candidate v0.3)
+
+A creative-world artifact **cannot by itself establish independent cross-domain problem-solving skill**. Retain the existing ten fictional-world checklist items and 100% draft *world-quality* weights, but evaluate the **transfer appendix separately**. Never reinterpret those world-quality percentages as transfer or occupational competence scores.
+
+| Dimension | Demonstrated evidence in an unfamiliar everyday case | Insufficient evidence |
+| --- | --- | --- |
+| Problem framing | Defines affected people, actual decision, scope and unknowns | Repeats fictional nouns in new setting |
+| Abstraction | Selects a reusable reasoning pattern and explains why it might fit | Copies fictional conclusions into real context |
+| Analogy audit | Identifies a meaningful mismatch and an empirical assumption | Treats surface similarity as proof |
+| Alternatives and counterfactuals | Compares at least two feasible options, expected benefits and possible costs | One unsupported recommendation |
+| Feedback and autonomy | Names a reversible safe test, what to observe, and when to revise or defer | Guarantees the outcome or cannot make a next decision |
+
+**Descriptor (no numeric cutoff yet):** not evidenced → emerging → demonstrated in this bounded scenario → requires later real-world confirmation. The target is independence *within the posed case*, not proof of professional expertise, far-transfer universality or sustained behavior change.
+
+**Evidence levels:** taught-example recognition ≠ novel-fiction near transfer ≠ guided everyday analogy ≠ unfamiliar independently reasoned non-fiction case ≠ longitudinal validated effectiveness. Clear mismatches and justified rejection of an analogy are **positive epistemic evidence**, not necessarily a failed task. Use [14](14-usage-mental-model-and-transfer-map.md) for examples and [10](10-open-decisions-and-roadmap.md) for pilot/ratification conditions.
 
 ## Proposed quality weighting
 

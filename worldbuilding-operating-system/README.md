@@ -1,10 +1,10 @@
 # Worldbuilding Operating System — Course Documentation Hub
 
-**Status:** PROPOSED / CURRICULUM_CANDIDATE_V0.1 — **not ratified, frozen, released or production-accepted**  
+**Status:** PROPOSED / CURRICULUM_CANDIDATE_V0.3 — **not ratified, frozen, released or production-accepted**  
 **Date recorded:** 2026-10-14  
 **Audience:** Beginner creators who want to build and own an original fictional world  
 **Course title:** Worldbuilding Operating System  
-**Working subtitle:** Build Your Own Fictional World Through Systems Thinking  
+**Working subtitle:** Learn Systems Thinking and Problem Solving Through Worldbuilding  
 **Content language:** Working syllabus titles in English; localized lesson delivery remains undecided  
 **Source authority:** [Reltroner Studio Master Source of Truth v2.3](https://github.com/Reltroner/reltroner-studio/blob/main/content/principles/reltroner-studio-master-source-of-truth.md) (source file last updated 2026-10-12)
 
@@ -12,7 +12,7 @@
 
 Archive the complete course concept, intended functions and use cases, learner outcomes, rationale, structure, assignments, capstone, reference model, and change controls in independent Markdown documents. This folder is a **curriculum proposal and portable handoff**, not a statement that LMS lessons, quizzes, deployment, mentorship, sales or learning outcomes exist.
 
-The core promise to investigate: **help beginners develop a coherent fictional world and the independent ability to keep expanding it, rather than produce a large disconnected lore inventory**.
+The revised educational hypothesis: **use fictional-world design as a low-stakes practice laboratory for constructing mental models, reasoning about complex choices, and cautiously transferring those practices to new non-fiction contexts**. Creating a coherent world remains an essential primary project; cross-domain capability is a distinct proposed learning outcome requiring separate evidence.
 
 ## Documentation map
 
@@ -30,6 +30,9 @@ The core promise to investigate: **help beginners develop a coherent fictional w
 | [09-governance-and-content-integrity.md](09-governance-and-content-integrity.md) | Draft/canon boundaries, IP ownership, integrity, safe teaching |
 | [10-open-decisions-and-roadmap.md](10-open-decisions-and-roadmap.md) | Unratified choices, validation plan and decision log |
 | [11-handoff-and-traceability.md](11-handoff-and-traceability.md) | Portable AI handoff, authority and evidence mapping |
+| [12-creator-communication-and-lesson-copy-contract.md](12-creator-communication-and-lesson-copy-contract.md) | Beginner-first communication guidance |
+| [13-communication-conformance-audit.md](13-communication-conformance-audit.md) | Previous communication audit snapshot |
+| [14-usage-mental-model-and-transfer-map.md](14-usage-mental-model-and-transfer-map.md) | Usage-first pedagogy, complete 89-lesson mapping and bounded cross-domain transfer protocol |
 
 ## Communication refinement (2026-10-23)
 
@@ -38,6 +41,16 @@ This candidate is aligned at the **documentation-design level** with the [bindin
 **Beginner-first entry:** “I have a fictional world idea. What meaningful question follows?” Explain a concrete choice and consequence before the OS architecture. Use **L1 human hook → L2 recognizable problem → L3 value → L4 worked six-stage example → L5 optional internal depth**. These levels are distinct from the eight modules. Write **relevance → mechanism → evidence/limit → voluntary invitation**.
 
 New: [12 — Creator communication contract](12-creator-communication-and-lesson-copy-contract.md) and [13 — Compliance audit](13-communication-conformance-audit.md). The 89 lesson titles, 8 assignments, 8 quizzes and capstone remain **proposed**, not published.
+
+## Usage-first, transfer-aware design revision (2026-10-24)
+
+**Learning product:** Worldbuilding Operating System, within the educational domain **Systemic Creative Architect**. Worldbuilding is the **practice environment**; mental models, causal problem framing, uncertainty awareness, alternatives, and independent revision are the **potentially reusable methods**.
+
+Each lesson now requires four distinguishable outcomes: **(1) a relevant creator use case → (2) one explicitly named reasoning pattern → (3) a worldbuilding practice artifact → (4) an optional, bounded non-fiction transfer probe**. Early modules may use only recognition/guided analogy; the advanced capstone independently attempts one safe everyday-context adaptation. Cross-domain transfer is **not automatic**, universal, or proof of occupational qualifications.
+
+**Examples of appropriate transfer contexts:** a personal planning decision, a collaborative project handoff, a learning routine, a community event, or clarifying an audience message. No high-stakes medical, legal, financial or safety decision is assigned. The learner must state where the analogy breaks, which real-world evidence is missing and how to validate before acting.
+
+Read [14 — Usage and Transfer Map](14-usage-mental-model-and-transfer-map.md) with [03 — Architecture](03-curriculum-architecture.md), [04 — Syllabus](04-complete-syllabus.md) and [06 — Assessment](06-assessment-and-capstone.md). **Inventory unchanged: 8 modules, 89 proposed lessons, 8 assignments, 8 quizzes and one capstone.** This remains a proposed design, not validated transfer efficacy or publishing approval.
 
 ## Architecture at a glance
 
