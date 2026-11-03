@@ -191,3 +191,31 @@ Recommended origin: https://www.youtube.com/audiolibrary. Consult track-level li
 **Before episode approval:** no audible pops across scene boundaries, no unplanned gaps or clipping, clear narration, acceptable loudness, full-length MP4 playback, proper dimensions, correct rights records, and reviewed AI content disclosures.
 
 An agent's numerical QA report is insufficient alone. Final sound requires a real listening review.
+
+## 13. Emotional, novel, memorable scene/audio extension (2026-11-03 patch)
+
+Add **optional editorial annotations**, not breaking changes to the proposed technical manifest:
+
+| Field | Meaning | Constraint |
+| --- | --- | --- |
+| `storyRole` | Hook, expectation inversion, mechanism, human consequence, takeaway | Must not misclassify canon |
+| `emotionIntent` | Curiosity, wonder, recognition, unease, reflection, etc. | Must fit source and not manipulate |
+| `noveltyFunction` | What a viewer genuinely learns or reframes | Must reference evidence |
+| `memoryAnchor` | Specific visual/sonic reminder of the honest thesis | Not repetitive decoration |
+| `voiceDeliveryNote` | Synthetic narrator pacing and affect | Must be auditioned |
+| `audioIntent` | Why ambience, SFX or silence is chosen | Cue remains scene-relative |
+| `storytellingApproval` | PENDING, REVISE, PASS | Human decision, not a model assertion |
+
+If the implementation schema does not accept these fields, keep them in a separate editorial brief; never describe unimplemented metadata as operational.
+
+### 13.1 Sound-design guardrails for emotional engagement
+
+- Voice must remain natural and comprehensible; synthetic intensity is not a substitute for authentic insight.
+- The meaningful reveal should be synchronized to an actual on-screen event; avoid arbitrary loud stingers.
+- Silence is a valid memory anchor when it gives a thought room to land.
+- A new soundtrack mood or voice treatment requires a bounded scope, rights check, listening review, and re-mix of affected dependencies.
+- Emotional pacing is not a reason to violate scene invariants or falsify a canonical consequence.
+
+### 13.2 ENM release gate
+
+Verify the video's human stake, source-grounded contrast, one-sentence takeaway, meaningful anchor, voice intelligibility, and honest emotional framing. Mark missing evidence **REVISE** or **DEFER**, not PASS. Full specification: [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
