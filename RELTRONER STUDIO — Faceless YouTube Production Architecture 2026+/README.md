@@ -5,12 +5,13 @@
 | Field | Value |
 | --- | --- |
 | Documentation baseline | 2026-11-03 |
-| Document release | v1.0 — Architecture and Operating Proposal |
+| Document release | v1.1 — Architecture and Operating Proposal with ENM Storytelling Layer |
 | Status | **DOCUMENTED / NOT YET IMPLEMENTED / NOT PRODUCTION ACCEPTED** |
 | Primary production mode | Local Windows video rendering, independently addressable scenes |
 | Editorial authority | Reltroner Studio's binding source-of-truth hierarchy |
 | Narration | Synthetic voice; no recording or cloning of the founder's voice |
 | Audio | Separate voiceover, ambience, sound effects, and optional music buses |
+| Narrative delivery layer | Emotional relevance + genuine novelty + durable memorability (ENM), inspired by *Talk Like TED* |
 | Incremental spending policy | **Rp0 for new subscriptions, paid APIs, paid credits or hosted rendering** |
 | Initial delivery experiment | One 55-second Depcutland Short, then one creator-facing reuse test |
 | Release authority | Human/founder approval; no unattended publication |
@@ -51,6 +52,9 @@ Read the documents in this order. Each file stands alone but is designed to be f
 | [08 — Depcutland Pilot Blueprint](08-PILOT-EPISODE-DEPCUTLAND.md) | 55-second 9:16 six-scene sample, Indonesian narration, audio directions, preview revisions and release checklist |
 | [09 — Sources and Verification Register](09-SOURCES-STATUS-AND-DECISION-LOG.md) | Authoritative sources, official tool/policy references, verified versus proposed status, unresolved questions |
 | [10 — Claude Code Implementation Handoff](10-CLAUDE-CODE-IMPLEMENTATION-HANDOFF.md) | Constrained engineer/agent brief, executable test targets, acceptance matrix, ready-to-adapt build instruction |
+| [11 — Emotional, Novel, Memorable Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md) | Gallo-informed ENM adaptation, ethical hooks, original novelty, one-message memory design, synthetic-voice direction, editorial tests |
+
+**Narrative design addition (v1.1):** Video scripts and sound design should make the human stakes felt (**emotional**), reveal one genuinely source-supported new perspective (**novel**), and preserve one defensible takeaway (**memorable**). This subordinate delivery method is informed by Carmine Gallo's *Talk Like TED*, not a replacement for Reltroner's canon, evidence standards, or creative agency. See [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
 
 ## 4. Non-negotiable constraints
 
@@ -146,6 +150,7 @@ Test one constrained change to SC-004, preserving voice, SFX relative-frame anch
 | Gate | Required evidence | Present status |
 | --- | --- | --- |
 | Architecture documented | Linked specifications and decisions | Documentation created |
+| ENM editorial specification | Narrative and ethics gates defined, no pilot measured yet | Documented proposal; tests pending |
 | Windows stack validated | Node, Remotion, FFmpeg, runtime metrics | Pending |
 | Scene preview | Actual video and inspectable metadata | Pending |
 | Audio and synthetic voice | Authorized voice asset, cues and listening review | Pending |
