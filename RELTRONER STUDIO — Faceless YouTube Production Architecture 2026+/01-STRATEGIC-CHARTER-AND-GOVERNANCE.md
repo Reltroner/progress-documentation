@@ -86,6 +86,16 @@ External communication follows **Relevance → Mechanism → Evidence or honest 
 
 Never represent popularity as authority, an idea as a published product, a planned LMS experience as available functionality, a simulated statistic as an empirical Earth statistic, or a prompt-generated claim as independently verified.
 
+### 5.1 Emotional, novel, memorable (ENM) delivery layer
+
+The proposed ENM standard adds **emotional relevance**, **genuinely new perspective**, and **one memorable, evidence-bound idea** to the existing relevance → mechanism → evidence → invitation communication sequence. It is a *subordinate presentation layer* informed by Carmine Gallo's *Talk Like TED*, not a new creative constitution.
+
+- **Emotional:** identify what the system changes for a person, creator, reader, or institution. Never invent suffering, urgency, testimony or personal experience to trigger a reaction.
+- **Novel:** teach a meaningful, defensible distinction or unexpected consequence. Never manufacture factual novelty, false rankings, or unratified canon.
+- **Memorable:** develop one honest thesis, an optional three-beat causal sequence, and one clear audiovisual anchor; do not sacrifice accuracy to create a slogan.
+
+Gallo's presentation principles adapt to faceless synthetic narration through conversational speech, controlled rhythm, meaningful sound cues, and visual demonstration rather than reliance on a visible speaker. The speaker's absence does not license pretending that a synthetic voice is a real interviewee. **ENM review is required for authored video releases, but it cannot replace canon, rights, accessibility, or human approval gates.** See [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
 ## 6. Canon and evidence classification
 
 Each episode and each significant factual/narrative claim must carry a classification:
