@@ -291,6 +291,6 @@ Suggested six-scene mapping:
 
 ## 14. Status and change governance
 
-This standard is a **proposed subordinate extension** to the existing Communication Framework. It may be integrated into future media operations without elevating the cited book into the studio's constitutional authority. When the Communication Framework is updated, cross-link to its ENM section; preserve its status and version semantics.
+This standard is a **proposed subordinate extension** to the existing Communication Framework. It may be integrated into future media operations without elevating the cited book into the studio's constitutional authority. The Communication Framework has now been patched to **v1.2** with §22 dedicated to this subordinate ENM method and COM-21–COM-26 review gates: [Reltroner Studio Communication Framework](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md). Both files preserve their proposed/subordinate status and do not amend the master constitution.
 
 **Current attestation:** no video or voice, audio mix, ENM viewer comprehension test, retention experiment, or production rollout has been performed solely by authoring this document.
