@@ -75,6 +75,14 @@ Draft hook → tension → mechanism → consequence → conclusion. Each paragr
 
 **Output:** script, storyboard, canon/evidence review, founder script approval.
 
+### Gate 2A — ENM narrative design and conversational voice rehearsal
+
+Before locking the storyboard, produce a short **emotion / novelty / memorability** brief. Identify one human stake, one genuine source-grounded reveal, and one honest takeaway/visual or sonic anchor. Check the draft against [document 11's ENM-01–ENM-12](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
+Review the proposed Indonesian synthetic narrator **by listening** for conversational pacing, meaningful pauses, and fair emotional interpretation. Do not fabricate a personal witness or exaggerate fear. The book *Talk Like TED* informs presentation craft; its stage-duration heuristics do not impose an 18-minute runtime on Shorts.
+
+**Output:** ENM brief and editorial disposition: PASS / REVISE / DEFER, without implying any audience outcome.
+
 ### Gate 3 — Build the scene plan
 
 Allocate stable scene IDs, target frame ranges, template, visual assets, subtitles, narration, and audio event cues. Validate that scene intervals cover the expected total duration, and that no unauthorized visual assets are referenced.
@@ -205,3 +213,18 @@ For every published video retain: source manifest; script version; scene manifes
 - No implication that an unverified LMS, mentorship, or product feature is live.
 
 The result is an accepted **workflow experiment**, not a guarantee of YouTube performance.
+
+## 11. ENM-specific production and regression checks (2026-11-03 patch)
+
+Include a human narrative review alongside automated tests:
+
+| Gate | What must be checked | Hard-fail condition |
+| --- | --- | --- |
+| ENM-E | Human stakes and emotion are meaningful and fair | Invented trauma, coercive urgency, false first-person testimony |
+| ENM-N | The reveal provides a defensible new perspective | Unsupported rankings, invented canonical rules or fabricated facts |
+| ENM-M | One clear takeaway is reinforced by image/sound | Flashy but unintelligible conclusion, misleading compression |
+| ENM-VOICE | Synthetic voice sounds natural for Indonesian context | Cut words, robotic cadence obstructing understanding, inappropriate emotional mimicry |
+| ENM-AUDIO | SFX/ambience follow scene-relative meaningful events | Effects overpower dialogue or desynchronize after a scene edit |
+| ENM-REVIEW | Real human listen/watch and editorial sign-off | Only AI-generated QA or fictional acceptance report |
+
+If a rewrite changes meaning or approved narration, invalidate the script approval and downstream caption, voice, sound, and frame dependencies. A visual-only ENM revision must preserve approved claims, audio, and unaffected scene artifacts unless the operator explicitly expands scope.
