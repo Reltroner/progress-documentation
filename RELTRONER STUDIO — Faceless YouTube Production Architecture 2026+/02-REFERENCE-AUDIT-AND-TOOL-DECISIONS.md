@@ -146,3 +146,11 @@ Use Flow for non-authoritative cinema and atmosphere, *not* exact maps, canonica
 - https://flow.google.com/
 
 **Reference freshness policy:** these URLs are external source pointers, not assertions of perpetual pricing, eligibility, license, or feature counts. Reverify at install and before each distribution decision.
+
+## 12. Narrative technique reference — *Talk Like TED* (2026-11-03 patch)
+
+Carmine Gallo's *Talk Like TED* is a **storytelling and presentation-design reference**, not a software tool, renderer, rights-granting service, canonical Reltroner source, or YouTube recommendation specification. The three interpreted delivery dimensions are **emotional**, **novel**, and **memorable**.
+
+The relevance to the reference screenshots is the difference between merely animating boxes and **delivering a meaningful idea**: one source-backed human question, a distinct contrast/mechanism, and a memorable image or sound cue. The faceless adaptation depends on original scripts, synthetic voice casting, sound design, and deliberate scene pacing rather than pretending to have a live TED presenter.
+
+Consult [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md). External source: [Carmine Gallo's explanation](https://www.carminegallo.com/the-3-things-the-worlds-best-presentations-have-in-common-salesforce-com-blog/) and [publisher's book page](https://read.macmillan.com/lp/talk-like-ted-by-carmine-gallo/). No new subscriptions or integrations are required for the editorial method.
