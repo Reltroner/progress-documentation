@@ -121,3 +121,20 @@ Do not populate result fields before the test occurs.
 ## 9. Current attestation
 
 As of the baseline documentation date, this folder records an architecture and experiment plan. It does **not** represent an installed Reltroner Video Studio, a passing renderer pipeline, an approved synthetic voice, a production-ready audio mix, a published pilot, or measured growth of the existing YouTube channel.
+
+## 10. Storytelling reference and scope clarification — 2026-11-03
+
+**Book:** Carmine Gallo, *Talk Like TED: The 9 Public-Speaking Secrets of the World's Top Minds* (2014).
+
+**Author-confirmed organizing components:** emotional, novel, memorable. The operational adaptation for faceless Reltroner Studio media is developed in [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
+**Source references:**
+- https://www.carminegallo.com/books/talk-like-ted/
+- https://www.carminegallo.com/the-3-things-the-worlds-best-presentations-have-in-common-salesforce-com-blog/
+- https://read.macmillan.com/lp/talk-like-ted-by-carmine-gallo/
+
+**Evidence status:** publicly described presentation method, not directly measured YouTube results or a guaranteed neuroscience law. It does not supersede the studio's constitutional sources.
+
+**New proposal decision D11:** augment editorial scripts and review with ENM classification, original visual/audio memory anchors, and anti-manipulation checks. **Status:** documented, untested in an actual video.
+
+**No claim:** no increase in views, retention, subscribers, conversions or voice quality is established by the documentation patch.
