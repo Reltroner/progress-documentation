@@ -139,3 +139,44 @@ Check final destination and claims before publication. Add asset attribution and
 - [ ] Manual release approved and recorded
 
 **Current status:** all checklist items pending. No generated footage, audio, or publication is claimed.
+
+## 10. ENM narrative treatment — supplemental, unapproved (2026-11-03 patch)
+
+The six-scene, 55-second pilot remains **unproduced**. This treatment is an editorial refinement inspired by Carmine Gallo's *Talk Like TED*, not a silent rewrite or approval of the narration already recorded in Section 4.
+
+**Human emotion:** curiosity → wonder → reflective understanding.  
+**Genuine novelty:** technologically advanced societies can preserve historical/neoclassical visual language; presentation must be grounded in the Depcutland source, not a claim about global superiority.  
+**One-sentence memory:** “A civilization's idea of progress can be visible in how it protects and organizes knowledge.”  
+**Visual anchor:** a familiar cyberpunk city dissolves into a quiet, monumental archive.  
+**Sonic anchor:** city ambience recedes and reveals a spacious library tone; no gratuitous loud impact.  
+**Viewer autonomy:** a non-coercive path to the published reader experience only if the route is live and relevant.
+
+| Scene | ENM role | What changes in the storytelling brief | What stays invariant by default |
+| --- | --- | --- | --- |
+| SC-001 | Emotional curiosity | Ask a recognizable question, not a manufactured “shock” claim | 150-frame target, honest scope |
+| SC-002 | Novel expectation inversion | Emphasize architecture/value contrast as a meaningful reveal | 270-frame target, image rights |
+| SC-003 | Establish source credibility | Explain Depcutland as an original fictional society | 330-frame target, canon status |
+| SC-004 | Causal explanation | Show knowledge/archives as institutions, not merely ornament | 330-frame target, source-backed text |
+| SC-005 | Human significance | Ask what the arrangement means for inhabitants or public understanding | 330-frame target, no fabricated character testimony |
+| SC-006 | Memorable close | Preserve one truthful insight and optional invitation | 240-frame target, no hard sell |
+
+### 10.1 Optional alternative narration directions (not approved dialogue)
+
+- **Opening delivery:** conversational curiosity rather than theatrical urgency; test the current script as written before changing it.
+- **Contrast delivery:** a brief, legible pause before the classical archive reveal; silence can be more effective than a cinematic impact.
+- **Mechanism delivery:** lower visual motion density while explaining archives, knowledge, and epistemic culture.
+- **Closing delivery:** leave one consequential question or one-sentence takeaway, not an unearned claim that Depcutland is categorically the most advanced.
+
+These are **directional options**. A change to approved spoken words requires renewed source and timing review, voice generation, captions, mix, and founder authorization.
+
+### 10.2 Additional pilot review questions
+
+- [ ] Emotion is grounded in curiosity/wonder, not fear-based deception.
+- [ ] The archival technology contrast is actually explained, not merely illustrated.
+- [ ] No fictional rank, artifact, law, or historical event is invented for novelty.
+- [ ] One coherent insight survives without the thumbnail/title.
+- [ ] The sound cue and silence choices are tied to actual story events.
+- [ ] Synthetic voice sounds conversational in Bahasa Indonesia after actual listening.
+- [ ] The founder approves the interpretive framing, not just the visual beauty.
+
+**Current status:** pending, consistent with Section 9. See [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
