@@ -197,3 +197,18 @@ Include:
 Do not proceed from a single scene spike to a full production environment until the founder has inspected the evidence. Extend one tested capability at a time: validator → scene renderer → audio mix → targeted revision → pilot → manual publication.
 
 This keeps the project's technical ambition subordinate to its actual creative purpose, available resources, and operating authority.
+
+## 11. ENM narrative integration handoff (2026-11-03 patch)
+
+The proposed pipeline may later support human-reviewed emotional/novel/memorable narrative briefs described in [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md). Do **not** create another paid service, renderer or app during the narrow P1 technical spike.
+
+| Test | Input | Expected |
+| --- | --- | --- |
+| T-021 | An editorial brief without human stake | ENM human review remains pending |
+| T-022 | Novelty referencing an unknown/speculative source | Block definitive source claims |
+| T-023 | A sound-mood-only revision | Invalidate correct audio dependencies without unnecessary visual edits |
+| T-024 | SC-002 visual reveal adjustment | Preserve source refs, voice words and duration |
+| T-025 | Changed narration length | Revalidate speech, captions, audio and timeline |
+| T-026 | All technical checks pass, but no founder audio/ENM approval | Release remains blocked |
+
+Agent behavior: record human question → identify one source-supported reveal → produce one honest thesis → specify meaningful event-anchored sound → request human acceptance. Neither synthetic scoring nor a successful render proves emotional effectiveness. Preserve the no-extra-spend and no-founder-voice rules.
