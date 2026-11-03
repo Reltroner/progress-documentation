@@ -27,6 +27,20 @@ Recommended editorial structure:
 
 Avoid cold openings packed with national GDP figures, fictional tax rates, technology names, or framework acronyms when the viewer has not been given a reason to care.
 
+### 2.1 Emotion, novelty, memorability as a distinct storytelling layer
+
+Adopt Carmine Gallo's three broad presentation elements from *Talk Like TED* as **optional creative methods made operational through a proposed editorial review gate**, not as a purported formula for YouTube's 2026+ recommendation system.
+
+- **Emotional:** present recognizable stakes or curiosity before unfamiliar lore. Emotion should be earned from actual mechanisms and human consequences, not manufactured controversy.
+- **Novel:** reveal one source-supported inversion, causal link, world rule, or unexpected viewpoint. New packaging alone is not substantive novelty.
+- **Memorable:** compress the core insight to one honest sentence and give it a meaningful visual/sonic anchor. An optional three-beat arc is useful, not compulsory.
+
+**Editorial working sequence:** human question → relatable tension → novel, sourced reveal → causal demonstration → one memorable takeaway → optional relevant invitation. This can be shortened, reordered, or omitted where topic/audience context demands.
+
+**Example:** Depcutland is not introduced through exaggerated GDP rankings. Begin with the familiar assumption that “advanced” means cyberpunk; reveal a civilization where knowledge infrastructure and neoclassical aesthetics can coexist; conclude with a question about what technological progress should look like. Fiction stays fictional and visual interpretation stays labeled.
+
+**Performance caution:** emotional connection, novelty, and memorability are creative hypotheses; do not state a predicted CTR, retention, recommendation benefit, or conversion rate. Evidence comes from real YouTube Analytics and human comprehension, after publication. Full standard: [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
 ## 3. Proposed editorial pillars
 
 | Pillar | Primary audience hypothesis | Form | Example |
@@ -148,3 +162,15 @@ Evidence that supports scaling: stable renderer, repeatable shot changes, manage
 | What Makes a Civilization Feel Like a Character? | Asthortera | Institutions, incentives, voice, consequences |
 
 Each title requires claim and canonical review before production.
+
+## ENM content review and experiment supplement (2026-11-03)
+
+Before deciding a video is ready, ask the reviewer:
+
+1. What human feeling is invited, and is it earned rather than forced?
+2. What unfamiliar, verifiable insight is offered?
+3. Can the main point be articulated without the title, thumbnail, or extensive lore?
+4. Does the sonic/visual moment reinforce a meaningful idea?
+5. Does the close honor viewer autonomy rather than creating a misleading conversion obligation?
+
+Compare alternative hooks only with the **same** underlying factual/canonical commitments and after collecting enough real observations. Do not use manipulation, invented threats, or visual shock solely as a growth tactic. This program's originality should come from Reltroner's distinctive creative mechanisms and civilizational storytelling, not mass-produced “TED-style” imitation.
