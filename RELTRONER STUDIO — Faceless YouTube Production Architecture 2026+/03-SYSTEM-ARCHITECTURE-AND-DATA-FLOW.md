@@ -223,3 +223,13 @@ Incident scenarios:
 ## 11. Implementation acceptance contract
 
 The architecture is provisionally accepted only for **design discussion**. Technical readiness requires a working Windows demo, repeatable CLI exit status, one approved MP4, scene-level revision evidence, audio/rights verification, and no new spending.
+
+## 12. ENM narrative metadata and authority (2026-11-03 patch)
+
+Introduce a **storytelling brief** between research/source classification and script approval. It records: viewer's human question, emotional tension and shift, audience's expected assumption, one source-supported novelty/reframing, an honest one-sentence thesis, optional visual/sonic memory anchor, and required canon references. The brief is an editorial annotation, not new fiction canon and not a substitute for the source manifest.
+
+**Data flow amendment:** `source references → evidence classification → ENM brief → founder-approved script → scene manifest → audio/visual render → ENM review + technical/canon/rights QA → final human approval`.
+
+Optional proposed attributes may reside in `episode.storytelling` and `scene.storyRole` only after schema implementation and tests. Until then, use a standalone versioned Markdown/JSON brief. A specific scene's emotional treatment must be editable without altering unrelated approved scene content. Changes to voice text/duration or soundtrack dependencies still require audio and timeline revalidation.
+
+ENM review is a human editorial gate. An agent cannot infer emotional impact or memorability from a successful render, a loudness metric, or a synthetic scoring value. See [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
