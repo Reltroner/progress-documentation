@@ -171,3 +171,18 @@ Retain final masters, approved scripts, scene/audio manifests, essential source 
 ## 12. Future-proofing principle
 
 The 2026+ claim denotes an architecture capable of incremental improvement, not a promise that YouTube's recommendations or provider entitlement rules are static. Local deterministic assets and portable manifests reduce dependence on any one AI vendor.
+
+## 13. ENM narrative integrity and reputational risk controls (2026-11-03 patch)
+
+The proposed emotional/novel/memorable layer is not a paid tool and does not modify the Rp0 incremental spending boundary. It adds **editorial risk**, which must be reviewed independently of technical rendering:
+
+| Risk | Failure mode | Mitigation | Release status |
+| --- | --- | --- | --- |
+| E01 — Emotional manipulation | Exploited fear, fake urgency or invented human suffering | Source-grounded human stakes, founder review | Block |
+| E02 — Manufactured surprise | AI invents an unprecedented technology or “world first” claim | Canon/evidence traceability | Block |
+| E03 — Misleading memory anchor | Catchy line erases critical limitations | One honest thesis plus qualifier where needed | Revise/block |
+| E04 — Synthetic narrator identity confusion | AI voice presented as an authentic witness or founder recording | Disclosure and no impersonation | Block |
+| E05 — Sound-design distortion | Unlicensed music, clipping, loud scare cues or emotional mismatch | Audio provenance, human listen test | Block |
+| E06 — Viral optimization drift | Story identity reduced to repetitive clickbait formats | Original causal insight and bounded experimentation | Reassess |
+
+Human editorial approval and canon governance remain above any storytelling optimization. See [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
