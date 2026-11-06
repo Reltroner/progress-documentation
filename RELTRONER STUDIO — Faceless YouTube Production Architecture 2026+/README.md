@@ -5,13 +5,16 @@
 | Field | Value |
 | --- | --- |
 | Documentation baseline | 2026-11-03 |
-| Document release | v1.1 — Architecture and Operating Proposal with ENM Storytelling Layer |
+| Last documentation update | 2026-11-06 |
+| Document release | v1.2 — Architecture + ENM + Source-Routed Skills and AI Communication Quality |
 | Status | **DOCUMENTED / NOT YET IMPLEMENTED / NOT PRODUCTION ACCEPTED** |
 | Primary production mode | Local Windows video rendering, independently addressable scenes |
 | Editorial authority | Reltroner Studio's binding source-of-truth hierarchy |
 | Narration | Synthetic voice; no recording or cloning of the founder's voice |
 | Audio | Separate voiceover, ambience, sound effects, and optional music buses |
 | Narrative delivery layer | Emotional relevance + genuine novelty + durable memorability (ENM), inspired by *Talk Like TED* |
+| Editorial quality layer | Communication Framework v1.3 §23, COM-27–COM-34: source routing, anti-slop, cold-reader testing and accountability |
+| Skill integration | Selective procedural patterns from Reltroner/skills; 19 skills audited, no automatic installation |
 | Incremental spending policy | **Rp0 for new subscriptions, paid APIs, paid credits or hosted rendering** |
 | Initial delivery experiment | One 55-second Depcutland Short, then one creator-facing reuse test |
 | Release authority | Human/founder approval; no unattended publication |
@@ -53,8 +56,12 @@ Read the documents in this order. Each file stands alone but is designed to be f
 | [09 — Sources and Verification Register](09-SOURCES-STATUS-AND-DECISION-LOG.md) | Authoritative sources, official tool/policy references, verified versus proposed status, unresolved questions |
 | [10 — Claude Code Implementation Handoff](10-CLAUDE-CODE-IMPLEMENTATION-HANDOFF.md) | Constrained engineer/agent brief, executable test targets, acceptance matrix, ready-to-adapt build instruction |
 | [11 — Emotional, Novel, Memorable Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md) | Gallo-informed ENM adaptation, ethical hooks, original novelty, one-message memory design, synthetic-voice direction, editorial tests |
+| [12 — Skill Routing and Communication Quality Architecture](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) | Audit of all 19 skill references, selective activation, source precedence, v1.3 anti-slop/COM gates, governance and architecture |
+| [13 — Skill Router Operator Contract and Evaluation](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md) | Task-trigger routing, copy/paste agent contract, 20 negative fixtures, candidate skills, worked Depcutland handoffs, status/evidence records |
 
 **Narrative design addition (v1.1):** Video scripts and sound design should make the human stakes felt (**emotional**), reveal one genuinely source-supported new perspective (**novel**), and preserve one defensible takeaway (**memorable**). This subordinate delivery method is informed by Carmine Gallo's *Talk Like TED*, not a replacement for Reltroner's canon, evidence standards, or creative agency. See [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
+**Source-routed skills addition (v1.2, 2026-11-06):** [Reltroner/skills](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5) is an Anthropic-oriented example skills collection, not a prerequisite installation or creative authority. Each task selects the smallest useful procedural pattern, then passes [Communication Framework v1.3 §§22–23](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md): source fidelity, evidence/canon status, audience-specific format, ENM when useful, removal of generic AI filler, independent reader checks when actually performed, and human release. **Anthropic brand guidelines must not be imported as Reltroner's brand.** See [12](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
 
 ## 4. Non-negotiable constraints
 
@@ -67,6 +74,7 @@ Read the documents in this order. Each file stands alone but is designed to be f
 7. **Human review is mandatory.** The founder approves the message, pronunciation, sound design, artistic choices and final master before upload.
 8. **YouTube policies and license rights apply.** Editorial originality, synthetic-media disclosure, asset-level rights, and accurate claims are mandatory release considerations.
 9. **No automatic production acceptance.** A plan, screenshot, tool README or successful partial render is not the final release gate.
+10. **Minimal, source-routed skill use.** Skill instructions are lower-trust procedural references; no all-skills loading, unreviewed scripts, external brand identity, fabricated QA, or new paid API dependencies.
 
 ## 5. Simplified production flow
 
@@ -151,6 +159,7 @@ Test one constrained change to SC-004, preserving voice, SFX relative-frame anch
 | --- | --- | --- |
 | Architecture documented | Linked specifications and decisions | Documentation created |
 | ENM editorial specification | Narrative and ethics gates defined, no pilot measured yet | Documented proposal; tests pending |
+| Skill-routing and anti-slop specifications | 19 skill audit, v1.3 §23 integration, 20 negative scenario fixtures | Documents 12–13 created; runtime tests pending |
 | Windows stack validated | Node, Remotion, FFmpeg, runtime metrics | Pending |
 | Scene preview | Actual video and inspectable metadata | Pending |
 | Audio and synthetic voice | Authorized voice asset, cues and listening review | Pending |
@@ -170,6 +179,8 @@ Do not interpret the architecture-documentation gate as evidence that any later 
 - [Full content repository](https://github.com/Reltroner/reltroner-studio-remodeling/tree/main/content)
 - [The Abyss of Comfort](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/series/the-abyss-of-comfort.md)
 - [Reltroner Studio](https://www.reltroner.com/)
+- [Communication Framework v1.3 — §§22–23](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md)
+- [Reltroner/skills — audited source commit](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5)
 
 ### Production and publication references
 - [Claude Video 2.0](https://github.com/ItsssssJack/claude-video-2)
