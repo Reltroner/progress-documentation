@@ -233,3 +233,15 @@ Introduce a **storytelling brief** between research/source classification and sc
 Optional proposed attributes may reside in `episode.storytelling` and `scene.storyRole` only after schema implementation and tests. Until then, use a standalone versioned Markdown/JSON brief. A specific scene's emotional treatment must be editable without altering unrelated approved scene content. Changes to voice text/duration or soundtrack dependencies still require audio and timeline revalidation.
 
 ENM review is a human editorial gate. An agent cannot infer emotional impact or memorability from a successful render, a loudness metric, or a synthetic scoring value. See [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
+## Addendum — Source-bound skill routing as a preproduction adapter (2026-11-06)
+
+**Updated logical flow:** read-only canon and website references → source/evidence classification → artifact/audience routing → **minimum relevant skill pattern** → ENM + Communication Framework §23 anti-slop review → founder-approved script/scene manifest → local visual/audio rendering → deterministic QA + real listening + human approval.
+
+The router is initially a **static documented decision**, not a new autonomous backend, hosted service or renderer. Inputs: task type, audience, proof, approved sources/SHA, budget, allowable write paths and review owner. Outputs: selected pattern, exclusions, source packet, permitted deliverable, known unknowns and approval state.
+
+Suggested optional artifacts for an *approved future implementation*: editorial/skill-routing-policy.md, editorial/source-packets/, editorial/reviews/, config/approved-skill-refs.json, tests/routing-contract/. They must not be presented as existing paths without runtime verification.
+
+Keep source/canon repository read-only, preserve integer-frame scene identity and independent audio buses, and prevent downloaded SKILL.md from silently overriding the master constitution or invoking paid operations. Source pin: [Reltroner/skills ca45fc4](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5). Authoritative communication rules: [v1.3 §§22–23](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md).
+
+For router contract and negative tests see [12](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
