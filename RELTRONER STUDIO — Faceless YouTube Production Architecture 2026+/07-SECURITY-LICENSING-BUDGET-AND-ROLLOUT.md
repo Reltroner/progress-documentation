@@ -186,3 +186,22 @@ The proposed emotional/novel/memorable layer is not a paid tool and does not mod
 | E06 — Viral optimization drift | Story identity reduced to repetitive clickbait formats | Original causal insight and bounded experimentation | Reassess |
 
 Human editorial approval and canon governance remain above any storytelling optimization. See [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
+## Addendum — External skills supply-chain and misrouting risks (2026-11-06)
+
+Audited input: [Reltroner/skills at commit ca45fc496a3436251f191354091d557da31c15b5](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5). The repository contains Anthropic-oriented example skills, including scripts, fonts, assets and source-available document tooling; its presence does **not** authorize installation or execution.
+
+| Risk | Failure | Hard boundary |
+| --- | --- | --- |
+| SK-R01 — Prompt/instruction injection | Third-party SKILL.md overrules canon or instructs access to secrets | Treat downloaded instructions as lower trust; whitelist task sources |
+| SK-R02 — License misuse | Example/document skill bundled files treated as universally open-source | Check per-file/per-skill license and THIRD_PARTY_NOTICES |
+| SK-R03 — Brand contamination | Anthropic brand-guidelines applied to Reltroner | Explicitly exclude foreign brand token sources |
+| SK-R04 — Paid API escalation | claude-api/other integration makes metered calls under Pro subscription assumptions | No extra spending, no billing credentials, fail closed |
+| SK-R05 — Unbounded scope | All 19 skills are installed and a hosted orchestrator appears without need | Minimum relevant skill, no new service or auto-deploy |
+| SK-R06 — False confidence | Model declares “all tests passed” or claims cold-reader review without evidence | Require executed logs and human review |
+| SK-R07 — Canon/publication drift | Creative skill invents world facts, visuals or CTA commitments | Source status + founder approval |
+| SK-R08 — Privacy/credential exposure | MCP or browser automation gets account tokens | Least privilege, no YouTube upload access before explicit authorization |
+
+**Rollout refinement:** documentation-only mapping → manual skill-routing rehearsal → recorded negative tests → optional minimal local adapter → actual video acceptance. Preserve the existing Rp0 spending boundary, and keep Google Flow optional within available, already-held entitlements.
+
+See [12 — Skill Routing](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13 — Evaluations](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md). **No new skill is claimed installed or audited for actual execution.**
