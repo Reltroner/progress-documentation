@@ -294,3 +294,20 @@ Suggested six-scene mapping:
 This standard is a **proposed subordinate extension** to the existing Communication Framework. It may be integrated into future media operations without elevating the cited book into the studio's constitutional authority. The Communication Framework has now been patched to **v1.2** with §22 dedicated to this subordinate ENM method and COM-21–COM-26 review gates: [Reltroner Studio Communication Framework](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md). Both files preserve their proposed/subordinate status and do not amend the master constitution.
 
 **Current attestation:** no video or voice, audio mix, ENM viewer comprehension test, retention experiment, or production rollout has been performed solely by authoring this document.
+
+## 15. Relationship to Communication Framework v1.3 anti-slop and skill routing (2026-11-06)
+
+The Communication Framework has advanced beyond the original v1.2 ENM addition. Its current **v1.3 §23** introduces source-routed communication, reader tests and **COM-27–COM-34**. The ENM layer in this file remains useful but **never requires** forced inspirational phrasing, dramatic music, triple slogans, artificial surprise, or a compulsory call to action.
+
+**Editorial hierarchy:**
+1. Creative/canon authority and truthful source classification.
+2. Recipient-specific communication intent, evidence, and actual status.
+3. Communication Framework §23 — format choice, anti-slop, specificity, cold-reader checks, human accountability.
+4. This §11 ENM standard — emotional connection, one genuinely new source-supported idea, and meaningful memory when appropriate.
+5. Optional selected procedural skill from Reltroner/skills; never foreign brand identity or a default writing template.
+
+A video can be highly memorable by explaining one true idea quietly. A colorful effect is not novelty. Emotional delivery cannot be used to sell or imply a paid offer that does not exist. The cold-reader question is whether a new viewer can correctly distinguish **what the video says, what evidence supports it, what remains fictional or interpretive, and the optional next step**.
+
+**Depcutland example:** a neoclassical library reveal earns its place if the viewer learns a real mechanism about the civilization's institutional relationship to knowledge. It is an illustration and must never create new canonical infrastructure details or unsupported national rankings. Synthetic narration remains approved only after actual listening.
+
+**Source and further operating detail:** [Communication Framework v1.3](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md), [12 — Skill Routing](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md), [13 — Operator Tests](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md). No skill evaluation, human comprehension test or outcome improvement is asserted by this addendum.
