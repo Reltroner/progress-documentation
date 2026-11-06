@@ -228,3 +228,19 @@ Include a human narrative review alongside automated tests:
 | ENM-REVIEW | Real human listen/watch and editorial sign-off | Only AI-generated QA or fictional acceptance report |
 
 If a rewrite changes meaning or approved narration, invalidate the script approval and downstream caption, voice, sound, and frame dependencies. A visual-only ENM revision must preserve approved claims, audio, and unaffected scene artifacts unless the operator explicitly expands scope.
+
+## Addendum — Skill routing and v1.3 anti-slop SOP (2026-11-06)
+
+**Gate 0A — Classify the actual deliverable:** storyboard, script, visual asset, preview QA, sound cue, description, announcement or release report. Identify the viewer/operator and one intended decision.
+
+**Gate 1A — Build a source packet:** record relevant canon/public source SHA, evidence status, prohibited claims, approved assets, expected output and budget boundary. If source is unavailable, mark it unresolved; do not invent it.
+
+**Gate 2B — Select the smallest relevant skill pattern:** default none or one; optional second only for a demonstrably different subtask. Examples: doc-coauthoring for substantial script shaping; frontend-design for visual composition; webapp-testing for *real* local browser QA; internal-comms for an actual status announcement. Never import Anthropic brand-guidelines as Reltroner brand authority.
+
+**Gate 2C — Run Communication Framework v1.3 review:** ENM §22 where useful, anti-slop §23 always for AI-assisted public copy. Reject fabricated canon, fake community statistics, template filler, unsupported hype, forced TED-style drama, and irrelevant CTAs. Preserve human stakes and genuine new causal insights.
+
+**Gate 7A — Evidence-based review:** Apply relevant COM-27–COM-34, plus COM-21–COM-26 for media. If an independent cold-reader was not actually used, record NOT EXECUTED. A human must still watch and listen to the final output.
+
+**Gate 8A — Release owner:** Founder signs off on exact MP4, voice/audio, claims, metadata, rights, and disclosure. The model may recommend PASS but cannot certify or publish by itself.
+
+All existing technical, sound, source and budget gates continue to apply. A procedural skill does not authorize new installations, metered APIs, third-party credentials, or unrelated code changes. See [12 — Routing Architecture](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13 — Fixtures](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md). No gate is recorded as passed by this documentation patch.
