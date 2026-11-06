@@ -219,3 +219,15 @@ If the implementation schema does not accept these fields, keep them in a separa
 ### 13.2 ENM release gate
 
 Verify the video's human stake, source-grounded contrast, one-sentence takeaway, meaningful anchor, voice intelligibility, and honest emotional framing. Mark missing evidence **REVISE** or **DEFER**, not PASS. Full specification: [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
+## Addendum — Narrative/skill metadata is not a new scene engine (2026-11-06)
+
+The new [skill routing architecture](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) can annotate **editorial decisions** (task type, selected skill pattern, original source revision, human question, novelty evidence, cold-reader status). Do not add those fields to a strict scene JSON validator until the schema supports them and negative tests pass. A separate source packet is the default.
+
+**Scene and sound remain authoritative in their own contracts:** stable IDs, integer frames, scene-relative cue anchors, approved synthetic speech, source rights, and relevant rerender dependency graphs. No skill may declare an audio mix “emotionally correct” without actual listening. No design skill automatically approves fonts, artwork, video assets, or fictional canon. No skill creates a second renderer.
+
+**Revision example:** A request to make SC-004 less generic should route to Communication Framework §23 and source-backed scene direction; an SFX-only edit should route directly to this document and the existing local mix process, **not** load unrelated communication or art skills.
+
+**Extra human checks:** COM-27 format fit, COM-28 source traceability, COM-29 specificity, COM-30 no invented authority, COM-31 no padding, COM-32 audience comprehension, COM-33 genuine cold-reader evidence/pending, COM-34 human release. Keep COM-21–COM-26 ENM/audio gates intact.
+
+For task contracts and concrete failure cases see [13 — Skill Router Evaluation](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md). **Status:** proposed; no runtime or new TTS functionality is claimed.
