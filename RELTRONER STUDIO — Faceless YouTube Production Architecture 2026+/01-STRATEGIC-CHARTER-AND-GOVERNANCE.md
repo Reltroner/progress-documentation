@@ -152,3 +152,19 @@ No phase automatically constitutes production approval. A milestone is accepted 
 - [YouTube Studio](https://studio.youtube.com/)
 
 **Document classification:** proposed operational specification. No repository or YouTube production system is claimed as implemented by this document.
+
+## Addendum — Skill selection, anti-slop, and communication governance (2026-11-06)
+
+The current [Communication Framework v1.3](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md) introduces **§23 source-routed, anti-slop, reader-tested AI communication** and COM-27–COM-34. This supplement operates alongside §22 Emotional / Novel / Memorable, without elevating presentation advice into a new constitutional authority.
+
+**Mandatory order of control:** binding Reltroner apex and genuine evidence → Communication Framework §§22–23 → this video architecture → task-relevant procedural skill from [Reltroner/skills](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5) → optional AI styling. Use one minimal skill pattern rather than mass-loading a vendor skill collection.
+
+- A skill is a lower-trust implementation reference, not a source of canon, public status, financial permission or brand identity.
+- Human approval, provenance and honest product/canon states take precedence over every copywriting and engagement tactic.
+- Emotional storytelling is useful only when grounded; unsupported novelty, dramatic “first-ever” claims, fabricated testimonials and generic slogans remain prohibited.
+- The Anthropic brand-guidelines skill is **not** Reltroner Studio's visual-identity authority.
+- No model may claim independent cold-reader testing or skill-evaluation success without executed, recorded evidence.
+
+**Operational companions:** [12 — Skill Routing and Communication Quality](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13 — Operator Contracts and Evaluation](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
+
+**Status:** Proposed guidance only. No installed skill runtime, video production acceptance or additional spending is implied.
