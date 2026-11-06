@@ -180,3 +180,22 @@ These are **directional options**. A change to approved spoken words requires re
 - [ ] The founder approves the interpretive framing, not just the visual beauty.
 
 **Current status:** pending, consistent with Section 9. See [11 — ENM Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
+
+## Addendum — Skill routing rehearsal for Depcutland (2026-11-06)
+
+The pilot remains **unproduced** and its proposed canonical interpretation must still pass founder review. Use it as a bounded test of task routing and Communication Framework v1.3 §23:
+
+| Pilot task | Selected pattern | Required artifact | Review |
+| --- | --- | --- | --- |
+| Source analysis | Communication Framework §23 + pinned source manifest | Depcutland source packet with canon statuses | No invented stats or institutions |
+| Rewrite SC-001 and SC-002 hook | doc-coauthoring + optional ENM | One human question, documented contrast, no forced shock | COM-21–COM-23 and COM-27–COM-33 |
+| Visual hierarchy for SC-002 | frontend-design; optional canvas-design for original approved static art | Legible 9:16 contrast concept | Not an Anthropic brand template; art remains illustrative |
+| SC-004 mechanism diagram | Existing Remotion concept + frontend-design only if needed | A causal sequence tied to approved source | No decorative particles instead of explanation |
+| Sound design and synthetic voice | Existing scene/audio contract, no new skill required | Cue list and approved narrator sample | Actual listening, rights, sync |
+| Preview QA | webapp-testing *only if* a local browser preview exists | Screenshot/log with viewport | Do not fabricate Playwright execution |
+| Description/optional site routing | Communication Framework §23 | Honest summary and verified /readers link | No invented channel growth or paid academy |
+| Final release | Founder gate | Actual video, voice and metadata approval | Never automatic |
+
+**Anti-slop sample:** reject “The world's most revolutionary civilization will change how you think forever.” Prefer an interpretive, source-aware question about whether advanced technology can coexist with neoclassical archival institutions. A memorable scene must still have causal explanation and not invent canon.
+
+**Rehearsal target:** a scoped SC-004 visual or audio revision, unchanged unrelated scenes, no paid API calls, and no fabricated pass reports. **Status: all tests pending.** Full routing and fixtures: [12](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
