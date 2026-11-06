@@ -138,3 +138,21 @@ As of the baseline documentation date, this folder records an architecture and e
 **New proposal decision D11:** augment editorial scripts and review with ENM classification, original visual/audio memory anchors, and anti-manipulation checks. **Status:** documented, untested in an actual video.
 
 **No claim:** no increase in views, retention, subscribers, conversions or voice quality is established by the documentation patch.
+
+## 11. 2026-11-06 skills audit and Communication Framework v1.3 integration
+
+**Directly inspected repository:** [Reltroner/skills, main at ca45fc496a3436251f191354091d557da31c15b5](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5) (commit date 2026-10-28). Tree audit: **19 directories containing a top-level SKILL.md**. Marketplace metadata organizes sample skills into several groups; repository documentation describes them as educational/demonstration materials and warns that behavior in different Claude products can differ.
+
+**Directly inspected Communication Framework:** [reltroner-studio-communication-framework.md](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md), **v1.3**, lastUpdated **2026-11-06**, source blob SHA **9a54fad8bcd02d9aa3e2f11d6d6ee712d2e5502c** at the time of this audit. New section **§23** covers source-routed AI communication, anti-slop, cold-reader review, and **COM-27–COM-34**; §22 preserves ENM. Earlier references to v1.2 are historical baselines and should not be interpreted as the current version.
+
+**Source pattern examples inspected:** internal-comms, doc-coauthoring, frontend-design, discernment-nudge, skill-creator, webapp-testing, algorithmic-art, canvas-design, theme-factory, brand-guidelines, web-artifacts-builder, mcp-builder, and others by repository metadata. The Anthropic brand-guidelines source defines Anthropic colors and fonts and is **excluded** as Reltroner creative authority.
+
+**D12 (proposed):** Task-specific skill routing, not all-skills installation.  
+**D13 (proposed):** Skills as lower-trust procedural input to the approved source and communication framework.  
+**D14 (proposed):** Integrate §23 anti-slop + §22 ENM + existing video/audio gates.  
+**D15 (proposed):** Evaluate against SK-01–SK-20 before claiming skill routing reliability.  
+**D16 (preserved):** Rp0 incremental spending; no extra API/cloud charges, no automatic publishing.
+
+**Verification limit:** This is a repository-content audit and documentation design, not installation, skill execution, cold-reader testing, a rendered video, live channel analytics, or production acceptance.
+
+Companions: [12 — Skills Architecture](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13 — Operator Tests](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
