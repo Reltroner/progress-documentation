@@ -174,3 +174,19 @@ Before deciding a video is ready, ask the reviewer:
 5. Does the close honor viewer autonomy rather than creating a misleading conversion obligation?
 
 Compare alternative hooks only with the **same** underlying factual/canonical commitments and after collecting enough real observations. Do not use manipulation, invented threats, or visual shock solely as a growth tactic. This program's originality should come from Reltroner's distinctive creative mechanisms and civilizational storytelling, not mass-produced “TED-style” imitation.
+
+## Addendum — Reader-tested, non-generic YouTube communication (2026-11-06)
+
+The updated [Communication Framework v1.3, §23](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md) adds a **source-routed anti-slop** layer to the existing emotional/novel/memorable system. When planning a Short or long-form essay:
+
+1. Route by **viewer** and **one primary topic**; do not write one generic “brand manifesto” for creator-facing lessons, Asthortera story previews, and technical updates.
+2. Start from a **source-supported human question**, not gratuitous shock or a fictional national ranking inserted to create novelty.
+3. Provide one **specific causal demonstration** that would not make equal sense if “Reltroner” were replaced with any random AI startup name.
+4. Preserve exactly what the canon actually states; visibly distinguish illustrative art and speculative interpretation.
+5. Use one optional memorable visual/sonic anchor only if it deepens comprehension; do not force three-part gimmicks, inspirational slogans, or an unverified “thriving community.”
+6. Verify real links, permissions, and optional invitation; no paid offer or LMS status can be fabricated.
+7. Treat audience metrics as post-publication observations, not predetermined algorithm rewards from a skill.
+
+**Examples of skill routing:** doc-coauthoring for script clarification; frontend-design for image/caption hierarchy; internal-comms only for a channel update/FAQ format; discernment fact/reasoning questions as internal review; no need to load all 19 skills. See [12](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
+
+**Current status:** Editorial proposal. No live channel retention, CTR, monetization or subscriber claims have been established by this patch.
