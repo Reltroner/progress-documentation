@@ -212,3 +212,21 @@ The proposed pipeline may later support human-reviewed emotional/novel/memorable
 | T-026 | All technical checks pass, but no founder audio/ENM approval | Release remains blocked |
 
 Agent behavior: record human question → identify one source-supported reveal → produce one honest thesis → specify meaningful event-anchored sound → request human acceptance. Neither synthetic scoring nor a successful render proves emotional effectiveness. Preserve the no-extra-spend and no-founder-voice rules.
+
+## 12. Task-scoped skills and v1.3 communication quality integration (2026-11-06)
+
+Before building any extra skill runtime, read [12 — Skill Routing Architecture](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13 — Operator Contracts and Evaluation](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
+
+**Implementation boundary:** The approved P1 technical spike remains a **minimal local renderer/validator/audio test**, not an autonomous all-skills service. No skill installation is a prerequisite. If an editorial script or preview needs procedural advice, load the smallest relevant skill pattern from [Reltroner/skills at ca45fc496a3436251f191354091d557da31c15b5](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5), then apply the higher-priority [Communication Framework v1.3 §§22–23](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md).
+
+**Additional acceptance targets (proposed):**
+- **T-027:** routing chooses a relevant pattern for script versus sound-only change, not all 19 skills.
+- **T-028:** downloaded skill cannot override read-only canon, source status, or no-paid-API policy.
+- **T-029:** Anthropic brand-guidelines is explicitly excluded for Reltroner video identity.
+- **T-030:** unknown source means claim deferred; no fabricated “read this file” evidence.
+- **T-031:** empty generic hook is revised to a source-backed mechanism without inventing a fact.
+- **T-032:** cold-reader result is labeled NOT EXECUTED until an independent review occurs.
+- **T-033:** successful renderer tests cannot auto-approve speech, audio rights or publishing.
+- **T-034:** a scoped SC-004 change leaves unrelated scene artifacts stable where applicable.
+
+**Agent report additions:** selected skill pattern and source SHA, actual files read, excluded skills, claim/evidence caveats, anti-slop/ENM review disposition, test logs, and human approvals still pending. Preserve all prior technical tests and constraints. Do not claim any T-027–T-034 have run merely because their expected behavior is described.
