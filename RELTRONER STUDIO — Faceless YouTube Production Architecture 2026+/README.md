@@ -5,9 +5,9 @@
 | Field | Value |
 | --- | --- |
 | Documentation baseline | 2026-11-03 |
-| Last documentation update | 2026-11-06 |
-| Document release | v1.2 — Architecture + ENM + Source-Routed Skills and AI Communication Quality |
-| Status | **DOCUMENTED / NOT YET IMPLEMENTED / NOT PRODUCTION ACCEPTED** |
+| Last documentation update | 2026-11-07 |
+| Document release | v1.3 — Prior architecture preserved + Asthortera Ball TV / P7 bridge |
+| Status | **Original Depcutland Short: proposed/unproduced; separate P3–P6 engineering prototypes: technically reported; Asthortera Ball TV/P7: proposed/not production accepted** |
 | Primary production mode | Local Windows video rendering, independently addressable scenes |
 | Editorial authority | Reltroner Studio's binding source-of-truth hierarchy |
 | Narration | Synthetic voice; no recording or cloning of the founder's voice |
@@ -27,7 +27,7 @@ The critical workflow requirement is **sequence-level revision**: an operator sh
 
 The architecture uses a source-verified editorial pipeline, **one authoritative scene manifest**, a local code-based renderer, independent synthetic speech and sound-design tracks, a review/QA stage, and a manual YouTube release gate. AI tools help draft, reason, code, and critique; they do not ratify canon, substitute for human listening, or authorize publication.
 
-**This repository folder documents a target architecture, not an already installed or functioning video studio.** Any technical achievement must be independently verified and recorded.
+**This documentation folder began as a proposal for a 55-second Depcutland Short.** A separate [engineering repository](https://github.com/Reltroner/claude-animated-shorts-engineering/tree/feat/white-ball-npc-v2) subsequently implemented P3–P6 character/video prototypes with reported technical checks. Those prototypes **do not constitute an implemented P7 landscape season engine, a completed Depcutland Short or owner-approved TV release**. Technical and creative status must be recorded separately.
 
 ## 2. Why this system exists
 
@@ -58,10 +58,13 @@ Read the documents in this order. Each file stands alone but is designed to be f
 | [11 — Emotional, Novel, Memorable Storytelling Standard](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md) | Gallo-informed ENM adaptation, ethical hooks, original novelty, one-message memory design, synthetic-voice direction, editorial tests |
 | [12 — Skill Routing and Communication Quality Architecture](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) | Audit of all 19 skill references, selective activation, source precedence, v1.3 anti-slop/COM gates, governance and architecture |
 | [13 — Skill Router Operator Contract and Evaluation](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md) | Task-trigger routing, copy/paste agent contract, 20 negative fixtures, candidate skills, worked Depcutland handoffs, status/evidence records |
+| [14 — Asthortera Ball TV Season and P7 Integration](14-ASTHORTERA-BALL-TV-SEASON-AND-P7-INTEGRATION.md) | Owner-directed P6 3D mouth/two detached hands continuity, Countryball TV scope, separate season authority, proposed P7 16:9 reusable engine and gates |
 
 **Narrative design addition (v1.1):** Video scripts and sound design should make the human stakes felt (**emotional**), reveal one genuinely source-supported new perspective (**novel**), and preserve one defensible takeaway (**memorable**). This subordinate delivery method is informed by Carmine Gallo's *Talk Like TED*, not a replacement for Reltroner's canon, evidence standards, or creative agency. See [document 11](11-EMOTIONAL-NOVEL-MEMORABLE-STORYTELLING-STANDARD.md).
 
 **Source-routed skills addition (v1.2, 2026-11-06):** [Reltroner/skills](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5) is an Anthropic-oriented example skills collection, not a prerequisite installation or creative authority. Each task selects the smallest useful procedural pattern, then passes [Communication Framework v1.3 §§22–23](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md): source fidelity, evidence/canon status, audience-specific format, ENM when useful, removal of generic AI filler, independent reader checks when actually performed, and human release. **Anthropic brand guidelines must not be imported as Reltroner's brand.** See [12](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
+
+**TV integration supplement (v1.3, 2026-11-07):** The owner-directed active Countryball TV performance standard **retains the P6 genuine 3D mouth and two detached hands**, with nation-specific profiles rather than replacing the rig. The established [Asthortera Ball](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/series/asthortera-ball.md) S1E1 opening remains *The Pencilfania Problem*; Pasgerflit is a recurring gateway rather than an exclusive season lead; Phantomkind and Cosmeilian species-centered roles are deferred from this program. The single technical integration contract is [document 14](14-ASTHORTERA-BALL-TV-SEASON-AND-P7-INTEGRATION.md). No P7 implementation or canon publication is implied.
 
 ## 4. Non-negotiable constraints
 
@@ -198,4 +201,4 @@ Refer to document 09 for additional source, policy, and verification links. Thir
 
 This folder is an operational architecture record under the existing Reltroner creative constitution. It does not ratify new fiction canon, activate a commercial offer, change the website or LMS, establish new licensing rights, or authorize automatic publishing. Future implementation and approval results must be added as dated evidence instead of backdating a proposal into a completed deployment.
 
-**Next legitimate action:** inspect the actual Windows environment and execute the limited local technical spike described in document 10, after explicit implementation approval.
+**Next actions are track-specific:** retain the original 55-second Depcutland pilot as an unproduced candidate; separately implement and verify the [P7A contracts and P7B landscape proof](14-ASTHORTERA-BALL-TV-SEASON-AND-P7-INTEGRATION.md) in the existing engineering repository, without rewriting P3–P6 or releasing an unapproved Countryball season.
