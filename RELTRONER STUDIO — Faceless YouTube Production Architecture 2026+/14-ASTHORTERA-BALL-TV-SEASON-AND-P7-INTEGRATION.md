@@ -137,6 +137,12 @@ This intentionally short schema **does not invent full script timing or visuals*
 - Audio/captions/voice use scene-local utterance and cue IDs, global offsets computed from integer frames; never silently time-stretch narration or replace an owner's voice. Preserve separate music/ambience/SFX/dialogue buses; apply document 04 and licensing gates.
 - QA and reports should be **machine-readable plus founder-reviewable**; only human review can approve camera feel, character look, writing, sound and publication. A technically successful MP4 is not published canon.
 
+## 7.1 P7A implementation checkpoint — 2026-11-07
+
+The engineering branch [`feat/p7a-program-season-episode-contracts`](https://github.com/Reltroner/claude-animated-shorts-engineering/tree/feat/p7a-program-season-episode-contracts) now contains **authored P7A source**: typed program/season/episode contracts, strict offline validation, a small countryball-only development fixture for active S1E1 *The Pencilfania Problem*, a read-only validation CLI, and automated contract tests. Source refs are commit-pinned once at program scope and referenced by key. The P6 genuine 3D rig remains a **reference**; no new nation mesh, renderer, synthetic dialogue, render cache or completed landscape episode has been created by this checkpoint.
+
+**Evidence status:** GitHub files and manifest/source references were inspected; this remote implementation has **not yet been run under the owner's Windows npm workspace**. Do not mark P7A fully accepted until `npm run p7a:validate`, `npm run p7a:test`, `npm run typecheck`, `npm test` and `npm run build` pass on the checked-out branch. No branch merge, canon freeze or publication is implied.
+
 ## 8. P7 implementation gates and stop rules
 
 | Gate | Deliverable | Acceptance |
