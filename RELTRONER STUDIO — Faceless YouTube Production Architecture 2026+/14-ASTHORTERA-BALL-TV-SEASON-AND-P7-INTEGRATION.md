@@ -18,7 +18,7 @@ This file is the **technical bridge** between the already authored Asthortera cr
 | Relationship of TV to the novel/inter-series timeline | [Asthortera novel series roadmap](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/series/series-roadmap.md) | Keeps separate chronologies and IDs |
 | Viewer-language, source disclosure, anti-slop and editorial copy | [Communication Framework v1.3](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md) | Applies editorial QA |
 | Scene, audio, provenance, selective revision and release process | [Documents 03–07](README.md) in this folder | Extends, not forks, existing contracts |
-| Running implementation, dependencies and technical evidence | [claude-animated-shorts-engineering](https://github.com/Reltroner/claude-animated-shorts-engineering/tree/feat/white-ball-npc-v2) | Specifies **additive P7 work** |
+| Running implementation, dependencies and technical evidence | [claude-animated-shorts-engineering `main`](https://github.com/Reltroner/claude-animated-shorts-engineering/tree/main) | Specifies **additive P7 work** |
 
 **Precedence:** master constitution > relevant ratified canon and current franchise/character contracts > production architecture > individual manifest and agent output. Documentation being public on GitHub does not automatically mean every proposed fictional event is published canon.
 
@@ -139,9 +139,9 @@ This intentionally short schema **does not invent full script timing or visuals*
 
 ## 7.1 P7A implementation checkpoint — 2026-11-07
 
-The engineering branch [`feat/p7a-program-season-episode-contracts`](https://github.com/Reltroner/claude-animated-shorts-engineering/tree/feat/p7a-program-season-episode-contracts) now contains **authored P7A source**: typed program/season/episode contracts, strict offline validation, a small countryball-only development fixture for active S1E1 *The Pencilfania Problem*, a read-only validation CLI, and automated contract tests. Source refs are commit-pinned once at program scope and referenced by key. The P6 genuine 3D rig remains a **reference**; no new nation mesh, renderer, synthetic dialogue, render cache or completed landscape episode has been created by this checkpoint.
+P7A source has been **squash-merged into GitHub `main`** via [PR #1](https://github.com/Reltroner/claude-animated-shorts-engineering/pull/1), merge commit `332c599cead10027a2524aa9048122f6ae7536c2`. The committed implementation contains: typed program/season/episode contracts, strict offline validation, a small countryball-only development fixture for active S1E1 *The Pencilfania Problem*, a read-only validation CLI, and automated contract tests. Source refs are commit-pinned once at program scope and referenced by key. The P6 genuine 3D rig remains a **reference**; no new nation mesh, renderer, synthetic dialogue, render cache or completed landscape episode has been created by this checkpoint.
 
-**Evidence status:** GitHub files and manifest/source references were inspected; this remote implementation has **not yet been run under the owner's Windows npm workspace**. Do not mark P7A fully accepted until `npm run p7a:validate`, `npm run p7a:test`, `npm run typecheck`, `npm test` and `npm run build` pass on the checked-out branch. No branch merge, canon freeze or publication is implied.
+**Evidence status:** GitHub source integration is confirmed; the owner's local P3–P6 `main` was verified clean and commit-identical before PR #1 merged. After the merge, local `main` must fast-forward to the current GitHub `main`. The Windows npm commands **have not yet been verified**: `npm run p7a:validate`, `npm run p7a:test`, `npm run typecheck`, `npm test`, and `npm run build`. GitGuardian's success is a security scan, not these tests. No P7 landscape video, creative acceptance, canon freeze or publication is implied. **Owner workflow policy:** one existing local working checkout on `main`; do not create local feature worktrees/branches. Any later P7 feature PR targets `main` directly.
 
 ## 8. P7 implementation gates and stop rules
 
