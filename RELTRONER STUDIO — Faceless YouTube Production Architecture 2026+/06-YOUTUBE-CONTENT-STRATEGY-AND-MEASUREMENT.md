@@ -190,3 +190,11 @@ The updated [Communication Framework v1.3, §23](https://github.com/Reltroner/re
 **Examples of skill routing:** doc-coauthoring for script clarification; frontend-design for image/caption hierarchy; internal-comms only for a channel update/FAQ format; discernment fact/reasoning questions as internal review; no need to load all 19 skills. See [12](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
 
 **Current status:** Editorial proposal. No live channel retention, CTR, monetization or subscriber claims have been established by this patch.
+
+---
+
+## Addendum — Asthortera Ball TV as a separate viewer-facing program (2026-11-07)
+
+The developing **Asthortera Ball / Countryball TV** program is a character-driven, 3D landscape series within Asthortera; its program and active S1E1 identity are owned by the [franchise bible](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/series/asthortera-ball.md), not this channel-strategy file. **Pasgerflitball is a recurring audience gateway, not a required lead in every episode.** Season concepts and promotional excerpts must remain visibly separate from published canon and verified uploads. The owner-directed TV appearance **reuses P6's 3D mouth and two detached hands**; nation-specific character approval remains outstanding. Species-centered Phantomkind and Cosmeilian episodes are deferred from this program's current scope.
+
+A prospective audience path is **standalone scene → understandable character consequence → optional series/episode continuation → voluntary lore exploration**. Shorts and companion explainers may introduce stories but do not automatically become new season canon. Structural learnings from other animated series are not permission to copy scripts, designs or music; no claimed affiliation. For actual [P7 render/season adapters and technical status](14-ASTHORTERA-BALL-TV-SEASON-AND-P7-INTEGRATION.md), use document 14 rather than duplicating the engineering specification or implying a season has shipped.
