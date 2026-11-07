@@ -143,6 +143,12 @@ P7A source has been **squash-merged into GitHub `main`** via [PR #1](https://git
 
 **Evidence status:** GitHub source integration is confirmed; the owner's local P3–P6 `main` was verified clean and commit-identical before PR #1 merged. After the merge, local `main` must fast-forward to the current GitHub `main`. The Windows npm commands **have not yet been verified**: `npm run p7a:validate`, `npm run p7a:test`, `npm run typecheck`, `npm test`, and `npm run build`. GitGuardian's success is a security scan, not these tests. No P7 landscape video, creative acceptance, canon freeze or publication is implied. **Owner workflow policy:** one existing local working checkout on `main`; do not create local feature worktrees/branches. Any later P7 feature PR targets `main` directly.
 
+## 7.2 P7B source implementation checkpoint — 2026-11-07
+
+The engineering repository [`main`](https://github.com/Reltroner/claude-animated-shorts-engineering/tree/main) now contains the **P7B implementation source** for four provisional canon-referenced national profiles (Pasgerflitball, Reltronlandball, Depcutlandball, Pencilfaniaball), an additive adapter using **P6's existing mouth, genuine sphere and exactly two detached 3D hands**, procedural solid national emblems, Depcutland's fedora, and two Remotion landscape gallery-proof compositions (1920×1080 and 960×540; 120 frames at 30 FPS). A new local-only renderer supports stills, silent motion previews, a silent full-resolution proof and FFprobe validation. The source is documented in [`docs/P7B-NATIONAL-3D-LANDSCAPE-PROOF.md`](https://github.com/Reltroner/claude-animated-shorts-engineering/blob/main/docs/P7B-NATIONAL-3D-LANDSCAPE-PROOF.md).
+
+**Acceptance remains pending:** these GitHub commits are source integration, **not** evidence that `npm run p7b:test`, `npm run typecheck`, `npm test`, `npm run build`, landscape stills, or an MP4 passed in the owner's Windows environment. The nation color render hexes and procedural emblem shapes/placement are development choices pending visual approval; the active S1E1 and its missing Henchoway visual profile are **not** silently changed. No additional local Git branch/worktree, new dependencies, canon freeze or publication is part of this phase.
+
 ## 8. P7 implementation gates and stop rules
 
 | Gate | Deliverable | Acceptance |
