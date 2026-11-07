@@ -231,3 +231,13 @@ The new [skill routing architecture](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-
 **Extra human checks:** COM-27 format fit, COM-28 source traceability, COM-29 specificity, COM-30 no invented authority, COM-31 no padding, COM-32 audience comprehension, COM-33 genuine cold-reader evidence/pending, COM-34 human release. Keep COM-21–COM-26 ENM/audio gates intact.
 
 For task contracts and concrete failure cases see [13 — Skill Router Evaluation](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md). **Status:** proposed; no runtime or new TTS functionality is claimed.
+
+---
+
+## Addendum — Countryball TV dialogue, captions and music routing (2026-11-07)
+
+For the proposed multi-character 3D *Asthortera Ball* TV workflow, [document 14](14-ASTHORTERA-BALL-TV-SEASON-AND-P7-INTEGRATION.md) adds **program/season/episode metadata upstream**; the existing scene, utterance and audio-cue IDs remain authoritative for frame synchronization and selective rerenders. The P6 countryball performance rig has **an expressive mouth and two detached hands**, but mouth motion must not be described as lip-synced until a timed, tested dialogue-to-mouth mapping exists.
+
+Assign **stable cast and speaker IDs**, approved synthetic voices (or caption-led speech if no suitable local voice exists), pronunciation notes, relative-frame utterances and audio bus ownership. Preserve independent voice/music/ambience/SFX tracks, rights records, 100% faceless constraints, readable 16:9 caption-safe zones and real listening review. Do not require a new paid TTS provider. Changes to utterance timing invalidate the relevant voice, caption and mix dependencies; a character's nation-specific visual profile is not permission to change its spoken text or canon.
+
+The [55-second Depcutland Short](08-PILOT-EPISODE-DEPCUTLAND.md) remains a separate candidate and is **not** silently converted to an *Asthortera Ball* season episode.
