@@ -245,3 +245,11 @@ Suggested optional artifacts for an *approved future implementation*: editorial/
 Keep source/canon repository read-only, preserve integer-frame scene identity and independent audio buses, and prevent downloaded SKILL.md from silently overriding the master constitution or invoking paid operations. Source pin: [Reltroner/skills ca45fc4](https://github.com/Reltroner/skills/tree/ca45fc496a3436251f191354091d557da31c15b5). Authoritative communication rules: [v1.3 §§22–23](https://github.com/Reltroner/reltroner-studio-remodeling/blob/main/content/principles/reltroner-studio-communication-framework.md).
 
 For router contract and negative tests see [12](12-SKILL-ROUTING-AND-COMMUNICATION-QUALITY-ARCHITECTURE.md) and [13](13-SKILL-ROUTER-OPERATOR-CONTRACT-AND-EVALUATION.md).
+
+---
+
+## Addendum — Countryball TV program layer and P7 adapter (2026-11-07)
+
+A **program → season → arc → episode** identity layer is now specified for the *Asthortera Ball* screen program in [document 14](14-ASTHORTERA-BALL-TV-SEASON-AND-P7-INTEGRATION.md). This layer is **upstream of**, and compiled to, the existing **single authoritative scene manifest**; it is not a second scene engine. Season state and story order belong to the franchise bible, countryball look belongs to the character guide, and this document continues to own scene-addressable production, artifact identity, provenance and invalidation.
+
+The proposed P7 adapter uses the **existing P6 genuine 3D rig, including mouth and two detached hands**, through named country-profile IDs. The initial TV scope defers Phantomkind and Cosmeilian species-character rigs. Preserve P3–P6 code and audio modules; avoid new dependencies until a concrete need is validated. **P7 is not implemented by this documentation change.**
