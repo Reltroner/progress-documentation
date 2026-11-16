@@ -442,3 +442,17 @@ Primary implementation and evidence:
 **Archival discipline:** This document synthesizes the substantive user instructions, assistant engineering decisions, console logs, screenshots, GitHub changes and acceptance outputs discussed in the project conversation. It is not a verbatim, timestamp-complete transcript; repetitive intermediate CI polling and transient progress messages are summarized. Screenshot claims are explicitly identified as owner-provided observations. CI and repository claims have linked GitHub evidence. Sensitive credentials, raw token values and private account configuration identifiers are deliberately not copied into this public repository.
 
 For exact operational steps and deterministic acceptance commands, see [Operations and Recovery Runbook](./2026-11-14-operations-and-recovery-runbook.md). For the chronological evidence ledger and gate-to-claim traceability, see [Conversation and Evidence Ledger](./2026-11-14-conversation-and-evidence-ledger.md).
+
+---
+
+## 15. Post-archive supplement — releases and evidence obtained 2026-11-15
+
+The acceptance table in section 11 and `RC-DEPLOY-04` pending note in section 13 are the **2026-11-14 historical snapshot**, not the current last-proven release. The subsequently accepted sequence was:
+
+- [PR #5 / `a00a07f`](https://github.com/Reltroner/reltroner-statistics/pull/5): production ancestry, Remodeling Spatial 3D, evidence-first Assistant, scatter and treemap readability, responsive fixes, Platform Ecosystem.
+- [`4f81f1a`](https://github.com/Reltroner/reltroner-statistics/commit/4f81f1a4feca47f2faff5444e5acf2d1ac6a3842): separate Inspect/Compare controls and distinguish land-area versus resident-habitat presentation.
+- [`54708b04d8a675d065ea30a18798877d057d4982`](https://github.com/Reltroner/reltroner-statistics/commit/54708b04d8a675d065ea30a18798877d057d4982): **CALC-01–07**, one deterministic engine shared by Calculator and Assistant, conditional forecasting/backcasting, qualitative source-grounded rubric, sensitivity comparisons, responsive UI and JSON/CSV exports.
+- [Push-triggered CI #43720463014](https://github.com/Reltroner/reltroner-statistics/actions/runs/43720463014): all six jobs successful; the `publish_statistics` job logged `STATISTICS_DEPLOYMENT_VERIFIED` at the exact Calculator SHA. Thus the previously pending **RC-DEPLOY-04 automatic main-push publish proof is now PASSED for this release**.
+- **RC-DEPLOY-05:** owner-created, hostname-specific Cloudflare `Disable Real User Monitoring` rule for `statistics.reltroner.com`; owner GUI/browser checks confirmed an active rule, no matching sampled beacon traffic, clean Console, and CSP preserved. This was an operational configuration, **not** a code change.
+
+The project remains read-only toward both Studio source repositories. Remodelled Spatial 3D is `PROPOSED`, hypothetical Calculator outputs are `SCENARIO`, and the optional external LLM endpoint remains fail-closed. For implementation paths, all current test counts, exact release evidence, owner-observed versus independently verifiable claims and runbook steps, read the [2026-11-16 addendum](./2026-11-16-post-archive-production-and-calculator-release-addendum.md).

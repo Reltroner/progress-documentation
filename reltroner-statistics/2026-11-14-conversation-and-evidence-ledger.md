@@ -295,3 +295,24 @@ The archive does not reproduce private browser addresses, session cookies, priva
 - [Latest accepted manual deployment run](https://github.com/Reltroner/reltroner-statistics/actions/runs/43587678915)
 
 **Integrity statement:** This is a comprehensive, structured engineering record of the substantive chat and its outputs. It does not assert to be a word-for-word transcript or to reproduce every repeated polling message. For audit-sensitive claims, prefer the linked commit/PR/workflow evidence and the operator's reproduced console output. Every unproven behavior is labeled rather than silently upgraded to success.
+
+---
+
+## 11. Later owner requirements and observed releases (2026-11-15)
+
+This section **supplements** the E-01–E-11 and D-01–D-10 chronology above; it does not alter their 2026-11-14 as-of claims.
+
+| Evidence | Owner intent / decision | Implementation / observation | Verification |
+| --- | --- | --- | --- |
+| E-12 / `a00a07f` | Seven UI/data requirements plus Spatial 3D | Production Species; proposed Spatial 3D; deterministic Assistant; chart labels/treemap; Contact; responsive/Platform Ecosystem | [PR #5](https://github.com/Reltroner/reltroner-statistics/pull/5), [CI #43678746193](https://github.com/Reltroner/reltroner-statistics/actions/runs/43678746193) |
+| E-13 / `4f81f1a` | Separate Inspect and Compare controls; distinguish gray/green panels with meaningful dimensions | Species and Spatial section order; cyan land-area versus violet resident-habitat panels, written denominators; regression tests | [GitHub commit](https://github.com/Reltroner/reltroner-statistics/commit/4f81f1a4feca47f2faff5444e5acf2d1ac6a3842) and owner local test report |
+| E-14 / RC-DEPLOY-05 | Resolve Cloudflare Web Analytics CSP console violation without altering shared zone analytics | Hostname-scoped `Disable RUM` Configuration Rule, Active in owner screenshot; owner browser Network/Console sampled clean | **Owner-provided Cloudflare and browser screenshots**; no public provider-side API evidence claimed |
+| E-15 / CALC-01–07 | Calculator, future conditional projection, historical backcast, qualitative alternatives, Assistant tool reuse, sensitivity, exports/QA | [Calculator commit `54708b0`](https://github.com/Reltroner/reltroner-statistics/commit/54708b04d8a675d065ea30a18798877d057d4982); `/calculator/` | GitHub commit; owner local 104/24/415+1 report |
+| E-16 / RC-DEPLOY-04 | Complete main-push-to-live automatic publish proof, without DNS changes | [Push CI #43720463014](https://github.com/Reltroner/reltroner-statistics/actions/runs/43720463014), **six jobs passed**, `STATISTICS_DEPLOYMENT_VERIFIED` at the exact commit | **Direct GitHub CI and publish logs** |
+| E-17 / parity | Local main, GitHub main and published Statistics SHA should match | Owner ran `sync-main-ff-only.ps1 -VerifyWebsite` and reported clean local tree and matching `54708b04d8a675d065ea30a18798877d057d4982` | **Owner terminal report**, with corroborating GitHub `main` and CI live verifier |
+
+Observed CI counts for `54708b0`: **104 passed Node unit tests**, **24 passed Python tests**, **415 passed Playwright tests plus one viewport-scoped skip**. The deployment guard reported only `reltroner-statistics` and `statistics.reltroner.com` as the publication target, with **zero DNS or nameserver mutations**. Later site availability, source-pair drift, Studio deployed build identity and provider-side token privilege remain separate claims.
+
+**Evidence register:** [New feature SHA](https://github.com/Reltroner/reltroner-statistics/commit/54708b04d8a675d065ea30a18798877d057d4982) · [Green push workflow](https://github.com/Reltroner/reltroner-statistics/actions/runs/43720463014) · [Detailed implementation and governance addendum](./2026-11-16-post-archive-production-and-calculator-release-addendum.md).
+
+The prior "auto-deploy not yet demonstrated" note is preserved intentionally: it described a different earlier observation date.

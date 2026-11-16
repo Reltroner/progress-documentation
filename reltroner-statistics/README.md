@@ -10,11 +10,27 @@
 
 | Document | Contents |
 | --- | --- |
+| **[2026-11-16 post-archive production and Calculator release addendum](./2026-11-16-post-archive-production-and-calculator-release-addendum.md)** | Subsequent Species/Spatial/Assistant acceptance; `4f81f1a` UI/UX improvements; CALC-01–07; automatic push-to-publish proof (RC-DEPLOY-04); Cloudflare RUM/CSP owner GUI acceptance (RC-DEPLOY-05); pinned evidence, tests and ongoing boundaries |
 | **[End-to-end engineering and production chronicle](./2026-11-14-end-to-end-engineering-and-production-chronicle.md)** | Initial requirements; production/remodeling source-of-truth; ETL, graph, Creative Intelligence and Decision Intelligence; AI-agent interruption/recovery; supervised ML sufficiency gates; RC-DEPLOY-01/02/03; incident lessons; final acceptance and residual risks |
 | **[Operations and recovery runbook](./2026-11-14-operations-and-recovery-runbook.md)** | Windows PowerShell 5.1 safe synchronization; full CI commands; Cloudflare Pages/GitHub Actions GUI procedures; DNS/project isolation; deployment and live identity verification; common errors; rollback and credential rotation |
 | **[Conversation and evidence ledger](./2026-11-14-conversation-and-evidence-ledger.md)** | Substantive owner requests and assistant actions reconstructed in chronological order, commit and PR IDs, screenshots/terminal outputs, workflow links, tested results, rejected approaches, final status and unresolved acceptance gates |
 | **[Creative Intelligence & Worldbuilding Vision — proposed](./2026-11-14-creative-intelligence-and-worldbuilding-vision-proposal.md)** | Proposed positioning: **From Statistical Observatory to Creative Systems Intelligence**; seven narrative capabilities, Reltronland–Depcutland scenario, source-grounded architecture, ambiguity-aware audit, creator review and ratification, privacy and long-term direction |
 | **[Team Capacity & Delivery Model — historical estimate](./2026-11-14-team-capacity-and-delivery-model-proposal.md)** | 12-role/10–11-FTE statistical baseline, 8–12-month/70–110-person-month historical estimates, effort allocation, staffing alternatives, roadmap, engineering completion criteria and conditional 14–16-person creative expansion |
+
+## Post-archive verified releases (recorded 2026-11-16)
+
+The archive's `042aa463…` commit, its final **manual** release and the statement that RC-DEPLOY-04 was **not yet independently demonstrated** are historical **as of 2026-11-14**. Later evidence is documented separately in the [post-archive production and Calculator release addendum](./2026-11-16-post-archive-production-and-calculator-release-addendum.md).
+
+| Later checkpoint | Evidence and status |
+| --- | --- |
+| Species, ancestry, Spatial 3D, deterministic Assistant and UI/UX fixes | [PR #5](https://github.com/Reltroner/reltroner-statistics/pull/5), [merge `a00a07f`](https://github.com/Reltroner/reltroner-statistics/commit/a00a07f4d3292f3626f84a8c250e5f91d3b758ca) |
+| Inspection/comparison controls and differentiated Spatial panels | [UI/UX commit `4f81f1a`](https://github.com/Reltroner/reltroner-statistics/commit/4f81f1a4feca47f2faff5444e5acf2d1ac6a3842) |
+| **CALC-01–07 — Calculator & Scenario Intelligence** | [Commit `54708b0`](https://github.com/Reltroner/reltroner-statistics/commit/54708b04d8a675d065ea30a18798877d057d4982) — shared deterministic engine, scenario/backcast, qualitative rubric, Assistant and exports |
+| **RC-DEPLOY-04 — automatic main-push production publish** | **PASS:** [push CI #43720463014](https://github.com/Reltroner/reltroner-statistics/actions/runs/43720463014), all six jobs successful, including exact-SHA live deployment verification |
+| **RC-DEPLOY-05 — Statistics-specific Web Analytics / CSP** | **PASS on owner-provided GUI/browser checks:** hostname-specific Disable RUM rule Active; sampled Console and Network checks clean; no CSP relaxation |
+| Statistics app SHA at verified Calculator publish | `54708b04d8a675d065ea30a18798877d057d4982` |
+
+The **2026-11-14 baseline table below is intentionally unchanged**. It describes what had been verified **at archival close**, not the currently most recently demonstrated release. See the linked addendum for evidence classes, the 104-unit/24-Python/415-passed-one-skipped E2E snapshot, source roles and operational limitations.
 
 ## Planning and proposal status
 

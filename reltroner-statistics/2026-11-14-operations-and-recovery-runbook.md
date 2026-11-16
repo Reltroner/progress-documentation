@@ -391,3 +391,82 @@ Recommended checks around each material release:
 - [Implementation README](https://github.com/Reltroner/reltroner-statistics/blob/main/README.md)
 
 **Archival rule:** if a later build, host, account setting or source commit differs from this historical record, use the latest verified live evidence for operation and preserve this document as the dated historical trace. Do not retroactively rewrite a past success/failure without an explicit correction note.
+
+---
+
+## 14. Post-archive operational update — 2026-11-16
+
+**Scope:** This is a later evidence-backed operating addendum; sections 1–13 above remain the dated 2026-11-14 historical record. Read the [complete release addendum](./2026-11-16-post-archive-production-and-calculator-release-addendum.md) for traceability.
+
+### 14.1 RC-DEPLOY-04 now directly demonstrated
+
+The old section 7 note `not yet demonstrated` was correct on 2026-11-14. The later [Calculator push workflow #43720463014](https://github.com/Reltroner/reltroner-statistics/actions/runs/43720463014) has **six successful CI jobs including `publish_statistics`** and directly logged:
+
+```text
+ISOLATED_STATISTICS_PAGES_VERIFIED
+target_project: reltroner-statistics
+custom_domains: statistics.reltroner.com
+dns_mutations: 0
+nameserver_mutations: 0
+STATISTICS_DEPLOYMENT_VERIFIED
+live_commit: 54708b04d8a675d065ea30a18798877d057d4982
+```
+
+This completes the previously outstanding proof of the **new `main` commit → automatic CI → isolated publish → exact live SHA** path at that commit. Do not infer perpetual uptime or a project-scoped provider token from this.
+
+### 14.2 Calculator-specific smoke and CI gates
+
+At [commit `54708b0`](https://github.com/Reltroner/reltroner-statistics/commit/54708b04d8a675d065ea30a18798877d057d4982) the linked GitHub Actions run confirmed **104 Node tests, 24 Python tests, 415 passed E2E tests and one viewport-scoped skip**. The owner also reported a complete 558-page / 565-PDF static build, typecheck clean, schemas and baseline verified, and clean local/GitHub/live SHA parity.
+
+Before a future production release, use the checked-in scripts and inspect exit codes:
+
+```powershell
+Set-Location -LiteralPath 'C:\Projects\reltroner-statistics'
+git status -sb
+git worktree list
+git fetch --no-tags origin main
+git log --left-right --oneline HEAD...origin/main
+npm run verify:baseline
+npm run schemas:check
+npm run typecheck
+npm test
+npm run test:py
+npm run pipeline
+npm run build
+npm run test:e2e
+```
+
+If local `main` is ahead of `origin/main`, **do not** run `sync-main-ff-only.ps1` until after legitimate push/merge and success gates. It intentionally rejects local-ahead/divergent histories. Never use reset/force-push to silence the guard.
+
+After the authorized publish completes and local is clean/in sync:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File '.\scripts\sync-main-ff-only.ps1' -VerifyWebsite
+```
+
+Focused smoke endpoints: `/calculator/`, `/assistant/`, `/statistics/species/`, `/statistics/spatial/`, `/data/assistant-index.json`, `/build-info.json`. Recheck calculation statuses, CSV/JSON download, source provenance, CSP, and that optional `POST /api/assistant` remains HTTP **503** until separately approved.
+
+### 14.3 RC-DEPLOY-05 — owner-verified Cloudflare RUM / CSP configuration
+
+**Do not disable the zone-wide `reltroner.com` Automatic Web Analytics entry.** It may cover sibling hostnames.
+
+The operator configured a Cloudflare **Configuration Rule**:
+
+```text
+Name: RC-DEPLOY-05 - Disable Statistics RUM
+Filter: (http.host eq "statistics.reltroner.com")
+Setting: Disable Real User Monitoring (RUM)
+State in owner screenshot: Active
+```
+
+Owner screenshots on 2026-11-15 showed sampled Statistics Network search with no beacon match, an empty browser Console after reload and a retained CSP response header. These are **point-in-time GUI/browser observations**, not a Cloudflare API audit or proof of ongoing monitoring.
+
+If a beacon/CSP violation returns, check this exact-hostname rule and any Pages-project Web Analytics setting before considering other action. Do not relax `_headers`, reconfigure global analytics, alter DNS/nameservers or deploy unrelated apps to address the beacon.
+
+### 14.4 Evidence and privacy
+
+- **GitHub verified:** commit, `push` event, six CI job conclusions, Pages target guard and exact live Statistics SHA in the publish logs.
+- **Owner reported/observed:** Windows clean tree and sync result, local full-build numbers, live browser/Cloudflare RUM screenshot acceptance.
+- **Not established:** 24/7 uptime, exact deployed **Studio** source SHA, production statistical forecasting from a validated time series, enabled external LLM inference, or project-level API token scoping.
+
+Do not retroactively overwrite 2026-11-14 acceptance or credentials. For complete epistemic and scenario limitations, see the [release addendum](./2026-11-16-post-archive-production-and-calculator-release-addendum.md).

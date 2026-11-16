@@ -317,3 +317,13 @@ These are **proposed evaluation criteria**, not a claim that every item has alre
 ---
 
 **Archive conclusion:** The supplied product proposal materially reframes Reltroner Statistics as **Creative Systems Intelligence** while retaining its statistical identity. The governing design principle is to **reduce complexity-management burden and improve creative decision quality without replacing the creator, inventing canon, or compromising evidence integrity**.
+
+---
+
+## 11. Subsequent bounded implementation — Calculator qualitative rubric (2026-11-15)
+
+This document preserves the **2026-11-14 proposal**, not a claim that every proposed Creative Intelligence or future AI/RAG capability was delivered. A later, **strictly bounded** slice is now implemented through [Calculator & Scenario Intelligence CALC-04](https://github.com/Reltroner/reltroner-statistics/commit/54708b04d8a675d065ea30a18798877d057d4982): a three-alternative Reltronland–Depcutland cooperation rubric with seven evidence-related criteria, explicit user-supplied ordinal scores/weights, preserved incomplete-data states, reproducible comparison and no automatic canon ratification.
+
+The implementation uses the existing deterministic statistics/evidence foundation. It does **not** enable external LLM synthesis, general worldbuilding authorship, private-draft ingestion, causal prediction or probability claims. The original vision's other conditional future capabilities and staffing projections remain **proposals**, not automatically ratified deliverables.
+
+See the [post-archive production and Calculator release addendum](./2026-11-16-post-archive-production-and-calculator-release-addendum.md) for precise implementation, source authority, CI evidence and operational boundaries.
