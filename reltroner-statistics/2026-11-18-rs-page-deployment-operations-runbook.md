@@ -3,7 +3,7 @@
 > **Evidence checkpoint:** 2026-11-18 (Asia/Jakarta).  
 > **Applies to:** Statistics implementation main `ed3abce95fd5c6f4371bd5e957ff7aa4d680909c` and later releases, subject to contract changes.  
 > **Audience:** owner, release reviewer and authorized operator.  
-> **Rule:** checks are **read-only by default**. This document is not authorization to merge, publish, change Cloudflare settings, overwrite worktrees or ratify Asthortera canon.
+> **Rule:** checks are **read-only by default**. This document is not authorization to merge, publish, change Cloudflare settings, overwrite worktrees or ratify Asthortera canon. **Current hard owner policy:** [only one local Statistics checkout; no new worktrees](./2026-11-18-permanent-single-checkout-no-worktree-policy.md), superseding historical recommendations below.
 
 ## 1. Distinguish five identities before debugging
 
@@ -33,7 +33,7 @@ if ($LASTEXITCODE -ne 0) { throw 'REMOTE_MAIN_UNAVAILABLE' }
 
 **Important:** this command intentionally does **not** fetch, merge, reset, stash or switch. Never run a destructive clean/reset in the owner's original workspace, particularly when `.vscode/settings.json` or `public/reltroner-statistics-logo.webp` is staged/untracked. The November 18 SHA-005 agent used a separate sibling worktree and verified both owner's files by SHA-256 against external backups. Preserve the original working tree when later editing release tooling.
 
-For a new engineering change, use an explicitly approved isolated worktree, pin the GitHub/main base and compare it before every branch write; stop if refs diverge. Do not force-push `main` or silently "repair" local refs.
+**CURRENT HARD OWNER RULE (2026-11-18):** Secondary local Statistics worktrees and clones are prohibited. Use only `C:\Projects\reltroner-statistics`, with clean in-place Git branches, pinned GitHub/main identity, and strict protected-file hash/index checks. If in-place work risks owner WIP, STOP; do not create an isolated worktree. See the [permanent single-checkout policy](./2026-11-18-permanent-single-checkout-no-worktree-policy.md). Do not force-push `main` or silently "repair" local refs.
 
 ## 2. Inspect live read-only service identity
 
@@ -145,7 +145,7 @@ A green build or successful upload is not permission to purge caches or reroute.
 
 ## 6. Full non-regression suite for a source change
 
-Use these commands only in a clean, isolated engineering worktree with correct dependencies and authorized source access:
+Use these commands only in the owner's **single authorized checkout** `C:\Projects\reltroner-statistics`, with a safe Git branch and correct dependencies; no second clone/worktree is permitted by the [2026-11-18 permanent owner policy](./2026-11-18-permanent-single-checkout-no-worktree-policy.md):
 
 ~~~powershell
 node --version
@@ -169,7 +169,7 @@ Check exit code after **each command**; don't count an unrun gate as pass. Compa
 
 - **No autonomous canon ratification.** H1, H2 and H3 remain HYPOTHESIS / UNRATIFIED. `PROPOSED` spatial data must not be presented as production canon.
 - **Static mirror kill switch caveat.** `RS_API_DISABLED` blocks REST/MCP only, not publicly served `/ai/pages/*`. Removing public mirrors requires a new build; emergency deny rules require explicit owner authorization.
-- **No unattended local ref alteration.** Preserve WIP, index, ignored/untracked files and protected assets. Prefer verified sibling worktree for agent changes.
+- **No unattended local ref alteration or extra worktrees.** Preserve WIP, index, ignored/untracked files and protected assets. The single-checkout policy **forbids** creating/using sibling Statistics worktrees; use a safe in-place Git branch or STOP if local owner changes cannot be preserved.
 - **No secrets in logs or docs.** Use names of GitHub encrypted secrets, never values, access tokens or credential-helper stderr.
 - **No fabricated runtime status.** A dated PR report marked PENDING may be superseded by a later verified main-push; link both, and explicitly timestamp the update rather than silently rewriting historical evidence.
 
