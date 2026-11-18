@@ -17,6 +17,20 @@
 > Cash boundary: Rp0 INCREMENTAL SPENDING; NO upgrade/subscription/automatic overage.
 > Always recheck live HEADs and provider entitlements before operating. This README is the *living entry register*, not a production acceptance certificate.
 
+## Owner ratification — Statistics single local checkout (2026-11-18)
+
+**BINDING CROSS-PROJECT HANDOFF RULE — applies specifically to `Reltroner/reltroner-statistics` and its local engineering agents.** When a task from this directory concerns Statistics, follow these five requirements:
+
+- **Hanya** `C:\Projects\reltroner-statistics` yang diizinkan menjadi checkout lokal Reltroner Statistics.
+- **Dilarang** membuat `git worktree add`, sibling worktree, atau clone lokal kedua untuk repository ini.
+- GitHub `Reltroner/reltroner-statistics`, branch `main`, menjadi **source of truth**.
+- Instruksi lama yang menyarankan worktree terpisah **tidak berlaku lagi** untuk engineering Reltroner Statistics berikutnya.
+- Untuk berpindah tugas engineering Reltroner Statistics, gunakan **Git branch pada direktori lokal yang sama**.
+
+**Protection and scope:** preserve the owner's staged `.vscode/settings.json` and `public/reltroner-statistics-logo.webp`, verify Git SHA parity without destructive reset, and STOP if source/WIP cannot be preserved. The owner reported successful Windows PowerShell 5.1 synchronization at `ed3abce95fd5c6f4371bd5e957ff7aa4d680909c` on 2026-11-18 with `ONLY_ONE_STATISTICS_WORKTREE: PASS` and protected staged files unchanged. That is a dated **OWNER-REPORTED** acceptance, not an ongoing live machine attestation. See the [binding Statistics policy](https://github.com/Reltroner/progress-documentation/blob/main/reltroner-statistics/2026-11-18-permanent-single-checkout-no-worktree-policy.md).
+
+**Scope isolation:** `statistics.reltroner.com` is the Statistics site; `reltroner.com` is Reltroner Studio, and LMS has separate source/workspace rules. This cross-reference does **not** prohibit or authorize any new action in the Studio/LMS repositories. No GitHub application source, website or infrastructure changes are authorized by this documentation update.
+
 ## 1. Read this first — authority and order
 
 1. [Ratified strategy 05](../all-in-reltroner-master-source-of-truth/05-phase1-phase2-exit-entry-and-reentry.md): global Phase 1 exit / Phase 2 entry.
